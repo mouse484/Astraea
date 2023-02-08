@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"nostr-relaypool": "^0.4.9",
 		"nostr-tools": "^1.2.1"
 	}
 }
