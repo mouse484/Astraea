@@ -1,17 +1,19 @@
 <script lang="ts">
-	import { RelayPool } from 'nostr-relaypool';
 	import { onMount } from 'svelte';
+	import { RelayPool } from 'nostr-relaypool';
+	import type { Event as relaypoolEvent } from 'nostr-relaypool/event';
 	import { nip19 } from 'nostr-tools';
+	import Note from './Note.svelte';
 
 	const npubToHexId = (npub: string) => {
 		const { data: userId } = nip19.decode(npub);
 		return userId as string;
 	};
 
-	let timeline: HTMLDivElement;
-
 	export let pubkey: string;
 	export let relays: string[];
+
+	let notes: relaypoolEvent[] = [];
 
 	onMount(async () => {
 		const relayPool = new RelayPool(relays);
@@ -26,24 +28,13 @@
 			relays,
 			(event, isAfterEose, relayURL) => {
 				console.log(event, isAfterEose, relayURL);
-				const child = document.createElement('span');
-				child.classList.add('post');
-				child.textContent = event.content;
-				timeline.appendChild(child);
+				notes = [...notes, event]; // これ数多いと問題起きるんじゃねと思っている
 			},
 			undefined
 		);
 	});
 </script>
 
-<div bind:this={timeline} />
-
-<style>
-	div {
-		margin-top: 5rem;
-
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-</style>
+{#each notes as note}
+	<Note {note} />
+{/each}
