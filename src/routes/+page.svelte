@@ -8,8 +8,7 @@
 		return userId as string;
 	};
 
-	let status = { relay: { connect: false } };
-
+	let userId = 'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
 	let posts: HTMLDivElement;
 
 	const relays = ['wss://relay.damus.io'];
@@ -20,7 +19,7 @@
 		relayPool.subscribe(
 			[
 				{
-					authors: [npubToHexId('npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6')],
+					authors: [npubToHexId(userId)],
 					kinds: [1]
 				}
 			],
@@ -40,13 +39,19 @@
 <div>
 	リレー: {relays}
 </div>
+<input type="text" bind:value={userId} />
 
 <div class="posts" bind:this={posts} />
 
 <style>
 	.posts {
+		margin-top: 5rem;
+
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+	}
+	input {
+		width: 100%;
 	}
 </style>
