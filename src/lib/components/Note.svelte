@@ -5,4 +5,5 @@
 
 <div>
 	<p>{note.content}</p>
+	<div>{new Date(note.created_at * 1000).toLocaleString()}</div>
 </div>
