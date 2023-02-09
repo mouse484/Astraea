@@ -30,6 +30,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vanilla-extract/css": "^1.9.5",
+		"@vanilla-extract/sprinkles": "^1.5.1",
 		"nostr-tools": "^1.3.0",
 		"ws": "^8.12.0"
 	}
