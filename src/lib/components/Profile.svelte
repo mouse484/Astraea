@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { nip19, relayInit } from 'nostr-tools';
-	import type { Event as relayEvent } from 'nostr-tools';
+	import { nip19 } from 'nostr-tools';
+	import type { Event as relayEvent, Relay } from 'nostr-tools';
 
 	const npubToHexId = (npub: string) => {
 		const { data: userId } = nip19.decode(npub);
@@ -9,28 +8,17 @@
 	};
 
 	export let pubkey: string;
-	export let relays: string[];
+	export let relayPool: Relay[];
 
 	type ProfileData = Partial<{ name: string; username: string; picture: string }>;
 
 	let profile: ProfileData;
 
-	onMount(async () => {
-		for (const url of relays) {
-			let relay = relayInit(url);
-			await relay.connect();
-			relay.on('connect', () => {
-				console.log(`connected to ${relay.url}`);
-			});
-			relay.on('error', () => {
-				console.log(`failed to connect to ${relay.url}`);
-			});
-
-			const sub = relay.sub([{ authors: [npubToHexId(pubkey)], kinds: [0] }]);
-			sub.on('event', (event: relayEvent) => {
-				profile = JSON.parse(event.content) as ProfileData; // ちゃんとパースする zod
-			});
-		}
+	relayPool.forEach((relay) => {
+		const sub = relay.sub([{ authors: [npubToHexId(pubkey)], kinds: [0] }]);
+		sub.on('event', (event: relayEvent) => {
+			profile = JSON.parse(event.content) as ProfileData; // ちゃんとパースする zod
+		});
 	});
 </script>
 
