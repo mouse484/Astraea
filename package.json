@@ -30,8 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"nostr-relaypool": "^0.4.9",
-		"nostr-tools": "^1.2.1",
+		"nostr-tools": "^1.3.0",
 		"ws": "^8.12.0"
 	}
 }

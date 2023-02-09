@@ -4,7 +4,7 @@
 	const myPublicKey = 'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
 	let pubkey: string;
 
-	const relays = ['wss://relay.damus.io'];
+	const relays = ['wss://relay.damus.io', 'wss://eden.nostr.land'];
 
 	$: pubkey = pubkey ? pubkey : myPublicKey;
 </script>

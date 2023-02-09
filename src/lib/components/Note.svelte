@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Event as relaypoolEvent } from 'nostr-relaypool/event';
-	export let note: relaypoolEvent;
+	import type { Event as relayEvent } from 'nostr-tools';
+	export let note: relayEvent;
 </script>
 
 <div>

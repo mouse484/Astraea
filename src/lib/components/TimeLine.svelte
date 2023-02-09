@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { RelayPool } from 'nostr-relaypool';
-	import type { Event as relaypoolEvent } from 'nostr-relaypool/event';
-	import { nip19 } from 'nostr-tools';
+	import { nip19, relayInit } from 'nostr-tools';
+	import type { Event as relayEvent } from 'nostr-tools';
 	import Note from './Note.svelte';
 
 	const npubToHexId = (npub: string) => {
@@ -13,25 +12,25 @@
 	export let pubkey: string;
 	export let relays: string[];
 
-	let notes: relaypoolEvent[] = [];
+	let notes: relayEvent[] = [];
 
 	onMount(async () => {
-		const relayPool = new RelayPool(relays);
+		// nostr-toolsのpoolが動かないから仮
+		for (const url of relays) {
+			let relay = relayInit(url);
+			await relay.connect();
+			relay.on('connect', () => {
+				console.log(`connected to ${relay.url}`);
+			});
+			relay.on('error', () => {
+				console.log(`failed to connect to ${relay.url}`);
+			});
 
-		relayPool.subscribe(
-			[
-				{
-					authors: [npubToHexId(pubkey)],
-					kinds: [1]
-				}
-			],
-			relays,
-			(event, isAfterEose, relayURL) => {
-				console.log(event, isAfterEose, relayURL);
-				notes = [...notes, event]; // これ数多いと問題起きるんじゃねと思っている
-			},
-			undefined
-		);
+			const sub = relay.sub([{ authors: [npubToHexId(pubkey)], kinds: [1] }]);
+			sub.on('event', (event: relayEvent) => {
+				notes = [...notes, event];
+			});
+		}
 	});
 </script>
 
