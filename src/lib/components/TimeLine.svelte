@@ -1,12 +1,7 @@
 <script lang="ts">
-	import { nip19 } from 'nostr-tools';
+	import { npubToHexId } from '$lib/utils/key';
 	import type { Event as relayEvent, Relay } from 'nostr-tools';
 	import Note from './Note.svelte';
-
-	const npubToHexId = (npub: string) => {
-		const { data: userId } = nip19.decode(npub);
-		return userId as string;
-	};
 
 	export let pubkey: string;
 	export let relayPool: Relay[];
