@@ -1,18 +1,17 @@
 <script lang="ts">
-	import { onMount, createEventDispatcher } from 'svelte';
-	import { relayInit, type Relay } from 'nostr-tools';
+	import { onMount } from 'svelte';
+	import { relayInit } from 'nostr-tools';
 
-	const dispatch = createEventDispatcher<{ relay: Relay }>();
-
-	export let relays: string[];
+	import { relays, relayPool } from '$lib/data/relay';
 
 	onMount(async () => {
-		for (const url of relays) {
+		for (const url of $relays) {
 			let relay = relayInit(url);
 			await relay.connect();
 			relay.on('connect', () => {
 				console.log(`connected to ${relay.url}`);
-				dispatch('relay', relay);
+
+				relayPool.update((current) => [...current, relay]);
 			});
 			relay.on('error', () => {
 				console.log(`failed to connect to ${relay.url}`);
