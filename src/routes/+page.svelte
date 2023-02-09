@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Profile from '$lib/components/Profile.svelte';
 	import TimeLine from '../lib/components/TimeLine.svelte';
 
 	const myPublicKey = 'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
@@ -15,6 +16,7 @@
 <input type="text" bind:value={pubkey} />
 
 {#key pubkey}
+	<Profile {pubkey} {relays} />
 	<TimeLine {pubkey} {relays} />
 {/key}
 
