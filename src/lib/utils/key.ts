@@ -1,6 +1,6 @@
-import { nip19 } from 'nostr-tools';
+import { decode } from 'nostr-tools/nip19';
 
 export const npubToHexId = (npub: string) => {
-	const { data: userId } = nip19.decode(npub);
+	const { data: userId } = decode(npub);
 	return userId.toString();
 };
