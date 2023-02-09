@@ -8,7 +8,7 @@
 
 	let jsonVisable = false;
 
-	const formatJson = (json: JSON): string => {
+	const formatJson = (): string => {
 		return format(JSON.stringify(note), {
 			parser: 'json-stringify',
 			plugins: [prettierBabel]
@@ -17,14 +17,14 @@
 </script>
 
 <div>
-	<p>{note.content}</p>
+	<div>{note.content}</div>
 	<div class={descriptionClass}>
 		<div>
 			{new Date(note.created_at * 1000).toLocaleString()}
 		</div>
 		<button on:click={() => (jsonVisable = !jsonVisable)}>view json</button>
 		{#if jsonVisable}
-			<div>{formatJson(note)}</div>
+			<div>{formatJson()}</div>
 		{/if}
 	</div>
 </div>
