@@ -6,6 +6,7 @@ export const descriptionClass = style([
 	flex,
 	sprinkles({ fontSize: 'small', gap: 'little' }),
 	{
+		flexWrap: 'wrap',
 		alignItems: 'center',
 		whiteSpace: 'nowrap'
 	}
