@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { relayPool, relays } from '$lib/data/relay';
-	import { npubToHexId } from '$lib/utils/key';
 	import type { Event as relayEvent, SimplePool } from 'nostr-tools';
-	import { onMount } from 'svelte';
-	import Note from './Note.svelte';
+	import Note from '../Note.svelte';
 
-	export let pubkey: string;
+	export let hexId: string;
 
 	// limitのあとで実装
 	let limit: number = 10;
@@ -13,7 +11,7 @@
 
 	if ($relayPool) {
 		const subs = $relayPool.sub($relays, [
-			{ authors: [npubToHexId(pubkey)], kinds: [1], limit: limit - 1 }
+			{ authors: [hexId], kinds: [1], limit: limit - 1 }
 		]);
 
 		subs.on('event', (event: relayEvent) => {
@@ -30,8 +28,6 @@
 		});
 	}
 </script>
-
-<input type="text" bind:value={limit} />
 
 {#if notes}
 	{#each notes as note}

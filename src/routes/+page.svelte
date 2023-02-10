@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Profile from '$lib/components/Profile.svelte';
-	import TimeLine from '../lib/components/TimeLine.svelte';
 	import { relays, relayPool } from '$lib/data/relay';
 
 	const myPublicKey =
@@ -17,7 +16,6 @@
 
 {#key pubkey && $relayPool}
 	<Profile {pubkey} />
-	<TimeLine {pubkey} />
 {/key}
 
 <style>

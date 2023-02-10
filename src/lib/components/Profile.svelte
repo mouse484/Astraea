@@ -16,7 +16,7 @@
 
 	if ($relayPool) {
 		const subs = $relayPool.sub($relays, [
-			{ authors: [npubToHexId(pubkey)], kinds: [0] }
+			{ authors: [npubToHexId(pubkey) || ''], kinds: [0] }
 		]);
 		subs.on('event', (event: relayEvent) => {
 			profile = JSON.parse(event.content) as ProfileData; // ちゃんとパースする zod
