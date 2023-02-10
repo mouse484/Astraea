@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { relayPool, relays } from '$lib/data/relay';
 	import type { Event as relayEvent, SimplePool } from 'nostr-tools';
+	import { onMount } from 'svelte';
 	import Note from '../Note.svelte';
 
 	export let hexId: string;
@@ -9,7 +10,7 @@
 	let limit: number = 10;
 	let notes: relayEvent[] = [];
 
-	if ($relayPool) {
+	onMount(() => {
 		const subs = $relayPool.sub($relays, [
 			{ authors: [hexId], kinds: [1], limit: limit - 1 }
 		]);
@@ -26,7 +27,7 @@
 				})
 				.sort((a, b) => b.created_at - a.created_at);
 		});
-	}
+	});
 </script>
 
 {#if notes}

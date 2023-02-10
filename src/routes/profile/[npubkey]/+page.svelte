@@ -6,8 +6,6 @@
 	export let data: PageData;
 
 	let { hexId } = data as response;
-
-	console.log(hexId);
 </script>
 
 <TimeLine {hexId} />
