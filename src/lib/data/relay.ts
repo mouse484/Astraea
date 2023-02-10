@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { Relay } from 'nostr-tools';
+import type { SimplePool } from 'nostr-tools';
 
 export const relays = writable([
 	'wss://relay.damus.io',
@@ -7,4 +7,4 @@ export const relays = writable([
 	'wss://eden.nostr.land'
 ]);
 
-export const relayPool = writable<Relay[]>([]);
+export const relayPool = writable<SimplePool>();

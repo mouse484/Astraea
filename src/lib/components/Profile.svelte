@@ -1,20 +1,28 @@
 <script lang="ts">
+	import { relayPool, relays } from '$lib/data/relay';
 	import { npubToHexId } from '$lib/utils/key';
 	import type { Event as relayEvent, Relay } from 'nostr-tools';
+	import { subscribe } from 'svelte/internal';
 
 	export let pubkey: string;
-	export let relayPool: Relay[];
 
-	type ProfileData = Partial<{ name: string; username: string; picture: string }>;
+	type ProfileData = Partial<{
+		name: string;
+		username: string;
+		picture: string;
+	}>;
 
 	let profile: ProfileData;
 
-	relayPool.forEach((relay) => {
-		const sub = relay.sub([{ authors: [npubToHexId(pubkey)], kinds: [0] }]);
-		sub.on('event', (event: relayEvent) => {
+	if ($relayPool) {
+		const subs = $relayPool.sub($relays, [
+			{ authors: [npubToHexId(pubkey)], kinds: [0] }
+		]);
+		subs.on('event', (event: relayEvent) => {
 			profile = JSON.parse(event.content) as ProfileData; // ちゃんとパースする zod
 		});
-	});
+		subs.on('eose', () => subs.unsub());
+	}
 </script>
 
 {#if profile}

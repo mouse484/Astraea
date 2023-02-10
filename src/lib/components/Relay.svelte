@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { relayInit } from 'nostr-tools';
+	import { SimplePool } from 'nostr-tools';
 
 	import { relays, relayPool } from '$lib/data/relay';
 
 	onMount(async () => {
+		const pool = new SimplePool();
 		for (const url of $relays) {
-			let relay = relayInit(url);
-			await relay.connect();
+			let relay = await pool.ensureRelay(url);
 			relay.on('connect', () => {
 				console.log(`connected to ${relay.url}`);
 
-				relayPool.update((current) => [...current, relay]);
+				relayPool.set(pool);
 			});
 			relay.on('error', () => {
 				console.log(`failed to connect to ${relay.url}`);
