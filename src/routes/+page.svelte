@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Profile from '$lib/components/Profile.svelte';
 	import { relays, relayPool } from '$lib/data/relay';
 
@@ -16,6 +17,8 @@
 
 {#key pubkey && $relayPool}
 	<Profile {pubkey} />
+
+	<button on:click={() => goto(`/profile/${pubkey}`)}>go profile page</button>
 {/key}
 
 <style>
