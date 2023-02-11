@@ -6,9 +6,22 @@ const isReturnString = (
 	return ['npub', 'nsec', 'note'].includes(value.type);
 };
 
-export const npubToHexId = (npub: string) => {
-	const result = decode(npub);
-	if (isReturnString(result)) {
-		return result.data;
+export const decodeKey = (type: 'npub' | 'nsec' | 'note', key: string) => {
+	try {
+		const result = decode(key);
+		if (!isReturnString(result)) return;
+		switch (type) {
+			case 'npub':
+				if (result.type === 'npub') return result.data;
+				break;
+			case 'nsec':
+				if (result.type === 'nsec') return result.data;
+				break;
+			case 'note':
+				if (result.type === 'note') return result.data;
+				break;
+		}
+	} catch {
+		/**	 */
 	}
 };

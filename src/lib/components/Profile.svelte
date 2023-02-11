@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { relayPool, relays } from '$lib/data/relay';
-	import { npubToHexId } from '$lib/utils/key';
-	import type { Event as relayEvent, Relay } from 'nostr-tools';
-	import { subscribe } from 'svelte/internal';
+	import { decodeKey } from '$lib/utils/key';
+	import type { Event as relayEvent } from 'nostr-tools';
 	import { onMount } from 'svelte';
 
 	export let pubkey: string;
@@ -18,7 +17,7 @@
 
 	onMount(() => {
 		const subs = $relayPool.sub($relays, [
-			{ authors: [npubToHexId(pubkey) || ''], kinds: [0, 3] }
+			{ authors: [decodeKey('npub', pubkey) || ''], kinds: [0, 3] }
 		]);
 		subs.on('event', (event: relayEvent) => {
 			switch (event.kind) {

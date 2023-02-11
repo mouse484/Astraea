@@ -8,4 +8,6 @@
 	let { hexId } = data as response;
 </script>
 
-<TimeLine {hexId} />
+{#if hexId}
+	<TimeLine {hexId} />
+{/if}
