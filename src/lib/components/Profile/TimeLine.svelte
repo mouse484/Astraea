@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { relayPool, relays } from '$lib/data/relay';
-	import type { Event as relayEvent, SimplePool } from 'nostr-tools';
+	import type { Event as relayEvent } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import Note from '../Note.svelte';
 
@@ -21,11 +21,9 @@
 
 		subs.on('eose', () => {
 			subs.unsub();
-			notes = notes
-				.filter((value, index, self) => {
-					return self.findIndex((note) => note.id === value.id) === index;
-				})
-				.sort((a, b) => b.created_at - a.created_at);
+			notes = [
+				...new Map(notes.map((value) => [value.id, value])).values()
+			].sort((a, b) => b.created_at - a.created_at);
 		});
 	});
 </script>
