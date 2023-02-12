@@ -15,10 +15,12 @@
 	};
 
 	const getInfo = async () => {
+		if (!url) return;
 		const response = await fetch(url.replace('wss://', 'https://'), {
 			headers: { Accept: 'application/nostr+json' }
-		});
-		return (await response.json()) as relayInfo;
+		}).catch(console.warn);
+
+		return (await response?.json()) as relayInfo;
 	};
 </script>
 
@@ -32,7 +34,7 @@
 	/>
 </div>
 
-{#if url}
+{#key url}
 	{#await getInfo()}
 		<div>loading</div>
 	{:then info}
@@ -50,5 +52,7 @@
 				</tbody>
 			</table>
 		{/if}
+	{:catch _}
+		<div>正しいリレーリンクを入れてください</div>
 	{/await}
-{/if}
+{/key}
