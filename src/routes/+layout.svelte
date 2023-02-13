@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import Header from '$lib/components/header/Header.svelte';
 	import Relay from '$lib/components/Relay.svelte';
 	import { appClass } from '$lib/styles/App.css';
 </script>
 
 <div class={appClass}>
-	<button on:click={() => goto('/')}>go home</button>
+	<Header />
 	<Relay />
 	<slot />
 </div>
