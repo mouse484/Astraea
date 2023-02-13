@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { contacts } from '$lib/data/profile';
 	import { relayPool, relays } from '$lib/data/relay';
 	import { decodeKey } from '$lib/utils/key';
 	import type { Event as relayEvent } from 'nostr-tools';
@@ -13,7 +14,6 @@
 	}>;
 
 	let profile: ProfileData;
-	let contacts: ([string, string] | string)[] = [];
 
 	onMount(() => {
 		const subs = $relayPool.sub($relays, [
@@ -28,13 +28,13 @@
 					};
 				case 3:
 					const tags = event.tags as [string, string][];
-					contacts = [...contacts, ...tags];
+					contacts.update((updater) =>
+						updater.length < tags.length ? tags : updater
+					);
 			}
 		});
 		subs.on('eose', () => {
 			subs.unsub();
-
-			contacts = [...new Set(contacts.map(([_, id]) => id))];
 		});
 	});
 </script>
@@ -43,7 +43,7 @@
 	<div class="profile">
 		<img src={profile.picture} alt={profile.name} />
 		<div>{profile.name}@{profile.username}</div>
-		<div>follow: {contacts?.length}</div>
+		<div>follow: {$contacts.length}</div>
 	</div>
 {/if}
 
