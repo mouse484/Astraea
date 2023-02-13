@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { contacts } from '$lib/data/profile';
 	import { relayPool, relays } from '$lib/data/relay';
 	import { decodeKey } from '$lib/utils/key';
 	import type { Event as relayEvent } from 'nostr-tools';
@@ -6,16 +7,15 @@
 	import Note from '../Note.svelte';
 
 	export let pubkey: string;
+	export let ids: string[];
 
-	// limitのあとで実装
-	let limit: number = 10;
 	let notes: relayEvent[] = [];
 
 	onMount(() => {
 		const id = decodeKey('npub', pubkey);
 		if (!id) return;
 		const subs = $relayPool.sub($relays, [
-			{ authors: [id], kinds: [1], limit: limit - 1 }
+			{ authors: ids, kinds: [1], limit: 20 }
 		]);
 
 		subs.on('event', (event: relayEvent) => {

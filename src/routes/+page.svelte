@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Profile from '$lib/components/Profile.svelte';
 	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
+	import { contacts } from '$lib/data/profile';
 	import { relays, relayPool } from '$lib/data/relay';
 
 	const myPublicKey =
@@ -20,8 +21,10 @@
 	<Profile {pubkey} />
 
 	<button on:click={() => goto(`/profile/${pubkey}`)}>go profile page</button>
+{/key}
 
-	<TimeLine {pubkey} />
+{#key $contacts}
+	<TimeLine ids={$contacts.map(([, id]) => id)} {pubkey} />
 {/key}
 
 <style>
