@@ -33,7 +33,8 @@ export const sprinkles = createSprinkles(
 			gap: space,
 			margin: space,
 			marginLeft: space,
-			marginRight: space
+			marginRight: space,
+			padding: space
 		},
 		shorthands: {
 			marginX: ['marginLeft', 'marginRight']
