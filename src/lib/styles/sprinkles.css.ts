@@ -1,6 +1,6 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
 
-export const strictEntries = <T extends Record<string, any>>(
+const strictEntries = <T extends Record<string, any>>(
 	object: T
 ): [keyof T, T[keyof T]][] => {
 	return Object.entries(object);
@@ -8,11 +8,11 @@ export const strictEntries = <T extends Record<string, any>>(
 
 const spaceBase = {
 	none: 0,
-	little: '1rem',
+	tiny: '1rem',
 	small: '2rem',
 	medium: '4rem',
 	large: '8rem'
-};
+} as const;
 
 const space = {
 	...spaceBase,
