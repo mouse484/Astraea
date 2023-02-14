@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Profile from '$lib/components/Profile.svelte';
+	import Profile from '$lib/components/MyProfile.svelte';
 	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
 	import { contacts } from '$lib/data/profile';
 	import { relays, relayPool } from '$lib/data/relay';
