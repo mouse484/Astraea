@@ -12,7 +12,7 @@ const spaceBase = {
 	small: '2rem',
 	medium: '4rem',
 	large: '8rem'
-} as const;
+};
 
 const space = {
 	...spaceBase,
@@ -26,10 +26,6 @@ const space = {
 export const sprinkles = createSprinkles(
 	defineProperties({
 		properties: {
-			fontSize: {
-				small: '0.7rem',
-				medium: '1rem'
-			},
 			gap: space,
 			margin: space,
 			marginLeft: space,
@@ -38,6 +34,15 @@ export const sprinkles = createSprinkles(
 		},
 		shorthands: {
 			marginX: ['marginLeft', 'marginRight']
+		}
+	}),
+	defineProperties({
+		properties: {
+			fontSize: {
+				small: '0.7rem',
+				medium: '1rem',
+				large: '1.3rem'
+			}
 		}
 	})
 );

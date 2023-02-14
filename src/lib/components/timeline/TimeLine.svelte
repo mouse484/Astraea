@@ -11,6 +11,8 @@
 
 	let notes: relayEvent[] = [];
 
+	let ok = false;
+
 	onMount(() => {
 		const id = decodeKey('npub', pubkey);
 		if (!id) return;
@@ -32,11 +34,13 @@
 			notes = [
 				...new Map(notes.map((value) => [value.id, value])).values()
 			].sort((a, b) => b.created_at - a.created_at);
+
+			ok = true;
 		});
 	});
 </script>
 
-{#if notes}
+{#if ok}
 	{#each notes as note}
 		<Note {note} />
 	{/each}
