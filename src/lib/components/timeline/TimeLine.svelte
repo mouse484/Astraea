@@ -15,7 +15,12 @@
 		const id = decodeKey('npub', pubkey);
 		if (!id) return;
 		const subs = $relayPool.sub($relays, [
-			{ authors: ids, kinds: [1], limit: 20 }
+			{
+				authors: ids,
+				kinds: [1],
+				limit: 20,
+				until: Math.round(Date.now() / 1000)
+			}
 		]);
 
 		subs.on('event', (event: relayEvent) => {
