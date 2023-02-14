@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { users, type ProfileData } from '$lib/data/profile';
 	import { relayPool, relays } from '$lib/data/relay';
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
@@ -11,26 +12,23 @@
 
 	export let pubkey: string;
 
-	type ProfileData = Partial<{
-		display_name: string;
-		name: string;
-		picture: string;
-		nip05: string;
-	}>;
-
 	let profile: ProfileData = {
 		name: 'loading',
 		picture: ''
 	};
 
 	onMount(() => {
+		const userData = $users.get(pubkey);
+
+		if (userData) return (profile = userData);
+
 		const subs = $relayPool.sub($relays, [{ kinds: [0], authors: [pubkey] }]);
 		subs.on('event', (event: Event) => {
 			profile = {
 				...profile,
 				...(JSON.parse(event.content) as ProfileData)
 			};
-			console.log(profile.name);
+			users.update((updater) => updater.set(pubkey, profile));
 		});
 		subs.on('eose', () => {
 			subs.unsub();
