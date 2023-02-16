@@ -24,7 +24,6 @@
 		]);
 
 		subs.on('event', (event: relayEvent) => {
-			console.log(event.content);
 			notes = [...notes, event];
 		});
 
