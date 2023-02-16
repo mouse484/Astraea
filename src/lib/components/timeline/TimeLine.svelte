@@ -7,11 +7,9 @@
 	import Note from '../Note.svelte';
 
 	export let pubkey: string;
-	export let ids: string[];
 
 	let notes: relayEvent[] = [];
-
-	let ok = false;
+	$: ids = $contacts.map(([, id]) => id);
 
 	onMount(() => {
 		const id = decodeKey('npub', pubkey);
@@ -26,6 +24,7 @@
 		]);
 
 		subs.on('event', (event: relayEvent) => {
+			console.log(event.content);
 			notes = [...notes, event];
 		});
 
@@ -34,13 +33,11 @@
 			notes = [
 				...new Map(notes.map((value) => [value.id, value])).values()
 			].sort((a, b) => b.created_at - a.created_at);
-
-			ok = true;
 		});
 	});
 </script>
 
-{#if ok}
+{#if notes}
 	{#each notes as note}
 		<Note {note} />
 	{/each}

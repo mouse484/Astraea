@@ -1,15 +1,17 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import Profile from '$lib/components/MyProfile.svelte';
+	import Contacts from '$lib/components/contacts.svelte';
+	import Profile from '$lib/components/Profile.svelte';
 	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
 	import { contacts } from '$lib/data/profile';
-	import { relays, relayPool } from '$lib/data/relay';
+	import { relayPool, relays } from '$lib/data/relay';
+	import { decodeKey } from '$lib/utils/key';
 
 	const myPublicKey =
 		'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
 	let pubkey: string;
 
 	$: pubkey = pubkey ? pubkey : myPublicKey;
+	$: npubHex = decodeKey('npub', pubkey);
 </script>
 
 <div>
@@ -17,15 +19,18 @@
 </div>
 <input type="text" bind:value={pubkey} />
 
-{#key pubkey && $relayPool}
-	<Profile {pubkey} />
+{#if $relayPool}
+	{#if npubHex}
+		<Profile {npubHex} />
+		<!-- 仮 ↓ -->
+		<Contacts {pubkey} />
+	{/if}
 
-	<button on:click={() => goto(`/profile/${pubkey}`)}>go profile page</button>
-{/key}
-
-{#key $contacts}
-	<TimeLine ids={$contacts.map(([, id]) => id)} {pubkey} />
-{/key}
+	<!-- ここ直したい -->
+	{#key $contacts}
+		<TimeLine {pubkey} />
+	{/key}
+{/if}
 
 <style>
 	input {
