@@ -12,16 +12,12 @@
 
 	export let pubkey: string;
 
-	let profile: ProfileData = {
+	let profile: ProfileData = $users.get(pubkey) || {
 		name: 'loading',
 		picture: ''
 	};
 
 	onMount(() => {
-		const userData = $users.get(pubkey);
-
-		if (userData) return (profile = userData);
-
 		const subs = $relayPool.sub($relays, [{ kinds: [0], authors: [pubkey] }]);
 		subs.on('event', (event: Event) => {
 			profile = {

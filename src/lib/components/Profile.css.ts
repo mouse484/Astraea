@@ -12,6 +12,6 @@ export const iconClass = style([
 	sprinkles({ marginRight: 'tiny' })
 ]);
 
-export const userNameClass = sprinkles({ fontSize: 'large' });
+export const userNameClass = style({ fontWeight: 'bold' });
 
 export const nip05Class = sprinkles({ fontSize: 'small' });
