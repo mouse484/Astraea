@@ -19,7 +19,10 @@
 	};
 
 	onMount(() => {
-		const subs = $relayPool.sub($relays, [{ kinds: [0], authors: [npubHex] }]);
+		const subs = $relayPool.sub(
+			[...$relays],
+			[{ kinds: [0], authors: [npubHex] }]
+		);
 		subs.on('event', (event: Event) => {
 			profile = {
 				...profile,
