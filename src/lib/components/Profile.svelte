@@ -19,6 +19,7 @@
 	};
 
 	onMount(() => {
+		if ($users.get(npubHex)) return;
 		const subs = $relayPool.sub(
 			[...$relays],
 			[{ kinds: [0], authors: [npubHex] }]
