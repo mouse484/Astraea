@@ -18,7 +18,7 @@
 </script>
 
 <div>
-	<Profile pubkey={note.pubkey}/>
+	<Profile npubHex={note.pubkey} />
 	<div>{note.content}</div>
 	<div class={descriptionClass}>
 		<div>
