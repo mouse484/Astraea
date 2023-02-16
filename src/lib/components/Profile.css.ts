@@ -7,6 +7,7 @@ export const profileClass = style([flexClass]);
 export const iconClass = style([
 	{
 		width: '3rem',
+		height: '3rem',
 		borderRadius: '50%'
 	},
 	sprinkles({ marginRight: 'tiny' })
