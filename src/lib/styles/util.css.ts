@@ -10,3 +10,8 @@ export const buttonClass = style({
 	padding: 0,
 	appearance: 'none'
 });
+
+export const aTagResetClass = style({
+	textDecoration: 'none',
+	color: 'inherit'
+});
