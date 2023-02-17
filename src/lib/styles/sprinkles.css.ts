@@ -28,6 +28,7 @@ export const sprinkles = createSprinkles(
 		properties: {
 			gap: space,
 			margin: space,
+			marginTop: space,
 			marginLeft: space,
 			marginRight: space,
 			padding: space

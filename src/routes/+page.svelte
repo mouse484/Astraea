@@ -5,6 +5,7 @@
 	import { contacts } from '$lib/data/profile';
 	import { relayPool, relays } from '$lib/data/relay';
 	import { decodeKey } from '$lib/utils/key';
+	import { inputClass, mainClass } from './page.css';
 
 	const myPublicKey =
 		'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
@@ -17,7 +18,7 @@
 <div>
 	リレー: {$relays}
 </div>
-<input type="text" bind:value={pubkey} />
+<input class={inputClass} type="text" bind:value={pubkey} />
 
 {#if $relayPool}
 	{#if npubHex}
@@ -26,10 +27,12 @@
 		<Contacts {pubkey} />
 	{/if}
 
-	<!-- ここ直したい -->
-	{#key $contacts}
-		<TimeLine {pubkey} />
-	{/key}
+	<section class={mainClass}>
+		<!-- ここ直したい -->
+		{#key $contacts}
+			<TimeLine {pubkey} />
+		{/key}
+	</section>
 {/if}
 
 <style>
