@@ -1,13 +1,16 @@
 import { sprinkles } from '$lib/styles/sprinkles.css';
-import { flexClass } from '$lib/styles/util.css';
+import { flexClass, roundedClass } from '$lib/styles/util.css';
 import { style } from '@vanilla-extract/css';
+
+export const noteClass = style([
+	roundedClass,
+	{ border: 'solid', maxWidth: '50%' },
+	sprinkles({ marginY: 'tiny', marginX: 'auto', padding: 'tiny' })
+]);
 
 export const descriptionClass = style([
 	flexClass,
-	sprinkles({ gap: 'tiny', fontSize: 'small' }),
-	{
-		flexWrap: 'wrap',
-		alignItems: 'center',
-		whiteSpace: 'nowrap'
-	}
+	{ justifyContent: 'space-between' }
 ]);
+
+export const createdAtClass = sprinkles({ fontSize: 'small' });

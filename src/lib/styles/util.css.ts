@@ -15,3 +15,7 @@ export const aTagResetClass = style({
 	textDecoration: 'none',
 	color: 'inherit'
 });
+
+export const roundedClass = style({
+	borderRadius: '0.5rem'
+});

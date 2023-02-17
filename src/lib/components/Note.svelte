@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Event as relayEvent } from 'nostr-tools';
-	import { descriptionClass } from './Note.css';
+	import { createdAtClass, descriptionClass, noteClass } from './Note.css';
 	import { format } from 'prettier';
 	import prettierBabel from 'prettier/parser-babel';
 	import Profile from './Profile.svelte';
@@ -17,16 +17,18 @@
 	};
 </script>
 
-<div>
-	<Profile npubHex={note.pubkey} />
-	<div>{note.content}</div>
+<div class={noteClass}>
 	<div class={descriptionClass}>
-		<div>
+		<Profile npubHex={note.pubkey} />
+		<div class={createdAtClass}>
 			{new Date(note.created_at * 1000).toLocaleString()}
 		</div>
-		<!-- <button on:click={() => (jsonVisable = !jsonVisable)}>view json</button>
+	</div>
+
+	<div>{note.content}</div>
+</div>
+
+<!-- <button on:click={() => (jsonVisable = !jsonVisable)}>view json</button>
 		{#if jsonVisable}
 			<div>{formatJson()}</div>
 		{/if} -->
-	</div>
-</div>

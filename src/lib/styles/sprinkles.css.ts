@@ -18,10 +18,11 @@ const space = {
 	...spaceBase,
 	...Object.fromEntries(
 		strictEntries(spaceBase).map(([key, value]) => [`-${key}`, `-${value}`])
-	)
+	),
+	auto: 'auto'
 } as typeof spaceBase & {
 	[P in keyof typeof spaceBase as `-${P}`]: (typeof spaceBase)[P];
-};
+} & { auto: 'auto' };
 
 export const sprinkles = createSprinkles(
 	defineProperties({
@@ -29,11 +30,13 @@ export const sprinkles = createSprinkles(
 			gap: space,
 			margin: space,
 			marginTop: space,
+			marginBottom: space,
 			marginLeft: space,
 			marginRight: space,
 			padding: space
 		},
 		shorthands: {
+			marginY: ['marginTop', 'marginBottom'],
 			marginX: ['marginLeft', 'marginRight']
 		}
 	}),
