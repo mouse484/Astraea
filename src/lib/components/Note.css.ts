@@ -14,3 +14,5 @@ export const descriptionClass = style([
 ]);
 
 export const createdAtClass = sprinkles({ fontSize: 'small' });
+
+export const contentClass = sprinkles({ marginTop: 'tiny' });
