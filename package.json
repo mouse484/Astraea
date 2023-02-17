@@ -34,7 +34,7 @@
 	"dependencies": {
 		"@vanilla-extract/css": "^1.9.5",
 		"@vanilla-extract/sprinkles": "^1.5.1",
-		"nostr-tools": "^1.4.2",
+		"nostr-tools": "^1.5.0",
 		"ws": "^8.12.1"
 	}
 }
