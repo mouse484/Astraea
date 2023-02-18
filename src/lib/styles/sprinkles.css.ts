@@ -1,5 +1,6 @@
 import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const strictEntries = <T extends Record<string, any>>(
 	object: T
 ): [keyof T, T[keyof T]][] => {
@@ -24,22 +25,35 @@ const space = {
 	[P in keyof typeof spaceBase as `-${P}`]: (typeof spaceBase)[P];
 } & { auto: 'auto' };
 
+const spaces = defineProperties({
+	properties: {
+		gap: space,
+		margin: space,
+		marginTop: space,
+		marginBottom: space,
+		marginLeft: space,
+		marginRight: space,
+		padding: space
+	},
+	shorthands: {
+		marginY: ['marginTop', 'marginBottom'],
+		marginX: ['marginLeft', 'marginRight']
+	}
+});
+
+const responsive = defineProperties({
+	conditions: {
+		mobile: {},
+		desktop: { '@media': 'screen and (min-width: 768px)' }
+	},
+	defaultCondition: 'mobile',
+	properties: {
+		maxWidth: ['none', '100%', '50%']
+	}
+});
 export const sprinkles = createSprinkles(
-	defineProperties({
-		properties: {
-			gap: space,
-			margin: space,
-			marginTop: space,
-			marginBottom: space,
-			marginLeft: space,
-			marginRight: space,
-			padding: space
-		},
-		shorthands: {
-			marginY: ['marginTop', 'marginBottom'],
-			marginX: ['marginLeft', 'marginRight']
-		}
-	}),
+	spaces,
+	responsive,
 	defineProperties({
 		properties: {
 			fontSize: {

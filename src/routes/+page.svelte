@@ -16,7 +16,10 @@
 </script>
 
 <div>
-	リレー: {$relays}
+	リレー:
+	{#each $relays as relay}
+		<p>{relay}</p>
+	{/each}
 </div>
 <input class={inputClass} type="text" bind:value={pubkey} />
 
@@ -34,9 +37,3 @@
 		{/key}
 	</section>
 {/if}
-
-<style>
-	input {
-		width: 100%;
-	}
-</style>

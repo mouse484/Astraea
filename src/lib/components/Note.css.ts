@@ -4,8 +4,16 @@ import { style } from '@vanilla-extract/css';
 
 export const noteClass = style([
 	roundedClass,
-	{ border: 'solid', maxWidth: '50%' },
-	sprinkles({ marginY: 'tiny', marginX: 'auto', padding: 'tiny' })
+	{ border: 'solid' },
+	sprinkles({
+		marginY: 'tiny',
+		marginX: 'auto',
+		padding: 'tiny',
+		maxWidth: {
+			mobile: '100%',
+			desktop: '50%'
+		}
+	})
 ]);
 
 export const descriptionClass = style([
