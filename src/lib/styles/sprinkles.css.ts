@@ -48,7 +48,7 @@ const responsive = defineProperties({
 	},
 	defaultCondition: 'mobile',
 	properties: {
-		maxWidth: ['none', '100%', '50%']
+		width: ['none', '100%', '50%']
 	}
 });
 export const sprinkles = createSprinkles(

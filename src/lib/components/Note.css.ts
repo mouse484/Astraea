@@ -9,7 +9,7 @@ export const noteClass = style([
 		marginY: 'tiny',
 		marginX: 'auto',
 		padding: 'tiny',
-		maxWidth: {
+		width: {
 			mobile: '100%',
 			desktop: '50%'
 		}

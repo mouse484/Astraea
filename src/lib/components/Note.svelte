@@ -9,7 +9,6 @@
 	import { format } from 'prettier';
 	import prettierBabel from 'prettier/parser-babel';
 	import Profile from './Profile.svelte';
-	import { buttonClass } from '$lib/styles/util.css';
 	import { goto } from '$app/navigation';
 
 	export let note: relayEvent;
