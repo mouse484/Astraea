@@ -9,7 +9,8 @@
 	import { format } from 'prettier';
 	import prettierBabel from 'prettier/parser-babel';
 	import Profile from './Profile.svelte';
-	import { aTagResetClass } from '$lib/styles/util.css';
+	import { buttonClass } from '$lib/styles/util.css';
+	import { goto } from '$app/navigation';
 
 	export let note: relayEvent;
 
@@ -24,17 +25,19 @@
 </script>
 
 {#if note}
-	<div class={noteClass}>
-		<a class={aTagResetClass} href="/note/{note.id}">
-			<div class={descriptionClass}>
-				<Profile npubHex={note.pubkey} />
-				<div class={createdAtClass}>
-					{new Date(note.created_at * 1000).toLocaleString()}
-				</div>
+	<div
+		class={noteClass}
+		on:click={() => goto(`/note/${note.id}`)}
+		on:keypress={() => goto(`/note/${note.id}`)}
+	>
+		<div class={descriptionClass}>
+			<Profile npubHex={note.pubkey} />
+			<div class={createdAtClass}>
+				{new Date(note.created_at * 1000).toLocaleString()}
 			</div>
+		</div>
 
-			<div class={contentClass}>{note.content}</div>
-		</a>
+		<div class={contentClass}>{note.content}</div>
 	</div>
 {/if}
 
