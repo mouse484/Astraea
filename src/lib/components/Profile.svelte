@@ -38,14 +38,9 @@
 		<img class={iconClass} src={profile.picture} alt={profile.name} />
 		<div>
 			<a href="/profile/{npubEncode(npubHex)}" class={userNameClass}>
-				{profile.display_name || ''}
-				{profile.name
-					? profile.display_name
-						? `@${profile.name}`
-						: profile.name
-					: ''}
+				{profile.display_name || profile.name}
 			</a>
-			<div class={nip05Class}>{profile.nip05 || ''}</div>
+			<div class={nip05Class}>{profile.nip05 || `@${profile.name}`}</div>
 		</div>
 	</div>
 {/key}

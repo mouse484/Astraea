@@ -5,6 +5,7 @@ export type ProfileData = Partial<{
 	name: string;
 	picture: string;
 	nip05: string;
+	[key: string]: string;
 }>;
 
 export const contacts = writable<([string, string] | string)[]>([]);
