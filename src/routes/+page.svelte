@@ -30,7 +30,7 @@
 	<section class={mainClass}>
 		<!-- ここ直したい -->
 		{#key $contacts}
-			<TimeLine {pubkey} />
+			<TimeLine />
 		{/key}
 	</section>
 {/if}

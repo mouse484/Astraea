@@ -6,15 +6,11 @@
 	import { onMount } from 'svelte';
 	import Note from '../Note.svelte';
 
-	export let pubkey: string;
-
 	let notes: relayEvent[] = [];
 	$: ids = $contacts.map(([, id]) => id);
 
-	onMount(() => {
-		const id = decodeKey('npub', pubkey);
-		if (!id) return;
-		const subs = $relayPool.sub($relays, [
+	onMount(async () => {
+		const events = await $relayPool.list($relays, [
 			{
 				authors: ids,
 				kinds: [1],
@@ -23,16 +19,9 @@
 			}
 		]);
 
-		subs.on('event', (event: relayEvent) => {
-			notes = [...notes, event];
-		});
-
-		subs.on('eose', () => {
-			subs.unsub();
-			notes = [
-				...new Map(notes.map((value) => [value.id, value])).values()
-			].sort((a, b) => b.created_at - a.created_at);
-		});
+		notes = [
+			...new Map(events.map((value) => [value.id, value])).values()
+		].sort((a, b) => b.created_at - a.created_at);
 	});
 </script>
 
