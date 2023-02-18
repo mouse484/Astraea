@@ -18,22 +18,18 @@
 		picture: ''
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		if ($users.get(npubHex)) return;
-		const subs = $relayPool.sub(
-			[...$relays],
-			[{ kinds: [0], authors: [npubHex] }]
-		);
-		subs.on('event', (event: Event) => {
-			profile = {
-				...profile,
-				...(JSON.parse(event.content) as ProfileData)
-			};
-			users.update((updater) => updater.set(npubHex, profile));
+		const event = await $relayPool.get($relays, {
+			kinds: [0],
+			authors: [npubHex]
 		});
-		subs.on('eose', () => {
-			subs.unsub();
-		});
+		if (!event) return;
+		profile = {
+			...profile,
+			...(JSON.parse(event.content) as ProfileData)
+		};
+		users.update((updater) => updater.set(npubHex, profile));
 	});
 </script>
 
