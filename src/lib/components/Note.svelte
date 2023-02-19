@@ -11,6 +11,8 @@
 	import Profile from './Profile.svelte';
 	import { goto } from '$app/navigation';
 
+	import { formatContent } from '$lib/utils/formatContent';
+
 	export let note: relayEvent;
 
 	// let jsonVisable = false;
@@ -36,7 +38,9 @@
 			</div>
 		</div>
 
-		<div class={contentClass}>{note.content}</div>
+		<div class={contentClass}>
+			{@html formatContent(note.content)}
+		</div>
 	</div>
 {/if}
 
