@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Event as relayEvent } from 'nostr-tools';
+	import { nip04, nip19, type Event as relayEvent } from 'nostr-tools';
 	import {
 		contentClass,
 		createdAtClass,
@@ -12,6 +12,7 @@
 	import { goto } from '$app/navigation';
 
 	import { formatContent } from '$lib/utils/formatContent';
+	import { relayPool, relays } from '$lib/data/relay';
 
 	export let note: relayEvent;
 
@@ -23,9 +24,29 @@
 			plugins: [prettierBabel]
 		});
 	};
+
+	const isEventTag = (type: string) => {
+		return type === 'e';
+	};
+	const getNote = async (eventId: string) => {
+		const [id] = eventId.split(',');
+		if (nip19.noteEncode(id))
+			return await $relayPool.get($relays, { ids: [id] });
+	};
 </script>
 
 {#if note}
+	{#if note.tags}
+		{#each note.tags as [type, value]}
+			{#if isEventTag(type)}
+				{#await getNote(value)}
+					loading
+				{:then note}
+					<svelte:self {note} />
+				{/await}
+			{/if}
+		{/each}
+	{/if}
 	<div
 		class={noteClass}
 		on:dblclick={() => goto(`/note/${note.id}`)}
