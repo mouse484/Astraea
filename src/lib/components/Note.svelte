@@ -26,7 +26,7 @@
 {#if note}
 	<div
 		class={noteClass}
-		on:click={() => goto(`/note/${note.id}`)}
+		on:dblclick={() => goto(`/note/${note.id}`)}
 		on:keypress={() => goto(`/note/${note.id}`)}
 	>
 		<div class={descriptionClass}>
