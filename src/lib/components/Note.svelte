@@ -39,9 +39,7 @@
 	{#if note.tags}
 		{#each note.tags as [type, value]}
 			{#if isEventTag(type)}
-				{#await getNote(value)}
-					loading
-				{:then note}
+				{#await getNote(value) then note}
 					<svelte:self {note} />
 				{/await}
 			{/if}
