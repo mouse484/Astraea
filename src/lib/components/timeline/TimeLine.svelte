@@ -38,9 +38,9 @@
 			);
 		});
 
-		subs.on('eose', () => {
-			subs.unsub();
-		});
+		// subs.on('eose', () => {
+		// 	subs.unsub();
+		// });
 	});
 </script>
 
