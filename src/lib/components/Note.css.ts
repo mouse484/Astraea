@@ -23,4 +23,12 @@ export const descriptionClass = style([
 
 export const createdAtClass = sprinkles({ fontSize: 'small' });
 
-export const contentClass = sprinkles({ marginTop: 'tiny' });
+export const contentClass = style([
+	{ width: '100%' },
+	sprinkles({ marginTop: 'tiny' })
+]);
+
+export const contentImageClass = style({
+	boxSizing: 'border-box',
+	width: '100%'
+});

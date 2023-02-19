@@ -1,6 +1,7 @@
 import { sanitize } from 'isomorphic-dompurify';
 import 'linkifyjs';
 import linkifyHtml from 'linkify-html';
+import { contentImageClass } from '$lib/components/Note.css';
 
 export const formatContent = (content: string) => {
 	const linked = linkifyHtml(content, {
@@ -21,7 +22,8 @@ export const formatContent = (content: string) => {
 		}) => {
 			const { href } = attributes;
 
-			if (tagName === 'img') return `<img src=${href} alt=${content} />`;
+			if (tagName === 'img')
+				return `<img src=${href} alt=${content} class=${contentImageClass} />`;
 
 			return linkifyHtml(content);
 		}
