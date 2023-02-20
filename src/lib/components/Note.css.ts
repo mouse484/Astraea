@@ -2,11 +2,10 @@ import { sprinkles } from '$lib/styles/sprinkles.css';
 import { flexClass, roundedClass } from '$lib/styles/util.css';
 import { style } from '@vanilla-extract/css';
 
-export const noteClass = style([
+const noteClass = style([
 	roundedClass,
 	{ border: 'solid' },
 	sprinkles({
-		marginY: 'tiny',
 		marginX: 'auto',
 		padding: 'tiny',
 		width: {
@@ -14,6 +13,17 @@ export const noteClass = style([
 			desktop: '50%'
 		}
 	})
+]);
+
+export const defaultNoteClass = style([
+	noteClass,
+	sprinkles({ marginBottom: 'tiny' })
+]);
+
+export const withReplayNoteClass = style([
+	noteClass,
+	style({ borderBottom: 'none' }),
+	sprinkles({ marginBottom: 'none' })
 ]);
 
 export const descriptionClass = style([
