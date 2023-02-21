@@ -77,7 +77,7 @@
 				<!-- p tag only -->
 				{@const id = contentWidthTag(value)}
 				{#if id}
-					<a href="profile/{id}">@{$users.get(id)?.name}</a>
+					<a href="/profile/{id}">@{$users.get(id)?.name}</a>
 				{:else}
 					{@html value}
 				{/if}
