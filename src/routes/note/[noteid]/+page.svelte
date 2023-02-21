@@ -13,7 +13,6 @@
 	let note: Event;
 
 	onMount(() => {
-		console.log(noteId);
 		if (!noteId) return;
 		const subs = $relayPool.sub($relays, [{ kinds: [1], ids: [noteId] }]);
 

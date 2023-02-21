@@ -33,7 +33,6 @@
 
 	const isReplayTag = (tag: string[]) => {
 		const [type, id, , maker] = tag as eTag;
-		console.log(maker);
 		return (
 			type === 'e' &&
 			(!maker || ['reply', 'root'].includes(maker)) &&
