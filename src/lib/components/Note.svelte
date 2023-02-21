@@ -44,7 +44,7 @@
 	};
 
 	const contentWidthTag = (value: string) => {
-		return value.trim().match(/@(.+)/)?.[1];
+		return value.trim().match(/#\[(.+)\]/)?.[1];
 	};
 </script>
 
