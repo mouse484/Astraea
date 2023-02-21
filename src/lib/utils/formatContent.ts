@@ -8,7 +8,7 @@ export const formatContent = (event: Event) => {
 	const { content, tags } = event;
 	const sanitized = sanitize(content);
 	const cc = sanitized.replaceAll(/#\[([0-9])\]/g, (_all, $1) => {
-		const [type, id] = tags[$1];
+		const [type, id] = tags[$1] || []; // 仮
 		return ` ${type === 'p' ? '@' : '#'}${id} `;
 	});
 	const linked = linkifyHtml(cc, {
