@@ -39,17 +39,20 @@
 			nip19.noteEncode(id)
 		);
 	};
-	const getNote = async (tag: string[]) => {
-		const [, id] = tag as eTag;
-		return await $relayPool.get($relays, { ids: [id] });
+	const getNote = async (noteId: string) => {
+		return await $relayPool.get($relays, { ids: [noteId] });
 	};
+
+	// const contentWidthTag = (value: string) => {
+	// 	return value.trim().match(/#(note.+)/)?.[1];
+	// };
 </script>
 
 {#if note}
 	{#if !isReplay && note.tags}
 		{#each note.tags as tag}
 			{#if isReplayTag(tag)}
-				{#await getNote(tag) then note}
+				{#await getNote(tag[1]) then note}
 					{#key note}
 						<svelte:self {note} isReplay={true} />
 					{/key}
@@ -70,7 +73,19 @@
 		</div>
 
 		<div class={contentClass}>
-			{@html formatContent(note.content)}
+			{#each formatContent(note).split(' ') as value}
+				{@html value}
+				<!-- {@const id = contentWidthTag(value)}
+				{#if id}
+					{#await getNote(id) then note}
+						{#key note}
+							<svelte:self {note} isReplay={true} />
+						{/key}
+					{/await}
+				{:else}
+					{@html value}
+				{/if} -->
+			{/each}
 		</div>
 	</div>
 {/if}

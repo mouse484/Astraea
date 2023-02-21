@@ -2,9 +2,16 @@ import { sanitize } from 'isomorphic-dompurify';
 import 'linkifyjs';
 import linkifyHtml from 'linkify-html';
 import { contentImageClass } from '$lib/components/Note.css';
+import type { Event } from 'nostr-tools';
 
-export const formatContent = (content: string) => {
-	const linked = linkifyHtml(content, {
+export const formatContent = (event: Event) => {
+	const { content, tags } = event;
+	const sanitized = sanitize(content);
+	const cc = sanitized.replaceAll(/#\[([0-9])\]/g, (_all, $1) => {
+		return ` @${tags[$1][1]} `;
+	});
+	const linked = linkifyHtml(cc, {
+		nl2br: true,
 		tagName: (href: string, type: 'url' | 'email') => {
 			if (type === 'url') {
 				if (new URL(href).pathname.match(/(jpe?g|png|gif|webp)$/)) return 'img';
@@ -28,5 +35,9 @@ export const formatContent = (content: string) => {
 			return linkifyHtml(content);
 		}
 	});
-	return sanitize(linked);
+
+	return sanitize(linked, {
+		ALLOWED_TAGS: ['svelte:self'],
+		ALLOWED_ATTR: ['noteId']
+	});
 };
