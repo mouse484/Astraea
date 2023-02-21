@@ -14,6 +14,7 @@
 
 	import { formatContent } from '$lib/utils/formatContent';
 	import { relayPool, relays } from '$lib/data/relay';
+	import { users } from '$lib/data/profile';
 
 	export let note: relayEvent;
 	export let isReplay = false;
@@ -43,9 +44,9 @@
 		return await $relayPool.get($relays, { ids: [noteId] });
 	};
 
-	// const contentWidthTag = (value: string) => {
-	// 	return value.trim().match(/#(note.+)/)?.[1];
-	// };
+	const contentWidthTag = (value: string) => {
+		return value.trim().match(/@(.+)/)?.[1];
+	};
 </script>
 
 {#if note}
@@ -74,17 +75,13 @@
 
 		<div class={contentClass}>
 			{#each formatContent(note).split(' ') as value}
-				{@html value}
-				<!-- {@const id = contentWidthTag(value)}
+				<!-- p tag only -->
+				{@const id = contentWidthTag(value)}
 				{#if id}
-					{#await getNote(id) then note}
-						{#key note}
-							<svelte:self {note} isReplay={true} />
-						{/key}
-					{/await}
+					<a href="profile/{id}">@{$users.get(id)?.name}</a>
 				{:else}
 					{@html value}
-				{/if} -->
+				{/if}
 			{/each}
 		</div>
 	</div>
