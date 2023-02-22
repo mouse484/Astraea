@@ -1,4 +1,6 @@
-import { decode } from 'nostr-tools/nip19';
+import { nip19 } from 'nostr-tools';
+
+const { decode } = nip19;
 
 const isReturnString = (
 	value: ReturnType<typeof decode>
