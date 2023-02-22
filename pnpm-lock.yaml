@@ -22,7 +22,7 @@ specifiers:
   svelte-check: ^3.0.3
   tslib: ^2.5.0
   typescript: ^4.9.5
-  vercel: ^28.16.3
+  vercel: ^28.16.4
   vite: ^4.1.4
   ws: ^8.12.1
 
@@ -51,7 +51,7 @@ devDependencies:
   svelte-check: 3.0.3_svelte@3.55.1
   tslib: 2.5.0
   typescript: 4.9.5
-  vercel: 28.16.3
+  vercel: 28.16.4
   vite: 4.1.4
 
 packages:
@@ -2456,8 +2456,8 @@ packages:
     resolution: {integrity: sha512-gJvAL0SbAOR1gS6MMr0EHnKlD3Ri1F0eniIfDpV5qgSNqjzVSSVI3tT8ag4KCS70H1tawj16XMR7oPRcKmyebQ==}
     dev: true
 
-  /@vercel/next/3.5.1:
-    resolution: {integrity: sha512-iEG/AAfs1o7JxIxeUxxsT8b/MPmhpWVCrs5qXycQ7O9XILCKpgvX9RR4m8ToS3BjDWR6qNTHdE3BLXUeYo4olw==}
+  /@vercel/next/3.5.2:
+    resolution: {integrity: sha512-wq+Z97FVz4KRZczZRnuP3TCxCPsBz2Ird6ysIpT8zs8d58X2qoIWj/Spuej6PjbXPJUIHDveq199jEO1rEpqqw==}
     dev: true
 
   /@vercel/nft/0.22.5:
@@ -7292,8 +7292,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vercel/28.16.3:
-    resolution: {integrity: sha512-Jo+sV18ykRIG/Osae14hF3H3f7JIpSEfs5PruwK5Y5htILIB+ydrcC/eTiuQbQxYy4LIuU4thz2GA4k2KqobPw==}
+  /vercel/28.16.4:
+    resolution: {integrity: sha512-haWLbuHF7XJqsCZq1E4D8BtiGGTqH+McMhGDD81b4/1UHa/bZSRyON6DN9D/HiWvFbdoSCu4hyiAyp3fSu7bBQ==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
@@ -7301,7 +7301,7 @@ packages:
       '@vercel/build-utils': 6.3.0
       '@vercel/go': 2.3.7
       '@vercel/hydrogen': 0.0.53
-      '@vercel/next': 3.5.1
+      '@vercel/next': 3.5.2
       '@vercel/node': 2.9.6
       '@vercel/python': 3.1.49
       '@vercel/redwood': 1.1.5
