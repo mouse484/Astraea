@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { users, type ProfileData } from '$lib/data/profile';
 	import { relayPool, relays } from '$lib/data/relay';
-	import type { Event } from 'nostr-tools';
-	import { npubEncode } from 'nostr-tools/nip19';
+	import { nip19 } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import {
 		iconClass,
@@ -37,7 +36,7 @@
 	<div class={profileClass}>
 		<img class={iconClass} src={profile.picture} alt={profile.name} />
 		<div>
-			<a href="/profile/{npubEncode(npubHex)}" class={userNameClass}>
+			<a href="/profile/{nip19.npubEncode(npubHex)}" class={userNameClass}>
 				{profile.display_name || profile.name}
 			</a>
 			<div class={nip05Class}>{profile.nip05 || `@${profile.name}`}</div>
