@@ -44,7 +44,7 @@
 	};
 
 	const contentWidthTag = (value: string) => {
-		return value.trim().match(/#\[(.+)\]/)?.[1];
+		return value.trim().match(/\[(.+)\]/)?.[1];
 	};
 </script>
 
@@ -73,7 +73,7 @@
 		</div>
 
 		<div class={contentClass}>
-			{#each formatContent(note).split(' ') as value}
+			{#each formatContent(note).split('#') as value}
 				<!-- p tag only -->
 				{@const id = contentWidthTag(value)}
 				{#if id}
