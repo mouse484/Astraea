@@ -8,6 +8,6 @@ export type ProfileData = Partial<{
 	[key: string]: string;
 }>;
 
-export const contacts = writable<([string, string] | string)[]>([]);
+export const contacts = writable<[string, string][]>([]);
 
 export const users = writable(new Map<string, ProfileData>());

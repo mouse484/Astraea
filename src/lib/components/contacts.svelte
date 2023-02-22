@@ -5,18 +5,10 @@
 	import type { Event as relayEvent } from 'nostr-tools';
 	import { onMount } from 'svelte';
 
-	export let pubkey: string;
-
-	type ProfileData = Partial<{
-		name: string;
-		username: string;
-		picture: string;
-	}>;
+	export let npubHex: string;
 
 	onMount(() => {
-		const subs = $relayPool.sub($relays, [
-			{ authors: [decodeKey('npub', pubkey) || ''], kinds: [3] }
-		]);
+		const subs = $relayPool.sub($relays, [{ authors: [npubHex], kinds: [3] }]);
 		subs.on('event', (event: relayEvent) => {
 			const tags = event.tags as [string, string][];
 			contacts.update((updater) =>
