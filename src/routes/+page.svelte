@@ -11,8 +11,7 @@
 		'npub1ecxns5jjwvaasnq7nnna0nd4wvacqgdmpvm5pjzdrpzcp06q863s0w23y6';
 	let pubkey: string;
 
-	$: pubkey = pubkey ? pubkey : myPublicKey;
-	$: npubHex = decodeKey('npub', pubkey);
+	$: npubHex = decodeKey('npub', pubkey || myPublicKey);
 </script>
 
 <div>
@@ -27,7 +26,7 @@
 	{#if npubHex}
 		<Profile {npubHex} />
 		<!-- 仮 ↓ -->
-		<Contacts {pubkey} />
+		<Contacts {npubHex} />
 	{/if}
 
 	<section class={mainClass}>
