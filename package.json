@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.8.3",
+		"@types/markdown-it": "^12.2.3",
 		"@types/prettier": "^2.7.2",
 		"@typescript-eslint/eslint-plugin": "^5.53.0",
 		"@typescript-eslint/parser": "^5.53.0",
@@ -37,6 +38,7 @@
 		"isomorphic-dompurify": "^1.0.0",
 		"linkify-html": "^4.1.0",
 		"linkifyjs": "^4.1.0",
+		"markdown-it": "^13.0.1",
 		"nostr-tools": "^1.6.0",
 		"ws": "^8.12.1"
 	}
