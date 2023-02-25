@@ -1,7 +1,6 @@
 import { sanitize } from 'isomorphic-dompurify';
 import MarkdownIt, { type PluginSimple } from 'markdown-it';
 import Token from 'markdown-it/lib/token';
-// import 'linkifyjs';
 import { contentImageClass } from '$lib/components/Note.css';
 import type { Event } from 'nostr-tools';
 
