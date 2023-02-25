@@ -36,8 +36,6 @@
 		"@vanilla-extract/css": "^1.9.5",
 		"@vanilla-extract/sprinkles": "^1.5.1",
 		"isomorphic-dompurify": "^1.0.0",
-		"linkify-html": "^4.1.0",
-		"linkifyjs": "^4.1.0",
 		"markdown-it": "^13.0.1",
 		"nostr-tools": "^1.6.0",
 		"ws": "^8.12.1"

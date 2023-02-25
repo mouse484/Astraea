@@ -14,8 +14,6 @@ specifiers:
   eslint-config-prettier: ^8.6.0
   eslint-plugin-svelte3: ^4.0.0
   isomorphic-dompurify: ^1.0.0
-  linkify-html: ^4.1.0
-  linkifyjs: ^4.1.0
   markdown-it: ^13.0.1
   nostr-tools: ^1.6.0
   prettier: ^2.8.4
@@ -32,8 +30,6 @@ dependencies:
   '@vanilla-extract/css': 1.9.5
   '@vanilla-extract/sprinkles': 1.5.1_@vanilla-extract+css@1.9.5
   isomorphic-dompurify: 1.0.0
-  linkify-html: 4.1.0_linkifyjs@4.1.0
-  linkifyjs: 4.1.0
   markdown-it: 13.0.1
   nostr-tools: 1.6.0
   ws: 8.12.1
@@ -4939,22 +4935,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /linkify-html/4.1.0_linkifyjs@4.1.0:
-    resolution: {integrity: sha512-cQSNN4i5V1xRjdSUEnXgn855xsl+usD7zBSsNyMSFBf4NlaZFocn7cExJA217azxODeqea79b6fDPXLa7jdkcA==}
-    peerDependencies:
-      linkifyjs: ^4.0.0
-    dependencies:
-      linkifyjs: 4.1.0
-    dev: false
-
   /linkify-it/4.0.1:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
-    dev: false
-
-  /linkifyjs/4.1.0:
-    resolution: {integrity: sha512-Ffv8VoY3+ixI1b3aZ3O+jM6x17cOsgwfB1Wq7pkytbo1WlyRp6ZO0YDMqiWT/gQPY/CmtiGuKfzDIVqxh1aCTA==}
     dev: false
 
   /loader-utils/2.0.4:
