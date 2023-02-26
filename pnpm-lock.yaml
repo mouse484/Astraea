@@ -15,7 +15,7 @@ specifiers:
   eslint-plugin-svelte3: ^4.0.0
   isomorphic-dompurify: ^1.0.0
   markdown-it: ^13.0.1
-  nostr-tools: ^1.6.0
+  nostr-tools: ^1.6.1
   prettier: ^2.8.4
   prettier-plugin-svelte: ^2.9.0
   svelte: ^3.55.1
@@ -31,7 +31,7 @@ dependencies:
   '@vanilla-extract/sprinkles': 1.5.1_@vanilla-extract+css@1.9.5
   isomorphic-dompurify: 1.0.0
   markdown-it: 13.0.1
-  nostr-tools: 1.6.0
+  nostr-tools: 1.6.1
   ws: 8.12.1
 
 devDependencies:
@@ -5712,8 +5712,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /nostr-tools/1.6.0:
-    resolution: {integrity: sha512-qjjJQ7YxJUMzgS24eVlxkZ87PKJtU6dlH04OzVuK6w+GSPL+VdUZkMe2lfSpnb7OkCrDIzmbFbtx+Q4LXdU2xw==}
+  /nostr-tools/1.6.1:
+    resolution: {integrity: sha512-T54VbAWaLIvTZYsCvHz1v9qikPdFTI2uVNdZtbKFxGRc7y+m3TAa1pPUM8/+LTih4GmZ5v6aw7XIootMlFoOlw==}
     dependencies:
       '@noble/hashes': 1.0.0
       '@noble/secp256k1': 1.7.1
