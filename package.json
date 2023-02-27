@@ -37,7 +37,7 @@
 		"@vanilla-extract/sprinkles": "^1.5.1",
 		"isomorphic-dompurify": "^1.0.0",
 		"markdown-it": "^13.0.1",
-		"nostr-tools": "^1.6.1",
+		"nostr-tools": "^1.7.1",
 		"ws": "^8.12.1"
 	}
 }
