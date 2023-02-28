@@ -34,7 +34,16 @@ export const descriptionClass = style([
 export const createdAtClass = sprinkles({ fontSize: 'small' });
 
 export const contentClass = style([
-	{ width: '100%' },
+	{
+		width: '100%',
+		maxHeight: '8rem',
+		overflow: 'clip',
+		transition: 'max-height 4s linear',
+		':hover': {
+			maxHeight: '100%',
+			transitionDuration: '1s'
+		}
+	},
 	sprinkles({ marginTop: 'tiny' })
 ]);
 
