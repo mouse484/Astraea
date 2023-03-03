@@ -28,7 +28,7 @@
 		"svelte-check": "^3.0.4",
 		"tslib": "^2.5.0",
 		"typescript": "^4.9.5",
-		"vercel": "^28.16.11",
+		"vercel": "^28.16.12",
 		"vite": "^4.1.4"
 	},
 	"type": "module",
