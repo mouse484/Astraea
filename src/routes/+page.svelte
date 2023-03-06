@@ -3,7 +3,6 @@
 	import Profile from '$lib/components/Profile.svelte';
 	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
 	import { contacts } from '$lib/data/profile';
-	import { relayPool, relays } from '$lib/data/relay';
 	import { decodeKey } from '$lib/utils/key';
 	import { inputClass, mainClass } from './page.css';
 
@@ -14,25 +13,24 @@
 	$: npubHex = decodeKey('npub', pubkey || myPublicKey);
 </script>
 
-<div>
+<!-- リレー表示一旦停止です -->
+<!-- <div>
 	リレー:
 	{#each $relays as relay}
 		<p>{relay}</p>
 	{/each}
-</div>
+</div> -->
 <input class={inputClass} type="text" bind:value={pubkey} />
 
-{#if $relayPool}
-	{#if npubHex}
-		<Profile {npubHex} />
-		<!-- 仮 ↓ -->
-		<Contacts {npubHex} />
-	{/if}
-
-	<section class={mainClass}>
-		<!-- ここ直したい -->
-		{#key $contacts}
-			<TimeLine />
-		{/key}
-	</section>
+{#if npubHex}
+	<Profile {npubHex} />
+	<!-- 仮 ↓ -->
+	<Contacts {npubHex} />
 {/if}
+
+<section class={mainClass}>
+	<!-- ここ直したい -->
+	{#key $contacts}
+		<TimeLine />
+	{/key}
+</section>
