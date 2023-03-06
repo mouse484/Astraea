@@ -36,6 +36,9 @@ class RelayPool {
 
 		return subEE;
 	}
+	async get(kind: number, filter: Filter = {}) {
+		return await this.pool.get(this.relays, { kinds: [kind], ...filter });
+	}
 }
 
 export const relayPool = new RelayPool();
