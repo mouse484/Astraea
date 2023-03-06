@@ -26,7 +26,6 @@ class RelayPool {
 	}
 	subscribe(kind: number, filter: Filter = {}) {
 		const subEE = new RelayEventer<[Event]>();
-		console.log({ kinds: [kind], ...filter });
 		const subs = this.pool.sub(this.relays, [{ kinds: [kind], ...filter }]);
 
 		subs.on('event', (event: Event) => {
