@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { nip04, nip19, type Event as relayEvent } from 'nostr-tools';
+	import { nip19, type Event as relayEvent } from 'nostr-tools';
 	import {
 		contentClass,
 		createdAtClass,
@@ -13,8 +13,8 @@
 	import { goto } from '$app/navigation';
 
 	import { formatContent } from '$lib/utils/formatContent';
-	import { relayPool, relays } from '$lib/data/relay';
 	import { users } from '$lib/data/profile';
+	import { relayPool } from '$lib/utils/relay';
 
 	export let note: relayEvent;
 	export let isReplay = false;
@@ -40,7 +40,7 @@
 		);
 	};
 	const getNote = async (noteId: string) => {
-		return await $relayPool.get($relays, { ids: [noteId] });
+		return await relayPool.get(1, { ids: [noteId] });
 	};
 
 	const contentWidthTag = (value: string) => {
