@@ -13,16 +13,7 @@
 	onMount(async () => {
 		const pool = new SimplePool();
 
-		for (const url of defaultRelays) {
-			let relay = await pool.ensureRelay(url);
-			relay.on('connect', () => {
-				console.log(`connected to ${relay.url}`);
-				relays.update((updater) => [...updater, relay.url]);
-			});
-			relay.on('error', () => {
-				console.log(`failed to connect to ${relay.url}`);
-			});
-		}
+		relays.set(defaultRelays);
 		relayPool.set(pool);
 	});
 </script>
