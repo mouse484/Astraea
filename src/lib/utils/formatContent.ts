@@ -1,8 +1,10 @@
-import { sanitize } from 'isomorphic-dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import MarkdownIt, { type PluginSimple } from 'markdown-it';
 import Token from 'markdown-it/lib/token';
 import { contentImageClass } from '$lib/components/Note.css';
 import type { Event } from 'nostr-tools';
+
+const { sanitize } = DOMPurify;
 
 const imageLinkToImgTag: PluginSimple = (md) => {
 	md.core.ruler.after('linkify', 'image2link', (state) => {
