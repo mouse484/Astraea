@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { users, type ProfileData } from '$lib/data/profile';
-	import { relayPool, relays } from '$lib/data/relay';
+	import { relayPool } from '$lib/utils/relay';
 	import { nip19 } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import {
@@ -19,8 +19,7 @@
 
 	onMount(async () => {
 		if ($users.get(npubHex)) return;
-		const event = await $relayPool.get($relays, {
-			kinds: [0],
+		const event = await relayPool.get(0, {
 			authors: [npubHex]
 		});
 		if (!event) return;

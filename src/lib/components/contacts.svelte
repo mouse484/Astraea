@@ -1,22 +1,16 @@
 <script lang="ts">
 	import { contacts } from '$lib/data/profile';
-	import { relayPool, relays } from '$lib/data/relay';
-	import { decodeKey } from '$lib/utils/key';
-	import type { Event as relayEvent } from 'nostr-tools';
+	import { relayPool } from '$lib/utils/relay';
 	import { onMount } from 'svelte';
 
 	export let npubHex: string;
 
 	onMount(() => {
-		const subs = $relayPool.sub($relays, [{ authors: [npubHex], kinds: [3] }]);
-		subs.on('event', (event: relayEvent) => {
+		relayPool.subscribe(3, { authors: [npubHex] }).on((event) => {
 			const tags = event.tags as [string, string][];
 			contacts.update((updater) =>
 				updater.length < tags.length ? tags : updater
 			);
-		});
-		subs.on('eose', () => {
-			subs.unsub();
 		});
 	});
 </script>

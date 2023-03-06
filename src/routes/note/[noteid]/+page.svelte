@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Note from '$lib/components/Note.svelte';
-	import { relayPool, relays } from '$lib/data/relay';
+	import { relayPool } from '$lib/utils/relay';
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
@@ -14,13 +14,9 @@
 
 	onMount(() => {
 		if (!noteId) return;
-		const subs = $relayPool.sub($relays, [{ kinds: [1], ids: [noteId] }]);
-
-		subs.on('event', (event: Event) => {
+		relayPool.subscribe(1, { ids: [noteId] }).on((event) => {
 			note = { ...note, ...event };
 		});
-
-		subs.on('eose', () => subs.unsub());
 	});
 </script>
 
