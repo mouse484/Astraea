@@ -11,7 +11,7 @@ specifiers:
   eslint: ^8.35.0
   eslint-config-prettier: ^8.7.0
   eslint-plugin-svelte3: ^4.0.0
-  isomorphic-dompurify: ^1.0.0
+  isomorphic-dompurify: ^1.1.0
   markdown-it: ^13.0.1
   nostr-tools: ^1.7.4
   postcss: ^8.4.21
@@ -27,7 +27,7 @@ specifiers:
   ws: ^8.12.1
 
 dependencies:
-  isomorphic-dompurify: 1.0.0
+  isomorphic-dompurify: 1.1.0
   markdown-it: 13.0.1
   nostr-tools: 1.7.4
   ws: 8.12.1
@@ -3420,8 +3420,8 @@ packages:
       webidl-conversions: 7.0.0
     dev: false
 
-  /dompurify/3.0.0:
-    resolution: {integrity: sha512-0g/yr2IJn4nTbxwL785YxS7/AvvgGFJw6LLWP+BzWzB1+BYOqPUT9Hy0rXrZh5HLdHnxH72aDdzvC9SdTjsuaA==}
+  /dompurify/3.0.1:
+    resolution: {integrity: sha512-60tsgvPKwItxZZdfLmamp0MTcecCta3avOhsLgPZ0qcWt96OasFfhkeIRbJ6br5i0fQawT1/RBGB5L58/Jpwuw==}
     dev: false
 
   /dotenv/16.0.3:
@@ -4823,11 +4823,11 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
-  /isomorphic-dompurify/1.0.0:
-    resolution: {integrity: sha512-rxkJ2b2rwsgN/uvtaW+Z2JGfD9CYcixYMj0eTIa4V2hG47VDRMiehtUypi4lkpuwW41UrnOR65Dy0POiH3Lbjg==}
+  /isomorphic-dompurify/1.1.0:
+    resolution: {integrity: sha512-F753oJdEsnEHRPBLBqyuRkm0CpyrwBOtAh8I449gxfknQrKSvVYMY34aObe+tQ9HT7Hi47+Sn3MWjhSXQQpqWA==}
     dependencies:
       '@types/dompurify': 2.4.0
-      dompurify: 3.0.0
+      dompurify: 3.0.1
       jsdom: 21.1.0
     transitivePeerDependencies:
       - bufferutil
