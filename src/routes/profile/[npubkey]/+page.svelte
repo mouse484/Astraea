@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TimeLine from '$lib/components/Profile/TimeLine.svelte';
+	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
 	import type { PageData } from './$types';
 	import type { response } from './+page';
 
@@ -8,6 +8,8 @@
 	let { hexId } = data as response;
 </script>
 
-{#if hexId}
-	<TimeLine {hexId} />
-{/if}
+{#key hexId}
+	{#if hexId}
+		<TimeLine authors={[hexId]} time="ALL" />
+	{/if}
+{/key}
