@@ -3,6 +3,7 @@
 	import { relayPool } from '$lib/utils/relay';
 	import { nip19 } from 'nostr-tools';
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 	import {
 		iconClass,
 		nip05Class,
@@ -18,20 +19,19 @@
 		const p = usersMap.get(npubHex);
 		if (p) {
 			if (profile !== p) profile = p;
+			return profile;
 		} else {
 			const event = await relayPool.get(0, {
 				authors: [npubHex]
 			});
-			if (!event) return console.log('c');
+			if (!event) return profile;
 			const parsed = JSON.parse(event.content) as ProfileData;
 			profile = parsed;
-			users.update((updater) => updater.set(npubHex, parsed));
+			return profile;
 		}
 	};
-
 	onMount(() => {
-		profileUpdater($users);
-		users.subscribe((value) => profileUpdater(value));
+		profileUpdater(get(users));
 	});
 </script>
 
