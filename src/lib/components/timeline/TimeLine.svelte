@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { contacts } from '$lib/data/profile';
 	import type { Event as relayEvent } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -8,15 +7,21 @@
 
 	const notes = writable<relayEvent[]>([]);
 
-	$: authors = $contacts.map(([, id]) => id);
+	export let authors: string[];
+	export let time: 'ALL' | '10min' = '10min';
+
+	const times: { [key in typeof time]: number } = {
+		ALL: 0,
+		'10min': Math.round(
+			new Date().setMinutes(new Date().getMinutes() - 10) / 1000
+		)
+	};
 
 	onMount(async () => {
 		relayPool
 			.subscribe(1, {
 				authors,
-				since: Math.round(
-					new Date().setMinutes(new Date().getMinutes() - 10) / 1000
-				)
+				since: times[time]
 			})
 			.on((event) => {
 				notes.update((updater) =>

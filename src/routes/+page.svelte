@@ -1,9 +1,10 @@
 <script lang="ts">
-	import Contacts from '$lib/components/contacts.svelte';
 	import Profile from '$lib/components/Profile.svelte';
 	import TimeLine from '$lib/components/timeline/TimeLine.svelte';
 	import { contacts } from '$lib/data/profile';
 	import { decodeKey } from '$lib/utils/key';
+	import { relayPool } from '$lib/utils/relay';
+	import { onMount } from 'svelte';
 	import { inputClass, mainClass } from './page.css';
 
 	const myPublicKey =
@@ -11,6 +12,19 @@
 	let pubkey: string;
 
 	$: npubHex = decodeKey('npub', pubkey || myPublicKey);
+
+	$: authors = $contacts.map(([, id]) => id);
+
+	onMount(() => {
+		if (npubHex) {
+			relayPool.subscribe(3, { authors: [npubHex] }).on((event) => {
+				const tags = event.tags as [string, string][];
+				contacts.update((updater) =>
+					updater.length < tags.length ? tags : updater
+				);
+			});
+		}
+	});
 </script>
 
 <!-- リレー表示一旦停止です -->
@@ -24,13 +38,10 @@
 
 {#if npubHex}
 	<Profile {npubHex} />
-	<!-- 仮 ↓ -->
-	<Contacts {npubHex} />
 {/if}
 
 <section class={mainClass}>
-	<!-- ここ直したい -->
-	{#key $contacts}
-		<TimeLine />
+	{#key authors}
+		<TimeLine {authors} time={'10min'} />
 	{/key}
 </section>
