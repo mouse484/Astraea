@@ -3,8 +3,10 @@
 	import Profile from './Profile.svelte';
 </script>
 
-<header>
+<header class="flex justify-between">
 	<h1 class="text-2xl">Nostr Client</h1>
 
-	<Profile npubHex={myNpubHex} imageOnly={true} />
+	<div class="flex h-12">
+		<Profile npubHex={myNpubHex} imageOnly={true} />
+	</div>
 </header>
