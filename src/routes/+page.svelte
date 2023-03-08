@@ -25,10 +25,11 @@
 			);
 		});
 
-		sub.on('eose', () => {
-			sub.unsub();
-			getTimeline(contacts);
-		});
+		// subし直すの一旦やめておく
+		// sub.on('eose', () => {
+		// 	sub.unsub();
+		// 	getTimeline(contacts);
+		// });
 	};
 
 	onMount(async () => {
