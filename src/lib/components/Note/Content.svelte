@@ -18,7 +18,7 @@
 						if (href?.match(/(jpe?g|png|gif|webp)$/)) {
 							const imgToken = new Token('img', 'img', 0);
 							imgToken.attrSet('src', href);
-							imgToken.attrSet('class', 'h-48');
+							imgToken.attrSet('class', 'h-48 border-2 border-indigo-200 p-1 rounded');
 							return imgToken;
 						}
 					}
