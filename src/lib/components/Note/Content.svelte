@@ -49,6 +49,10 @@
 					<br />
 				{:else if child.type === 'link_open'}
 					{linkStart(tokenIndex, childIndex, child.attrGet('href') || '')}
+				{:else if child.tag === 'code'}
+					<pre><code>{content}</code></pre>
+				{:else}
+					<p>{content}</p>
 				{/if}
 			{/each}
 		{/if}
