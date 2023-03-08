@@ -13,24 +13,24 @@
 
 	const parsed = md.parse(sanitized, {});
 
-	// index, tag, href/src
-	let next: [number | undefined, string, string] = [undefined, '', ''];
+	// key: tokenIndex rest: childIndex, tag, href/src
+	let next = new Map<number, [number | undefined, string, string]>();
 
-	const linkStart = (index: number, href: string) => {
+	const linkStart = (tokenIndex: number, childIndex: number, href: string) => {
 		const isImage = href?.match(/(jpe?g|png|gif|webp)$/);
-		next = [(index += 1), isImage ? 'img' : 'a', href];
+		next.set(tokenIndex, [(childIndex += 1), isImage ? 'img' : 'a', href]);
 		return '';
 	};
 </script>
 
 <div class="break-words">
-	{#each parsed as token}
+	{#each parsed as token, tokenIndex}
 		{#if token.type === 'inline'}
-			{#each token.children || [] as child, index}
+			{#each token.children || [] as child, childIndex}
 				{@const content = child.content}
 				{#if child.type === 'text'}
-					{@const [i, tag, href] = next}
-					{#if i === index}
+					{@const [i, tag, href] = next.get(tokenIndex) || []}
+					{#if i === childIndex}
 						{#if tag === 'a'}
 							<a {href}>{content}</a>
 						{:else if tag === 'img'}
@@ -48,7 +48,7 @@
 				{:else if child.tag === 'br'}
 					<br />
 				{:else if child.type === 'link_open'}
-					{linkStart(index, child.attrGet('href') || '')}
+					{linkStart(tokenIndex, childIndex, child.attrGet('href') || '')}
 				{/if}
 			{/each}
 		{/if}
