@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
+	import { Lightbox } from 'svelte-lightbox';
 
 	const { sanitize } = DOMPurify;
 
@@ -33,11 +34,13 @@
 						{#if tag === 'a'}
 							<a {href}>{content}</a>
 						{:else if tag === 'img'}
-							<img
-								class="h-48 border-2 border-indigo-200 p-1 rounded"
-								src={href}
-								alt={content}
-							/>
+							<div class="p-1 mt-4 rounded border-2 border-indigo-200 w-fit">
+								<Lightbox
+									customization={{ thumbnailProps: { class: 'flex h-60' } }}
+								>
+									<img src={href} alt={content} />
+								</Lightbox>
+							</div>
 						{/if}
 					{:else}
 						<p>{content}</p>
