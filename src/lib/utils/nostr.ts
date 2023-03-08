@@ -1,5 +1,6 @@
-import { defaultRelays } from '$lib/data/const';
+import { relays } from '$lib/data/setting';
 import { SimplePool, type Filter } from 'nostr-tools';
+import { get as getStore } from 'svelte/store';
 
 const pool = new SimplePool();
 
@@ -7,9 +8,9 @@ const pool = new SimplePool();
 // https://github.com/mouse484/nostr-client/blob/old/src/lib/utils/relay.ts
 
 export const subscribe = (filter: Filter) => {
-	return pool.sub(defaultRelays, [filter]);
+	return pool.sub(getStore(relays), [filter]);
 };
 
 export const get = (filter: Filter) => {
-	return pool.get(defaultRelays, filter);
+	return pool.get(getStore(relays), filter);
 };

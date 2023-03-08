@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pubkey } from '$lib/data/setting';
+	import { pubkey, relays } from '$lib/data/setting';
 	import { nip19 } from 'nostr-tools';
 
 	let inputPubkey: string;
@@ -15,3 +15,8 @@
 
 <input type="text" bind:value={inputPubkey} placeholder="npub key" />
 <button on:click={savePubkey}>save</button>
+
+<h3>Relays</h3>
+{#each $relays as relay}
+	<p>{relay}</p>
+{/each}
