@@ -37,4 +37,6 @@
 	const result = md.render(sanitized);
 </script>
 
-{@html result}
+<div class="break-words">
+	{@html result}
+</div>
