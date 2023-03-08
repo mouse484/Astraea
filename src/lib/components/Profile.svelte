@@ -20,17 +20,21 @@
 </script>
 
 {#key profile}
-	<div class="flex">
-		<img class="h-12 rounded" src={profile?.picture} alt={profile?.name} />
-		{#if !imageOnly}
-			<div class="pl-4">
-				<a href="#後で">
+	<div>
+		<a
+			class="flex text-inherit visited:text-inherit w-fit"
+			href="#/profile/{npubHex}"
+		>
+			<img class="h-12 rounded" src={profile?.picture} alt={profile?.name} />
+			{#if !imageOnly}
+				<div class="pl-4">
+					<!-- まだページ作ってないから# -->
 					{profile?.display_name || profile?.name}
-				</a>
-				<div class="text-xs text-gray-500">
-					{profile?.nip05 || `@${profile?.name}`}
+					<div class="text-xs text-gray-500">
+						{profile?.nip05 || `@${profile?.name}`}
+					</div>
 				</div>
-			</div>
-		{/if}
+			{/if}
+		</a>
 	</div>
 {/key}
