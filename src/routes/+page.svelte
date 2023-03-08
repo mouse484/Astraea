@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Note from '$lib/components/Note.svelte';
+	import Note from '$lib/components/Note/Note.svelte';
 	import { myNpubHex } from '$lib/data/const';
 	import { get, subscribe } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
