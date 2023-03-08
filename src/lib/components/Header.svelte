@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { myNpubHex } from '$lib/data/const';
+	import { pubkey } from '$lib/data/setting';
 	import Profile from './Profile.svelte';
 </script>
 
 <header class="flex justify-between">
-	<h1 class="text-2xl">Nostr Client</h1>
+	<h1 class="text-2xl">
+		<a class="text-inherit visited:text-inherit" href="/">Nostr Client</a>
+	</h1>
 
 	<div class="flex h-12">
-		<Profile npubHex={myNpubHex} imageOnly={true} />
+		{#key $pubkey}
+			<Profile npubHex={$pubkey} imageOnly={true} to={'/setting'} />
+		{/key}
 	</div>
 </header>

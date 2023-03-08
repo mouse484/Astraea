@@ -5,6 +5,7 @@
 
 	export let npubHex: string;
 	export let imageOnly = false;
+	export let to = `#/profile/${npubHex}`;
 
 	let profile: ProfileData | undefined = { name: 'loading' };
 
@@ -21,10 +22,7 @@
 
 {#key profile}
 	<div>
-		<a
-			class="flex text-inherit visited:text-inherit w-fit"
-			href="#/profile/{npubHex}"
-		>
+		<a class="flex text-inherit visited:text-inherit w-fit" href={to}>
 			<img class="h-12 rounded" src={profile?.picture} alt={profile?.name} />
 			{#if !imageOnly}
 				<div class="pl-4">

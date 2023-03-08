@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Note from '$lib/components/Note/Note.svelte';
-	import { myNpubHex } from '$lib/data/const';
+	import { pubkey } from '$lib/data/setting';
 	import { get, subscribe } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
@@ -35,7 +35,7 @@
 	onMount(async () => {
 		const contacts = new Set<string>();
 
-		const contactsEvent = await get({ kinds: [3], authors: [myNpubHex] });
+		const contactsEvent = await get({ kinds: [3], authors: [$pubkey] });
 		if (!contactsEvent) return;
 		const tags = contactsEvent.tags as [string, string][];
 		tags.forEach(([, id]) => {
