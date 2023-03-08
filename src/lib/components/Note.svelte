@@ -6,7 +6,9 @@
 </script>
 
 <div>
-	<Profile npubHex={note.pubkey} />
+	{#if note.pubkey}
+		<Profile npubHex={note.pubkey} />
+	{/if}
 	<div>
 		{note.content}
 	</div>

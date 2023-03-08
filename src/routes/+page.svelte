@@ -46,6 +46,6 @@
 	});
 </script>
 
-{#each $notes as note}
+{#each $notes as note (note.id)}
 	<Note {note} />
 {/each}
