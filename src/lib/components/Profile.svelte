@@ -23,7 +23,11 @@
 {#key profile}
 	<div>
 		<a class="flex text-inherit visited:text-inherit w-fit" href={to}>
-			<img class="h-12 rounded" src={profile?.picture} alt={profile?.name} />
+			<img
+				class="h-12 w-12 rounded"
+				src={profile?.picture}
+				alt={profile?.name}
+			/>
 			{#if !imageOnly}
 				<div class="pl-4">
 					<!-- まだページ作ってないから# -->
