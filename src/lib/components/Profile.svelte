@@ -5,6 +5,7 @@
 
 	export let npubHex: string;
 	export let imageOnly = false;
+	export let detail = false;
 	export let to = `/profile/${npubHex}`;
 
 	let profile: ProfileData | undefined = { name: 'loading' };
@@ -22,6 +23,11 @@
 
 {#key profile}
 	<div>
+		{#if detail}
+			{#if profile?.banner}
+				<img class="h-72 w-full mb-4" src={profile.banner} alt="" />
+			{/if}
+		{/if}
 		<a class="flex text-inherit visited:text-inherit w-fit" href={to}>
 			<img
 				class="h-12 w-12 rounded"
@@ -38,5 +44,13 @@
 				</div>
 			{/if}
 		</a>
+		{#if detail}
+			<div>
+				<div class="mt-4">{profile?.about || ''}</div>
+				{#if profile?.website}
+					<a class="mt-2" href={profile.website}>{profile.website}</a>
+				{/if}
+			</div>
+		{/if}
 	</div>
 {/key}
