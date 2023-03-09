@@ -5,5 +5,7 @@
 
 <div class="m-4">
 	<Header />
-	<slot />
+	<section class="m-4">
+		<slot />
+	</section>
 </div>
