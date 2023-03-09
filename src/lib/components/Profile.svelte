@@ -21,6 +21,12 @@
 	});
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
+	$: maxWitdh =
+		name.length > 20
+			? domain.length > 10
+				? 'max-w-[5em]'
+				: 'max-w-[10em]'
+			: '';
 </script>
 
 {#key profile}
@@ -49,7 +55,9 @@
 						{/if}
 					</div>
 					<div class="flex mt-2 text-xs text-gray-500">
-						<div class="max-w-[10rem] truncate ...">{name}</div>
+						<div class="truncate ... {maxWitdh}">
+							{name}
+						</div>
 						<div>@</div>
 						<div>{domain}</div>
 					</div>
