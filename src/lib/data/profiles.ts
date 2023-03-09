@@ -5,6 +5,9 @@ export type ProfileData = Partial<{
 	name: string;
 	picture: string;
 	nip05: string;
+	about: string;
+	banner: string;
+	website: string;
 	[key: string]: string;
 }>;
 
