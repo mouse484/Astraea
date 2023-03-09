@@ -1,38 +1,11 @@
 <script lang="ts">
-	import Note from '$lib/components/Note/Note.svelte';
+	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { pubkey } from '$lib/data/setting';
-	import { get, subscribe } from '$lib/utils/nostr';
-	import type { Event } from 'nostr-tools';
+	import { get } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	const notes = writable<Event[]>([]);
-
-	const getTimeline = (contacts: string[], first?: boolean) => {
-		const sub = subscribe({
-			kinds: [1],
-			authors: contacts,
-			since: Math.round(
-				(first
-					? new Date().setMinutes(new Date().getMinutes() - 10)
-					: Date.now()) / 1000
-			)
-		});
-
-		sub.on('event', (event: Event) => {
-			notes.update((updater) =>
-				[...updater, event].sort((a, b) => b.created_at - a.created_at)
-			);
-		});
-
-		// subし直すの一旦やめておく
-		// sub.on('eose', () => {
-		// 	sub.unsub();
-		// 	getTimeline(contacts);
-		// });
-	};
-
-	onMount(async () => {
+	const getContracts = async () => {
 		const contacts = new Set<string>();
 
 		const contactsEvent = await get({ kinds: [3], authors: [$pubkey] });
@@ -42,10 +15,21 @@
 			contacts.add(id);
 		});
 
-		getTimeline([...contacts], true);
-	});
+		return [...contacts];
+	};
 </script>
 
-{#each $notes as note (note.id)}
-	<Note {note} />
-{/each}
+{#await getContracts()}
+	<p>Loading...</p>
+{:then contacts}
+	{#if contacts}
+		<TimeLine
+			authors={contacts}
+			filter={{
+				since: Math.round(
+					new Date().setMinutes(new Date().getMinutes() - 10) / 1000
+				)
+			}}
+		/>
+	{/if}
+{/await}

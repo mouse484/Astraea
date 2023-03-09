@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TimeLine from '$lib/components/TimeLine.svelte';
 	import type { PageData } from './$types';
 	import type { response } from './+page';
 
@@ -7,4 +8,6 @@
 	let { hexId } = data as response;
 </script>
 
-{hexId}
+{#if hexId}
+	<TimeLine authors={[hexId]} filter={{ limit: 20 }} />
+{/if}
