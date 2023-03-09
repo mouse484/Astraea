@@ -19,18 +19,20 @@
 		profiles.update((updater) => updater.set(npubHex, parsed));
 		profile = parsed;
 	});
+
+	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 </script>
 
 {#key profile}
 	<div>
 		{#if detail}
 			{#if profile?.banner}
-				<img class="h-72 w-full mb-4" src={profile.banner} alt="" />
+				<img class="mb-4 w-full h-72" src={profile.banner} alt="" />
 			{/if}
 		{/if}
 		<a class="flex text-inherit visited:text-inherit w-fit" href={to}>
 			<img
-				class="h-12 w-12 rounded"
+				class="w-12 h-12 rounded"
 				src={profile?.picture}
 				alt={profile?.name}
 			/>
@@ -38,8 +40,10 @@
 				<div class="pl-4">
 					<!-- まだページ作ってないから# -->
 					{profile?.display_name || profile?.name}
-					<div class="text-xs text-gray-500">
-						{profile?.nip05 || `@${profile?.name}`}
+					<div class="flex text-xs text-gray-500">
+						<div class="max-w-[10rem] truncate ...">{name}</div>
+						<div>@</div>
+						<div>{domain}</div>
 					</div>
 				</div>
 			{/if}
