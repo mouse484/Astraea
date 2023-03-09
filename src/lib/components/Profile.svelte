@@ -38,9 +38,17 @@
 			/>
 			{#if !imageOnly}
 				<div class="pl-4">
-					<!-- まだページ作ってないから# -->
-					{profile?.display_name || profile?.name}
-					<div class="flex text-xs text-gray-500">
+					<div>
+						{#if profile?.display_name}
+							{profile.display_name}
+							{#if profile?.name}
+								<span class="ml-2 text-xs text-gray-500">@{profile.name}</span>
+							{/if}
+						{:else}
+							{profile?.name}
+						{/if}
+					</div>
+					<div class="flex mt-2 text-xs text-gray-500">
 						<div class="max-w-[10rem] truncate ...">{name}</div>
 						<div>@</div>
 						<div>{domain}</div>
