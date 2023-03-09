@@ -5,7 +5,7 @@
 
 	export let npubHex: string;
 	export let imageOnly = false;
-	export let to = `#/profile/${npubHex}`;
+	export let to = `/profile/${npubHex}`;
 
 	let profile: ProfileData | undefined = { name: 'loading' };
 
