@@ -46,7 +46,7 @@
 		</a>
 		{#if detail}
 			<div>
-				<div class="mt-4">{profile?.about || ''}</div>
+				<div class="mt-4 break-words">{profile?.about || ''}</div>
 				{#if profile?.website}
 					<a class="mt-2" href={profile.website}>{profile.website}</a>
 				{/if}
