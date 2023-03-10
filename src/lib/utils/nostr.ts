@@ -2,7 +2,7 @@ import { relays } from '$lib/data/setting';
 import { SimplePool, type Filter } from 'nostr-tools';
 import { get as getStore } from 'svelte/store';
 
-const pool = new SimplePool();
+export const pool = new SimplePool();
 
 // 作り直す
 // https://github.com/mouse484/nostr-client/blob/old/src/lib/utils/relay.ts
