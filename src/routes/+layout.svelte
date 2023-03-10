@@ -3,6 +3,10 @@
 	import Header from '$lib/components/Header.svelte';
 </script>
 
+<svelte:head>
+	<title>Astraea</title>
+</svelte:head>
+
 <div class="m-4">
 	<Header />
 	<section class="m-4">
