@@ -5,7 +5,7 @@
 
 <header class="flex justify-between">
 	<h1 class="text-2xl">
-		<a class="text-inherit visited:text-inherit" href="/">Nostr Client</a>
+		<a class="text-inherit visited:text-inherit" href="/">Astraea</a>
 	</h1>
 
 	<div class="flex h-12">
