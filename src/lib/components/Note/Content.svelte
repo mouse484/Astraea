@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { profiles } from '$lib/data/profiles';
+	import { get } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
+	import Note from './Note.svelte';
 
 	const { sanitize } = DOMPurify;
 
@@ -14,8 +16,8 @@
 
 	const replasedContent = rawContent.replaceAll(
 		/#\[([0-9])\]/g,
-		(match, $1) => {
-			const tag = event.tags[$1] as ['p', string];
+		(match, $1: number) => {
+			const tag = event.tags[$1] as ['p' | 'e', string];
 			if (tag) {
 				const [type, id] = tag;
 				if (type === 'p') {
@@ -23,11 +25,11 @@
 					return `[@${
 						profile?.name || `${id.substring(0, 8)}...`
 					}](/profile/${id})`;
+				} else if (type === 'e') {
+					return `[note](${id})`;
 				}
-				return match;
-			} else {
-				return match;
 			}
+			return match;
 		}
 	);
 
@@ -54,7 +56,21 @@
 					{@const [i, tag, href] = next.get(tokenIndex) || []}
 					{#if i === childIndex}
 						<!-- Link content -->
-						{#if tag === 'a'}
+						{#if child.content === 'note'}
+							{#if href}
+								{#await get({ kinds: [1], ids: [href] })}
+									<span>note:{href.substring(0, 8)}...</span>
+								{:then event}
+									{#if event}
+										<div class="my-4">
+											<Note note={event} />
+										</div>
+									{:else}
+										<span>note:{href.substring(0, 8)}...</span>
+									{/if}
+								{/await}
+							{/if}
+						{:else if tag === 'a'}
 							<a {href}>{content}</a>
 						{:else if tag === 'img'}
 							<div class="p-1 mt-4 rounded border-2 border-indigo-200 w-fit">
