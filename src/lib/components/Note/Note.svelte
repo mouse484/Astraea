@@ -23,6 +23,6 @@
 		<Profile npubHex={note.pubkey} />
 	{/if}
 	<div class="mt-4">
-		<Content rawContent={note.content} />
+		<Content rawContent={note.content} event={note} />
 	</div>
 </div>

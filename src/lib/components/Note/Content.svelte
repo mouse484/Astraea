@@ -1,15 +1,37 @@
 <script lang="ts">
+	import { profiles } from '$lib/data/profiles';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
+	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
 
 	const { sanitize } = DOMPurify;
 
 	export let rawContent: string;
+	export let event: Event;
 
 	const md = MarkdownIt({ linkify: true, breaks: true });
 
-	const sanitized = sanitize(rawContent);
+	const replasedContent = rawContent.replaceAll(
+		/#\[([0-9])\]/g,
+		(match, $1) => {
+			const tag = event.tags[$1] as ['p', string];
+			if (tag) {
+				const [type, id] = tag;
+				if (type === 'p') {
+					const profile = $profiles.get(id);
+					return `[@${
+						profile?.name || `${id.substring(0, 8)}...`
+					}](/profile/${id})`;
+				}
+				return match;
+			} else {
+				return match;
+			}
+		}
+	);
+
+	const sanitized = sanitize(replasedContent);
 
 	const parsed = md.parse(sanitized, {});
 
@@ -31,6 +53,7 @@
 				{#if child.type === 'text'}
 					{@const [i, tag, href] = next.get(tokenIndex) || []}
 					{#if i === childIndex}
+						<!-- Link content -->
 						{#if tag === 'a'}
 							<a {href}>{content}</a>
 						{:else if tag === 'img'}
@@ -43,7 +66,8 @@
 							</div>
 						{/if}
 					{:else}
-						<p>{content}</p>
+						<!-- normal content -->
+						<span>{content}</span>
 					{/if}
 				{:else if child.tag === 'br'}
 					<br />
@@ -52,7 +76,7 @@
 				{:else if child.tag === 'code'}
 					<pre><code>{content}</code></pre>
 				{:else}
-					<p>{content}</p>
+					<span>{content}</span>
 				{/if}
 			{/each}
 		{/if}
