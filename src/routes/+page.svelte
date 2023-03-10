@@ -1,9 +1,8 @@
 <script lang="ts">
 	import TimeLine from '$lib/components/TimeLine.svelte';
+	import Trend from '$lib/components/Trend.svelte';
 	import { pubkey } from '$lib/data/setting';
 	import { get } from '$lib/utils/nostr';
-	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
 
 	const getContracts = async () => {
 		const contacts = new Set<string>();
@@ -19,17 +18,25 @@
 	};
 </script>
 
-{#await getContracts()}
-	<p>Loading...</p>
-{:then contacts}
-	{#if contacts}
-		<TimeLine
-			authors={contacts}
-			filter={{
-				since: Math.round(
-					new Date().setMinutes(new Date().getMinutes() - 10) / 1000
-				)
-			}}
-		/>
-	{/if}
-{/await}
+<div class="md:justify-between md:flex">
+	<div>
+		{#await getContracts()}
+			<p>Loading...</p>
+		{:then contacts}
+			{#if contacts}
+				<TimeLine
+					authors={contacts}
+					filter={{
+						since: Math.round(
+							new Date().setMinutes(new Date().getMinutes() - 10) / 1000
+						)
+					}}
+				/>
+			{/if}
+		{/await}
+	</div>
+
+	<div class="hidden md:block">
+		<Trend />
+	</div>
+</div>
