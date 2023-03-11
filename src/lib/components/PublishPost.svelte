@@ -39,22 +39,17 @@
 			console.error(`Post: fail-${result.reason}`);
 		}
 	};
-
-	$: creanContent = content;
 </script>
 
 <div>
 	<div class="relative">
-		<div
-			role="textbox"
-			contenteditable="true"
-			class="p-2 pr-24 w-full rounded border resize-none min-h-[5em]"
-			bind:textContent={content}
-			bind:innerHTML={creanContent}
+		<textarea
+			class="p-2 pr-24 w-full h-32 rounded border resize-none"
+			bind:value={content}
 		/>
 		{#key isPublish}
 			<button
-				class="absolute right-0 bottom-0 p-2 m-2 bg-blue-400 rounded border disabled:bg-slate-300"
+				class="absolute right-0 bottom-0 p-2 m-4 bg-blue-400 rounded border disabled:bg-slate-300"
 				on:click={publishPost}
 				disabled={isPublish}>送信する</button
 			>
