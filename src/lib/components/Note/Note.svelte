@@ -24,5 +24,8 @@
 	{/if}
 	<div class="mt-4">
 		<Content rawContent={note.content} event={note} />
+		<div class="text-sm text-slate-600 text-right">
+			{new Date(note.created_at * 1000).toLocaleString()}
+		</div>
 	</div>
 </div>
