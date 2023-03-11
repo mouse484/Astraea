@@ -71,7 +71,9 @@
 								{/await}
 							{/if}
 						{:else if tag === 'a'}
-							<a {href}>{content}</a>
+							<a class="text-blue-600 visited:text-purple-600" {href}>
+								{content}
+							</a>
 						{:else if tag === 'img'}
 							<div class="p-1 mt-4 rounded border-2 border-indigo-200 w-fit">
 								<Lightbox

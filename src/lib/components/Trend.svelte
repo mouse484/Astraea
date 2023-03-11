@@ -21,11 +21,13 @@
 	});
 </script>
 
-<h2 class="text-2xl">Trend</h2>
+<h2 class="text-2xl">
+	<a href="/trend">Trend</a>
+</h2>
 <ul class="mt-4">
 	{#key trends}
 		{#each trends as trend}
-			<li class="px-4 py-2 m-2 rounded border">{trend}</li>
+			<li class="px-4 py-2 m-2 rounded border md:w-60">{trend}</li>
 		{/each}
 	{/key}
 </ul>

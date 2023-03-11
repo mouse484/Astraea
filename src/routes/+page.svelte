@@ -18,7 +18,7 @@
 	};
 </script>
 
-<div class="md:justify-between md:flex">
+<div class="md:justify-between md:flex md:gap-8">
 	<div>
 		{#await getContracts()}
 			<p>Loading...</p>
