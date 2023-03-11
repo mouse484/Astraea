@@ -16,8 +16,6 @@
 
 	$: isPublish = !(isNip07 && !!content);
 
-	$: console.log(isNip07);
-
 	const publishPost = async () => {
 		if (!window.nostr) return;
 		const unsignedEvent: UnsignedEvent = {
@@ -41,14 +39,30 @@
 			console.error(`Post: fail-${result.reason}`);
 		}
 	};
+
+	$: creanContent = content;
 </script>
 
-<input type="text" placeholder="なにしてる？" bind:value={content} />
-{#key isPublish}
-	<button on:click={publishPost} disabled={isPublish}>送信</button>
-{/key}
-{#key isNip07}
-	{#if isNip07 === false}
-		<p>※:投稿するにはnip-07に対応した拡張機能が必要です</p>
-	{/if}
-{/key}
+<div>
+	<div class="relative">
+		<div
+			role="textbox"
+			contenteditable="true"
+			class="p-2 pr-24 w-full rounded border resize-none min-h-[5em]"
+			bind:textContent={content}
+			bind:innerHTML={creanContent}
+		/>
+		{#key isPublish}
+			<button
+				class="absolute right-0 bottom-0 p-2 m-2 bg-blue-400 rounded border disabled:bg-slate-300"
+				on:click={publishPost}
+				disabled={isPublish}>送信する</button
+			>
+		{/key}
+	</div>
+	{#key isNip07}
+		{#if isNip07 === false}
+			<p>※:投稿するにはnip-07に対応した拡張機能が必要です</p>
+		{/if}
+	{/key}
+</div>
