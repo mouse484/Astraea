@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PublishPost from '$lib/components/PublishPost.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import Trend from '$lib/components/Trend.svelte';
 	import { pubkey } from '$lib/data/setting';
@@ -18,25 +19,31 @@
 	};
 </script>
 
-<div class="md:justify-between md:flex md:gap-8">
+<section>
 	<div>
-		{#await getContracts()}
-			<p>Loading...</p>
-		{:then contacts}
-			{#if contacts}
-				<TimeLine
-					authors={contacts}
-					filter={{
-						since: Math.round(
-							new Date().setMinutes(new Date().getMinutes() - 10) / 1000
-						)
-					}}
-				/>
-			{/if}
-		{/await}
+		<PublishPost />
 	</div>
 
-	<div class="hidden md:block">
-		<Trend />
+	<div class="mt-8 md:justify-between md:flex md:gap-8">
+		<div>
+			{#await getContracts()}
+				<p>Loading...</p>
+			{:then contacts}
+				{#if contacts}
+					<TimeLine
+						authors={contacts}
+						filter={{
+							since: Math.round(
+								new Date().setMinutes(new Date().getMinutes() - 10) / 1000
+							)
+						}}
+					/>
+				{/if}
+			{/await}
+		</div>
+
+		<div class="hidden md:block">
+			<Trend />
+		</div>
 	</div>
-</div>
+</section>
