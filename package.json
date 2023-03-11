@@ -29,7 +29,7 @@
 		"prettier-plugin-svelte": "^2.9.0",
 		"semantic-release": "^20.1.1",
 		"svelte": "^3.56.0",
-		"svelte-check": "^3.1.0",
+		"svelte-check": "^3.1.2",
 		"tailwindcss": "^3.2.7",
 		"tslib": "^2.5.0",
 		"typescript": "^4.9.5",
