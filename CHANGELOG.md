@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/mouse484/astraea/compare/v1.0.0...v1.1.0) (2023-03-11)
+
+
+### Bug Fixes
+
+* 型がうまくついていなかった ([1f443c1](https://github.com/mouse484/astraea/commit/1f443c15c46a1e47768cdc258b90aafc298a694a))
+
+
+### Features
+
+* versionを表示 ([d834d69](https://github.com/mouse484/astraea/commit/d834d69f7c577ef741758dc1b6f1c23f2cb20452))
+
 # 1.0.0 (2023-03-11)
 
 
