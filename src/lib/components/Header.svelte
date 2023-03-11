@@ -1,6 +1,11 @@
+<script context="module" lang="ts">
+	declare let APP_VERSION: string;
+</script>
+
 <script lang="ts">
 	import { pubkey } from '$lib/data/setting';
 	import Profile from './Profile.svelte';
+	const version = APP_VERSION;
 </script>
 
 <header class="flex justify-between">
@@ -8,8 +13,8 @@
 		<h1 class="text-2xl">
 			<a class="text-inherit visited:text-inherit" href="/">Astraea</a>
 		</h1>
-		{#if APP_VERSION}
-			<p class="text-sm">v{APP_VERSION}</p>
+		{#if version}
+			<p class="text-sm">v{version}</p>
 		{/if}
 	</div>
 
