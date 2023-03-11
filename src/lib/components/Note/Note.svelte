@@ -9,9 +9,9 @@
 </script>
 
 {#if !isReplay}
-	{#each note.tags as a, index}
-		{@const [type, id, , marker] = a}
-		{#if type === 'e' && ((!marker && index >= 1) || marker === 'reply')}
+	{#each note.tags as tag}
+		{@const [type, id, , marker] = tag}
+		{#if type === 'e' && (!marker || marker === 'reply')}
 			{#await get({ kinds: [1], ids: [id] }) then event}
 				<svelte:self note={event} isReplay={true} />
 			{/await}
@@ -24,8 +24,10 @@
 	{/if}
 	<div class="mt-4">
 		<Content rawContent={note.content} event={note} />
-		<div class="text-sm text-slate-600 text-right">
-			{new Date(note.created_at * 1000).toLocaleString()}
-		</div>
+		{#if note.created_at}
+			<div class="text-sm text-slate-600 text-right">
+				{new Date(note.created_at * 1000).toLocaleString()}
+			</div>
+		{/if}
 	</div>
 </div>
