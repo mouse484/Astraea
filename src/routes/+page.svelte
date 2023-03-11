@@ -30,14 +30,7 @@
 				<p>Loading...</p>
 			{:then contacts}
 				{#if contacts}
-					<TimeLine
-						authors={contacts}
-						filter={{
-							since: Math.round(
-								new Date().setMinutes(new Date().getMinutes() - 10) / 1000
-							)
-						}}
-					/>
+					<TimeLine authors={contacts} filter={{ limit: 20 }} />
 				{/if}
 			{/await}
 		</div>
