@@ -24,10 +24,20 @@
 <h2 class="text-2xl">
 	<a href="/trend">Trend</a>
 </h2>
-<ul class="mt-4">
-	{#key trends}
-		{#each trends as trend}
-			<li class="px-4 py-2 m-2 rounded border md:w-60">{trend}</li>
-		{/each}
-	{/key}
-</ul>
+<div>
+	<ul class="mt-4">
+		{#key trends}
+			{#each trends as trend}
+				<li class="p-2 my-2 rounded border md:w-60">{trend}</li>
+			{/each}
+		{/key}
+	</ul>
+	<p class="text-right mt-4">
+		powerd by <a
+			class="text-blue-600 visited:text-purple-600"
+			href="https://nostrbuzzs.deno.dev/"
+		>
+			nostrbuzzs
+		</a>
+	</p>
+</div>
