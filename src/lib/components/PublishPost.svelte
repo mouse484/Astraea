@@ -35,6 +35,7 @@
 		const result = await publish(event);
 		if (result.status === 'ok') {
 			console.info('Post: Published');
+			content = '';
 		} else {
 			console.error(`Post: fail-${result.reason}`);
 		}
