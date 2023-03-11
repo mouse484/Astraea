@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/mouse484/astraea/compare/v1.1.0...v1.1.1) (2023-03-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ws to ^8.13.0 ([c08d680](https://github.com/mouse484/astraea/commit/c08d6808bbaa4f170b4b37d6c735828b84346c55))
+
 # [1.1.0](https://github.com/mouse484/astraea/compare/v1.0.0...v1.1.0) (2023-03-11)
 
 
