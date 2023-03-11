@@ -3,6 +3,7 @@
 	import { get } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
+	import Token from 'markdown-it/lib/token';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
 	import Note from './Note.svelte';
@@ -50,53 +51,64 @@
 <div class="break-words">
 	{#each parsed as token, tokenIndex}
 		{#if token.type === 'inline'}
-			{#each token.children || [] as child, childIndex}
-				{@const content = child.content}
-				{#if child.type === 'text'}
-					{@const [i, tag, href] = next.get(tokenIndex) || []}
-					{#if i === childIndex}
-						<!-- Link content -->
-						{#if child.content === 'note'}
-							{#if href}
-								{#await get({ kinds: [1], ids: [href] })}
-									<span>note:{href.substring(0, 8)}...</span>
-								{:then event}
-									{#if event}
-										<div class="my-4">
-											<Note note={event} />
-										</div>
-									{:else}
-										<span>note:{href.substring(0, 8)}...</span>
+			{#if token.children}
+				<p>
+					{#each token.children as child, childIndex}
+						{@const content = child.content}
+						{#if child.type === 'text'}
+							{@const [i, tag, href] = next.get(tokenIndex) || []}
+							{#if i === childIndex}
+								<!-- Link content -->
+								{#if child.content === 'note'}
+									{#if href}
+										{#await get({ kinds: [1], ids: [href] })}
+											<span>note:{href.substring(0, 8)}...</span>
+										{:then event}
+											{#if event}
+												<div class="my-4">
+													<Note note={event} />
+												</div>
+											{:else}
+												<span>note:{href.substring(0, 8)}...</span>
+											{/if}
+										{/await}
 									{/if}
-								{/await}
+								{:else if tag === 'a'}
+									<a class="text-blue-600 visited:text-purple-600" {href}>
+										{content}
+									</a>
+								{:else if tag === 'img'}
+									<div
+										class="p-1 mt-4 rounded border-2 border-indigo-200 w-fit"
+									>
+										<Lightbox
+											customization={{ thumbnailProps: { class: 'flex h-60' } }}
+										>
+											<img src={href} alt={content} />
+										</Lightbox>
+									</div>
+								{/if}
+							{:else if content}
+								<span>{content}</span>
 							{/if}
-						{:else if tag === 'a'}
-							<a class="text-blue-600 visited:text-purple-600" {href}>
-								{content}
-							</a>
-						{:else if tag === 'img'}
-							<div class="p-1 mt-4 rounded border-2 border-indigo-200 w-fit">
-								<Lightbox
-									customization={{ thumbnailProps: { class: 'flex h-60' } }}
-								>
-									<img src={href} alt={content} />
-								</Lightbox>
-							</div>
+						{:else if child.tag === 'br'}
+							<br />
+						{:else if child.type === 'link_open'}
+							{linkStart(tokenIndex, childIndex, child.attrGet('href') || '')}
+						{:else if child.tag === 'code'}
+							<pre><code>{content}</code></pre>
+						{:else}
+							<span>{content}</span>
 						{/if}
-					{:else}
-						<!-- normal content -->
-						<span>{content}</span>
-					{/if}
-				{:else if child.tag === 'br'}
-					<br />
-				{:else if child.type === 'link_open'}
-					{linkStart(tokenIndex, childIndex, child.attrGet('href') || '')}
-				{:else if child.tag === 'code'}
-					<pre><code>{content}</code></pre>
-				{:else}
-					<span>{content}</span>
-				{/if}
-			{/each}
+						{#if childIndex === token.children.length - 1}
+							<br />
+						{/if}
+					{/each}
+				</p>
+			{/if}
+		{/if}
+		{#if tokenIndex !== parsed.length - 1 && token.type === 'paragraph_close'}
+			<br />
 		{/if}
 	{/each}
 </div>
