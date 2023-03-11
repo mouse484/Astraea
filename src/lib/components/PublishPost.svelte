@@ -4,14 +4,19 @@
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
 
 	let content: string;
-	let isNip07 = false;
-	let status: string;
+	let isNip07: boolean;
 
 	if (browser) {
 		if (window.nostr) {
 			isNip07 = true;
+		} else {
+			isNip07 = false;
 		}
 	}
+
+	$: isPublish = !(isNip07 && !!content);
+
+	$: console.log(isNip07);
 
 	const publishPost = async () => {
 		if (!window.nostr) return;
@@ -31,19 +36,19 @@
 
 		const result = await publish(event);
 		if (result.status === 'ok') {
-			status = 'ok';
+			console.info('Post: Published');
 		} else {
-			status = `fail:${result.reason}`;
+			console.error(`Post: fail-${result.reason}`);
 		}
 	};
 </script>
 
-{#if isNip07}
-	<input type="text" placeholder="なにしてる？" bind:value={content} />
-	<button on:click={publishPost} disabled={!content}>送信</button>
-	{#if status}
-		<p>{status}</p>
+<input type="text" placeholder="なにしてる？" bind:value={content} />
+{#key isPublish}
+	<button on:click={publishPost} disabled={isPublish}>送信</button>
+{/key}
+{#key isNip07}
+	{#if isNip07 === false}
+		<p>※:投稿するにはnip-07に対応した拡張機能が必要です</p>
 	{/if}
-{:else}
-	nip-07に対応した拡張機能が必要です
-{/if}
+{/key}
