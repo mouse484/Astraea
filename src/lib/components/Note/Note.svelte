@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { notes } from '$lib/data/notes';
 	import { get } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
 	import Profile from '../Profile.svelte';
@@ -6,13 +7,30 @@
 
 	export let note: Event;
 	export let isReplay = false;
+
+	const getNote = async (id: string) => {
+		return new Promise(async (resolve, reject) => {
+			const note = $notes.get(id);
+			if (note) {
+				resolve(note);
+			} else {
+				const event = await get({ kinds: [1], ids: [id] });
+				if (event) {
+					notes.update((updater) => updater.set(id, event));
+					resolve(event);
+				} else {
+					reject();
+				}
+			}
+		});
+	};
 </script>
 
 {#if !isReplay}
 	{#each note.tags as tag}
 		{@const [type, id, , marker] = tag}
 		{#if type === 'e' && (!marker || marker === 'reply')}
-			{#await get({ kinds: [1], ids: [id] }) then event}
+			{#await getNote(id) then event}
 				<svelte:self note={event} isReplay={true} />
 			{/await}
 		{/if}
