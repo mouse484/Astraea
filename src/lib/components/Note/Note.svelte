@@ -46,7 +46,7 @@
 		<Content rawContent={note.content} event={note} />
 	</div>
 	<div class="mt-4 flex justify-between">
-		<NoteFooter eventID={note.id} />
+		<NoteFooter event={note} />
 		{#if note.created_at}
 			<div class="text-sm text-slate-600">
 				{new Date(note.created_at * 1000).toLocaleString()}
