@@ -9,36 +9,9 @@
 
 	export let note: Event;
 	export let isReplay = false;
-
-	const getNote = async (id: string) => {
-		return new Promise(async (resolve, reject) => {
-			const note = $notes.get(id);
-			if (note) {
-				resolve(note);
-			} else {
-				const event = await get({ kinds: [1], ids: [id] });
-				if (event) {
-					notes.update((updater) => updater.set(id, event));
-					resolve(event);
-				} else {
-					reject();
-				}
-			}
-		});
-	};
 </script>
 
-{#if !isReplay}
-	{#each note.tags as tag}
-		{@const [type, id, , marker] = tag}
-		{#if type === 'e' && (!marker || marker === 'reply')}
-			{#await getNote(id) then event}
-				<svelte:self note={event} isReplay={true} />
-			{/await}
-		{/if}
-	{/each}
-{/if}
-<div class={`border p-4 rounded ${isReplay ? 'mb-0 border-b-0' : 'mb-4'}`}>
+<div class={`border p-4 rounded ${isReplay ? 'mt-0 border-t-0' : 'mt-4'}`}>
 	{#if note.pubkey}
 		<Profile npubHex={note.pubkey} />
 	{/if}
