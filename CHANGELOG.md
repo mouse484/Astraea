@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/mouse484/astraea/compare/v1.1.1...v1.2.0) (2023-03-12)
+
+
+### Bug Fixes
+
+* 投稿時にpubkeyを取得しないでいい ([4f65af3](https://github.com/mouse484/astraea/commit/4f65af385f30663aa8ab9b7af317a9cab48d2611))
+
+
+### Features
+
+* マウントされてから表示する ([293e3df](https://github.com/mouse484/astraea/commit/293e3df7112580ce88366f04d2ab1a35c80cc910))
+* ログアウト ([07a515a](https://github.com/mouse484/astraea/commit/07a515a9bdd1234d09d90b14babb9dc6cbb3661f))
+* ログイン後に遷移する必要がないので辞める ([a952e8f](https://github.com/mouse484/astraea/commit/a952e8fbb86a48f4414eb0458be5639902ccfb40))
+* ログイン機能 ([9214d89](https://github.com/mouse484/astraea/commit/9214d890d6fd0421f8475fe2abdc38d45d406a13))
+* 設定ページからpubkeyを変更する必要がなくなったので削除 ([be29b76](https://github.com/mouse484/astraea/commit/be29b760d64870ecd31639974ef6062be42a035a))
+
 ## [1.1.1](https://github.com/mouse484/astraea/compare/v1.1.0...v1.1.1) (2023-03-11)
 
 
