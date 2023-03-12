@@ -5,6 +5,8 @@
 	import Profile from '../Profile.svelte';
 	import Content from './Content.svelte';
 
+	import NoteFooter from './NoteFooter.svelte';
+
 	export let note: Event;
 	export let isReplay = false;
 
@@ -42,8 +44,11 @@
 	{/if}
 	<div class="mt-4">
 		<Content rawContent={note.content} event={note} />
+	</div>
+	<div class="mt-4 flex justify-between">
+		<NoteFooter eventID={note.id} />
 		{#if note.created_at}
-			<div class="text-sm text-slate-600 text-right">
+			<div class="text-sm text-slate-600">
 				{new Date(note.created_at * 1000).toLocaleString()}
 			</div>
 		{/if}

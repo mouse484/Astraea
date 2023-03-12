@@ -5,6 +5,8 @@
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
 	import Button from './elements/Button.svelte';
 
+	export let replyFor = '';
+
 	let content: string;
 	let isNip07: boolean;
 
@@ -29,7 +31,7 @@
 		const unsignedEvent: UnsignedEvent = {
 			kind: 1,
 			created_at: Math.floor(Date.now() / 1000),
-			tags: [],
+			tags: replyFor ? [['e', replyFor, '', 'reply']] : [],
 			content,
 			pubkey: $pubkey
 		};
