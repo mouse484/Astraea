@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Note from '$lib/components/Note/Note.svelte';
-	import { myNpubHex } from '$lib/data/const';
 	import { notes, notesUpdater } from '$lib/data/notes';
 	import { get, subscribe } from '$lib/utils/nostr';
 	import type { Event, Filter } from 'nostr-tools';
@@ -48,12 +47,12 @@
 		});
 	});
 
-	$: useNotes = [...$notes.entries()].sort(
-		([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1)
-	);
+	$: useNotes = [...$notes.entries()]
+		.filter(([, { root }]) => root?.pubkey && authors.includes(root.pubkey))
+		.sort(([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1));
 </script>
 
-{#each useNotes as [id, { updated, root, reply }] ([id])}
+{#each useNotes as [id, { root, reply }] ([id])}
 	{#if root}
 		<Note note={root} />
 	{:else}
