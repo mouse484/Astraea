@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/mouse484/astraea/compare/v1.2.0...v1.2.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* ctrl+enterで送信 ([f9d3918](https://github.com/mouse484/astraea/commit/f9d3918ec974d81d329b8b6a72b20ad5f1ec6906))
+
 # [1.2.0](https://github.com/mouse484/astraea/compare/v1.1.1...v1.2.0) (2023-03-12)
 
 
