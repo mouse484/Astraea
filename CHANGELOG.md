@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/mouse484/astraea/compare/v1.2.1...v1.3.0) (2023-03-12)
+
+
+### Features
+
+* ボタンコンポーネントを作成 ([26bae31](https://github.com/mouse484/astraea/commit/26bae31b3bd0dc56195dd841e5caee687930cb75))
+* ボタンコンポーネントを適応 ([7892d83](https://github.com/mouse484/astraea/commit/7892d839e05f7882bdc715d0b29c9f5703a156f8))
+
 ## [1.2.1](https://github.com/mouse484/astraea/compare/v1.2.0...v1.2.1) (2023-03-12)
 
 
