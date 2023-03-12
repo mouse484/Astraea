@@ -4,6 +4,12 @@ import { defaultRelays } from './const';
 
 // hex key
 export const pubkey = writable<string>();
+
+export const pubkeyClear = () => {
+	pubkey.set('');
+	localStorage.removeItem('pubkey');
+};
+
 // relays
 export const relays = writable(defaultRelays);
 

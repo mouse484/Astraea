@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { pubkey, relays } from '$lib/data/setting';
+	import { goto } from '$app/navigation';
+	import { pubkey, pubkeyClear, relays } from '$lib/data/setting';
+
+	const logout = () => {
+		pubkeyClear();
+		goto('/');
+	};
 </script>
 
 <div>
@@ -10,3 +16,8 @@
 {#each $relays as relay}
 	<p>{relay}</p>
 {/each}
+
+<div>
+	<h3 class="text-2xl mt-4">LogOut</h3>
+	<button on:click={logout}>Logout</button>
+</div>
