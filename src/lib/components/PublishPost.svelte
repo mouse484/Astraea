@@ -3,7 +3,10 @@
 	import { pubkey } from '$lib/data/setting';
 	import { publish } from '$lib/utils/nostr';
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
+	import { createEventDispatcher } from 'svelte';
 	import Button from './elements/Button.svelte';
+
+	const dispatch = createEventDispatcher<{ status: boolean }>();
 
 	export let replyFor = '';
 
@@ -46,8 +49,10 @@
 		if (result.status === 'ok') {
 			console.info('Post: Published');
 			content = '';
+			dispatch('status', true);
 		} else {
 			console.error(`Post: fail-${result.reason}`);
+			dispatch('status', false);
 		}
 	};
 </script>

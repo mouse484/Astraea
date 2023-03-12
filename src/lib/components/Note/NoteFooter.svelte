@@ -52,7 +52,14 @@
 	</div>
 	{#if isReplayOpen}
 		<div class="mt-4">
-			<PublishPost replyFor={event.id} />
+			<PublishPost
+				replyFor={event.id}
+				on:status={(status) => {
+					if (status.detail) {
+						isReplayOpen = false;
+					}
+				}}
+			/>
 		</div>
 	{/if}
 </div>
