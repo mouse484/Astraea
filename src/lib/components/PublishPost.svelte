@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { pubkey } from '$lib/data/setting';
 	import { publish } from '$lib/utils/nostr';
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
 
@@ -23,7 +24,7 @@
 			created_at: Math.floor(Date.now() / 1000),
 			tags: [],
 			content,
-			pubkey: await window.nostr.getPublicKey()
+			pubkey: $pubkey
 		};
 
 		// ホントは型違う
