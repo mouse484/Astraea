@@ -33,7 +33,9 @@
 	<div>
 		{#if detail}
 			{#if profile?.banner}
-				<img class="mb-4 w-full h-72" src={profile.banner} alt="" />
+				<div class="mb-12 max-h-[30vh] overflow-clip flex items-center">
+					<img class="object-cover w-full" src={profile.banner} alt="" />
+				</div>
 			{/if}
 		{/if}
 		<a class="flex text-inherit visited:text-inherit w-fit" href={to}>
@@ -69,7 +71,7 @@
 				<div class="mt-4 break-words">{profile?.about || ''}</div>
 				{#if profile?.website}
 					<a
-						class="mt-2"
+						class="mt-2 break-words"
 						href={profile.website}
 						target="_blank"
 						rel="noopener noreferrer"
