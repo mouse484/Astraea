@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Button from '$lib/components/elements/Button.svelte';
 	import { pubkey, pubkeyClear, relays } from '$lib/data/setting';
 
 	const logout = () => {
@@ -18,6 +19,8 @@
 {/each}
 
 <div>
-	<h3 class="text-2xl mt-4">LogOut</h3>
-	<button on:click={logout}>Logout</button>
+	<h3 class="text-2xl mt-4">ログアウト</h3>
+	<div class="mt-4">
+		<Button on:click={logout}>Logout</Button>
+	</div>
 </div>

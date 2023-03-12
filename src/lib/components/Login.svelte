@@ -2,6 +2,8 @@
 	import { browser } from '$app/environment';
 	import { pubkey } from '$lib/data/setting';
 	import { nip19 } from 'nostr-tools';
+	import Button from './elements/Button.svelte';
+	import Buttom from './elements/Button.svelte';
 	let inputPubkey: string;
 	let pubkeyInfo: string;
 
@@ -43,25 +45,12 @@
 		bind:value={inputPubkey}
 		placeholder="npub key"
 	/>
-	<button
-		class="p-2 bg-blue-400 rounded border disabled:bg-slate-300"
-		on:click={() => savePubkey()}
-		disabled={!inputPubkey}
-	>
-		Login
-	</button>
-
+	<Button on:click={savePubkey} disabled={!inputPubkey}>Login</Button>
 	{#key pubkeyInfo}
 		{#if pubkeyInfo}
 			<p>{pubkeyInfo}</p>
 		{/if}
 	{/key}
 	<p class="text-center">or</p>
-	<button
-		class="p-2 bg-blue-400 rounded border disabled:bg-slate-300"
-		disabled={!isNip07}
-		on:click={nip07Login}
-	>
-		nip-07拡張機能
-	</button>
+	<Button disabled={!isNip07} on:click={nip07Login}>nip-07拡張機能</Button>
 </div>

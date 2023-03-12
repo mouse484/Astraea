@@ -3,6 +3,7 @@
 	import { pubkey } from '$lib/data/setting';
 	import { publish } from '$lib/utils/nostr';
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
+	import Button from './elements/Button.svelte';
 
 	let content: string;
 	let isNip07: boolean;
@@ -57,11 +58,9 @@
 			on:keydown={keydown}
 		/>
 		{#key isPublish}
-			<button
-				class="absolute right-0 bottom-0 p-2 m-4 bg-blue-400 rounded border disabled:bg-slate-300"
-				on:click={publishPost}
-				disabled={isPublish}>送信する</button
-			>
+			<div class="absolute right-0 bottom-0 m-4">
+				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
+			</div>
 		{/key}
 	</div>
 	{#key isNip07}
