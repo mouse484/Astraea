@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/mouse484/astraea/compare/v1.5.0...v1.5.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* 返信した後に入力欄隠す ([9f34a61](https://github.com/mouse484/astraea/commit/9f34a61df3d1513e489b8edca2323e3e2ad44aa6))
+
 # [1.5.0](https://github.com/mouse484/astraea/compare/v1.4.0...v1.5.0) (2023-03-12)
 
 
