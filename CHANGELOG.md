@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/mouse484/astraea/compare/v1.5.1...v1.5.2) (2023-03-12)
+
+
+### Bug Fixes
+
+* プロフィールのバナー画像のサイズを修正 ([04d80f6](https://github.com/mouse484/astraea/commit/04d80f6d2a1d7b5b97d8c935a427eef372251b81))
+
 ## [1.5.1](https://github.com/mouse484/astraea/compare/v1.5.0...v1.5.1) (2023-03-12)
 
 
