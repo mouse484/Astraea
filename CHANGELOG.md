@@ -1,3 +1,13 @@
+# [1.6.0](https://github.com/mouse484/astraea/compare/v1.5.2...v1.6.0) (2023-03-12)
+
+
+### Features
+
+* kind1 Event周りの改善 ([e87ae7a](https://github.com/mouse484/astraea/commit/e87ae7a89479a29ba4a686351defc42c82897852))
+* notesの更新をしやすく ([dc004ba](https://github.com/mouse484/astraea/commit/dc004bad31f9d8c39f2eac06b9253da2f0fabfe6))
+* リプ元が表示できないときにidを表示（仮） ([c5e3ed7](https://github.com/mouse484/astraea/commit/c5e3ed7f237dd00ef4e898a43d9f8bb030be47cb))
+* 指定されたauthorの投稿のフィルターをしてから表示 ([6bec6c5](https://github.com/mouse484/astraea/commit/6bec6c5a41ea72c2385e783003f02ff6d6f62454))
+
 ## [1.5.2](https://github.com/mouse484/astraea/compare/v1.5.1...v1.5.2) (2023-03-12)
 
 
