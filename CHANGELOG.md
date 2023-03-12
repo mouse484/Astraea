@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/mouse484/astraea/compare/v1.4.0...v1.5.0) (2023-03-12)
+
+
+### Features
+
+* いいね機能 ([a917b6a](https://github.com/mouse484/astraea/commit/a917b6aa33a0cf3628ee69b10914fe570628d40a))
+
 # [1.4.0](https://github.com/mouse484/astraea/compare/v1.3.0...v1.4.0) (2023-03-12)
 
 
