@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { notes } from '$lib/data/notes';
-	import { get } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
 	import Profile from '../Profile.svelte';
 	import Content from './Content.svelte';
