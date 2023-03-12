@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { goto } from '$app/navigation';
 	import { pubkey } from '$lib/data/setting';
 	import { nip19 } from 'nostr-tools';
 	let inputPubkey: string;
@@ -22,7 +21,6 @@
 			if (decode.type === 'npub') {
 				// 後で直す
 				pubkey.set(decode.data as string);
-				goto('/');
 			}
 		} catch {
 			pubkeyInfo = 'pubkeyが間違っているか、問題が発生しました。';
@@ -33,7 +31,6 @@
 		if (!window.nostr) return;
 		const nip07key = await window.nostr.getPublicKey();
 		pubkey.set(nip07key);
-		goto('/');
 	};
 </script>
 
