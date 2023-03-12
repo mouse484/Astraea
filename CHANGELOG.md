@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/mouse484/astraea/compare/v1.3.0...v1.4.0) (2023-03-12)
+
+
+### Features
+
+* 返信機能 ([ca6ccd0](https://github.com/mouse484/astraea/commit/ca6ccd0e98482c67aab9389a20e03e6e2328f417))
+
 # [1.3.0](https://github.com/mouse484/astraea/compare/v1.2.1...v1.3.0) (2023-03-12)
 
 
