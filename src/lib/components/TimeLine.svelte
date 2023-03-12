@@ -61,8 +61,8 @@
 			<p>Loading...</p>
 		{:then event}
 			<Note note={event} />
-		{:catch error}
-			{error}
+		{:catch}
+			<p>note:{id}</p>
 		{/await}
 	{/if}
 	{#if reply}
