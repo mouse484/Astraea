@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { Event } from 'nostr-tools';
 	import Profile from '../Profile.svelte';
 	import Content from './Content.svelte';
@@ -7,9 +8,20 @@
 
 	export let note: Event;
 	export let isReplay = false;
+
+	const noteClick = () => {
+		const selection = window.getSelection()?.toString();
+		if (!selection) {
+			goto(`/note/${note.id}`);
+		}
+	};
 </script>
 
-<div class={`border p-4 rounded ${isReplay ? 'mt-0 border-t-0' : 'mt-4'}`}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+	class={`border p-4 rounded ${isReplay ? 'mt-0 border-t-0' : 'mt-4'}`}
+	on:click={noteClick}
+>
 	{#if note.pubkey}
 		<Profile npubHex={note.pubkey} />
 	{/if}
