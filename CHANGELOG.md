@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/mouse484/astraea/compare/v1.6.0...v1.6.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* リプライにフィルターのpubkeyが含まれている場合も表示する ([e0d57c3](https://github.com/mouse484/astraea/commit/e0d57c3d36bbfb6a52a1966d6188ec3002dc9c72))
+
 # [1.6.0](https://github.com/mouse484/astraea/compare/v1.5.2...v1.6.0) (2023-03-12)
 
 
