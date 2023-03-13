@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/mouse484/astraea/compare/v1.7.0...v1.8.0) (2023-03-13)
+
+
+### Bug Fixes
+
+* homeのデザインを調整 ([86f329f](https://github.com/mouse484/astraea/commit/86f329f6cb706ee0bee833f9ec57495eeb6ff516))
+
+
+### Features
+
+* タイムラインをリレーからeoseが帰ってから表示する ([29f74b2](https://github.com/mouse484/astraea/commit/29f74b253e7edc737ca74bef74b65b7f405bb82f))
+
 # [1.7.0](https://github.com/mouse484/astraea/compare/v1.6.1...v1.7.0) (2023-03-13)
 
 
