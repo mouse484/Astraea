@@ -42,7 +42,7 @@
 	let next = new Map<number, [number | undefined, string, string]>();
 
 	const linkStart = (tokenIndex: number, childIndex: number, href: string) => {
-		const isImage = href?.match(/(jpe?g|png|gif|webp)$/);
+		const isImage = href?.match(/\.(jpe?g|png|gif|webp)(\??.*)$/);
 		next.set(tokenIndex, [(childIndex += 1), isImage ? 'img' : 'a', href]);
 		return '';
 	};
