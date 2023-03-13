@@ -48,7 +48,13 @@
 	});
 
 	$: useNotes = [...$notes.entries()]
-		.filter(([, { root }]) => root?.pubkey && authors.includes(root.pubkey))
+		.filter(
+			([, { root, reply }]) =>
+				(root?.pubkey && authors.includes(root.pubkey)) ||
+				[...(reply?.values() || [])].find((value) =>
+					authors.includes(value.pubkey)
+				)
+		)
 		.sort(([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1));
 </script>
 
