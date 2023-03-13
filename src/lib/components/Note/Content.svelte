@@ -89,7 +89,7 @@
 									</div>
 								{/if}
 							{:else if content}
-								<span class="inline-block overflow-hidden">{content}</span>
+								<span>{content}</span>
 							{/if}
 						{:else if child.tag === 'br'}
 							<br />
