@@ -85,7 +85,7 @@
 		{/if}
 	{/each}
 {:else}
-	<div class="flex flex-col items-center w-max">
+	<div class="flex flex-col items-center w-full">
 		<Icon icon={'mdi:loading'} width={32} class="animate-spin" />
 		<p class="mt-8">Loading Notes...</p>
 	</div>

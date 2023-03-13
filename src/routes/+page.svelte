@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="mt-8 md:justify-between md:flex md:gap-8">
-		<div>
+		<div class="md:flex-grow">
 			{#await getContracts()}
 				<p>Loading...</p>
 			{:then contacts}
