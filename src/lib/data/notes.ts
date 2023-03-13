@@ -1,5 +1,24 @@
+import { get } from '$lib/utils/nostr';
 import type { Event } from 'nostr-tools';
-import { writable } from 'svelte/store';
+import { writable, get as getStore } from 'svelte/store';
+
+export const getNote = async (id: string) => {
+	// eslint-disable-next-line no-async-promise-executor
+	return new Promise<Event>(async (resolve, reject) => {
+		const note = getStore(notes).get(id);
+		if (note?.root) {
+			resolve(note.root);
+		} else {
+			const event = await get({ kinds: [1], ids: [id] });
+			if (event) {
+				notesUpdater(event.id, event, 'root');
+				resolve(event);
+			} else {
+				reject();
+			}
+		}
+	});
+};
 
 export const notesUpdater = (
 	id: string,
