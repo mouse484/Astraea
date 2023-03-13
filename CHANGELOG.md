@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/mouse484/astraea/compare/v1.8.0...v1.8.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* semantic-releaseおかしい ([0d8ac19](https://github.com/mouse484/astraea/commit/0d8ac192f8ff4d4126f38666de73a9f1526f87bd))
+
 # [1.8.0](https://github.com/mouse484/astraea/compare/v1.7.0...v1.8.0) (2023-03-13)
 
 
