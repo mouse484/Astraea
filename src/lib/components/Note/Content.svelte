@@ -74,7 +74,12 @@
 										{/await}
 									{/if}
 								{:else if tag === 'a'}
-									<a class="text-blue-600 visited:text-purple-600" {href}>
+									<a
+										class="text-blue-600 visited:text-purple-600"
+										{href}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										{content}
 									</a>
 								{:else if tag === 'img'}
