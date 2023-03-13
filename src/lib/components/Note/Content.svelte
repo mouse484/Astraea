@@ -48,7 +48,7 @@
 	};
 </script>
 
-<div class="break-words">
+<div class="break-words inline-block overflow-hidden">
 	{#each parsed as token, tokenIndex}
 		{#if token.type === 'inline'}
 			{#if token.children}
@@ -89,7 +89,7 @@
 									</div>
 								{/if}
 							{:else if content}
-								<span>{content}</span>
+								<span class="inline-block overflow-hidden">{content}</span>
 							{/if}
 						{:else if child.tag === 'br'}
 							<br />
