@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/elements/Button.svelte';
+	import RelayInfo from '$lib/components/RelayInfo.svelte';
 	import { pubkey, pubkeyClear, relays } from '$lib/data/setting';
 
 	const logout = () => {
@@ -16,6 +17,7 @@
 <h3 class="mt-8">Relays</h3>
 {#each $relays as relay}
 	<p>{relay}</p>
+	<RelayInfo relayUrl={relay} />
 {/each}
 
 <div>
