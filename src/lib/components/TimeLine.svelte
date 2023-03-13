@@ -2,11 +2,14 @@
 	import Note from '$lib/components/Note/Note.svelte';
 	import { notes, notesUpdater } from '$lib/data/notes';
 	import { get, subscribe } from '$lib/utils/nostr';
+	import Icon from '@iconify/svelte';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onMount } from 'svelte';
 
 	export let authors: string[];
 	export let filter: Omit<Filter, 'kinds' | 'authors'> = {};
+
+	let isEose = false;
 
 	const getNote = async (id: string) => {
 		return new Promise<Event>(async (resolve, reject) => {
@@ -45,6 +48,10 @@
 			}
 			return notesUpdater(event.id, event, 'root');
 		});
+
+		sub.on('eose', () => {
+			isEose = true;
+		});
 	});
 
 	$: useNotes = [...$notes.entries()]
@@ -58,21 +65,28 @@
 		.sort(([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1));
 </script>
 
-{#each useNotes as [id, { root, reply }] ([id])}
-	{#if root}
-		<Note note={root} />
-	{:else}
-		{#await getNote(id)}
-			<p>Loading...</p>
-		{:then event}
-			<Note note={event} />
-		{:catch}
-			<p>note:{id}</p>
-		{/await}
-	{/if}
-	{#if reply}
-		{#each [...reply.values()] as event}
-			<Note note={event} isReplay={true} />
-		{/each}
-	{/if}
-{/each}
+{#if isEose}
+	{#each useNotes as [id, { root, reply }] ([id])}
+		{#if root}
+			<Note note={root} />
+		{:else}
+			{#await getNote(id)}
+				<p>Loading...</p>
+			{:then event}
+				<Note note={event} />
+			{:catch}
+				<p>note:{id}</p>
+			{/await}
+		{/if}
+		{#if reply}
+			{#each [...reply.values()] as event}
+				<Note note={event} isReplay={true} />
+			{/each}
+		{/if}
+	{/each}
+{:else}
+	<div class="flex flex-col items-center w-max">
+		<Icon icon={'mdi:loading'} width={32} class="animate-spin" />
+		<p class="mt-8">Loading Notes...</p>
+	</div>
+{/if}
