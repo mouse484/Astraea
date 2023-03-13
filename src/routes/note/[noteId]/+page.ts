@@ -10,7 +10,7 @@ export const load = (({ params }) => {
 		if (result && result.type === 'note')
 			return { noteId: result.data as string };
 	} catch {
-		const tryEncode = nip19.npubEncode(params.noteId);
+		const tryEncode = nip19.noteEncode(params.noteId);
 		if (tryEncode) throw redirect(302, `/note/${tryEncode}`);
 	}
 	throw redirect(302, '/');
