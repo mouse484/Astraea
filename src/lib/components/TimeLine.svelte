@@ -1,32 +1,16 @@
 <script lang="ts">
 	import Note from '$lib/components/Note/Note.svelte';
-	import { notes, notesUpdater } from '$lib/data/notes';
-	import { get, subscribe } from '$lib/utils/nostr';
+	import { getNote, notes, notesUpdater } from '$lib/data/notes';
+	import { subscribe } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onMount } from 'svelte';
+	import NoteAndReplay from './Note/NoteAndReplay.svelte';
 
 	export let authors: string[];
 	export let filter: Omit<Filter, 'kinds' | 'authors'> = {};
 
 	let isEose = false;
-
-	const getNote = async (id: string) => {
-		return new Promise<Event>(async (resolve, reject) => {
-			const note = $notes.get(id);
-			if (note?.root) {
-				resolve(note.root);
-			} else {
-				const event = await get({ kinds: [1], ids: [id] });
-				if (event) {
-					notesUpdater(event.id, event, 'root');
-					resolve(event);
-				} else {
-					reject();
-				}
-			}
-		});
-	};
 
 	onMount(async () => {
 		const sub = subscribe({
@@ -67,22 +51,7 @@
 
 {#if isEose}
 	{#each useNotes as [id, { root, reply }] ([id])}
-		{#if root}
-			<Note note={root} />
-		{:else}
-			{#await getNote(id)}
-				<p>Loading...</p>
-			{:then event}
-				<Note note={event} />
-			{:catch}
-				<p>note:{id}</p>
-			{/await}
-		{/if}
-		{#if reply}
-			{#each [...reply.values()] as event}
-				<Note note={event} isReplay={true} />
-			{/each}
-		{/if}
+		<NoteAndReplay {id} {root} reply={reply && [...reply.values()]} />
 	{/each}
 {:else}
 	<div class="flex flex-col items-center w-full">
