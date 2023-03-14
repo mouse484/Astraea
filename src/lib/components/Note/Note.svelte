@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Event } from 'nostr-tools';
-	import Profile from '../Profile.svelte';
+	import Profile from '../Profile/Profile.svelte';
 	import Content from './Content.svelte';
 
 	import NoteFooter from './NoteFooter.svelte';

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { pubkey } from '$lib/data/setting';
-	import Profile from './Profile.svelte';
+	import Profile from './Profile/Profile.svelte';
 	const version = APP_VERSION;
 </script>
 
