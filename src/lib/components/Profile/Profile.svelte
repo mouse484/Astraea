@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { profiles, type ProfileData } from '$lib/data/profiles';
 	import { get } from '$lib/utils/nostr';
-	import Icon from '@iconify/svelte';
 	import { onMount } from 'svelte';
-	import CopyButton from '../CopyButton.svelte';
 	import ProfileMenu from './ProfileMenu.svelte';
 
 	export let npubHex: string;
@@ -12,7 +10,6 @@
 	export let to = `/profile/${npubHex}`;
 
 	let profile: ProfileData | undefined = { name: 'loading' };
-	let isMenuOpen = false;
 
 	onMount(async () => {
 		const p = $profiles.get(npubHex);
@@ -72,7 +69,7 @@
 				{/if}
 			</a>
 			{#if detail}
-				<ProfileMenu />
+				<ProfileMenu {npubHex} />
 			{/if}
 		</div>
 
