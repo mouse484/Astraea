@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/mouse484/astraea/compare/v1.8.1...v1.9.0) (2023-03-14)
+
+
+### Features
+
+* npubとhexのコピー機能 ([58acd6c](https://github.com/mouse484/astraea/commit/58acd6c7df33dd2284ddd52b73b1aacde2477967)), closes [#164](https://github.com/mouse484/astraea/issues/164)
+* コピーした情報を見えるように ([d7f9e14](https://github.com/mouse484/astraea/commit/d7f9e145014efa12d7e0ed8784b13a48df0db957))
+* プロフィールにメニューを作成 ([2927be6](https://github.com/mouse484/astraea/commit/2927be68b0e71b97d176c7aae6134188f8b726e6))
+
 ## [1.8.1](https://github.com/mouse484/astraea/compare/v1.8.0...v1.8.1) (2023-03-13)
 
 
