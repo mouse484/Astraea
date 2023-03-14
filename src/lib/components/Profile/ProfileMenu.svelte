@@ -16,7 +16,7 @@
 	</button>
 	{#if isMenuOpen}
 		<div
-			class="flex absolute right-0 z-50 flex-col p-2 w-max rounded border bg-inherit"
+			class="flex absolute right-0 z-50 flex-col gap-2 p-4 mt-4 w-max bg-white rounded border"
 		>
 			<CopyButton content={npubHex}>ユーザーIDをコピー(pubkey)</CopyButton>
 			<CopyButton content={npub}>ユーザーIDをコピー(hex)</CopyButton>
