@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Profile from '$lib/components/Profile.svelte';
+	import Profile from '$lib/components/Profile/Profile.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import type { PageData } from './$types';
 
