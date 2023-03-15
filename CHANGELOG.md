@@ -1,3 +1,20 @@
+# [1.10.0](https://github.com/mouse484/astraea/compare/v1.9.1...v1.10.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* 通知欄の優先順位をプロフィールメニューより上にする ([0f7483c](https://github.com/mouse484/astraea/commit/0f7483c36da63de314ec9e8441615b7260c6b517))
+
+
+### Features
+
+* いいねされた通知ページを作成 ([b175f37](https://github.com/mouse484/astraea/commit/b175f37255035920ef7770c1881acb5e0472876c))
+* ページ遷移したら通知欄を閉じる ([f02d987](https://github.com/mouse484/astraea/commit/f02d9876ddebe5ce3bf3abc48d0a99a24515b288))
+* ヘッダーに通知ボタンを作成 ([cfe5dd2](https://github.com/mouse484/astraea/commit/cfe5dd2e47e53ea3e1894ea9960ea549b1b774a2))
+* 通知のデザインを調整 ([6d5f308](https://github.com/mouse484/astraea/commit/6d5f3089fef08770181173d83a6b69dcb88af744))
+* 通知の読み込み画面を実装 ([53fa537](https://github.com/mouse484/astraea/commit/53fa537f37f7ea68754d240d4b414e80698794f0))
+* 通知ページをコンポーネント化 ([84da8e6](https://github.com/mouse484/astraea/commit/84da8e6d4e56dbcd5ff40fb63c7389d55728e871))
+
 ## [1.9.1](https://github.com/mouse484/astraea/compare/v1.9.0...v1.9.1) (2023-03-14)
 
 
