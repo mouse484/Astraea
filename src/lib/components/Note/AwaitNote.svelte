@@ -36,9 +36,11 @@
 {:then event}
 	{#if event}
 		<Note note={event} />
+	{:else}
+		<div class="border p-2 w-full mt-4 rounded">
+			<a class="text-blue-600 visited:text-purple-600 " href="/note/{id}">
+				note:{id.substring(0, 8)}..
+			</a>
+		</div>
 	{/if}
-{:catch}
-	<a class="text-blue-600 visited:text-purple-600" href="/note/{id}">
-		note:{id.substring(0, 8)}..
-	</a>
 {/await}
