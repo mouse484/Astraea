@@ -29,23 +29,27 @@
 	});
 </script>
 
-<h2>通知</h2>
-<div class="flex flex-col">
+<h2 class="text-2xl">通知</h2>
+<div class="flex flex-col mt-8">
 	{#each [...$items.entries()] as [id, item]}
-		<div class="flex">
-			{#each [...item.values()] as [pubkey, content]}
-				<div class="flex">
-					<Profile npubHex={pubkey} imageOnly={true} />
-					<p>
-						{#if content === '+'}
-							<Icon icon="mdi:cards-heart" color={'red'} />
-						{:else}
-							{content}
-						{/if}
-					</p>
+		<div class="p-4 mt-4 border">
+			{#if item}
+				<div class="flex gap-4">
+					{#each [...item.values()] as [pubkey, content]}
+						<div class="flex gap-2 items-center">
+							<Profile npubHex={pubkey} imageOnly={true} />
+							<div class="text-3xl">
+								{#if content === '+'}
+									<Icon icon="mdi:cards-heart" color={'red'} />
+								{:else}
+									{content}
+								{/if}
+							</div>
+						</div>
+					{/each}
 				</div>
-			{/each}
+			{/if}
+			<AwaitNote {id} />
 		</div>
-		<AwaitNote {id} />
 	{/each}
 </div>
