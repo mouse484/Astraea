@@ -7,6 +7,7 @@
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+	import Loading from '../elements/Loading.svelte';
 
 	// Map<通知先id, Map<id,[pubkey,content(emoji)]>>
 	const items = writable(new Map<string, Map<string, [string, string]>>());
@@ -51,5 +52,7 @@
 			{/if}
 			<AwaitNote {id} />
 		</div>
+	{:else}
+		<Loading>Notifications</Loading>
 	{/each}
 </div>
