@@ -6,7 +6,7 @@ export const pool = new SimplePool({ getTimeout: 8000 });
 
 export const subscribeEvents = (filter: Filter) => {
 	let sub: Sub;
-	sub = pool.sub(getStore(relays), [filter]);
+	sub = pool.sub(getStore(relays), [{ limit: 30, ...filter }]);
 	sub.on('eose', () => {
 		sub.unsub();
 		sub = pool.sub(getStore(relays), [
@@ -16,9 +16,15 @@ export const subscribeEvents = (filter: Filter) => {
 	return sub;
 };
 
-export const getEvent = (filter: Filter) => {
-	return pool.get(getStore(relays), filter);
-};
+export const getEvent = (filter: Filter) =>
+	new Promise<Event>((resolve) => {
+		const sub = pool.sub(getStore(relays), [{ ...filter, limit: 1 }]);
+		sub.on('event', (event: Event) => {
+			sub.unsub();
+			resolve(event);
+		});
+	});
+// return pool.get(getStore(relays), { ...filter, limit: 1 });
 
 export const publish = async (
 	event: Event
