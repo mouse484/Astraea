@@ -5,15 +5,7 @@ import { get as getStore } from 'svelte/store';
 export const pool = new SimplePool({ getTimeout: 8000 });
 
 export const subscribeEvents = (filter: Filter) => {
-	let sub: Sub;
-	sub = pool.sub(getStore(relays), [{ limit: 30, ...filter }]);
-	sub.on('eose', () => {
-		sub.unsub();
-		sub = pool.sub(getStore(relays), [
-			{ ...filter, since: Math.floor(Date.now() / 1000) }
-		]);
-	});
-	return sub;
+	return pool.sub(getStore(relays), [{ limit: 30, ...filter }]);
 };
 
 export const getEvent = (filter: Filter) =>

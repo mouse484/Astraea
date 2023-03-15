@@ -33,7 +33,7 @@
 				<p>Loading...</p>
 			{:then contacts}
 				{#if contacts}
-					<TimeLine authors={contacts} filter={{ limit: 20 }} />
+					<TimeLine authors={contacts} />
 				{/if}
 			{/await}
 		</div>
