@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import { pubkey } from '$lib/data/setting';
+	import NotificationHeader from './Notifications/NotificationHeader.svelte';
 	import Profile from './Profile/Profile.svelte';
 	const version = APP_VERSION;
 </script>
@@ -18,7 +19,8 @@
 		{/if}
 	</div>
 
-	<div class="flex h-12">
+	<div class="flex gap-4 items-center h-12 text-2xl">
+		<NotificationHeader />
 		{#key $pubkey}
 			<Profile npubHex={$pubkey} imageOnly={true} to={'/setting'} />
 		{/key}
