@@ -1,3 +1,10 @@
+## [1.11.5](https://github.com/mouse484/astraea/compare/v1.11.4...v1.11.5) (2023-03-15)
+
+
+### Bug Fixes
+
+* eventが取得できなかったときの表示方法を変更 ([e2ec853](https://github.com/mouse484/astraea/commit/e2ec8536488b125bd9723e44a4f90336fea9f532))
+
 ## [1.11.4](https://github.com/mouse484/astraea/compare/v1.11.3...v1.11.4) (2023-03-15)
 
 
