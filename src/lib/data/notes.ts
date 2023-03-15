@@ -1,4 +1,4 @@
-import { get } from '$lib/utils/nostr';
+import { getEvent } from '$lib/utils/nostr';
 import type { Event } from 'nostr-tools';
 import { writable, get as getStore } from 'svelte/store';
 
@@ -9,7 +9,7 @@ export const getNote = async (id: string) => {
 		if (note?.root) {
 			resolve(note.root);
 		} else {
-			const event = await get({ kinds: [1], ids: [id] });
+			const event = await getEvent({ kinds: [1], ids: [id] });
 			if (event) {
 				notesUpdater(event.id, event, 'root');
 				resolve(event);

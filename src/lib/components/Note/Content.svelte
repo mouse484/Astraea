@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { profiles } from '$lib/data/profiles';
-	import { get } from '$lib/utils/nostr';
+	import { getEvent } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
 	import Token from 'markdown-it/lib/token';
@@ -61,7 +61,7 @@
 								<!-- Link content -->
 								{#if child.content === 'note'}
 									{#if href}
-										{#await get({ kinds: [1], ids: [href] })}
+										{#await getEvent({ kinds: [1], ids: [href] })}
 											<span>note:{href.substring(0, 8)}...</span>
 										{:then event}
 											{#if event}

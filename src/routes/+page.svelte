@@ -4,11 +4,11 @@
 	import Trend from '$lib/components/Trend.svelte';
 	import { contacts } from '$lib/data/contacts';
 	import { pubkey } from '$lib/data/setting';
-	import { get } from '$lib/utils/nostr';
+	import { getEvent } from '$lib/utils/nostr';
 
 	const getContracts = async () => {
 		if ($contacts.size) return [...$contacts];
-		const contactsEvent = await get({ kinds: [3], authors: [$pubkey] });
+		const contactsEvent = await getEvent({ kinds: [3], authors: [$pubkey] });
 		if (!contactsEvent) return;
 		const tags = contactsEvent.tags as [string, string][];
 		contacts.set(
