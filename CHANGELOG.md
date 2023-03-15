@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/mouse484/astraea/compare/v1.11.0...v1.11.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* 挙動がおかしいのでsubscribeEventsは元に戻す ([4596f4d](https://github.com/mouse484/astraea/commit/4596f4df176c6189182c16afc3aae2467dee13cc))
+
 # [1.11.0](https://github.com/mouse484/astraea/compare/v1.10.0...v1.11.0) (2023-03-15)
 
 
