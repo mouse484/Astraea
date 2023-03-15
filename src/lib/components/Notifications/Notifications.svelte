@@ -35,7 +35,7 @@
 	{#each [...$items.entries()] as [id, item]}
 		<div class="p-4 mt-4 border">
 			{#if item}
-				<div class="flex gap-4">
+				<div class="flex flex-wrap gap-4">
 					{#each [...item.values()] as [pubkey, content]}
 						<div class="flex gap-2 items-center">
 							<Profile npubHex={pubkey} imageOnly={true} />
