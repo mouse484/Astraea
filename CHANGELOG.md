@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/mouse484/astraea/compare/v1.11.1...v1.11.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* プロフィールメニューのnpubとhexが逆になっていた ([2a077da](https://github.com/mouse484/astraea/commit/2a077da9e0f39aca9027dafb666db573c4dfbb87)), closes [#186](https://github.com/mouse484/astraea/issues/186)
+
 ## [1.11.1](https://github.com/mouse484/astraea/compare/v1.11.0...v1.11.1) (2023-03-15)
 
 
