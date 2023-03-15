@@ -1,3 +1,11 @@
+## [1.11.3](https://github.com/mouse484/astraea/compare/v1.11.2...v1.11.3) (2023-03-15)
+
+
+### Bug Fixes
+
+* リアクションの数が多いときに折り返すように ([09283cd](https://github.com/mouse484/astraea/commit/09283cd34050dc951b757077fbed1cbcf1c6ba65))
+* 文字が飛び出さないように ([b982b92](https://github.com/mouse484/astraea/commit/b982b92e2b05ced33b4782a3e574d896fde18cd5))
+
 ## [1.11.2](https://github.com/mouse484/astraea/compare/v1.11.1...v1.11.2) (2023-03-15)
 
 
