@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { notes, notesUpdater } from '$lib/data/notes';
-	import { subscribe } from '$lib/utils/nostr';
+	import { subscribeEvents } from '$lib/utils/nostr';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onMount } from 'svelte';
 	import Loading from './elements/Loading.svelte';
@@ -12,7 +12,7 @@
 	let isEose = false;
 
 	onMount(async () => {
-		const sub = subscribe({
+		const sub = subscribeEvents({
 			kinds: [1],
 			authors,
 			...filter

@@ -1,4 +1,4 @@
-import { get } from '$lib/utils/nostr';
+import { getEvent } from '$lib/utils/nostr';
 import { writable } from 'svelte/store';
 import { defaultRelays } from './const';
 
@@ -20,7 +20,7 @@ pubkey.subscribe((newKey) => {
 pubkey.subscribe(async (newKey) => {
 	if (import.meta.env.SSR) return;
 	if (!newKey) return;
-	const event = await get({ kinds: [3], authors: [newKey] });
+	const event = await getEvent({ kinds: [3], authors: [newKey] });
 	const parsed = JSON.parse(event?.content || '') as {
 		[key: string]: { read: boolean; write: boolean };
 	};

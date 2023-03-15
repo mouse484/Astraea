@@ -2,7 +2,7 @@
 	import AwaitNote from '$lib/components/Note/AwaitNote.svelte';
 	import Profile from '$lib/components/Profile/Profile.svelte';
 	import { pubkey } from '$lib/data/setting';
-	import { subscribe } from '$lib/utils/nostr';
+	import { subscribeEvents } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
@@ -13,7 +13,7 @@
 	const items = writable(new Map<string, Map<string, [string, string]>>());
 
 	onMount(() => {
-		const sub = subscribe({ kinds: [7], '#p': [$pubkey], limit: 20 });
+		const sub = subscribeEvents({ kinds: [7], '#p': [$pubkey], limit: 20 });
 
 		sub.on('event', (event: Event) => {
 			const noticeForEvent = event.tags.find(([type]) => type === 'e');

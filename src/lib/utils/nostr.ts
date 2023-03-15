@@ -1,17 +1,22 @@
 import { relays } from '$lib/data/setting';
-import { SimplePool, type Event, type Filter } from 'nostr-tools';
+import { SimplePool, type Event, type Filter, type Sub } from 'nostr-tools';
 import { get as getStore } from 'svelte/store';
 
-export const pool = new SimplePool();
+export const pool = new SimplePool({ getTimeout: 8000 });
 
-// 作り直す
-// https://github.com/mouse484/nostr-client/blob/old/src/lib/utils/relay.ts
-
-export const subscribe = (filter: Filter) => {
-	return pool.sub(getStore(relays), [filter]);
+export const subscribeEvents = (filter: Filter) => {
+	let sub: Sub;
+	sub = pool.sub(getStore(relays), [filter]);
+	sub.on('eose', () => {
+		sub.unsub();
+		sub = pool.sub(getStore(relays), [
+			{ ...filter, since: Math.floor(Date.now() / 1000) }
+		]);
+	});
+	return sub;
 };
 
-export const get = (filter: Filter) => {
+export const getEvent = (filter: Filter) => {
 	return pool.get(getStore(relays), filter);
 };
 
