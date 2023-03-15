@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/mouse484/astraea/compare/v1.11.3...v1.11.4) (2023-03-15)
+
+
+### Bug Fixes
+
+* url(a tag)が長い場合折り返す ([79005b8](https://github.com/mouse484/astraea/commit/79005b8abc9bd1a3a709ca478d97c01c68801c59)), closes [#191](https://github.com/mouse484/astraea/issues/191)
+
 ## [1.11.3](https://github.com/mouse484/astraea/compare/v1.11.2...v1.11.3) (2023-03-15)
 
 
