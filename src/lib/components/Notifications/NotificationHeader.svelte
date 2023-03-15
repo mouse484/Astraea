@@ -1,8 +1,13 @@
 <script lang="ts">
+	import { beforeNavigate } from '$app/navigation';
 	import Icon from '@iconify/svelte';
 	import Notifications from './Notifications.svelte';
 
 	let isNoticeOpen = false;
+
+	beforeNavigate(() => {
+		isNoticeOpen = false;
+	});
 </script>
 
 <div class="relative">
