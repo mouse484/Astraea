@@ -48,7 +48,7 @@
 	};
 </script>
 
-<div class="break-words inline-block overflow-hidden">
+<div class="overflow-hidden break-words break-all">
 	{#each parsed as token, tokenIndex}
 		{#if token.type === 'inline'}
 			{#if token.children}
