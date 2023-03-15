@@ -75,7 +75,7 @@
 									{/if}
 								{:else if tag === 'a'}
 									<a
-										class="text-blue-600 visited:text-purple-600"
+										class="text-blue-600 visited:text-purple-600 break-words"
 										{href}
 										target="_blank"
 										rel="noopener noreferrer"
