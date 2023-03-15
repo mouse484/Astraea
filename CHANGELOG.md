@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/mouse484/astraea/compare/v1.10.0...v1.11.0) (2023-03-15)
+
+
+### Features
+
+* イベントの取得方法を更新 ([36ecf68](https://github.com/mouse484/astraea/commit/36ecf68b5b11449d821652d630370699c11c89e7))
+* 通信数を減らすためにTL取得時に見つからなかったリプ周りのnoteの取得を改善 ([eb1ec56](https://github.com/mouse484/astraea/commit/eb1ec56e86101181b99d96506dd64e714004f0b5))
+
 # [1.10.0](https://github.com/mouse484/astraea/compare/v1.9.1...v1.10.0) (2023-03-15)
 
 
