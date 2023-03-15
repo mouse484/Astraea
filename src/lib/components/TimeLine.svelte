@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Note from '$lib/components/Note/Note.svelte';
-	import { getNote, notes, notesUpdater } from '$lib/data/notes';
+	import { notes, notesUpdater } from '$lib/data/notes';
 	import { subscribe } from '$lib/utils/nostr';
-	import Icon from '@iconify/svelte';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onMount } from 'svelte';
+	import Loading from './elements/Loading.svelte';
 	import NoteAndReplay from './Note/NoteAndReplay.svelte';
 
 	export let authors: string[];
@@ -54,8 +53,5 @@
 		<NoteAndReplay {id} {root} reply={reply && [...reply.values()]} />
 	{/each}
 {:else}
-	<div class="flex flex-col items-center w-full">
-		<Icon icon={'mdi:loading'} width={32} class="animate-spin" />
-		<p class="mt-8">Loading Notes...</p>
-	</div>
+	<Loading>Notes</Loading>
 {/if}
