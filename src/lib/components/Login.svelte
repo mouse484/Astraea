@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
+	import { myNpubHex } from '$lib/data/const';
 	import { pubkey } from '$lib/data/setting';
 	import { nip19 } from 'nostr-tools';
 	import Button from './elements/Button.svelte';
-	import Buttom from './elements/Button.svelte';
 	let inputPubkey: string;
 	let pubkeyInfo: string;
 
@@ -15,6 +15,10 @@
 		} else {
 			isNip07 = false;
 		}
+	}
+
+	if (dev) {
+		pubkey.set(myNpubHex);
 	}
 
 	const savePubkey = () => {
