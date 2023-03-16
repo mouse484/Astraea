@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/mouse484/astraea/compare/v1.13.1...v1.13.2) (2023-03-16)
+
+
+### Bug Fixes
+
+* とりあえず検索をkind1限定にする ([5544cf6](https://github.com/mouse484/astraea/commit/5544cf6fde690ec123fd2796f054b7ab745cf9dd))
+
 ## [1.13.1](https://github.com/mouse484/astraea/compare/v1.13.0...v1.13.1) (2023-03-16)
 
 
