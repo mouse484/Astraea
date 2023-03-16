@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import { writable } from 'svelte/store';
 	import Button from './elements/Button.svelte';
 
@@ -10,11 +11,13 @@
 		copied.set(true);
 	};
 
-	copied.subscribe((value) => {
+	const unsubscribe = copied.subscribe((value) => {
 		if (value) {
 			setTimeout(() => copied.set(false), 1000);
 		}
 	});
+
+	onDestroy(() => unsubscribe());
 </script>
 
 <Button on:click={onClick} disabled={$copied}>

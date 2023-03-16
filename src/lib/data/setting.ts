@@ -13,13 +13,10 @@ export const pubkeyClear = () => {
 // relays
 export const relays = writable(defaultRelays);
 
-pubkey.subscribe((newKey) => {
-	if (newKey) localStorage.setItem('pubkey', newKey);
-});
-
 pubkey.subscribe(async (newKey) => {
 	if (import.meta.env.SSR) return;
 	if (!newKey) return;
+	localStorage.setItem('pubkey', newKey);
 	const event = await getEvent({ kinds: [3], authors: [newKey] });
 	const parsed = JSON.parse(event?.content || '') as {
 		[key: string]: { read: boolean; write: boolean };
