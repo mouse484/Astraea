@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/mouse484/astraea/compare/v1.13.0...v1.13.1) (2023-03-16)
+
+
+### Bug Fixes
+
+* svelte storeをunsubscribeする ([dc88082](https://github.com/mouse484/astraea/commit/dc88082f6bab77d85563ab8db4e4657e767635ad))
+
 # [1.13.0](https://github.com/mouse484/astraea/compare/v1.12.1...v1.13.0) (2023-03-16)
 
 
