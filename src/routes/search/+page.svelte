@@ -8,6 +8,7 @@
 
 	let notes: Event[] = [];
 	let searchQuery: string;
+	let eose = false;
 
 	afterNavigate(() => {
 		searchQuery = $page.url.searchParams.get('q') || '';
@@ -18,6 +19,10 @@
 		]);
 		sub.on('event', (event: Event) => {
 			notes = [...notes, event];
+		});
+		sub.on('eose', () => {
+			eose = true;
+			sub.unsub();
 		});
 	});
 </script>
@@ -34,4 +39,11 @@
 			<Note {note} />
 		{/each}
 	{/key}
+	{#if eose}
+		{#if notes.length}
+			<p class="mt-8 text-right">{notes.length}</p>
+		{:else}
+			<p>見つかりませんでした</p>
+		{/if}
+	{/if}
 </section>
