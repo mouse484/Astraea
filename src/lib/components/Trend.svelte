@@ -28,7 +28,11 @@
 	<ul class="mt-4">
 		{#key trends}
 			{#each trends as trend}
-				<li class="p-2 my-2 rounded border md:w-60">{trend}</li>
+				<a href="/search?q={trend}">
+					<li class="p-2 my-2 rounded border md:w-60">
+						{trend}
+					</li>
+				</a>
 			{/each}
 		{/key}
 	</ul>
