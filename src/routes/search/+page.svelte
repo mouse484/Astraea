@@ -7,9 +7,10 @@
 	import type { Event, Filter } from 'nostr-tools';
 
 	let notes: Event[] = [];
+	let searchQuery: string;
 
 	afterNavigate(() => {
-		const searchQuery = $page.url.searchParams.get('q');
+		searchQuery = $page.url.searchParams.get('q') || '';
 		if (!searchQuery) return;
 		notes = [];
 		const sub = subscribeEvents({ search: searchQuery, limit: 20 } as Filter, [
@@ -24,7 +25,7 @@
 <h2 class="text-2xl">検索</h2>
 
 <div class="mt-8 flex w-full">
-	<Search />
+	<Search searchInput={searchQuery} />
 </div>
 
 <section class="mt-8">

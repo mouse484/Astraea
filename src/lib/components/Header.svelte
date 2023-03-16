@@ -4,7 +4,9 @@
 
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import Responsive from './elements/Responsive.svelte';
 	import NotificationHeader from './Notifications/NotificationHeader.svelte';
+	import Search from './Search.svelte';
 	const version = APP_VERSION;
 </script>
 
@@ -19,6 +21,9 @@
 	</div>
 
 	<div class="flex gap-4">
+		<Responsive breakpoint="md">
+			<Search />
+		</Responsive>
 		<NotificationHeader />
 		<a href="/setting">
 			<Icon icon={'mdi:cog'} class="text-3xl" />
