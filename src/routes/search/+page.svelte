@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { afterNavigate, goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import Button from '$lib/components/elements/Button.svelte';
 	import Note from '$lib/components/Note/Note.svelte';
+	import Search from '$lib/components/Search.svelte';
 	import { subscribeEvents } from '$lib/utils/nostr';
 	import type { Event, Filter } from 'nostr-tools';
 
-	let searchInput: string = '';
 	let notes: Event[] = [];
 
 	afterNavigate(() => {
@@ -24,10 +23,9 @@
 
 <h2 class="text-2xl">検索</h2>
 
-<form class="mt-8" action="/search">
-	<input class="p-2" type="text" name="q" value={searchInput} />
-	<Button type="submit">検索</Button>
-</form>
+<div class="mt-8 flex w-full">
+	<Search />
+</div>
 
 <section class="mt-8">
 	{#key notes}
