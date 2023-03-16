@@ -40,29 +40,6 @@
 		});
 	});
 
-	let reactSub: Sub | undefined = undefined;
-	const unsubscribe = notes.subscribe((n) => {
-		if (!isEose) return;
-		reactSub?.unsub();
-
-		reactSub = subscribeEvents({
-			kinds: [7],
-			'#e': [...n.keys()],
-			limit: 4000
-		});
-
-		reactSub.on('event', (event: Event) => {
-			const [, id] = event.tags.find(([type]) => type === 'e') || [];
-			if (!id) return;
-			notesUpdater(id, event, 'root', 'reaction');
-		});
-	});
-
-	onDestroy(() => {
-		unsubscribe();
-		reactSub?.unsub();
-	});
-
 	$: useNotes = [...$timeLineNotes.entries()].sort(
 		([, { created_at: a }], [, { created_at: b }]) => (a < b ? 1 : -1)
 	);

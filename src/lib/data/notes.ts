@@ -1,4 +1,5 @@
-import type { Event } from 'nostr-tools';
+import { subscribeEvents } from '$lib/utils/nostr';
+import type { Event, Sub } from 'nostr-tools';
 import { writable } from 'svelte/store';
 
 export const notesUpdater = (
@@ -53,3 +54,24 @@ export const notes = writable(
 );
 
 export const noteWaiteList = writable(new Set<string>());
+
+let reactSub: Sub | undefined = undefined;
+let notNew = false;
+notes.subscribe((n) => {
+	if (notNew) return;
+	reactSub?.unsub();
+	reactSub = subscribeEvents({
+		kinds: [7],
+		'#e': [...n.keys()],
+		limit: 4000
+	});
+	setTimeout(() => {
+		notNew = false;
+	}, 1000);
+	notNew = true;
+	reactSub.on('event', (event: Event) => {
+		const [, id] = event.tags.find(([type]) => type === 'e') || [];
+		if (!id) return;
+		notesUpdater(id, event, 'root', 'reaction');
+	});
+});
