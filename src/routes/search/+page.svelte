@@ -14,9 +14,10 @@
 		searchQuery = $page.url.searchParams.get('q') || '';
 		if (!searchQuery) return;
 		notes = [];
-		const sub = subscribeEvents({ search: searchQuery, limit: 20 } as Filter, [
-			'wss://relay.nostr.band'
-		]);
+		const sub = subscribeEvents(
+			{ kinds: [1], search: searchQuery, limit: 20 } as Filter,
+			['wss://relay.nostr.band']
+		);
 		sub.on('event', (event: Event) => {
 			notes = [...notes, event];
 		});
