@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { notes, notesUpdater } from '$lib/data/notes';
 	import { subscribeEvents } from '$lib/utils/nostr';
-	import type { Event, Filter } from 'nostr-tools';
-	import { onMount } from 'svelte';
+	import type { Event, Filter, Sub } from 'nostr-tools';
+	import { onDestroy, onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 	import Loading from './elements/Loading.svelte';
 	import NoteAndReplay from './Note/NoteAndReplay.svelte';
 
@@ -10,6 +11,7 @@
 	export let filter: Omit<Filter, 'kinds' | 'authors'> = {};
 
 	let isEose = false;
+	const timeLineNotes = writable(new Map<string, Event>());
 
 	onMount(async () => {
 		const sub = subscribeEvents({
@@ -29,6 +31,7 @@
 					return notesUpdater(id, event, 'reply');
 				}
 			}
+			timeLineNotes.update((t) => t.set(event.id, event));
 			return notesUpdater(event.id, event, 'root');
 		});
 
@@ -37,22 +40,37 @@
 		});
 	});
 
-	$: useNotes = [...$notes.entries()]
-		.filter(([, { root, reply }]) => {
-			const event = root?.event;
-			return (
-				(event?.pubkey && authors.includes(event.pubkey)) ||
-				[...(reply?.values() || [])].find(({ event: replayEvent }) =>
-					authors.includes(replayEvent?.pubkey)
-				)
-			);
-		})
-		.sort(([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1));
+	let reactSub: Sub | undefined = undefined;
+	const unsubscribe = notes.subscribe((n) => {
+		if (!isEose) return;
+		reactSub?.unsub();
+
+		reactSub = subscribeEvents({
+			kinds: [7],
+			'#e': [...n.keys()],
+			limit: 4000
+		});
+
+		reactSub.on('event', (event: Event) => {
+			const [, id] = event.tags.find(([type]) => type === 'e') || [];
+			if (!id) return;
+			notesUpdater(id, event, 'root', 'reaction');
+		});
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+		reactSub?.unsub();
+	});
+
+	$: useNotes = [...$timeLineNotes.entries()].sort(
+		([, { created_at: a }], [, { created_at: b }]) => (a < b ? 1 : -1)
+	);
 </script>
 
 {#if isEose}
-	{#each useNotes as [id, { root, reply }] ([id])}
-		<NoteAndReplay {id} {root} reply={reply && [...reply.values()]} />
+	{#each useNotes as [id] ([id])}
+		<NoteAndReplay {id} />
 	{/each}
 {:else}
 	<Loading>Notes</Loading>

@@ -4,10 +4,11 @@ import { writable } from 'svelte/store';
 export const notesUpdater = (
 	id: string,
 	event: Event,
-	append: 'root' | 'reply' = 'root'
+	append: 'root' | 'reply' = 'root',
+	is: 'note' | 'reaction' = 'note'
 ) => {
 	notes.update((i) => {
-		const current = i.get(event.id);
+		const current = i.get(id);
 		const eventTime = new Date(event.created_at * 1000);
 		const updated = current?.updated
 			? current.updated > eventTime
@@ -21,9 +22,20 @@ export const notesUpdater = (
 		};
 
 		switch (append) {
-			case 'root':
-				value.root = { event };
+			case 'root': {
+				const currentRoot = current?.root;
+				if (is === 'note') {
+					value.root = { ...currentRoot, event };
+				} else if (is === 'reaction' && currentRoot) {
+					value.root = {
+						...currentRoot,
+						reactions: [
+							...new Set(currentRoot?.reactions || []).add(event.pubkey)
+						]
+					};
+				}
 				break;
+			}
 			case 'reply':
 				value.reply = (current?.reply || new Map()).set(event.id, { event });
 				break;

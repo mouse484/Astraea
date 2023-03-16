@@ -1,11 +1,12 @@
 <script lang="ts">
+	import type { NoteInfo } from '$lib/data/notes';
 	import { pubkey } from '$lib/data/setting';
-	import { publish, subscribeEvents } from '$lib/utils/nostr';
+	import { publish } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
-	import { getEventHash, type Event, type UnsignedEvent } from 'nostr-tools';
+	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
 
-	export let event: Event;
-	let reactions: string[] = [];
+	export let note: NoteInfo;
+	$: reactions = note.reactions || [];
 	let liked = false;
 
 	const likeEvent = async () => {
@@ -15,8 +16,8 @@
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
 			tags: [
-				['p', event.pubkey, ''],
-				['e', event.id, '']
+				['p', note.event.pubkey, ''],
+				['e', note.event.id, '']
 			],
 			content: '+',
 			pubkey: $pubkey

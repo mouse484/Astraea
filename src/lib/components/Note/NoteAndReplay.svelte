@@ -1,20 +1,20 @@
 <script lang="ts">
-	import type { NoteInfo } from '$lib/data/notes';
+	import { notes, type NoteInfo } from '$lib/data/notes';
 	import AwaitNote from './AwaitNote.svelte';
 	import Note from './Note.svelte';
 
 	export let id: string;
-	export let root: NoteInfo | undefined = undefined;
-	export let reply: NoteInfo[] = [];
+
+	$: note = $notes.get(id);
 </script>
 
-{#if root}
-	<Note note={root} />
+{#if note?.root}
+	<Note note={note.root} />
 {:else}
 	<AwaitNote {id} />
 {/if}
-{#if reply}
-	{#each reply as event}
-		<Note note={event} isReplay={true} />
+{#if note?.reply}
+	{#each [...note.reply.values()] as noteInfo}
+		<Note note={noteInfo} isReplay={true} />
 	{/each}
 {/if}
