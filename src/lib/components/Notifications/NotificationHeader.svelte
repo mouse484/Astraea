@@ -11,7 +11,7 @@
 </script>
 
 <div class="relative">
-	<button on:click={() => (isNoticeOpen = !isNoticeOpen)}>
+	<button class="text-3xl" on:click={() => (isNoticeOpen = !isNoticeOpen)}>
 		{#if isNoticeOpen}
 			<Icon icon={'mdi:bell'} />
 		{:else}
