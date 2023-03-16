@@ -1,9 +1,18 @@
 <script lang="ts">
-	import { beforeNavigate } from '$app/navigation';
+	import { beforeNavigate, goto } from '$app/navigation';
 	import Icon from '@iconify/svelte';
+	import { matchMedia } from '../elements/Responsive.svelte';
 	import Notifications from './Notifications.svelte';
 
 	let isNoticeOpen = false;
+
+	const onClick = () => {
+		if (matchMedia('md')) {
+			isNoticeOpen = !isNoticeOpen;
+		} else {
+			goto('/notifications');
+		}
+	};
 
 	beforeNavigate(() => {
 		isNoticeOpen = false;
@@ -11,7 +20,7 @@
 </script>
 
 <div class="relative">
-	<button class="text-3xl" on:click={() => (isNoticeOpen = !isNoticeOpen)}>
+	<button class="text-3xl" on:click={onClick}>
 		{#if isNoticeOpen}
 			<Icon icon={'mdi:bell'} />
 		{:else}
