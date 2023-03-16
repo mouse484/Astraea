@@ -15,7 +15,7 @@
 		{#if note.pubkey}
 			<Profile npubHex={note.pubkey} />
 		{/if}
-		<div class="mt-4">
+		<div class="mt-4 max-h-96 overflow-scroll">
 			<Content rawContent={note.content} event={note} />
 		</div>
 		<div class="mt-4 flex justify-between">
