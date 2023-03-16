@@ -38,13 +38,15 @@
 	});
 
 	$: useNotes = [...$notes.entries()]
-		.filter(
-			([, { root, reply }]) =>
-				(root?.pubkey && authors.includes(root.pubkey)) ||
-				[...(reply?.values() || [])].find((value) =>
-					authors.includes(value.pubkey)
+		.filter(([, { root, reply }]) => {
+			const event = root?.event;
+			return (
+				(event?.pubkey && authors.includes(event.pubkey)) ||
+				[...(reply?.values() || [])].find(({ event: replayEvent }) =>
+					authors.includes(replayEvent?.pubkey)
 				)
-		)
+			);
+		})
 		.sort(([, { updated: a }], [, { updated: b }]) => (a < b ? 1 : -1));
 </script>
 
