@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/mouse484/astraea/compare/v1.12.0...v1.12.1) (2023-03-16)
+
+
+### Bug Fixes
+
+* 長いノートはその中でスクロールして表示 ([6bf2be1](https://github.com/mouse484/astraea/commit/6bf2be1c12210e60799a17c2334669b76a99f0ff)), closes [#91](https://github.com/mouse484/astraea/issues/91)
+
 # [1.12.0](https://github.com/mouse484/astraea/compare/v1.11.5...v1.12.0) (2023-03-16)
 
 
