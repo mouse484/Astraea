@@ -3,15 +3,14 @@
 </script>
 
 <script lang="ts">
-	import { pubkey } from '$lib/data/setting';
+	import Icon from '@iconify/svelte';
 	import NotificationHeader from './Notifications/NotificationHeader.svelte';
-	import Profile from './Profile/Profile.svelte';
 	const version = APP_VERSION;
 </script>
 
-<header class="flex justify-between">
+<header class="flex justify-between items-center">
 	<div class="flex gap-2">
-		<h1 class="text-2xl">
+		<h1 class="text-3xl">
 			<a class="text-inherit visited:text-inherit" href="/">Astraea</a>
 		</h1>
 		{#if version}
@@ -19,10 +18,10 @@
 		{/if}
 	</div>
 
-	<div class="flex gap-4 items-center h-12 text-2xl">
+	<div class="flex gap-4">
 		<NotificationHeader />
-		{#key $pubkey}
-			<Profile npubHex={$pubkey} imageOnly={true} to={'/setting'} />
-		{/key}
+		<a href="/setting">
+			<Icon icon={'mdi:cog'} class="text-3xl" />
+		</a>
 	</div>
 </header>
