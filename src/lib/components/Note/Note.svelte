@@ -10,7 +10,7 @@
 	export let isReplay = false;
 </script>
 
-<a href={`/note/${note.id}`}>
+<div on:dblclick={() => goto(`/note/${note.id}`)}>
 	<div class={`border p-4 rounded ${isReplay ? 'mt-0 border-t-0' : 'mt-4'}`}>
 		{#if note.pubkey}
 			<Profile npubHex={note.pubkey} />
@@ -27,4 +27,4 @@
 			{/if}
 		</div>
 	</div>
-</a>
+</div>
