@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { NoteInfo } from '$lib/data/notes';
+	import { notes } from '$lib/data/notes';
 	import { pubkey } from '$lib/data/setting';
 	import { publish } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
-	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
+	import { getEventHash, type Event, type UnsignedEvent } from 'nostr-tools';
 
-	export let note: NoteInfo;
-	$: reactions = note.reactions || [];
+	export let note: Event;
+	$: reactions = $notes.get(note.id)?.root?.reactions || [];
 	let liked = false;
 
 	const likeEvent = async () => {
@@ -16,8 +16,8 @@
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
 			tags: [
-				['p', note.event.pubkey, ''],
-				['e', note.event.id, '']
+				['p', note.pubkey, ''],
+				['e', note.id, '']
 			],
 			content: '+',
 			pubkey: $pubkey
@@ -34,11 +34,17 @@
 			console.error(`Like: fail-${result.reason}`);
 		}
 	};
+
+	$: hasMereaction = reactions && reactions.includes($pubkey);
 </script>
 
 <div class="flex gap-2">
-	<button on:click={likeEvent} disabled={liked}>
-		<Icon icon="mdi:cards-heart-outline" color={liked ? 'red' : ''} />
+	<button on:click={likeEvent} disabled={liked || hasMereaction}>
+		{#if hasMereaction}
+			<Icon icon="mdi:cards-heart" color="red" />
+		{:else}
+			<Icon icon="mdi:cards-heart-outline" color={liked ? 'red' : ''} />
+		{/if}
 	</button>
 	{#key reactions}
 		{#if reactions.length}

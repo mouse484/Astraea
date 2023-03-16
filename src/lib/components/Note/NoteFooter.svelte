@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { NoteInfo } from '$lib/data/notes';
 	import Icon from '@iconify/svelte';
 	import type { Event } from 'nostr-tools';
 	import PublishPost from '../PublishPost.svelte';
 	import Like from './Like.svelte';
 
-	export let note: NoteInfo;
+	export let note: Event;
 
 	let isReplayOpen = false;
 </script>
@@ -26,7 +25,7 @@
 	{#if isReplayOpen}
 		<div class="mt-4">
 			<PublishPost
-				replyFor={note.event.id}
+				replyFor={note.id}
 				on:status={(status) => {
 					if (status.detail) {
 						isReplayOpen = false;
