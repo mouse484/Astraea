@@ -1,3 +1,13 @@
+# [1.14.0](https://github.com/mouse484/astraea/compare/v1.13.2...v1.14.0) (2023-03-16)
+
+
+### Features
+
+* いいねの表示 ([7ae7629](https://github.com/mouse484/astraea/commit/7ae76293c38abc92e2e358196dca5d06276cafe3))
+* コンポーネントではなくてstoreで処理する ([f24f4c4](https://github.com/mouse484/astraea/commit/f24f4c492fd3167c85398592f75edbbca481720e))
+* リアクション数を表示するためにnotesを変更する ([e96b26b](https://github.com/mouse484/astraea/commit/e96b26b65735e681725df295da26106b92349052))
+* 自分のリアクションがある場合はその用に表示 ([582404d](https://github.com/mouse484/astraea/commit/582404d0721538f1292467ed4fe80c0b3fa067bf))
+
 ## [1.13.2](https://github.com/mouse484/astraea/compare/v1.13.1...v1.13.2) (2023-03-16)
 
 
