@@ -1,16 +1,25 @@
 <script lang="ts">
 	import { beforeNavigate, goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import { matchMedia } from '../elements/Responsive.svelte';
 	import Notifications from './Notifications.svelte';
 
+	const notificationsPath = '/notifications';
+
 	let isNoticeOpen = false;
+
+	$: isNoticePage = $page.route.id === notificationsPath;
 
 	const onClick = () => {
 		if (matchMedia('md')) {
 			isNoticeOpen = !isNoticeOpen;
 		} else {
-			goto('/notifications');
+			if (isNoticePage) {
+				goto('/');
+			} else {
+				goto(notificationsPath);
+			}
 		}
 	};
 
@@ -21,7 +30,7 @@
 
 <div class="relative">
 	<button class="text-3xl" on:click={onClick}>
-		{#if isNoticeOpen}
+		{#if isNoticeOpen || isNoticePage}
 			<Icon icon={'mdi:bell'} />
 		{:else}
 			<Icon icon={'mdi:bell-outline'} />
