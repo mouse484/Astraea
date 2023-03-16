@@ -1,3 +1,14 @@
+# [1.13.0](https://github.com/mouse484/astraea/compare/v1.12.1...v1.13.0) (2023-03-16)
+
+
+### Features
+
+* トレンドから検索結果に飛べるように ([b4bc905](https://github.com/mouse484/astraea/commit/b4bc9051d7c99df71afd03b6a0379d5827bd4cd7))
+* ヘッダーに検索BOX ([df3d4bd](https://github.com/mouse484/astraea/commit/df3d4bd13aeb230eda95ebbbd5ac469fe2d2b4be))
+* 検索BOXをコンポーネント化 ([738170a](https://github.com/mouse484/astraea/commit/738170ae669eedc7664a1c6894efcc1b263897c2))
+* 検索ページ ([5f9e899](https://github.com/mouse484/astraea/commit/5f9e899904e5f421815972b976c33e85cd2fac51))
+* 検索結果が無いときの表示を作成 ([06c96da](https://github.com/mouse484/astraea/commit/06c96dacb784bf80243434f405de91f26c408e15))
+
 ## [1.12.1](https://github.com/mouse484/astraea/compare/v1.12.0...v1.12.1) (2023-03-16)
 
 
