@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { Event } from 'nostr-tools';
+	import type { NoteInfo } from '$lib/data/notes';
 	import AwaitNote from './AwaitNote.svelte';
 	import Note from './Note.svelte';
 
 	export let id: string;
-	export let root: Event | undefined = undefined;
-	export let reply: Event[] = [];
+	export let root: NoteInfo | undefined = undefined;
+	export let reply: NoteInfo[] = [];
 </script>
 
 {#if root}

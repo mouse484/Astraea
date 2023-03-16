@@ -22,18 +22,22 @@ export const notesUpdater = (
 
 		switch (append) {
 			case 'root':
-				value.root = event;
+				value.root = { event };
 				break;
 			case 'reply':
-				value.reply = (current?.reply || new Map()).set(event.id, event);
+				value.reply = (current?.reply || new Map()).set(event.id, { event });
 				break;
 		}
 		return i.set(id, value);
 	});
 };
 
+export type NoteInfo = { event: Event; reactions?: string[] };
 export const notes = writable(
-	new Map<string, { updated: Date; root?: Event; reply?: Map<string, Event> }>()
+	new Map<
+		string,
+		{ updated: Date; root?: NoteInfo; reply?: Map<string, NoteInfo> }
+	>()
 );
 
 export const noteWaiteList = writable(new Set<string>());
