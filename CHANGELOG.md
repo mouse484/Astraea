@@ -1,3 +1,17 @@
+# [1.12.0](https://github.com/mouse484/astraea/compare/v1.11.5...v1.12.0) (2023-03-16)
+
+
+### Bug Fixes
+
+* noteのページ移動を一旦ダブルクリックに ([6b73ecb](https://github.com/mouse484/astraea/commit/6b73ecb9fe011cbdb159836b5ab40000b6d0e6c9)), closes [#198](https://github.com/mouse484/astraea/issues/198)
+* ヘッダーの設定リンクのアイコンを変更 ([42f17fe](https://github.com/mouse484/astraea/commit/42f17fea126e59481c72578ee99eaf3901d49c2c))
+
+
+### Features
+
+* 小さい画面の場合通知は別ページにする ([6956195](https://github.com/mouse484/astraea/commit/6956195fd683a9d3cbddc87c4c6930655c091787))
+* 通知欄の動作をリンクによって変える ([6721ea3](https://github.com/mouse484/astraea/commit/6721ea38693c5d87afbd73590163d0ecc97dd0c9)), closes [#193](https://github.com/mouse484/astraea/issues/193)
+
 ## [1.11.5](https://github.com/mouse484/astraea/compare/v1.11.4...v1.11.5) (2023-03-15)
 
 
