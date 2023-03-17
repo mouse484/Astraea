@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/mouse484/astraea/compare/v1.15.3...v1.16.0) (2023-03-17)
+
+
+### Features
+
+* バッジの表示 ([4004ca8](https://github.com/mouse484/astraea/commit/4004ca8436cfa596d567f7758d1cc3f6c5010719))
+
 ## [1.15.3](https://github.com/mouse484/astraea/compare/v1.15.2...v1.15.3) (2023-03-17)
 
 
