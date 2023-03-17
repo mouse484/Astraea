@@ -18,5 +18,5 @@
 		name="q"
 		bind:value={searchInput}
 	/>
-	<Button>検索</Button>
+	<Button disabled={!searchInput}>検索</Button>
 </form>
