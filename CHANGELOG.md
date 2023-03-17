@@ -1,3 +1,16 @@
+# [1.15.0](https://github.com/mouse484/astraea/compare/v1.14.0...v1.15.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* reactionsのstoreを修正 ([236ba8e](https://github.com/mouse484/astraea/commit/236ba8ed9d6cefa5f21aba258b39356c0c0524cc))
+* 通知をnotesに保存してるreactionsから取得 ([8ed5144](https://github.com/mouse484/astraea/commit/8ed5144eeabca32aa6df272c7622962df6141083))
+
+
+### Features
+
+* ログインしているユーザーがフォローしていない人のリプライも表示するように ([6aa9551](https://github.com/mouse484/astraea/commit/6aa95512736c5d5039b5355177b30dbedaa537c0))
+
 # [1.14.0](https://github.com/mouse484/astraea/compare/v1.13.2...v1.14.0) (2023-03-16)
 
 
