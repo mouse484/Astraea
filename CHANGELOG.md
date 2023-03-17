@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/mouse484/astraea/compare/v1.15.0...v1.15.1) (2023-03-17)
+
+
+### Bug Fixes
+
+* 検索結果が更新されなくなってからunsubするように ([92c7c78](https://github.com/mouse484/astraea/commit/92c7c783436a1675625ecc1f1906016ecfdafa04))
+
 # [1.15.0](https://github.com/mouse484/astraea/compare/v1.14.0...v1.15.0) (2023-03-17)
 
 
