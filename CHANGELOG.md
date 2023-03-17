@@ -1,3 +1,10 @@
+## [1.15.3](https://github.com/mouse484/astraea/compare/v1.15.2...v1.15.3) (2023-03-17)
+
+
+### Bug Fixes
+
+* 検索終了判定の修正 ([b914c60](https://github.com/mouse484/astraea/commit/b914c60511cc415eedf83eea38d6785d6889f29f))
+
 ## [1.15.2](https://github.com/mouse484/astraea/compare/v1.15.1...v1.15.2) (2023-03-17)
 
 
