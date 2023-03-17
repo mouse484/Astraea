@@ -1,3 +1,15 @@
+# [1.17.0](https://github.com/mouse484/astraea/compare/v1.16.0...v1.17.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* timelineをlimit100にしてみる(try) ([0f875c4](https://github.com/mouse484/astraea/commit/0f875c4cdf1b7d49dd57f161f367b53c0469d77e))
+
+
+### Features
+
+* 投稿画面に削除(clear)ボタンを追加 ([411afe7](https://github.com/mouse484/astraea/commit/411afe7c1afe9e08291502823f6dcabe0e6fc90c))
+
 # [1.16.0](https://github.com/mouse484/astraea/compare/v1.15.3...v1.16.0) (2023-03-17)
 
 
