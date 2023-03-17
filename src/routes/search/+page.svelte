@@ -34,7 +34,7 @@
 				} else {
 					length = notes.length;
 				}
-			}, 3000);
+			}, 5000);
 		});
 	});
 
@@ -46,7 +46,7 @@
 <h2 class="text-2xl">検索</h2>
 
 <div class="mt-8 flex w-full">
-	<Search searchInput={searchQuery} />
+	<Search bind:searchInput={searchQuery} />
 </div>
 
 <section class="mt-8">
@@ -56,14 +56,14 @@
 				{#each notes as note}
 					<Note {note} />
 				{/each}
-			{:else}
+			{:else if !end}
 				<Loading>Notes</Loading>
 			{/if}
 		{/key}
 		{#if end}
 			<p class="mt-8 text-right">
 				{#if notes.length}
-					{notes.length}/30
+					{notes.length}/30(max)
 				{:else}
 					見つかりませんでした
 				{/if}
