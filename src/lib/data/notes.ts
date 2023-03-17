@@ -39,7 +39,10 @@ export const notesUpdater = (
 				break;
 			}
 			case 'reply':
-				value.reply = (current?.reply || new Map()).set(event.id, { event });
+				value.reply = (current?.reply || new Map<string, NoteInfo>()).set(
+					event.id,
+					{ event }
+				);
 				break;
 		}
 		return i.set(id, value);
@@ -65,9 +68,9 @@ notes.subscribe((n) => {
 	if (notNew) return;
 	reactSub?.unsub();
 	reactSub = subscribeEvents({
-		kinds: [7],
+		kinds: [1, 7],
 		'#e': [...n.keys()],
-		limit: 4000
+		limit: 300
 	});
 	setTimeout(() => {
 		notNew = false;
@@ -76,6 +79,15 @@ notes.subscribe((n) => {
 	reactSub.on('event', (event: Event) => {
 		const [, id] = event.tags.find(([type]) => type === 'e') || [];
 		if (!id) return;
-		notesUpdater(id, event, 'root', 'reaction');
+		switch (event.kind) {
+			case 1: {
+				notesUpdater(id, event, 'reply');
+				break;
+			}
+			case 7: {
+				notesUpdater(id, event, 'root', 'reaction');
+				break;
+			}
+		}
 	});
 });
