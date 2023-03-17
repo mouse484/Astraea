@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/mouse484/astraea/compare/v1.15.1...v1.15.2) (2023-03-17)
+
+
+### Bug Fixes
+
+* 検索待ち終わった表示 ([12d75f0](https://github.com/mouse484/astraea/commit/12d75f094ab965bbf25ed286e9209155e8f8a4b4))
+
 ## [1.15.1](https://github.com/mouse484/astraea/compare/v1.15.0...v1.15.1) (2023-03-17)
 
 
