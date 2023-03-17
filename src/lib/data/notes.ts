@@ -30,9 +30,10 @@ export const notesUpdater = (
 				} else if (is === 'reaction' && currentRoot) {
 					value.root = {
 						...currentRoot,
-						reactions: [
-							...new Set(currentRoot?.reactions || []).add(event.pubkey)
-						]
+						reactions: new Map(currentRoot.reactions).set(event.id, {
+							pubkey: event.pubkey,
+							content: event.content
+						})
 					};
 				}
 				break;
@@ -45,7 +46,10 @@ export const notesUpdater = (
 	});
 };
 
-export type NoteInfo = { event: Event; reactions?: string[] };
+export type NoteInfo = {
+	event: Event;
+	reactions?: Map<string, { pubkey: string; content: string }>;
+};
 export const notes = writable(
 	new Map<
 		string,

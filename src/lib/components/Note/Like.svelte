@@ -6,7 +6,7 @@
 	import { getEventHash, type Event, type UnsignedEvent } from 'nostr-tools';
 
 	export let note: Event;
-	$: reactions = $notes.get(note.id)?.root?.reactions || [];
+	$: reactions = [...($notes.get(note.id)?.root?.reactions?.values() || [])];
 	let liked = false;
 
 	const likeEvent = async () => {
@@ -35,12 +35,13 @@
 		}
 	};
 
-	$: hasMereaction = reactions && reactions.includes($pubkey);
+	$: hasMeReaction =
+		reactions && !reactions.findIndex((r) => r.pubkey === $pubkey);
 </script>
 
 <div class="flex gap-2">
-	<button on:click={likeEvent} disabled={liked || hasMereaction}>
-		{#if hasMereaction}
+	<button on:click={likeEvent} disabled={liked || hasMeReaction}>
+		{#if hasMeReaction}
 			<Icon icon="mdi:cards-heart" color="red" />
 		{:else}
 			<Icon icon="mdi:cards-heart-outline" color={liked ? 'red' : ''} />
