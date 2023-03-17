@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { pubkey } from '$lib/data/setting';
 	import { publish } from '$lib/utils/nostr';
+	import Icon from '@iconify/svelte';
 	import { getEventHash, type UnsignedEvent } from 'nostr-tools';
 	import { createEventDispatcher } from 'svelte';
 	import Button from './elements/Button.svelte';
@@ -64,6 +65,9 @@
 			bind:value={content}
 			on:keydown={keydown}
 		/>
+		<button class="absolute right-0 top-0 m-4" on:click={() => (content = '')}>
+			<Icon icon="mdi:close-thick" />
+		</button>
 		{#key isPublish}
 			<div class="absolute right-0 bottom-0 m-4">
 				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
