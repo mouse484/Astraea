@@ -9,7 +9,7 @@
 	import { onDestroy } from 'svelte';
 
 	let notes: Event[] = [];
-	let searchQuery: string;
+	let searchQuery: string | undefined = undefined;
 	let end = false;
 	let endtimer: NodeJS.Timeout;
 
@@ -17,6 +17,7 @@
 		searchQuery = $page.url.searchParams.get('q') || '';
 		if (!searchQuery) return;
 		notes = [];
+		end = false;
 		const sub = subscribeEvents(
 			{ kinds: [1], search: searchQuery, limit: 30 } as Filter,
 			['wss://relay.nostr.band']
@@ -50,7 +51,7 @@
 </div>
 
 <section class="mt-8">
-	{#if searchQuery}
+	{#if searchQuery !== undefined}
 		{#key notes}
 			{#if notes.length}
 				{#each notes as note}
