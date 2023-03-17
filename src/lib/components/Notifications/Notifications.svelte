@@ -1,42 +1,24 @@
 <script lang="ts">
 	import AwaitNote from '$lib/components/Note/AwaitNote.svelte';
 	import Profile from '$lib/components/Profile/Profile.svelte';
+	import { notes } from '$lib/data/notes';
 	import { pubkey } from '$lib/data/setting';
-	import { subscribeEvents } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
-	import type { Event } from 'nostr-tools';
-	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
 	import Loading from '../elements/Loading.svelte';
 
-	// Map<通知先id, Map<id,[pubkey,content(emoji)]>>
-	const items = writable(new Map<string, Map<string, [string, string]>>());
-
-	onMount(() => {
-		const sub = subscribeEvents({ kinds: [7], '#p': [$pubkey], limit: 20 });
-
-		sub.on('event', (event: Event) => {
-			const noticeForEvent = event.tags.find(([type]) => type === 'e');
-			if (!noticeForEvent) return;
-			const [, id] = noticeForEvent;
-			items.update((item) => {
-				const current = item.get(id) || new Map<string, [string, string]>();
-				return item.set(
-					id,
-					current.set(event.id, [event.pubkey, event.content])
-				);
-			});
-		});
+	$: items = [...$notes.entries()].filter(([, { root }]) => {
+		if (root?.event.pubkey !== $pubkey) return;
+		if (root.reactions?.size) return true;
 	});
 </script>
 
 <h2 class="text-2xl">通知</h2>
 <div class="flex flex-col mt-8">
-	{#each [...$items.entries()] as [id, item]}
+	{#each items as [id, item]}
 		<div class="p-4 mt-4 border">
 			{#if item}
 				<div class="flex flex-wrap gap-4">
-					{#each [...item.values()] as [pubkey, content]}
+					{#each [...(item.root?.reactions?.values() || [])] as { pubkey, content }}
 						<div class="flex gap-2 items-center">
 							<Profile npubHex={pubkey} imageOnly={true} />
 							<div class="text-3xl">
