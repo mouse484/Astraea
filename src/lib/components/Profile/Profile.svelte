@@ -2,6 +2,7 @@
 	import { profiles, type ProfileData } from '$lib/data/profiles';
 	import { getEvent } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
+	import Badge from './Badge.svelte';
 	import ProfileMenu from './ProfileMenu.svelte';
 
 	export let npubHex: string;
@@ -72,10 +73,10 @@
 				<ProfileMenu {npubHex} />
 			{/if}
 		</div>
-
 		{#if detail}
-			<div>
+			<div class="flex flex-col gap-4">
 				<div class="mt-4 break-words">{profile?.about || ''}</div>
+				<Badge pubkey={npubHex} />
 				{#if profile?.website}
 					<a
 						class="mt-2 break-words"
