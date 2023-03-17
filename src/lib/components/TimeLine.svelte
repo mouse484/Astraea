@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { notes, notesUpdater } from '$lib/data/notes';
+	import { notesUpdater } from '$lib/data/notes';
 	import { subscribeEvents } from '$lib/utils/nostr';
-	import type { Event, Filter, Sub } from 'nostr-tools';
-	import { onDestroy, onMount } from 'svelte';
+	import type { Event, Filter } from 'nostr-tools';
+	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import Loading from './elements/Loading.svelte';
 	import NoteAndReplay from './Note/NoteAndReplay.svelte';
@@ -11,12 +11,14 @@
 	export let filter: Omit<Filter, 'kinds' | 'authors'> = {};
 
 	let isEose = false;
+
 	const timeLineNotes = writable(new Map<string, Event>());
 
 	onMount(async () => {
 		const sub = subscribeEvents({
 			kinds: [1],
 			authors,
+			limit: 100,
 			...filter
 		});
 
