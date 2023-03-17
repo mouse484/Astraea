@@ -2,15 +2,14 @@
 	import { notes, notesUpdater, noteWaiteList } from '$lib/data/notes';
 	import { getEvent, subscribeEvents } from '$lib/utils/nostr';
 	import type { Event, Sub } from 'nostr-tools';
-	import { get } from 'svelte/store';
 	import Note from './Note.svelte';
 
 	export let id: string;
 
 	export const getNote = async (id: string) => {
-		const note = get(notes).get(id);
+		const note = $notes.get(id);
 		if (note?.root) {
-			return note.root;
+			return note.root.event;
 		} else if ($noteWaiteList.has(id)) {
 			return;
 		} else {
