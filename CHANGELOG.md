@@ -1,3 +1,12 @@
+## [1.18.1](https://github.com/mouse484/astraea/compare/v1.18.0...v1.18.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* idからのnoteの表示はAwaitNoteを経由する ([5f63ba4](https://github.com/mouse484/astraea/commit/5f63ba491d15fb05f7bf6758b2983d36bfdc9e83))
+* profile取得の変更 ([bf47ffa](https://github.com/mouse484/astraea/commit/bf47ffa3b8d470d7c99c92d7374e470ce913bc44))
+* リアクションと返信の取得を30秒ごとにする ([d029357](https://github.com/mouse484/astraea/commit/d029357d188ade9eb76a335bc1fa49abf8894a39))
+
 # [1.18.0](https://github.com/mouse484/astraea/compare/v1.17.1...v1.18.0) (2023-03-18)
 
 
