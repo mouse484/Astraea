@@ -74,7 +74,7 @@ notes.subscribe((n) => {
 	});
 	setTimeout(() => {
 		notNew = false;
-	}, 1000);
+	}, 30000);
 	notNew = true;
 	reactSub.on('event', (event: Event) => {
 		const [, id] = event.tags.find(([type]) => type === 'e') || [];
