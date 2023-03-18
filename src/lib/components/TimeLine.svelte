@@ -18,7 +18,7 @@
 		const sub = subscribeEvents({
 			kinds: [1],
 			authors,
-			limit: 100,
+			limit: 30,
 			...filter
 		});
 
