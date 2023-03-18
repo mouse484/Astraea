@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { profiles } from '$lib/data/profiles';
+	import { profiles, type ProfileData } from '$lib/data/profiles';
 	import { getEvent } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
-	import { attr } from 'svelte/internal';
 	import Note from './Note.svelte';
 
 	const { sanitize } = DOMPurify;
@@ -28,7 +27,10 @@
 			if (tag) {
 				const [type, id] = tag;
 				if (type === 'p') {
-					const profile = $profiles.get(id);
+					const event = profiles.get(id);
+					const profile = (
+						event ? JSON.parse(event.content) : {}
+					) as ProfileData;
 					return `[@${
 						profile?.name || `${id.substring(0, 8)}...`
 					}](/profile/${id})`;

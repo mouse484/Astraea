@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { profiles, type ProfileData } from '$lib/data/profiles';
-	import { getEvent } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
 	import Badge from './Badge.svelte';
 	import ProfileMenu from './ProfileMenu.svelte';
@@ -13,12 +12,9 @@
 	let profile: ProfileData | undefined = { name: 'loading' };
 
 	onMount(async () => {
-		const p = $profiles.get(npubHex);
-		if (p) return (profile = p);
-		const event = await getEvent({ kinds: [0], authors: [npubHex] });
-		if (!event) return (profile = { name: 'error' });
-		const parsed = JSON.parse(event.content);
-		profiles.update((updater) => updater.set(npubHex, parsed));
+		const event = await profiles.get(npubHex);
+		if (!event) return;
+		const parsed = JSON.parse(event.content) as ProfileData;
 		profile = parsed;
 	});
 

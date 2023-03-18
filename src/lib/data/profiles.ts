@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { Store } from '$lib/utils/store';
 
 export type ProfileData = Partial<{
 	display_name: string;
@@ -11,4 +11,4 @@ export type ProfileData = Partial<{
 	[key: string]: string;
 }>;
 
-export const profiles = writable(new Map<string, ProfileData>());
+export const profiles = new Store(0, 'authors');
