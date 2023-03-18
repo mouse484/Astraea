@@ -1,3 +1,10 @@
+## [1.18.3](https://github.com/mouse484/astraea/compare/v1.18.2...v1.18.3) (2023-03-18)
+
+
+### Bug Fixes
+
+* profileの更新を検知して上書きできるように ([4ffffb4](https://github.com/mouse484/astraea/commit/4ffffb4ef5957a22c906f5d92ec8d6105393f5e6))
+
 ## [1.18.2](https://github.com/mouse484/astraea/compare/v1.18.1...v1.18.2) (2023-03-18)
 
 
