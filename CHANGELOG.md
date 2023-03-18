@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/mouse484/astraea/compare/v1.17.0...v1.17.1) (2023-03-18)
+
+
+### Bug Fixes
+
+* 検索が適切に行われるようにする ([68af11a](https://github.com/mouse484/astraea/commit/68af11accec7f1d5d9c96a4fbec5a66927e271a8))
+
 # [1.17.0](https://github.com/mouse484/astraea/compare/v1.16.0...v1.17.0) (2023-03-17)
 
 
