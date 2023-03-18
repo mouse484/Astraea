@@ -1,3 +1,10 @@
+## [1.18.2](https://github.com/mouse484/astraea/compare/v1.18.1...v1.18.2) (2023-03-18)
+
+
+### Bug Fixes
+
+* timeline each key ([1400d93](https://github.com/mouse484/astraea/commit/1400d93bbee32097a0f6972dec0334aa9b4e12f4))
+
 ## [1.18.1](https://github.com/mouse484/astraea/compare/v1.18.0...v1.18.1) (2023-03-18)
 
 
