@@ -5,6 +5,7 @@
 	import MarkdownIt from 'markdown-it';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
+	import { attr } from 'svelte/internal';
 	import Note from './Note.svelte';
 
 	const { sanitize } = DOMPurify;
@@ -79,11 +80,12 @@
 										{/await}
 									{/if}
 								{:else if tag === 'a'}
+									{@const isHashTag = content.startsWith('#')}
 									<a
 										class="text-blue-600 visited:text-purple-600 break-words"
 										{href}
-										target="_blank"
-										rel="noopener noreferrer"
+										target={isHashTag ? '' : '_blank'}
+										rel={isHashTag ? '' : 'noopener noreferrer'}
 									>
 										{content}
 									</a>
