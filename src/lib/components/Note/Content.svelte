@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { profiles, type ProfileData } from '$lib/data/profiles';
-	import { getEvent } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
-	import Note from './Note.svelte';
+	import AwaitNote from './AwaitNote.svelte';
 
 	const { sanitize } = DOMPurify;
 
@@ -69,17 +68,7 @@
 								<!-- Link content -->
 								{#if child.content === 'note'}
 									{#if href}
-										{#await getEvent({ kinds: [1], ids: [href] })}
-											<span>note:{href.substring(0, 8)}...</span>
-										{:then event}
-											{#if event}
-												<div class="my-4">
-													<Note note={event} />
-												</div>
-											{:else}
-												<span>note:{href.substring(0, 8)}...</span>
-											{/if}
-										{/await}
+										<AwaitNote id={href} />
 									{/if}
 								{:else if tag === 'a'}
 									{@const isHashTag = content.startsWith('#')}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { notes, notesUpdater, noteWaiteList } from '$lib/data/notes';
-	import { getEvent, subscribeEvents } from '$lib/utils/nostr';
-	import type { Event, Sub } from 'nostr-tools';
+	import { subscribeEvents } from '$lib/utils/nostr';
+	import type { Event } from 'nostr-tools';
 	import Note from './Note.svelte';
 
 	export let id: string;
