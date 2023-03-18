@@ -48,7 +48,7 @@
 </script>
 
 {#if isEose}
-	{#each useNotes as [id] ([id])}
+	{#each useNotes as [id] (id)}
 		<NoteAndReplay {id} />
 	{/each}
 {:else}
