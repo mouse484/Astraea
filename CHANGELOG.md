@@ -1,3 +1,15 @@
+# [1.18.0](https://github.com/mouse484/astraea/compare/v1.17.1...v1.18.0) (2023-03-18)
+
+
+### Bug Fixes
+
+* ハッシュタグは別タブで開かない ([030bfea](https://github.com/mouse484/astraea/commit/030bfea6ae984c162df5ea3e1cf67d1d80b7ae6a))
+
+
+### Features
+
+* ハッシュタグを表示 ([2d9bcc3](https://github.com/mouse484/astraea/commit/2d9bcc3888dd4e8e698cedd6ae4fa481b6f5f587))
+
 ## [1.17.1](https://github.com/mouse484/astraea/compare/v1.17.0...v1.17.1) (2023-03-18)
 
 
