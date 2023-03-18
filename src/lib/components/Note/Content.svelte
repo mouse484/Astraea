@@ -3,7 +3,6 @@
 	import { getEvent } from '$lib/utils/nostr';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
-	import Token from 'markdown-it/lib/token';
 	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
 	import Note from './Note.svelte';
@@ -14,6 +13,12 @@
 	export let event: Event;
 
 	const md = MarkdownIt({ linkify: true, breaks: true });
+	md.linkify.add('#', {
+		validate: /[^\s]+/,
+		normalize(match) {
+			match.url = `search?q=${match.url.replace('#', '')}`;
+		}
+	});
 
 	const replasedContent = rawContent.replaceAll(
 		/#\[([0-9])\]/g,
