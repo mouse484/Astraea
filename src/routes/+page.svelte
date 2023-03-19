@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
+	import PostNote from '$lib/components/PostNote.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { pubkey } from '$lib/store/setting';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
@@ -28,7 +29,10 @@
 <Heading>ホーム</Heading>
 
 <Section>
-	{#key contacts}
-		<TimeLine authors={[...contacts]} />
-	{/key}
+	<PostNote />
+	<div class="mt-8">
+		{#key contacts}
+			<TimeLine authors={[...contacts]} />
+		{/key}
+	</div>
 </Section>
