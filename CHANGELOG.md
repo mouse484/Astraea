@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/mouse484/astraea/compare/v1.19.0...v1.19.1) (2023-03-19)
+
+
+### Performance Improvements
+
+* v2 release ([fdbf7a1](https://github.com/mouse484/astraea/commit/fdbf7a1e21a290e993bdafaa3a49e09ec9e66053))
+
 # [2.0.0](https://github.com/mouse484/astraea/compare/v1.18.3...v1.19.0) (2023-03-19)
 
 
