@@ -1,24 +1,32 @@
 <script lang="ts">
 	import { notes } from '$lib/store/notes';
 	import { subscribeEvents } from '$lib/utils/nostr';
-	import { onMount } from 'svelte';
+	import type { Event } from 'nostr-tools';
+	import { onDestroy, onMount } from 'svelte';
 	import Note from './Note/Note.svelte';
 
 	export let authors: string[];
-
-	let useNotes = new Set<string>();
 
 	onMount(() => {
 		const sub = subscribeEvents(1, { limit: 30, authors });
 		sub.on('event', (event) => {
 			notes.set(event);
-			useNotes = useNotes.add(event.id);
 		});
+	});
+
+	let useNotes: Event[];
+
+	const unsubscribe = notes.subscribe(() => {
+		useNotes = notes.filter('pubkey', authors);
+	});
+
+	onDestroy(() => {
+		unsubscribe();
 	});
 </script>
 
 {#key useNotes}
-	{#each [...useNotes] as noteId (noteId)}
-		<Note {noteId} />
+	{#each useNotes as event (event.id)}
+		<Note {event} />
 	{/each}
 {/key}
