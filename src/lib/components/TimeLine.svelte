@@ -17,7 +17,9 @@
 	let useNotes: Event[];
 
 	const unsubscribe = notes.subscribe(() => {
-		useNotes = notes.filter('pubkey', authors);
+		useNotes = notes
+			.filter('pubkey', authors)
+			.sort((a, b) => b.created_at - a.created_at);
 	});
 
 	onDestroy(() => {
