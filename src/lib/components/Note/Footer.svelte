@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import type { Event } from 'nostr-tools';
+	import PostNote from '../PostNote.svelte';
 	// import PublishPost from '../PublishPost.svelte';
 	import Like from './Like.svelte';
 
@@ -23,6 +24,8 @@
 		<Like {event} />
 	</div>
 	{#if isReplayOpen}
-		<div class="mt-4">リプライ投稿画面（開発中）</div>
+		<div class="mt-4">
+			<PostNote replyFor={event.id} />
+		</div>
 	{/if}
 </div>
