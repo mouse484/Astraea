@@ -13,8 +13,11 @@
 		<div class="mt-4">
 			<Content rawContent={event.content} tags={event.tags} />
 		</div>
-		<div class="mt-4">
-			<Footer {event}/>
+		<div class="mt-4 flex justify-between">
+			<Footer {event} />
+			<div>
+				{new Date(event.created_at * 1000).toLocaleString()}
+			</div>
 		</div>
 	</div>
 {/if}
