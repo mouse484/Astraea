@@ -1,4 +1,4 @@
-# [1.19.0](https://github.com/mouse484/astraea/compare/v1.18.3...v1.19.0) (2023-03-19)
+# [2.0.0](https://github.com/mouse484/astraea/compare/v1.18.3...v1.19.0) (2023-03-19)
 
 
 ### Bug Fixes
