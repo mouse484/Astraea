@@ -4,7 +4,12 @@ import { subscribeEvents } from '$lib/utils/nostr';
 import { writable } from 'svelte/store';
 import { z } from 'zod';
 
-export const pubkey = writable<string>(dev ? mouseNpubKey : '');
+export const pubkey = writable<string>();
+
+if (dev) {
+	pubkey.set(mouseNpubKey);
+}
+
 export const relays = writable<
 	Record<
 		string,
@@ -33,9 +38,9 @@ pubkey.subscribe(async (newKey) => {
 	localStorage.setItem('pubkey', newKey);
 	const sub = subscribeEvents(3, { authors: [newKey] });
 	sub.on('event', (event) => {
-		const parsed = relayScheme.parse(event.content);
-		if (parsed) {
-			relays.set(parsed);
+		const parsed = relayScheme.safeParse(JSON.parse(event.content));
+		if (parsed.success) {
+			relays.set(parsed.data);
 		}
 	});
 });
