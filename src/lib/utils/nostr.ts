@@ -15,12 +15,20 @@ export type Subscribe = {
 };
 
 export const subscribeEvents = (
-	kind: number,
-	filter: Omit<Filter, 'kinds'>
+	kind: number | number[],
+	filter: Omit<Filter, 'kinds'>,
+	autoUnsub?: 'eose'
 ) => {
 	const subRelays = Object.entries(get(relays)).flatMap(([url, { read }]) => {
 		return read ? url : [];
 	});
 
-	return pool.sub(subRelays, [{ kinds: [kind], ...filter }]) as Subscribe;
+	const sub = pool.sub(subRelays, [
+		{ kinds: typeof kind === 'number' ? [kind] : kind, ...filter }
+	]) as Subscribe;
+
+	if (autoUnsub === 'eose') {
+		sub.unsub();
+	}
+	return sub;
 };

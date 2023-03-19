@@ -3,7 +3,7 @@
 	import Section from '$lib/components/elements/Section.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { pubkey } from '$lib/store/setting';
-	import { subscribeEvents } from '$lib/utils/nostr';
+	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
 	import { z } from 'zod';
 
@@ -12,11 +12,14 @@
 	const contactsScheme = z.tuple([z.string(), z.string()]);
 
 	onMount(() => {
-		const sub = subscribeEvents(3, { authors: [$pubkey] });
-		sub.on('event', (event) => {
+		const contactsSub = subscribeEvents(3, { authors: [$pubkey] }, 'eose');
+		contactsSub.on('event', (event) => {
 			event.tags.forEach((tag) => {
 				const [, pubkey] = contactsScheme.parse(tag);
-				if (pubkey) contacts = contacts.add(pubkey);
+				if (pubkey) {
+					contacts = contacts.add(pubkey);
+					contactsSub.unsub();
+				}
 			});
 		});
 	});
