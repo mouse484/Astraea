@@ -2,7 +2,7 @@
 	import { notes } from '$lib/store/notes';
 	import { getProfile } from '$lib/store/profiles';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
-	import type { Event, Filter, Sub } from 'nostr-tools';
+	import type { Event, Filter } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import Note from './Note/Note.svelte';
 
