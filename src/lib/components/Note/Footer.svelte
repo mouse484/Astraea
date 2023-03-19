@@ -20,7 +20,7 @@
 				<Icon icon="mdi:message-outline" />
 			</button>
 		</div>
-		<Like {event}/>
+		<Like {event} />
 	</div>
 	{#if isReplayOpen}
 		<div class="mt-4">リプライ投稿画面（開発中）</div>
