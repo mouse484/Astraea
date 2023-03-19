@@ -1,3 +1,29 @@
+# [1.19.0](https://github.com/mouse484/astraea/compare/v1.18.3...v1.19.0) (2023-03-19)
+
+
+### Bug Fixes
+
+* タイムラインを新しい順で表示させる ([b5a6f04](https://github.com/mouse484/astraea/commit/b5a6f04be0f5dab22b7d1b64eb9df755847d1143))
+* ノートの取得表示の処理を修正 ([b705f4e](https://github.com/mouse484/astraea/commit/b705f4e656296de54d773140a6e8cfbcd33da287))
+* リレーを取得する ([7f04cfb](https://github.com/mouse484/astraea/commit/7f04cfbb2d05346bc8386df9576fcec9484f7953))
+
+
+### Features
+
+* contentを表示 ([db1a45c](https://github.com/mouse484/astraea/commit/db1a45c5c0fb3c4acbe97bd11561c01d3c10ed4f))
+* content内のノートとメンションの表示 ([c054ec5](https://github.com/mouse484/astraea/commit/c054ec5364e2ea809958b2eefba1596dcdd9537f))
+* Headerとログインログアウト ([bdfb4ef](https://github.com/mouse484/astraea/commit/bdfb4ef16fe5fec0972f5ec72fe47f5546f3d80d))
+* relayの取得 read write対応 ([f9066fd](https://github.com/mouse484/astraea/commit/f9066fd93e77449fc297316c5034b4987a7d77a0))
+* relayの詳細表示 ([a27b4d8](https://github.com/mouse484/astraea/commit/a27b4d8f6d912f8c23172210d24fc3a7803fe2d5))
+* いいね ([e6a21df](https://github.com/mouse484/astraea/commit/e6a21df5c70885e4ba62eaf6fa64f632c0194799))
+* タイムラインにプロフィールを表示 ([710dc59](https://github.com/mouse484/astraea/commit/710dc595f15595980625195489403b63d05c2913))
+* タイムラインの表示 ([a9f84c0](https://github.com/mouse484/astraea/commit/a9f84c08aa10a39507a9cb450b1d8d75cc46874a))
+* トレンドを表示 ([73cf6e8](https://github.com/mouse484/astraea/commit/73cf6e8dc2c9e2c159750bde5c2b2b78939d7955))
+* ノートに時間を表示 ([8b9a4a2](https://github.com/mouse484/astraea/commit/8b9a4a26ad238743f72fcf55edc39383e534cc36))
+* プロフィールページ ([8c6418e](https://github.com/mouse484/astraea/commit/8c6418e847da60ad7adcf5470796ff2ce1aa6f28))
+* リプライを表示 ([a0c9b3d](https://github.com/mouse484/astraea/commit/a0c9b3d81d0dc273b3481aeefe7164efea6840ab))
+* 投稿機能 ([ec38577](https://github.com/mouse484/astraea/commit/ec38577c2ce31704f10e4b88c6ecbd616ba1bc93))
+
 ## [1.18.3](https://github.com/mouse484/astraea/compare/v1.18.2...v1.18.3) (2023-03-18)
 
 

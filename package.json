@@ -1,6 +1,6 @@
 {
 	"name": "@mouse_484/astraea",
-	"version": "1.18.3",
+	"version": "1.19.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
