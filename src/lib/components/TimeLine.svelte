@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { notes } from '$lib/store/notes';
-	import { profiles } from '$lib/store/profiles';
+	import { getProfile, profiles } from '$lib/store/profiles';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
@@ -18,24 +18,9 @@
 
 	let profileSub: Subscribe | undefined;
 
-	const getProfile = () => {
-		const hasNotProfile = [
-			...new Set(
-				useNotes.flatMap((note) =>
-					profiles.get(note.pubkey) ? [] : note.pubkey
-				)
-			)
-		];
-		if (hasNotProfile.length) {
-			profileSub = subscribeEvents(0, { authors: hasNotProfile }, 'eose');
-			profileSub.on('event', (event) => {
-				profiles.set(event);
-			});
-		}
-	};
-
 	const interval = setInterval(() => {
-		getProfile();
+		const sub = getProfile(useNotes);
+		if (sub) profileSub = sub;
 	}, 5 * 1000);
 
 	onMount(() => {

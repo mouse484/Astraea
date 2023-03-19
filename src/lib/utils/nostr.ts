@@ -24,11 +24,14 @@ export type Subscribe = {
 export const subscribeEvents = (
 	kind: number | number[],
 	filter: Omit<Filter, 'kinds'>,
-	autoUnsub?: 'eose'
+	autoUnsub?: 'eose' | '',
+	orelays: string[] = []
 ) => {
-	const subRelays = Object.entries(get(relays)).flatMap(([url, { read }]) => {
-		return read ? url : [];
-	});
+	const subRelays = orelays.length
+		? orelays
+		: Object.entries(get(relays)).flatMap(([url, { read }]) => {
+				return read ? url : [];
+		  });
 
 	const sub = pool.sub(subRelays, [
 		{ kinds: typeof kind === 'number' ? [kind] : kind, ...filter }
