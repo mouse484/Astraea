@@ -17,6 +17,9 @@ export class Store {
 			has.includes(event[key])
 		);
 	}
+	list() {
+		return [...get(this.store).values()];
+	}
 	private emit(id: string, event: Event) {
 		this.eventsFunc.get(id)?.forEach((f) => f(event));
 	}
