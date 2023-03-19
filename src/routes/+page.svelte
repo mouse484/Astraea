@@ -3,6 +3,7 @@
 	import Section from '$lib/components/elements/Section.svelte';
 	import PostNote from '$lib/components/PostNote.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
+	import Trend from '$lib/components/Trend.svelte';
 	import { pubkey } from '$lib/store/setting';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
@@ -30,9 +31,13 @@
 
 <Section>
 	<PostNote />
-	<div class="mt-8">
-		{#key contacts}
-			<TimeLine authors={[...contacts]} />
-		{/key}
+	<div class="mt-8 md:flex md:gap-4">
+		<div class="md:flex-grow">
+			{#key contacts}
+				<TimeLine authors={[...contacts]} />
+			{/key}
+		</div>
+
+		<Trend />
 	</div>
 </Section>
