@@ -2,6 +2,7 @@
 	import type { Event } from 'nostr-tools';
 	import Profile from '../Profile/Profile.svelte';
 	import Content from './Content.svelte';
+	import Footer from './Footer.svelte';
 
 	export let event: Event;
 </script>
@@ -11,6 +12,9 @@
 		<Profile pubkey={event.pubkey} detail={false} />
 		<div class="mt-4">
 			<Content rawContent={event.content} tags={event.tags} />
+		</div>
+		<div class="mt-4">
+			<Footer {event}/>
 		</div>
 	</div>
 {/if}

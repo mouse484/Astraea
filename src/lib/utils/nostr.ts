@@ -1,5 +1,12 @@
 import { relays } from '$lib/store/setting';
-import { SimplePool, type Event, type Filter, type Sub } from 'nostr-tools';
+import {
+	getEventHash,
+	SimplePool,
+	type Event,
+	type Filter,
+	type Sub,
+	type UnsignedEvent
+} from 'nostr-tools';
 import { get } from 'svelte/store';
 
 const pool = new SimplePool();
@@ -31,4 +38,21 @@ export const subscribeEvents = (
 		sub.unsub();
 	}
 	return sub;
+};
+
+export const publishEvent = async (unsignedEvent: UnsignedEvent) => {
+	const pubRelays = Object.entries(get(relays)).flatMap(([url, { write }]) => {
+		return write ? url : [];
+	});
+
+	if (!window.nostr) return;
+	const signedEvent = await window.nostr.signEvent({
+		id: getEventHash(unsignedEvent),
+		...unsignedEvent
+	});
+	const pub = pool.publish(pubRelays, signedEvent);
+	pub.on('failed', (reason: string) => {
+		console.error({ reason });
+	});
+	return pub;
 };

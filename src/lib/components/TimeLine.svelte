@@ -53,8 +53,6 @@
 	});
 </script>
 
-{#key useNotes}
-	{#each useNotes as event (event.id)}
-		<Note {event} />
-	{/each}
-{/key}
+{#each useNotes as event (event.id)}
+	<Note {event} />
+{/each}
