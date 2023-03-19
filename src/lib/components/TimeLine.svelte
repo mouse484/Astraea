@@ -2,7 +2,7 @@
 	import { notes } from '$lib/store/notes';
 	import { getProfile } from '$lib/store/profiles';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
-	import type { Event, Filter } from 'nostr-tools';
+	import type { Event, Filter, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import Note from './Note/Note.svelte';
 
@@ -25,13 +25,15 @@
 		if (sub) profileSub = sub;
 	}, 5 * 1000);
 
+	let sub: Subscribe | undefined;
+
 	onMount(() => {
 		const usefilter = { limit: 30, ...filter };
 		if (authors !== 'ALL' && authors.length) {
 			usefilter.authors = authors;
 		}
 
-		const sub = subscribeEvents(1, usefilter, '', relays);
+		sub = subscribeEvents(1, usefilter, '', relays);
 		sub.on('event', (event) => {
 			console.log('v');
 			notes.set(event);
@@ -39,6 +41,7 @@
 	});
 
 	onDestroy(() => {
+		sub?.unsub();
 		profileSub?.unsub();
 		unsubscribe();
 		clearInterval(interval);
