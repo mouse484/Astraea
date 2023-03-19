@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { profiles, profileScheme } from '$lib/store/profiles';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
-	import type { Event } from 'nostr-tools';
 	import { Lightbox } from 'svelte-lightbox';
+	import NoteWithId from './NoteWithId.svelte';
 
 	const { sanitize } = DOMPurify;
 
@@ -24,14 +25,12 @@
 			if (tag) {
 				const [type, id] = tag;
 				if (type === 'p') {
-					// const event = profiles.get(id);
-					// const profile = (
-					// 	event ? JSON.parse(event.content) : {}
-					// ) as ProfileData;
-					// return `[@${
-					// 	profile?.name || `${id.substring(0, 8)}...`
-					// }](/profile/${id})`;
-					return `profile:${id}`;
+					const event = profiles.get(id);
+					const parsed = profileScheme.safeParse(event?.content);
+					const profile = parsed.success ? parsed.data : undefined;
+					return `[@${
+						profile?.name || `${id.substring(0, 8)}...`
+					}](/profile/${id})`;
 				} else if (type === 'e') {
 					return `[note](${id})`;
 				}
@@ -67,7 +66,7 @@
 								<!-- Link content -->
 								{#if child.content === 'note'}
 									{#if href}
-										<!-- 保留 -->
+										<NoteWithId id={href} />
 									{/if}
 								{:else if tag === 'a'}
 									{@const isHashTag = content.startsWith('#')}
