@@ -85,7 +85,11 @@
 										<Lightbox
 											customization={{ thumbnailProps: { class: 'flex h-60' } }}
 										>
-											<img src={href} alt={content} />
+											<img
+												src={href}
+												alt={content}
+												referrerpolicy="no-referrer"
+											/>
 										</Lightbox>
 									</div>
 								{/if}
