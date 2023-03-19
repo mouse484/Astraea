@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/mouse484/astraea/compare/v2.1.0...v2.1.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* 検索をタイムラインコンポーネントを通して行う ([9bb4c55](https://github.com/mouse484/astraea/commit/9bb4c5518beb68066487c422df1ae8060557fbbb))
+
 # [2.1.0](https://github.com/mouse484/astraea/compare/v2.0.0...v2.1.0) (2023-03-19)
 
 
