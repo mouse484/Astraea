@@ -5,9 +5,10 @@ export class Store {
 	private store = writable(new Map<string, Event>());
 	private eventsFunc = new Map<string, ((event: Event) => void)[]>();
 	constructor(private id: 'id' | 'pubkey' = 'id') {}
-	set(event: Event) {
-		this.emit(event[this.id], event);
-		this.store.update((s) => s.set(event[this.id], event));
+	set(event: Event, id?: string) {
+		const useId = id || event[this.id];
+		this.emit(useId, event);
+		this.store.update((s) => s.set(useId, event));
 	}
 	get(id: string) {
 		return get(this.store).get(id);

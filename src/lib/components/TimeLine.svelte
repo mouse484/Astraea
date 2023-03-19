@@ -35,7 +35,6 @@
 
 		sub = subscribeEvents(1, usefilter, '', relays);
 		sub.on('event', (event) => {
-			console.log('v');
 			notes.set(event);
 		});
 	});

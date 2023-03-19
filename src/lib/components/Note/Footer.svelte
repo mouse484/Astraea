@@ -3,7 +3,7 @@
 	import type { Event } from 'nostr-tools';
 	import PostNote from '../PostNote.svelte';
 	// import PublishPost from '../PublishPost.svelte';
-	import Like from './Like.svelte';
+	import Like from './Reactions.svelte';
 
 	export let event: Event;
 	// export let note: Event;
