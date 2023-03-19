@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { notes } from '$lib/store/notes';
+	import type { Event } from 'nostr-tools';
+	import Content from './Content.svelte';
 
-	export let noteId: string;
-
-	const note = notes.get(noteId);
+	export let event: Event;
 </script>
 
-{#if note}
-	<p>
-		{note.content}
-	</p>
+{#if event}
+	<div class="border p-2 m-2">
+		<Content content={event.content} />
+	</div>
 {/if}

@@ -9,4 +9,10 @@ export class Store {
 	get(id: string) {
 		return get(this.store).get(id);
 	}
+	filter(key: keyof Event, has: unknown[]) {
+		return [...get(this.store).values()].filter((event) =>
+			has.includes(event[key])
+		);
+	}
+	subscribe = this.store.subscribe;
 }
