@@ -1,3 +1,11 @@
+# [2.1.0](https://github.com/mouse484/astraea/compare/v2.0.0...v2.1.0) (2023-03-19)
+
+
+### Features
+
+* 検索フォーム ([3a7df7d](https://github.com/mouse484/astraea/commit/3a7df7d94b28a2d8a4a59210965be96664c64fa7))
+* 検索機能 ([1bd9e8c](https://github.com/mouse484/astraea/commit/1bd9e8cd1c0e55ac1146f29579c2864936932fdb))
+
 # [2.0.0](https://github.com/mouse484/astraea/compare/v1.19.1...v2.0.0) (2023-03-19)
 
 
