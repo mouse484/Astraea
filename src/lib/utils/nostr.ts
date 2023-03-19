@@ -9,7 +9,7 @@ import {
 } from 'nostr-tools';
 import { get } from 'svelte/store';
 
-const pool = new SimplePool();
+export const pool = new SimplePool();
 
 export type Subscribe = {
 	sub: (filters: Filter[]) => Sub;
