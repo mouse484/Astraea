@@ -7,6 +7,6 @@
 
 {#if event}
 	<div class="border p-2 m-2">
-		<Content content={event.content} />
+		<Content rawContent={event.content} tags={event.tags} />
 	</div>
 {/if}
