@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/mouse484/astraea/compare/v2.1.1...v2.1.2) (2023-03-19)
+
+
+### Bug Fixes
+
+* タイムラインを閉じたらsubscribeも閉じる ([76533e3](https://github.com/mouse484/astraea/commit/76533e3d769a20184891996fbb9a53aee83cfa54))
+
 ## [2.1.1](https://github.com/mouse484/astraea/compare/v2.1.0...v2.1.1) (2023-03-19)
 
 
