@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/mouse484/astraea/compare/v2.1.3...v2.1.4) (2023-03-19)
+
+
+### Bug Fixes
+
+* nostr-toolsにsearchが対応したので無理やりの型を修正 ([98ef0ed](https://github.com/mouse484/astraea/commit/98ef0ed476bb4c7542ff2e89843d928ec46db84c))
+
 ## [2.1.3](https://github.com/mouse484/astraea/compare/v2.1.2...v2.1.3) (2023-03-19)
 
 
