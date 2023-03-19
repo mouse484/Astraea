@@ -53,6 +53,8 @@
 	});
 </script>
 
-{#each useNotes as event (event.id)}
-	<Note {event} />
-{/each}
+<div class="flex flex-col gap-4">
+	{#each useNotes as event (event.id)}
+		<Note {event} />
+	{/each}
+</div>

@@ -9,4 +9,6 @@
 
 {#if event}
 	<Note {event} />
+{:else}
+	<p class="p-2 rounded border">Loading Note...</p>
 {/if}
