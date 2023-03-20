@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/mouse484/astraea/compare/v2.3.0...v2.3.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* リプライでnip36はいったんナシ ([7ca5576](https://github.com/mouse484/astraea/commit/7ca55767c2a5b1ac2a445576c66d29d599e58a96))
+
 # [2.3.0](https://github.com/mouse484/astraea/compare/v2.2.0...v2.3.0) (2023-03-20)
 
 
