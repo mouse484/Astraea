@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/mouse484/astraea/compare/v2.3.1...v2.3.2) (2023-03-20)
+
+
+### Bug Fixes
+
+* 検索結果を表示できるように ([5b4b120](https://github.com/mouse484/astraea/commit/5b4b1206200ebcd0e994b6149ec039509c251b44))
+
 ## [2.3.1](https://github.com/mouse484/astraea/compare/v2.3.0...v2.3.1) (2023-03-20)
 
 
