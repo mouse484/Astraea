@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/mouse484/astraea/compare/v2.2.0...v2.3.0) (2023-03-20)
+
+
+### Features
+
+* nip36対応 ([5bd5541](https://github.com/mouse484/astraea/commit/5bd55419d669ee0f61675514f9159302cd17e2e8))
+
 # [2.2.0](https://github.com/mouse484/astraea/compare/v2.1.4...v2.2.0) (2023-03-20)
 
 
