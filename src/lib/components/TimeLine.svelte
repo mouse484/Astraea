@@ -4,19 +4,24 @@
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
+	import type { Unsubscriber } from 'svelte/store';
 	import Note from './Note/Note.svelte';
 
 	export let authors: string[] | 'ALL';
 	export let filter: Filter = {};
 	export let relays: string[] = [];
+	export let newOnly = false;
 
-	let useNotes: Event[];
+	let useNotes: Event[] = [];
+	let unsubscribe: Unsubscriber | undefined;
 
-	const unsubscribe = notes.subscribe(() => {
-		useNotes = (
-			authors === 'ALL' ? notes.list() : notes.filter('pubkey', authors)
-		).sort((a, b) => b.created_at - a.created_at);
-	});
+	if (!newOnly) {
+		unsubscribe = notes.subscribe(() => {
+			useNotes = (
+				authors === 'ALL' ? notes.list() : notes.filter('pubkey', authors)
+			).sort((a, b) => b.created_at - a.created_at);
+		});
+	}
 
 	let profileSub: Subscribe | undefined;
 
@@ -36,13 +41,16 @@
 		sub = subscribeEvents(1, usefilter, '', relays);
 		sub.on('event', (event) => {
 			notes.set(event);
+			if (newOnly) {
+				useNotes = [...useNotes, event];
+			}
 		});
 	});
 
 	onDestroy(() => {
 		sub?.unsub();
 		profileSub?.unsub();
-		unsubscribe();
+		unsubscribe?.();
 		clearInterval(interval);
 		useNotes = [];
 	});
