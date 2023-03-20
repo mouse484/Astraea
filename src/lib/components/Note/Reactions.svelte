@@ -10,9 +10,12 @@
 	import EmojiPicker, { type EmojiDate } from '../EmojiPicker.svelte';
 
 	export let event: Event;
-	let liked = false;
 	let isOpenEmojiPicker = false;
 	let useReactions: { [key: string]: string[] } = {};
+
+	$: hasMyReactions = Object.entries(useReactions).flatMap(
+		([reaction, pubkeys]) => (pubkeys.includes($pubkey) ? reaction : [])
+	);
 
 	const unsubscribe = reactions.subscribe((events) => {
 		[...events.values()].flatMap((e) => {
@@ -33,6 +36,8 @@
 	});
 
 	const reactPublish = (content: string) => {
+		if (hasMyReactions.includes(content))
+			return console.warn('重複リアクションしない');
 		const unsignedEvent: UnsignedEvent = {
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
@@ -55,9 +60,7 @@
 <div class="flex gap-2">
 	{#if useReactions}
 		{#each Object.entries(useReactions) as [reaction, count]}
-			{@const isMyReaction = count.find(
-				(reactPubkey) => reactPubkey === $pubkey
-			)}
+			{@const isMyReaction = hasMyReactions.includes(reaction)}
 			<button on:click={() => reactPublish(reaction)} disabled={!!isMyReaction}>
 				<div
 					class="[&>.emoji]:h-4 flex gap-2 items-center rounded px-1
