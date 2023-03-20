@@ -10,6 +10,8 @@
 
 	let content: string;
 	let isNip07: boolean;
+	let isNip36 = false;
+	let nip36Content = '';
 
 	if (browser) {
 		if (window.nostr) {
@@ -28,10 +30,18 @@
 	};
 
 	const publishPost = async () => {
+		const tags: string[][] = [];
+		if (replyFor) {
+			tags.push(['e', replyFor, '', 'reply']);
+		}
+		if (nip36Content) {
+			tags.push(['content-warning', nip36Content]);
+		}
+
 		const unsignedEvent: UnsignedEvent = {
 			kind: 1,
 			created_at: Math.floor(Date.now() / 1000),
-			tags: replyFor ? [['e', replyFor, '', 'reply']] : [],
+			tags,
 			content,
 			pubkey: $pubkey
 		};
@@ -40,6 +50,8 @@
 
 		pub?.on('ok', () => {
 			content = '';
+			isNip36 = false;
+			nip36Content = '';
 		});
 	};
 </script>
@@ -55,7 +67,20 @@
 			<Icon icon="mdi:close-thick" />
 		</button>
 		{#key isPublish}
-			<div class="absolute right-0 bottom-0 m-4">
+			<div class="absolute right-0 bottom-0 m-4 flex gap-2">
+				<label class="flex flex-col justify-center">
+					nip-36
+					<div>
+						<input type="checkbox" bind:checked={isNip36} />
+						<input
+							class="border rounded px-2"
+							type="text"
+							placeholder="reason"
+							bind:value={nip36Content}
+							disabled={!isNip36}
+						/>
+					</div>
+				</label>
 				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
 			</div>
 		{/key}

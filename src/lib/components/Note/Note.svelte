@@ -1,11 +1,14 @@
 <script lang="ts">
 	import type { Event } from 'nostr-tools';
+	import Button from '../elements/Button.svelte';
 	import Profile from '../Profile/Profile.svelte';
 	import Content from './Content.svelte';
 	import Footer from './Footer.svelte';
 	import NoteWithId from './NoteWithId.svelte';
 
 	export let event: Event;
+
+	let isWarn = event.tags.find(([type]) => type === 'content-warning')?.[1];
 
 	const isReply = event.tags.reverse().find(([type, , , marker]) => {
 		return type === 'e' && (!marker || marker === 'reply');
@@ -21,7 +24,13 @@
 		<div class="border p-2 rounded {isReply ? 'border-t-0' : ''}">
 			<Profile pubkey={event.pubkey} detail={false} />
 			<div class="mt-4">
-				<Content rawContent={event.content} tags={event.tags} />
+				{#if isWarn}
+					<Button on:click={() => (isWarn = undefined)}>
+						このコンテンツを表示する (理由:{isWarn})
+					</Button>
+				{:else}
+					<Content rawContent={event.content} tags={event.tags} />
+				{/if}
 			</div>
 			<div class="mt-4 flex justify-between">
 				<Footer {event} />
