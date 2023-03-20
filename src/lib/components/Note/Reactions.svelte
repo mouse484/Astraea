@@ -7,9 +7,11 @@
 	import { json } from '@sveltejs/kit';
 	import type { Event, UnsignedEvent } from 'nostr-tools';
 	import { onDestroy } from 'svelte';
+	import EmojiPicker, { type EmojiDate } from '../EmojiPicker.svelte';
 
 	export let event: Event;
 	let liked = false;
+	let isOpenEmojiPicker = false;
 	let useReactions: { [key: string]: string[] } = {};
 
 	const unsubscribe = reactions.subscribe((events) => {
@@ -30,24 +32,20 @@
 		unsubscribe();
 	});
 
-	// const likeEvent = async () => {
-	// 	console.log('like');
-
-	// 	const unsignedEvent: UnsignedEvent = {
-	// 		kind: 7,
-	// 		created_at: Math.floor(Date.now() / 1000),
-	// 		tags: [
-	// 			['p', event.pubkey, ''],
-	// 			['e', event.id, '']
-	// 		],
-	// 		content: '+',
-	// 		pubkey: $pubkey
-	// 	};
-	// 	const pub = await publishEvent(unsignedEvent);
-	// 	pub?.on('ok', () => {
-	// 		liked = true;
-	// 	});
-	// };
+	const onEmojiSelect = async (data: EmojiDate) => {
+		isOpenEmojiPicker = false;
+		const unsignedEvent: UnsignedEvent = {
+			kind: 7,
+			created_at: Math.floor(Date.now() / 1000),
+			tags: [
+				['p', event.pubkey, ''],
+				['e', event.id, '']
+			],
+			content: data.native,
+			pubkey: $pubkey
+		};
+		await publishEvent(unsignedEvent);
+	};
 </script>
 
 <div class="flex gap-2">
@@ -61,4 +59,12 @@
 			</div>
 		{/each}
 	{/if}
+	<div class="flex items-center relative">
+		<button on:click={() => (isOpenEmojiPicker = !isOpenEmojiPicker)}>
+			<Icon icon="material-symbols:add-reaction-outline" />
+		</button>
+		{#if isOpenEmojiPicker}
+			<EmojiPicker on:onEmojiSelect={(event) => onEmojiSelect(event.detail)} />
+		{/if}
+	</div>
 </div>

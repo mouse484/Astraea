@@ -1,0 +1,26 @@
+<script context="module" lang="ts">
+	export type EmojiDate = { [key in 'native' | 'id']: string };
+</script>
+
+<script lang="ts">
+	import data from '@emoji-mart/data';
+	import { Picker } from 'emoji-mart';
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher<{ onEmojiSelect: EmojiDate }>();
+
+	export const emojiPicker = (
+		node: HTMLElement,
+		onEmojiSelect: (data: EmojiDate) => void
+	) => {
+		const picker = new Picker({ data, onEmojiSelect });
+		node.appendChild(picker as unknown as Node);
+	};
+</script>
+
+<div
+	class="absolute top-0 mt-8"
+	use:emojiPicker={(data) => {
+		dispatch('onEmojiSelect', data);
+	}}
+/>
