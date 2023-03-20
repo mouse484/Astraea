@@ -32,8 +32,7 @@
 		unsubscribe();
 	});
 
-	const onEmojiSelect = async (data: EmojiDate) => {
-		isOpenEmojiPicker = false;
+	const reactPublish = (content: string) => {
 		const unsignedEvent: UnsignedEvent = {
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
@@ -41,22 +40,34 @@
 				['p', event.pubkey, ''],
 				['e', event.id, '']
 			],
-			content: data.native,
+			content: content,
 			pubkey: $pubkey
 		};
-		await publishEvent(unsignedEvent);
+		publishEvent(unsignedEvent);
+	};
+
+	const onEmojiSelect = (data: EmojiDate) => {
+		isOpenEmojiPicker = false;
+		reactPublish(data.native);
 	};
 </script>
 
 <div class="flex gap-2">
 	{#if useReactions}
 		{#each Object.entries(useReactions) as [reaction, count]}
-			<div class="flex gap-2">
-				<div class="[&>.emoji]:h-4 flex gap-2 items-center" use:twemoji>
+			{@const isMyReaction = count.find(
+				(reactPubkey) => reactPubkey === $pubkey
+			)}
+			<button on:click={() => reactPublish(reaction)} disabled={!!isMyReaction}>
+				<div
+					class="[&>.emoji]:h-4 flex gap-2 items-center rounded px-1
+					{isMyReaction ? 'bg-blue-200' : ''}"
+					use:twemoji
+				>
 					{reaction.replace('+', '❤')}
-					<div>{count.length}</div>
+					<span>{count.length}</span>
 				</div>
-			</div>
+			</button>
 		{/each}
 	{/if}
 	<div class="flex items-center relative">
