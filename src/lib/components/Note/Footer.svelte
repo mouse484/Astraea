@@ -25,7 +25,7 @@
 	</div>
 	{#if isReplayOpen}
 		<div class="mt-4">
-			<PostNote replyFor={event.id} />
+			<PostNote replyFor={event.id} small={true} />
 		</div>
 	{/if}
 </div>

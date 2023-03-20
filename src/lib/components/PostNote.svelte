@@ -7,6 +7,7 @@
 	import Button from './elements/Button.svelte';
 
 	export let replyFor = '';
+	export let small = false
 
 	let content: string;
 	let isNip07: boolean;
@@ -68,6 +69,7 @@
 		</button>
 		{#key isPublish}
 			<div class="absolute right-0 bottom-0 m-4 flex gap-2">
+				{#if !small}
 				<label class="flex flex-col justify-center">
 					nip-36
 					<div>
@@ -81,6 +83,7 @@
 						/>
 					</div>
 				</label>
+				{/if}
 				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
 			</div>
 		{/key}
