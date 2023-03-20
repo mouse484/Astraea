@@ -17,11 +17,14 @@
 
 <Section>
 	<h3 class="text-xl">{$searchQuery}</h3>
-	{#if $searchQuery}
-		<TimeLine
-			filter={{ limit: 30, search: $searchQuery }}
-			relays={['wss://relay.nostr.band']}
-			authors="ALL"
-		/>
-	{/if}
+	{#key $searchQuery}
+		{#if $searchQuery}
+			<TimeLine
+				filter={{ limit: 30, search: $searchQuery }}
+				newOnly={true}
+				relays={['wss://relay.nostr.band']}
+				authors="ALL"
+			/>
+		{/if}
+	{/key}
 </Section>
