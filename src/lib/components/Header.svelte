@@ -6,7 +6,7 @@
 	import Icon from '@iconify/svelte';
 	import Responsive from './Responsive.svelte';
 	import SearchForm from './Search/SearchForm.svelte';
-	// import NotificationHeader from './Notifications/NotificationHeader.svelte';
+	import NotificationHeader from './Notifications/NotificationHeader.svelte';
 	const version = APP_VERSION;
 </script>
 
@@ -25,7 +25,7 @@
 			<SearchForm />
 		</Responsive>
 
-		<!--<NotificationHeader /> -->
+		<NotificationHeader />
 		<a href="/setting">
 			<Icon icon={'mdi:cog'} class="text-3xl" />
 		</a>
