@@ -1,3 +1,19 @@
+# [2.2.0](https://github.com/mouse484/astraea/compare/v2.1.4...v2.2.0) (2023-03-20)
+
+
+### Bug Fixes
+
+* 重複してリアクションしないように ([1c586e6](https://github.com/mouse484/astraea/commit/1c586e647138dff58d68639227ac73357cfcbe5c))
+
+
+### Features
+
+* ヘッダーに通知を追加 ([4cc79a7](https://github.com/mouse484/astraea/commit/4cc79a710de87bad94f35997768d58d4404ba0b3))
+* リアクションの表示 ([68fb5f6](https://github.com/mouse484/astraea/commit/68fb5f60a1b0a9126cebff31d6a5fcc87d5e9334))
+* 他人のリアクションを押してもリアクションできるように ([ede46ba](https://github.com/mouse484/astraea/commit/ede46ba6d9db81b73e524ee9b747f9d592a33179))
+* 絵文字を選択してリアクションする ([3f18435](https://github.com/mouse484/astraea/commit/3f184359242dd2d1f648f8f6849317f4f2b1ccca))
+* 通知を表示 ([93bd7cf](https://github.com/mouse484/astraea/commit/93bd7cf6af6f13a9a38d10ec69a78515c67d2afb))
+
 ## [2.1.4](https://github.com/mouse484/astraea/compare/v2.1.3...v2.1.4) (2023-03-19)
 
 
