@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/mouse484/astraea/compare/v2.3.3...v2.3.4) (2023-03-21)
+
+
+### Bug Fixes
+
+* emojiコンポーネント ([a7fd586](https://github.com/mouse484/astraea/commit/a7fd58680b6beb622dc8536ef4ef8b2c9bbf16f8))
+
 ## [2.3.3](https://github.com/mouse484/astraea/compare/v2.3.2...v2.3.3) (2023-03-21)
 
 
