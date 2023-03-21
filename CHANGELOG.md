@@ -1,3 +1,10 @@
+## [2.3.6](https://github.com/mouse484/astraea/compare/v2.3.5...v2.3.6) (2023-03-21)
+
+
+### Bug Fixes
+
+* ブラウザでのみ実行するように ([fee78cd](https://github.com/mouse484/astraea/commit/fee78cd7685bd1b13ff5758e36c3925a6ea22a3a))
+
 ## [2.3.5](https://github.com/mouse484/astraea/compare/v2.3.4...v2.3.5) (2023-03-21)
 
 
