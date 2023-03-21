@@ -1,3 +1,10 @@
+## [2.3.5](https://github.com/mouse484/astraea/compare/v2.3.4...v2.3.5) (2023-03-21)
+
+
+### Bug Fixes
+
+* マウントされてからem-emojiを表示 ([0c1a21a](https://github.com/mouse484/astraea/commit/0c1a21aff585a4f21a061f7489fd17deb2c9757e))
+
 ## [2.3.4](https://github.com/mouse484/astraea/compare/v2.3.3...v2.3.4) (2023-03-21)
 
 
