@@ -1,3 +1,11 @@
+## [2.3.3](https://github.com/mouse484/astraea/compare/v2.3.2...v2.3.3) (2023-03-21)
+
+
+### Bug Fixes
+
+* リアクションの絵文字を絵文字ピッカーと同じに ([a6494d3](https://github.com/mouse484/astraea/commit/a6494d3b33c2df728dd04b9b954cd1b75bbd3654))
+* 絵文字ピッカーを日本語化しておく ([4d16971](https://github.com/mouse484/astraea/commit/4d169714e7ca5839c21542df5cf53006f37aba1b))
+
 ## [2.3.2](https://github.com/mouse484/astraea/compare/v2.3.1...v2.3.2) (2023-03-20)
 
 
