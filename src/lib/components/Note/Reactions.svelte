@@ -7,6 +7,7 @@
 	import { json } from '@sveltejs/kit';
 	import type { Event, UnsignedEvent } from 'nostr-tools';
 	import { onDestroy } from 'svelte';
+	import Emoji from '../Emoji.svelte';
 	import EmojiPicker, { type EmojiDate } from '../EmojiPicker.svelte';
 
 	export let event: Event;
@@ -65,9 +66,8 @@
 				<div
 					class="[&>.emoji]:h-4 flex gap-2 items-center rounded px-1
 					{isMyReaction ? 'bg-blue-200' : ''}"
-					use:twemoji
 				>
-					{reaction.replace('+', '❤')}
+					<Emoji emoji={reaction.replace('+', '❤')} />
 					<span>{count.length}</span>
 				</div>
 			</button>
