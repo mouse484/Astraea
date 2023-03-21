@@ -4,7 +4,7 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import RelayInfo from '$lib/components/RelayInfo.svelte';
-	import { pubkeyClear, relays } from '$lib/store/setting';
+	import { relays } from '$lib/store/setting';
 </script>
 
 <Heading>設定</Heading>
@@ -35,7 +35,6 @@
 	<h3>ログアウト</h3>
 	<Button
 		on:click={() => {
-			pubkeyClear();
 			goto('/');
 		}}>ログアウト</Button
 	>

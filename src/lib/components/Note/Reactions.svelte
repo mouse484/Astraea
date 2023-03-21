@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { reactions } from '$lib/store/reactions';
-	import { pubkey } from '$lib/store/setting';
+	import { usePubkey } from '$lib/store/setting';
 	import { publishEvent } from '$lib/utils/nostr';
-	import { twemoji } from '$lib/utils/twemoji';
 	import Icon from '@iconify/svelte';
-	import { json } from '@sveltejs/kit';
 	import type { Event, UnsignedEvent } from 'nostr-tools';
 	import { onDestroy } from 'svelte';
 	import Emoji from '../Emoji.svelte';
@@ -14,8 +12,10 @@
 	let isOpenEmojiPicker = false;
 	let useReactions: { [key: string]: string[] } = {};
 
+	const pubkey = usePubkey();
+
 	$: hasMyReactions = Object.entries(useReactions).flatMap(
-		([reaction, pubkeys]) => (pubkeys.includes($pubkey) ? reaction : [])
+		([reaction, pubkeys]) => (pubkeys.includes($pubkey.data) ? reaction : [])
 	);
 
 	const unsubscribe = reactions.subscribe((events) => {
@@ -47,7 +47,7 @@
 				['e', event.id, '']
 			],
 			content: content,
-			pubkey: $pubkey
+			pubkey: $pubkey.data
 		};
 		publishEvent(unsignedEvent);
 	};

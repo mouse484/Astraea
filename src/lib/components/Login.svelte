@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { pubkey } from '$lib/store/setting';
+	import { useQueryClient } from '@tanstack/svelte-query';
 	import { nip19 } from 'nostr-tools';
 	import Button from './elements/Button.svelte';
 	let inputPubkey: string;
@@ -16,12 +16,13 @@
 		}
 	}
 
+	const queryClient = useQueryClient();
+
 	const savePubkey = () => {
 		try {
 			const decode = nip19.decode(inputPubkey);
 			if (decode.type === 'npub') {
-				// 後で直す
-				pubkey.set(decode.data as string);
+				queryClient.setQueryData(['pubkey'], decode.data);
 			}
 		} catch {
 			pubkeyInfo = 'pubkeyが間違っているか、問題が発生しました。';
@@ -31,7 +32,7 @@
 	const nip07Login = async () => {
 		if (!window.nostr) return;
 		const nip07key = await window.nostr.getPublicKey();
-		pubkey.set(nip07key);
+		queryClient.setQueryData(['pubkey'], nip07key);
 	};
 </script>
 

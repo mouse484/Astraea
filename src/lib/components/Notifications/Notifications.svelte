@@ -4,10 +4,12 @@
 	import NoteWithId from '$lib/components/Note/NoteWithId.svelte';
 	import Profile from '$lib/components/Profile/Profile.svelte';
 	import { reactions } from '$lib/store/reactions';
-	import { pubkey } from '$lib/store/setting';
+	import { usePubkey } from '$lib/store/setting';
 	import { twemoji } from '$lib/utils/twemoji';
 	import { onDestroy } from 'svelte';
 	import { writable } from 'svelte/store';
+
+	const pubkey = usePubkey();
 
 	const items = writable(new Map<string, { [key: string]: string[] }>());
 
@@ -15,7 +17,7 @@
 		[...events.values()].forEach((e) => {
 			const [, reactPubkey] = e.tags.find(([type]) => type === 'p') || [];
 			const [, reactEventId] = e.tags.find(([type]) => type === 'e') || [];
-			if (reactPubkey === $pubkey) {
+			if (reactPubkey === $pubkey.data) {
 				const current = $items.get(reactEventId);
 				const newReaction = current || {};
 

@@ -1,17 +1,16 @@
 <script lang="ts">
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
-	import { pubkey } from '$lib/store/setting';
 	import { browser } from '$app/environment';
-	import Login from '$lib/components/Login.svelte';
-	import { onMount } from 'svelte';
-	let mounted = false;
-	if (browser) {
-		const localPubkey = localStorage.getItem('pubkey');
-		if (localPubkey) pubkey.set(localPubkey);
-	}
-	onMount(() => {
-		mounted = true;
+	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
+	import IsLogin from '$lib/components/IsLogin.svelte';
+
+	export const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				enabled: browser
+			}
+		}
 	});
 </script>
 
@@ -19,15 +18,13 @@
 	<title>Astraea</title>
 </svelte:head>
 
-<div class="m-4">
-	<Header />
-	<section class="m-4">
-		{#if mounted}
-			{#if $pubkey}
+<QueryClientProvider client={queryClient}>
+	<div class="m-4">
+		<Header />
+		<section class="m-4">
+			<IsLogin>
 				<slot />
-			{:else}
-				<Login />
-			{/if}
-		{/if}
-	</section>
-</div>
+			</IsLogin>
+		</section>
+	</div>
+</QueryClientProvider>

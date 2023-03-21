@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { pubkey } from '$lib/store/setting';
+	import { usePubkey } from '$lib/store/setting';
 	import { publishEvent } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
 	import type { UnsignedEvent } from 'nostr-tools';
 	import Button from './elements/Button.svelte';
 
 	export let replyFor = '';
-	export let small = false
+	export let small = false;
 
 	let content: string;
 	let isNip07: boolean;
 	let isNip36 = false;
 	let nip36Content = '';
+
+	const pubkey = usePubkey();
 
 	if (browser) {
 		if (window.nostr) {
@@ -44,7 +46,7 @@
 			created_at: Math.floor(Date.now() / 1000),
 			tags,
 			content,
-			pubkey: $pubkey
+			pubkey: $pubkey.data
 		};
 
 		const pub = await publishEvent(unsignedEvent);
@@ -70,19 +72,19 @@
 		{#key isPublish}
 			<div class="absolute right-0 bottom-0 m-4 flex gap-2">
 				{#if !small}
-				<label class="flex flex-col justify-center">
-					nip-36
-					<div>
-						<input type="checkbox" bind:checked={isNip36} />
-						<input
-							class="border rounded px-2"
-							type="text"
-							placeholder="reason"
-							bind:value={nip36Content}
-							disabled={!isNip36}
-						/>
-					</div>
-				</label>
+					<label class="flex flex-col justify-center">
+						nip-36
+						<div>
+							<input type="checkbox" bind:checked={isNip36} />
+							<input
+								class="border rounded px-2"
+								type="text"
+								placeholder="reason"
+								bind:value={nip36Content}
+								disabled={!isNip36}
+							/>
+						</div>
+					</label>
 				{/if}
 				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
 			</div>

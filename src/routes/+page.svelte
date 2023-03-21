@@ -4,17 +4,19 @@
 	import PostNote from '$lib/components/PostNote.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import Trend from '$lib/components/Trend.svelte';
-	import { pubkey } from '$lib/store/setting';
+	import { usePubkey } from '$lib/store/setting';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
 	import { z } from 'zod';
+
+	const pubkey = usePubkey();
 
 	let contacts = new Set<string>();
 
 	const contactsScheme = z.tuple([z.string(), z.string()]);
 
 	onMount(() => {
-		const contactsSub = subscribeEvents(3, { authors: [$pubkey] }, 'eose');
+		const contactsSub = subscribeEvents(3, { authors: [$pubkey.data] }, 'eose');
 		contactsSub.on('event', (event) => {
 			event.tags.forEach((tag) => {
 				const [, pubkey] = contactsScheme.parse(tag);
