@@ -5,6 +5,7 @@
 <script lang="ts">
 	import data from '@emoji-mart/data';
 	import { Picker } from 'emoji-mart';
+	import i18n from '@emoji-mart/data/i18n/ja.json';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher<{ onEmojiSelect: EmojiDate }>();
@@ -13,7 +14,7 @@
 		node: HTMLElement,
 		onEmojiSelect: (data: EmojiDate) => void
 	) => {
-		const picker = new Picker({ data, onEmojiSelect });
+		const picker = new Picker({ data, onEmojiSelect, i18n, locale: 'ja' });
 		node.appendChild(picker as unknown as Node);
 	};
 </script>
