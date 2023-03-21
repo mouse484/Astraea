@@ -1,5 +1,5 @@
 // import { browser, dev } from '$app/environment';
-import { dev } from '$app/environment';
+import { browser, dev } from '$app/environment';
 import { defaultRelays, mouseNpubKey } from '$lib/data/const';
 // import { subscribeEvents } from '$lib/utils/nostr';
 import { createQuery } from '@tanstack/svelte-query';
@@ -18,7 +18,9 @@ export const usePubkey = () => {
 	});
 
 	query.subscribe((q) => {
-		if (q.data) localStorage.setItem('pubkey', q.data);
+		if (!browser) return;
+		console.log(q.data);
+		localStorage.setItem('pubkey', q.data || '');
 	});
 
 	return query;

@@ -4,7 +4,16 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import RelayInfo from '$lib/components/RelayInfo.svelte';
-	import { relays } from '$lib/store/setting';
+	import { relays, usePubkey } from '$lib/store/setting';
+	import type { QueryClient } from '@tanstack/svelte-query';
+	import { getContext } from 'svelte';
+
+	const queryClient: QueryClient = getContext('$$_queryClient');
+	const logout = () => {
+		localStorage.removeItem('pubkey');
+		queryClient.resetQueries(['pubkey']);
+		goto('/');
+	};
 </script>
 
 <Heading>設定</Heading>
@@ -33,9 +42,5 @@
 	</table>
 
 	<h3>ログアウト</h3>
-	<Button
-		on:click={() => {
-			goto('/');
-		}}>ログアウト</Button
-	>
+	<Button on:click={logout}>ログアウト</Button>
 </Section>
