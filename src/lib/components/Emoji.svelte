@@ -15,5 +15,5 @@
 </script>
 
 {#if emojiData}
-	<em-emoji id={emojiData.id} />
+	<svelte:element this={'em-emoji'} id={emojiData.id} />
 {/if}
