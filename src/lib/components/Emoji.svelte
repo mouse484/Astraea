@@ -1,16 +1,15 @@
 <script lang="ts">
 	import data from '@emoji-mart/data';
-	import { init, getEmojiDataFromNative } from 'emoji-mart';
+	import { init, getEmojiDataFromNative, Emoji } from 'emoji-mart';
+	import { onMount } from 'svelte';
 	import type { EmojiDate } from './EmojiPicker.svelte';
-
-	init({ data });
 
 	export let emoji: string;
 
 	let emojiData: EmojiDate;
-
-	getEmojiDataFromNative(emoji).then((e) => {
-		emojiData = e;
+	onMount(async () => {
+		await init({ data });
+		emojiData = await getEmojiDataFromNative(emoji);
 	});
 </script>
 
