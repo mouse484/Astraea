@@ -7,6 +7,7 @@ specifiers:
   '@semantic-release/git': ^10.0.1
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.13.0
+  '@tanstack/svelte-query': ^4.27.0
   '@types/markdown-it': ^12.2.3
   '@types/prettier': ^2.7.2
   '@typescript-eslint/eslint-plugin': ^5.56.0
@@ -38,6 +39,7 @@ specifiers:
 dependencies:
   '@emoji-mart/data': 1.1.2
   '@iconify/svelte': 3.1.0_svelte@3.57.0
+  '@tanstack/svelte-query': 4.27.0_svelte@3.57.0
   emoji-mart: 5.5.2
   isomorphic-dompurify: 1.2.0
   markdown-it: 13.0.1
@@ -2509,6 +2511,19 @@ packages:
     dependencies:
       defer-to-connect: 2.0.1
     dev: true
+
+  /@tanstack/query-core/4.27.0:
+    resolution: {integrity: sha512-sm+QncWaPmM73IPwFlmWSKPqjdTXZeFf/7aEmWh00z7yl2FjqophPt0dE1EHW9P1giMC5rMviv7OUbSDmWzXXA==}
+    dev: false
+
+  /@tanstack/svelte-query/4.27.0_svelte@3.57.0:
+    resolution: {integrity: sha512-FmrviPCoWbgBOLgG4uOG4EHi80DDzvD4XK+0nQBTLb4c2cKyN7c98MLgG58yHbdFEPQyhhcJlqagXP18vWWS9w==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      '@tanstack/query-core': 4.27.0
+      svelte: 3.57.0
+    dev: false
 
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
