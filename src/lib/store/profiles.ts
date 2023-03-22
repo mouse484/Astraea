@@ -1,4 +1,3 @@
-import { Store } from './mod';
 import z from 'zod';
 import { getEvent } from '$lib/utils/nostr';
 import { createQuery } from '@tanstack/svelte-query';
@@ -23,8 +22,6 @@ export const useProfile = (pubkey: string) => {
 	});
 	return query;
 };
-
-export const profiles = new Store('pubkey');
 
 export const profileScheme = z
 	.object({
