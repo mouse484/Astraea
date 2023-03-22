@@ -6,6 +6,8 @@
 	import Login from '$lib/components/Login.svelte';
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
+	import MenuBar from '$lib/components/MenuBar.svelte';
+	import Responsive from '$lib/components/Responsive.svelte';
 
 	let mounted = false;
 	if (browser) {
@@ -42,12 +44,17 @@
 	{@html webManifest}
 </svelte:head>
 
-<div class="m-4">
-	<Header />
-	<section class="m-4">
+<div>
+	<div class="m-8">
+		<Header />
+	</div>
+	<section>
 		{#if mounted}
 			{#if $pubkey}
-				<slot />
+				<div class="m-8">
+					<slot />
+				</div>
+				<MenuBar />
 			{:else}
 				<Login />
 			{/if}

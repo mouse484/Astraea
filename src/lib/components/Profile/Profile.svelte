@@ -4,6 +4,7 @@
 		profileScheme,
 		type ProfileDate
 	} from '$lib/store/profiles';
+	import Icon from '@iconify/svelte';
 	export let pubkey: string;
 	export let imageOnly = false;
 	export let detail = false;
@@ -40,12 +41,19 @@
 		{/if}
 	{/if}
 	<div class="flex justify-between">
-		<a class="flex gap-2 text-inherit visited:text-inherit w-fit" href={to}>
-			<img
-				class="w-12 h-12 rounded"
-				src={profile?.picture}
-				alt={profile?.name}
-			/>
+		<a
+			class="flex gap-2 items-center text-inherit visited:text-inherit w-fit"
+			href={to}
+		>
+			{#if profile?.picture}
+				<img
+					class="w-12 h-12 rounded"
+					src={profile.picture}
+					alt={profile?.name}
+				/>
+			{:else}
+				<Icon icon="mdi:account" class="w-8 h-8" />
+			{/if}
 			{#if !imageOnly}
 				<div>
 					<div>
