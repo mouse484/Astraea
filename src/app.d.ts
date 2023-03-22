@@ -18,6 +18,11 @@ declare global {
 	}
 }
 
+declare module 'virtual:*' {
+	export const module: unknown;
+	export default module;
+}
+
 declare const APP_VERSION: string;
 
 export {};
