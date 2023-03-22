@@ -1,10 +1,5 @@
 <script lang="ts">
-	import {
-		profiles,
-		profileScheme,
-		useProfile,
-		type ProfileDate
-	} from '$lib/store/profiles';
+	import { useProfile } from '$lib/store/profiles';
 	export let pubkey: string;
 	export let imageOnly = false;
 	export let detail = false;

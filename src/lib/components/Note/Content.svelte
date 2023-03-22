@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { profiles, profileScheme } from '$lib/store/profiles';
 	import DOMPurify from 'isomorphic-dompurify';
 	import MarkdownIt from 'markdown-it';
 	import { Lightbox } from 'svelte-lightbox';
@@ -25,12 +24,7 @@
 			if (tag) {
 				const [type, id] = tag;
 				if (type === 'p') {
-					const event = profiles.get(id);
-					const parsed = profileScheme.safeParse(event?.content);
-					const profile = parsed.success ? parsed.data : undefined;
-					return `[@${
-						profile?.name || `${id.substring(0, 8)}...`
-					}](/profile/${id})`;
+					return `[@${id.substring(0, 8)}...](/profile/${id})`;
 				} else if (type === 'e') {
 					return `[note](${id})`;
 				}
