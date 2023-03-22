@@ -7,7 +7,7 @@
 	import Button from './elements/Button.svelte';
 
 	export let replyFor = '';
-	export let small = false
+	export let small = false;
 
 	let content: string;
 	let isNip07: boolean;
@@ -67,26 +67,31 @@
 		<button class="absolute top-0 right-0 m-4" on:click={() => (content = '')}>
 			<Icon icon="mdi:close-thick" />
 		</button>
-		{#key isPublish}
-			<div class="absolute right-0 bottom-0 m-4 flex gap-2">
-				{#if !small}
-				<label class="flex flex-col justify-center">
-					nip-36
-					<div>
-						<input type="checkbox" bind:checked={isNip36} />
-						<input
-							class="border rounded px-2"
-							type="text"
-							placeholder="reason"
-							bind:value={nip36Content}
-							disabled={!isNip36}
-						/>
-					</div>
+		<div class="flex gap-2 justify-between mt-2">
+			<div class="flex gap-2">
+				<label class="block p-2 rounded border">
+					投稿に警告を含める
+					<input type="checkbox" bind:checked={isNip36} />
 				</label>
+				{#if isNip36}
+					<input
+						class="p-2 rounded border"
+						list="nip36-reason"
+						type="text"
+						placeholder="理由"
+						bind:value={nip36Content}
+						disabled={!isNip36}
+					/>
+
+					<datalist id="nip36-reason">
+						<option value="ヌード" />
+						<option value="暴力" />
+						<option value="センシティブ" />
+					</datalist>
 				{/if}
-				<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
 			</div>
-		{/key}
+			<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
+		</div>
 	</div>
 	{#key isNip07}
 		{#if isNip07 === false}
