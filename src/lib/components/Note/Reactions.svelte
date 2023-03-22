@@ -1,40 +1,22 @@
 <script lang="ts">
-	import { reactions } from '$lib/store/reactions';
+	import { useReactions } from '$lib/store/reactions';
 	import { usePubkey } from '$lib/store/setting';
 	import { publishEvent } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
 	import type { Event, UnsignedEvent } from 'nostr-tools';
-	import { onDestroy } from 'svelte';
 	import Emoji from '../Emoji.svelte';
 	import EmojiPicker, { type EmojiDate } from '../EmojiPicker.svelte';
 
 	export let event: Event;
 	let isOpenEmojiPicker = false;
-	let useReactions: { [key: string]: string[] } = {};
 
 	const pubkey = usePubkey();
 
-	$: hasMyReactions = Object.entries(useReactions).flatMap(
+	const reactions = useReactions(event.id);
+
+	$: hasMyReactions = Object.entries($reactions.data).flatMap(
 		([reaction, pubkeys]) => (pubkeys.includes($pubkey.data) ? reaction : [])
 	);
-
-	const unsubscribe = reactions.subscribe((events) => {
-		[...events.values()].flatMap((e) => {
-			const [, id] = e.tags.find(([type]) => type === 'e') || [];
-			if (id === event.id) {
-				const newReaction = useReactions;
-				newReaction[e.content] = useReactions[e.content]
-					? [...new Set(useReactions[e.content]).add(e.pubkey)]
-					: [e.pubkey];
-
-				useReactions = newReaction;
-			}
-		});
-	});
-
-	onDestroy(() => {
-		unsubscribe();
-	});
 
 	const reactPublish = (content: string) => {
 		if (hasMyReactions.includes(content))
@@ -59,8 +41,8 @@
 </script>
 
 <div class="flex gap-2">
-	{#if useReactions}
-		{#each Object.entries(useReactions) as [reaction, count]}
+	{#if $reactions.data}
+		{#each Object.entries($reactions.data) as [reaction, count]}
 			{@const isMyReaction = hasMyReactions.includes(reaction)}
 			<button on:click={() => reactPublish(reaction)} disabled={!!isMyReaction}>
 				<div

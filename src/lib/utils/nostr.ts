@@ -11,16 +11,30 @@ import { get } from 'svelte/store';
 
 export const pool = new SimplePool();
 
+const useRelays = (relays: RelaysData, isType: 'read' | 'write') => {
+	return Object.entries(relays).flatMap(([url, type]) => {
+		return type[isType] ? url : [];
+	});
+};
+
 export const getEvent = async (
 	relays: RelaysData,
 	kind: number,
 	filter: Omit<Filter, 'kinds'>
 ) => {
-	const reqRelays = Object.entries(relays).flatMap(([url, { read }]) => {
-		return read ? url : [];
-	});
+	const reqRelays = useRelays(relays, 'read');
 	const event = await pool.get(reqRelays, { kinds: [kind], ...filter });
 	return event;
+};
+
+export const getEvents = async (
+	relays: RelaysData,
+	kind: number,
+	filter: Omit<Filter, 'kinds'>
+) => {
+	const reqRelays = useRelays(relays, 'read');
+	const events = await pool.list(reqRelays, [{ kinds: [kind], ...filter }]);
+	return events;
 };
 
 export type Subscribe = {
