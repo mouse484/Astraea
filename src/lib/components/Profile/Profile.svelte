@@ -2,6 +2,7 @@
 	import {
 		profiles,
 		profileScheme,
+		useProfile,
 		type ProfileDate
 	} from '$lib/store/profiles';
 	export let pubkey: string;
@@ -9,18 +10,9 @@
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
-	let profileEvent = profiles.get(pubkey);
+	const profileQuery = useProfile(pubkey);
 
-	profiles.on(pubkey, (event) => {
-		profileEvent = event;
-	});
-
-	$: parsed = profileScheme.safeParse(
-		profileEvent?.content ? JSON.parse(profileEvent?.content) : ''
-	);
-	$: profile = parsed.success
-		? parsed.data
-		: ({ name: 'loading' } as ProfileDate);
+	$: profile = $profileQuery.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 	$: maxWitdh =

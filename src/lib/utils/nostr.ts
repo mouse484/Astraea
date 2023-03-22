@@ -1,4 +1,4 @@
-import { relays } from '$lib/store/setting';
+import { relays, type RelaysData } from '$lib/store/setting';
 import {
 	getEventHash,
 	SimplePool,
@@ -10,6 +10,18 @@ import {
 import { get } from 'svelte/store';
 
 export const pool = new SimplePool();
+
+export const getEvent = async (
+	relays: RelaysData,
+	kind: number,
+	filter: Omit<Filter, 'kinds'>
+) => {
+	const reqRelays = Object.entries(relays).flatMap(([url, { read }]) => {
+		return read ? url : [];
+	});
+	const event = await pool.get(reqRelays, { kinds: [kind], ...filter });
+	return event;
+};
 
 export type Subscribe = {
 	sub: (filters: Filter[]) => Sub;

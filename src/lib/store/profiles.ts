@@ -1,7 +1,28 @@
 import { Store } from './mod';
 import z from 'zod';
-import type { Event } from 'nostr-tools';
-import { subscribeEvents } from '$lib/utils/nostr';
+import { getEvent } from '$lib/utils/nostr';
+import { createQuery } from '@tanstack/svelte-query';
+import { useRelays } from './setting';
+import { get } from 'svelte/store';
+
+export const useProfile = (pubkey: string) => {
+	const query = createQuery<ProfileDate>(['profile', pubkey], {
+		queryFn: async () => {
+			const relays = useRelays();
+			const event = await getEvent(get(relays).data, 0, { authors: [pubkey] });
+
+			if (event) {
+				const parsed = profileScheme.safeParse(
+					event.content ? JSON.parse(event.content) : ''
+				);
+				if (parsed.success) return parsed.data;
+			}
+			return {};
+		},
+		initialData: { name: 'loading' }
+	});
+	return query;
+};
 
 export const profiles = new Store('pubkey');
 
@@ -19,21 +40,3 @@ export const profileScheme = z
 	.passthrough();
 
 export type ProfileDate = z.infer<typeof profileScheme>;
-
-export const getProfile = (noteEvents: Event[]) => {
-	const hasNotProfile = [
-		...new Set(
-			noteEvents.flatMap((note) =>
-				profiles.get(note.pubkey) ? [] : note.pubkey
-			)
-		)
-	];
-	if (hasNotProfile.length) {
-		const sub = subscribeEvents(0, { authors: hasNotProfile }, 'eose');
-		sub.on('event', (event) => {
-			profiles.set(event);
-		});
-
-		return sub;
-	}
-};

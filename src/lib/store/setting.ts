@@ -49,6 +49,7 @@ export const useRelays = () => {
 	return query;
 };
 
+export type RelaysData = z.infer<typeof relayScheme>;
 export const relays = writable<
 	Record<
 		string,

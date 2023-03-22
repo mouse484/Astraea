@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { notes } from '$lib/store/notes';
-	import { getProfile } from '$lib/store/profiles';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
@@ -23,13 +22,6 @@
 		});
 	}
 
-	let profileSub: Subscribe | undefined;
-
-	const interval = setInterval(() => {
-		const sub = getProfile(useNotes);
-		if (sub) profileSub = sub;
-	}, 5 * 1000);
-
 	let sub: Subscribe | undefined;
 
 	onMount(() => {
@@ -49,9 +41,7 @@
 
 	onDestroy(() => {
 		sub?.unsub();
-		profileSub?.unsub();
 		unsubscribe?.();
-		clearInterval(interval);
 		useNotes = [];
 	});
 </script>
