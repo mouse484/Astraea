@@ -7,7 +7,6 @@
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import MenuBar from '$lib/components/MenuBar.svelte';
-	import Responsive from '$lib/components/Responsive.svelte';
 
 	let mounted = false;
 	if (browser) {
