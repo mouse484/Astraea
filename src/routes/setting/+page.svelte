@@ -4,9 +4,11 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import RelayInfo from '$lib/components/RelayInfo.svelte';
-	import { relays, usePubkey } from '$lib/store/setting';
+	import { useRelays } from '$lib/store/setting';
 	import type { QueryClient } from '@tanstack/svelte-query';
 	import { getContext } from 'svelte';
+
+	const relays = useRelays();
 
 	const queryClient: QueryClient = getContext('$$_queryClient');
 	const logout = () => {
@@ -30,7 +32,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each Object.entries($relays) as [relay, { read, write }]}
+			{#each Object.entries($relays.data) as [relay, { read, write }]}
 				<tr>
 					<td>{relay}</td>
 					<td>{read}</td>
