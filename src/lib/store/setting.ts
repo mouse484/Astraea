@@ -12,14 +12,13 @@ export const usePubkey = () => {
 			const localPubkey = localStorage.getItem('pubkey');
 			return localPubkey || '';
 		},
-		initialData: undefined,
+		initialData: dev ? mouseNpubKey : '',
 		cacheTime: Infinity,
 		staleTime: Infinity
 	});
 
 	query.subscribe((q) => {
 		if (!browser) return;
-		console.log(q.data);
 		localStorage.setItem('pubkey', q.data || '');
 	});
 
