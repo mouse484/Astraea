@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/mouse484/astraea/compare/v2.3.6...v2.4.0) (2023-03-22)
+
+
+### Features
+
+* pwa対応 ([590d900](https://github.com/mouse484/astraea/commit/590d9003c0671c1c24f402dc50b0573c24ae024e))
+
 ## [2.3.6](https://github.com/mouse484/astraea/compare/v2.3.5...v2.3.6) (2023-03-21)
 
 
