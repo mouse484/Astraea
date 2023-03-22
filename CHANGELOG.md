@@ -1,3 +1,18 @@
+# [2.5.0](https://github.com/mouse484/astraea/compare/v2.4.0...v2.5.0) (2023-03-22)
+
+
+### Bug Fixes
+
+* manifest name ([ae1493f](https://github.com/mouse484/astraea/commit/ae1493fe608476fe886e8559d32ed7d3eafab189))
+* nip36の入力 ([b8deebe](https://github.com/mouse484/astraea/commit/b8deebeccad164f42f6910a8dbc78f3286869ef4))
+* virtual import types ([479c9a7](https://github.com/mouse484/astraea/commit/479c9a7b64bd51379a348312f99ebebb0182e3d2))
+
+
+### Features
+
+* メニューを表示 ([368f057](https://github.com/mouse484/astraea/commit/368f0573bb88beb7713e902363498cc8d931bd1d))
+* 検索内容がないときフォームを表示 ([539ed36](https://github.com/mouse484/astraea/commit/539ed3688ac43b0b5ff14dc2eb427558d0820756))
+
 # [2.4.0](https://github.com/mouse484/astraea/compare/v2.3.6...v2.4.0) (2023-03-22)
 
 
