@@ -10,6 +10,8 @@ export default defineConfig({
 			devOptions: { enabled: true },
 			useCredentials: true,
 			manifest: {
+				name: `Astraea`,
+				short_name: 'astraea',
 				theme_color: '#d9fa6b',
 				icons: [
 					{
