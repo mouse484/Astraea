@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
+	import SearchForm from '$lib/components/Search/SearchForm.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { writable } from 'svelte/store';
 
@@ -25,6 +26,8 @@
 				relays={['wss://relay.nostr.band']}
 				authors="ALL"
 			/>
+		{:else}
+			<SearchForm />
 		{/if}
 	{/key}
 </Section>
