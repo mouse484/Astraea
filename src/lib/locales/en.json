@@ -1,3 +1,6 @@
 {
-	"home": "Home"
+	"home": "Home",
+	"setting": {
+		"setting": "Setting"
+	}
 }
