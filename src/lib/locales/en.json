@@ -1,8 +1,8 @@
 {
 	"home": "Home",
 	"login": {
-		"login": "ログイン",
-		"nip07": "nip-07拡張機能",
+		"login": "Login",
+		"nip07": "Nip-07 Extension",
 		"errorMessage": "pubkeyが間違っているか、問題が発生しました。"
 	},
 	"setting": {
