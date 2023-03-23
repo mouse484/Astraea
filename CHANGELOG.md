@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/mouse484/astraea/compare/v2.6.0...v2.6.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* no crowdin.yml ([5a14c44](https://github.com/mouse484/astraea/commit/5a14c4431bff757728dd3ad0771ab4732be0d5a3))
+
 # [2.6.0](https://github.com/mouse484/astraea/compare/v2.5.1...v2.6.0) (2023-03-23)
 
 
