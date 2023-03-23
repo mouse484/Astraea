@@ -43,11 +43,11 @@
 	{@html webManifest}
 </svelte:head>
 
-<div>
+<main>
 	<div class="m-8">
 		<Header />
 	</div>
-	<section>
+	<section class="w-full">
 		{#if mounted}
 			{#if $pubkey}
 				<div class="m-8">
@@ -59,4 +59,4 @@
 			{/if}
 		{/if}
 	</section>
-</div>
+</main>
