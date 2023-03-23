@@ -2,7 +2,9 @@
 	import { browser } from '$app/environment';
 	import { pubkey } from '$lib/store/setting';
 	import { nip19 } from 'nostr-tools';
+	import { _ } from 'svelte-i18n';
 	import Button from './elements/Button.svelte';
+	import Heading from './elements/Heading.svelte';
 	let inputPubkey: string;
 	let pubkeyInfo: string;
 
@@ -24,7 +26,7 @@
 				pubkey.set(decode.data as string);
 			}
 		} catch {
-			pubkeyInfo = 'pubkeyが間違っているか、問題が発生しました。';
+			pubkeyInfo = $_("login.errorMessage")
 		}
 	};
 
@@ -35,7 +37,7 @@
 	};
 </script>
 
-<h2 class="text-2xl">Login</h2>
+<Heading>{$_('login.login')}</Heading>
 
 <div class="flex flex-col gap-4 justify-center mt-4">
 	<input
@@ -44,12 +46,14 @@
 		bind:value={inputPubkey}
 		placeholder="npub key"
 	/>
-	<Button on:click={savePubkey} disabled={!inputPubkey}>Login</Button>
+	<Button on:click={savePubkey} disabled={!inputPubkey}
+		>{$_('login.login')}</Button
+	>
 	{#key pubkeyInfo}
 		{#if pubkeyInfo}
 			<p>{pubkeyInfo}</p>
 		{/if}
 	{/key}
 	<p class="text-center">or</p>
-	<Button disabled={!isNip07} on:click={nip07Login}>nip-07拡張機能</Button>
+	<Button disabled={!isNip07} on:click={nip07Login}>{$_("login.nip07")}</Button>
 </div>
