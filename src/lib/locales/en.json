@@ -2,25 +2,25 @@
 	"home": {
 		"home": "Home",
 		"nip36": {
-			"nip36": "投稿に警告を含める",
-			"reason": "理由",
-			"nude": "ヌード",
-			"violence": "暴力",
-			"sensitive": "センシティブ"
+			"nip36": "Sensitive Content",
+			"reason": "reason",
+			"nude": "Nudity",
+			"violence": "Violence",
+			"sensitive": "Sensitive"
 		},
 		"post": {
-			"post": "投稿する",
-			"nip07required": "※:投稿するにはnip-07に対応した拡張機能が必要です"
+			"post": "Post",
+			"nip07required": "You need an extension that supports nip-07 to publish"
 		}
 	},
 	"trend": {
-		"trend": "トレンド"
+		"trend": "Trends"
 	},
 	"search": {
-		"search": "検索"
+		"search": "Search"
 	},
 	"notifications": {
-		"notifications": "通知"
+		"notifications": "Notifications"
 	},
 	"login": {
 		"login": "Login",
@@ -29,11 +29,11 @@
 	},
 	"setting": {
 		"setting": "Settings",
-		"language": "言語 (Language)",
-		"logout": "ログアウト"
+		"language": "Language",
+		"logout": "Sign Out"
 	},
 	"general": {
-		"relays": "リレー",
-		"info": "情報"
+		"relays": "Relays",
+		"info": "Information"
 	}
 }
