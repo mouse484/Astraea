@@ -5,9 +5,10 @@
 	import Section from '$lib/components/elements/Section.svelte';
 	import RelayInfo from '$lib/components/RelayInfo.svelte';
 	import { pubkeyClear, relays } from '$lib/store/setting';
+	import { locale, locales, _ } from 'svelte-i18n';
 </script>
 
-<Heading>設定</Heading>
+<Heading>{$_('setting.setting')}</Heading>
 
 <Section>
 	<h3>Relays</h3>
@@ -32,7 +33,14 @@
 		</tbody>
 	</table>
 
-	<h3>ログアウト</h3>
+	<h3 class="mt-8 text-2xl">Language</h3>
+	<select class="mt-4" name="locale" id="locale" bind:value={$locale}>
+		{#each $locales as item (item)}
+			<option value={item}>{item}</option>
+		{/each}
+	</select>
+
+	<h3 class="mt-8 text-2xl">ログアウト</h3>
 	<Button
 		on:click={() => {
 			pubkeyClear();
