@@ -1,3 +1,12 @@
+# [2.6.0](https://github.com/mouse484/astraea/compare/v2.5.1...v2.6.0) (2023-03-23)
+
+
+### Features
+
+* i18n init ([fb155be](https://github.com/mouse484/astraea/commit/fb155be17d1d83445adfe7d580920c2a83722895))
+* Loginのi18n ([e0457bd](https://github.com/mouse484/astraea/commit/e0457bd30ee1e1e0b0fcfc77363499d9579cf03a))
+* 言語切替 ([bfedbd1](https://github.com/mouse484/astraea/commit/bfedbd18363257090583a83ee92ae6a35322f295))
+
 ## [2.5.1](https://github.com/mouse484/astraea/compare/v2.5.0...v2.5.1) (2023-03-23)
 
 
