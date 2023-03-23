@@ -31,5 +31,6 @@ jobs:
           translation: src/lib/locales/%two_letters_code%.json
           project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
           token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+          crowdin_branch_name: "${{ env.BRANCH_NAME }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
