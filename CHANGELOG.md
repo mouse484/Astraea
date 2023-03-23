@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/mouse484/astraea/compare/v2.6.1...v2.6.2) (2023-03-23)
+
+
+### Bug Fixes
+
+* **translate:** New translations from Crowdin ([c55fc8e](https://github.com/mouse484/astraea/commit/c55fc8eb8ff5c7d8e367206faa8f6b6c484f8d93))
+
 ## [2.6.1](https://github.com/mouse484/astraea/compare/v2.6.0...v2.6.1) (2023-03-23)
 
 
