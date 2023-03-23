@@ -11,14 +11,14 @@
 <Heading>{$_('setting.setting')}</Heading>
 
 <Section>
-	<h3>Relays</h3>
+	<h3>{$_('general.relays')}</h3>
 	<table class="table-auto border-spacing-4">
 		<thead>
 			<tr>
 				<th>url</th>
 				<th>read</th>
 				<th>write</th>
-				<th>info</th>
+				<th>{$_('general.info')}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,24 +27,26 @@
 					<td>{relay}</td>
 					<td>{read}</td>
 					<td>{write}</td>
-					<td> <RelayInfo relayUrl={relay} /></td>
+					<td><RelayInfo relayUrl={relay} /></td>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
 
-	<h3 class="mt-8 text-2xl">Language</h3>
+	<h3 class="mt-8 text-2xl">{$_('setting.language')}</h3>
 	<select class="mt-4" name="locale" id="locale" bind:value={$locale}>
 		{#each $locales as item (item)}
 			<option value={item}>{item}</option>
 		{/each}
 	</select>
 
-	<h3 class="mt-8 text-2xl">ログアウト</h3>
+	<h3 class="mt-8 text-2xl">{$_('setting.logout')}</h3>
 	<Button
 		on:click={() => {
 			pubkeyClear();
 			goto('/');
-		}}>ログアウト</Button
+		}}
 	>
+		{$_('setting.logout')}
+	</Button>
 </Section>
