@@ -13,6 +13,15 @@
 			"nip07required": "※:投稿するにはnip-07に対応した拡張機能が必要です"
 		}
 	},
+	"trend": {
+		"trend": "トレンド"
+	},
+	"search": {
+		"search": "検索"
+	},
+	"notifications": {
+		"notifications": "通知"
+	},
 	"login": {
 		"login": "ログイン",
 		"nip07": "nip-07拡張機能",

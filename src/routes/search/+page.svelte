@@ -5,6 +5,7 @@
 	import Section from '$lib/components/elements/Section.svelte';
 	import SearchForm from '$lib/components/Search/SearchForm.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
+	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
 
 	const searchQuery = writable('');
@@ -14,7 +15,7 @@
 	});
 </script>
 
-<Heading>検索</Heading>
+<Heading>{$_("search.search")}</Heading>
 
 <Section>
 	<h3 class="text-xl">{$searchQuery}</h3>

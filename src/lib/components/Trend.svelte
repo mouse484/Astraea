@@ -2,6 +2,7 @@
 	import { pool } from '$lib/utils/nostr';
 	import type { Event } from 'nostr-tools';
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 
 	let trends: string[] = [];
 
@@ -23,7 +24,7 @@
 
 <section>
 	<h2 class="text-2xl">
-		<a href="/trend">Trend</a>
+		<a href="/trend">{$_("trend.trend")}</a>
 	</h2>
 	<div>
 		<ul class="mt-4">
