@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/elements/Button.svelte';
+	import { _ } from 'svelte-i18n';
 	export let searchInput: string = '';
 </script>
 
@@ -17,5 +18,5 @@
 		name="q"
 		bind:value={searchInput}
 	/>
-	<Button disabled={!searchInput}>検索</Button>
+	<Button disabled={!searchInput}>{$_('search.search')}</Button>
 </form>

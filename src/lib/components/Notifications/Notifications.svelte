@@ -7,6 +7,7 @@
 	import { pubkey } from '$lib/store/setting';
 	import { twemoji } from '$lib/utils/twemoji';
 	import { onDestroy } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
 
 	const items = writable(new Map<string, { [key: string]: string[] }>());
@@ -33,7 +34,7 @@
 	});
 </script>
 
-<Heading>通知</Heading>
+<Heading>{$_("notifications.notifications")}</Heading>
 
 <Section>
 	<div class="flex flex-col gap-4">
