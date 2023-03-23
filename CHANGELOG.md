@@ -1,3 +1,10 @@
+## [2.6.6](https://github.com/mouse484/astraea/compare/v2.6.5...v2.6.6) (2023-03-23)
+
+
+### Bug Fixes
+
+* emoji picker i18n root local ([52e9894](https://github.com/mouse484/astraea/commit/52e9894558f2909b83ab61ed5edd7ee754f38d56))
+
 ## [2.6.5](https://github.com/mouse484/astraea/compare/v2.6.4...v2.6.5) (2023-03-23)
 
 
