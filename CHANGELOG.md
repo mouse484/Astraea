@@ -1,3 +1,11 @@
+## [2.5.1](https://github.com/mouse484/astraea/compare/v2.5.0...v2.5.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* menu css ([df403db](https://github.com/mouse484/astraea/commit/df403db169973feaeb4210b7a1a0f1377011d4a2))
+* menuの上のスペース ([d257c43](https://github.com/mouse484/astraea/commit/d257c431b80133cc02f2dd9ae522c458e423f299))
+
 # [2.5.0](https://github.com/mouse484/astraea/compare/v2.4.0...v2.5.0) (2023-03-22)
 
 
