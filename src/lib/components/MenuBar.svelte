@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="flex fixed bottom-0 z-50 gap-4 justify-around items-start p-2 w-full text-3xl bg-white border"
+	class="flex fixed bottom-0 z-50 gap-4 justify-around items-center p-2 w-full text-3xl bg-white border"
 >
 	<a href="/">
 		<Icon icon="mdi:home-outline" />
