@@ -3,9 +3,15 @@
 	"login": {
 		"login": "ログイン",
 		"nip07": "nip-07拡張機能",
-		"errorMessage":"pubkeyが間違っているか、問題が発生しました。"
+		"errorMessage": "pubkeyが間違っているか、問題が発生しました。"
 	},
 	"setting": {
-		"setting": "設定"
+		"setting": "設定",
+		"language": "言語 (Language)",
+		"logout": "ログアウト"
+	},
+	"general": {
+		"relays": "リレー",
+		"info": "情報"
 	}
 }
