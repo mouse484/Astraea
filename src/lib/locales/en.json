@@ -1,5 +1,7 @@
 {
-	"home": "Home",
+	"home": {
+		"home": "Home"
+	},
 	"login": {
 		"login": "Login",
 		"nip07": "nip-07拡張機能",

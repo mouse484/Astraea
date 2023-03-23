@@ -28,7 +28,7 @@
 	});
 </script>
 
-<Heading>{$_('home')}</Heading>
+<Heading>{$_('home.home')}</Heading>
 
 <Section>
 	<PostNote />

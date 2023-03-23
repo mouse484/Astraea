@@ -4,6 +4,7 @@
 	import { publishEvent } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
 	import type { UnsignedEvent } from 'nostr-tools';
+	import { _ } from 'svelte-i18n';
 	import Button from './elements/Button.svelte';
 
 	export let replyFor = '';
@@ -70,7 +71,7 @@
 		<div class="flex gap-2 justify-between mt-2">
 			<div class="flex gap-2">
 				<label class="block p-2 rounded border">
-					投稿に警告を含める
+					{$_('home.nip36.nip36')}
 					<input type="checkbox" bind:checked={isNip36} />
 				</label>
 				{#if isNip36}
@@ -78,24 +79,26 @@
 						class="p-2 rounded border"
 						list="nip36-reason"
 						type="text"
-						placeholder="理由"
+						placeholder={$_('home.nip36.reason')}
 						bind:value={nip36Content}
 						disabled={!isNip36}
 					/>
 
 					<datalist id="nip36-reason">
-						<option value="ヌード" />
-						<option value="暴力" />
-						<option value="センシティブ" />
+						<option value={$_('home.nip36.nude')} />
+						<option value={$_('home.nip36.violence')} />
+						<option value={$_('home.nip36.sensitive')} />
 					</datalist>
 				{/if}
 			</div>
-			<Button on:click={publishPost} disabled={isPublish}>送信する</Button>
+			<Button on:click={publishPost} disabled={isPublish}>
+				{$_('home.post.post')}
+			</Button>
 		</div>
 	</div>
 	{#key isNip07}
 		{#if isNip07 === false}
-			<p>※:投稿するにはnip-07に対応した拡張機能が必要です</p>
+			<p>{$_("home.post.nip07required")}</p>
 		{/if}
 	{/key}
 </div>

@@ -3,5 +3,6 @@
     "src/lib/locales"
   ],
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.sourceLanguage": "ja"
+  "i18n-ally.sourceLanguage": "ja",
+  "editor.tabSize": 2
 }
