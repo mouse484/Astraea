@@ -53,7 +53,9 @@
 				<div class="m-8">
 					<slot />
 				</div>
-				<MenuBar />
+				<div class="mt-16">
+					<MenuBar />
+				</div>
 			{:else}
 				<Login />
 			{/if}
