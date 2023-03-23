@@ -46,6 +46,7 @@
 		"isomorphic-dompurify": "^1.2.0",
 		"markdown-it": "^13.0.1",
 		"nostr-tools": "^1.7.5",
+		"svelte-i18n": "^3.6.0",
 		"svelte-lightbox": "^1.1.1",
 		"twemoji": "^14.0.2",
 		"workbox-window": "^6.5.4",
