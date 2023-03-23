@@ -1,3 +1,12 @@
+## [2.6.3](https://github.com/mouse484/astraea/compare/v2.6.2...v2.6.3) (2023-03-23)
+
+
+### Bug Fixes
+
+* **translate:** chore japanese ([ba2097c](https://github.com/mouse484/astraea/commit/ba2097c3007986f3eac6b0cc8830665dab855dfa))
+* **translate:** post japanese ([6699be7](https://github.com/mouse484/astraea/commit/6699be7948f39139ca4b0711809507eb5f584886))
+* **translate:** setting japanese ([7f95051](https://github.com/mouse484/astraea/commit/7f9505186582ab73298356d33ab1591bb84120c8))
+
 ## [2.6.2](https://github.com/mouse484/astraea/compare/v2.6.1...v2.6.2) (2023-03-23)
 
 
