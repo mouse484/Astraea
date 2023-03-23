@@ -1,4 +1,0 @@
-files:
-  - source: /src/lib/locales/ja.json
-    translation: /src/lib/locales/%two_letters_code%.json
-commit_message: 'fix(translate): New translations from Crowdin'
