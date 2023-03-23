@@ -8,3 +8,4 @@ vscode:
     - svelte.svelte-vscode
     - bradlc.vscode-tailwindcss
     - heybourn.headwind
+    - lokalise.i18n-ally

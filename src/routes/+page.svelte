@@ -7,6 +7,7 @@
 	import { pubkey } from '$lib/store/setting';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import { z } from 'zod';
 
 	let contacts = new Set<string>();
@@ -27,7 +28,7 @@
 	});
 </script>
 
-<Heading>ホーム</Heading>
+<Heading>{$_('home')}</Heading>
 
 <Section>
 	<PostNote />
