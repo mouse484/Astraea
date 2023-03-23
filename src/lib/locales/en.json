@@ -1,5 +1,10 @@
 {
 	"home": "Home",
+	"login": {
+		"login": "ログイン",
+		"nip07": "nip-07拡張機能",
+		"errorMessage": "pubkeyが間違っているか、問題が発生しました。"
+	},
 	"setting": {
 		"setting": "Setting"
 	}
