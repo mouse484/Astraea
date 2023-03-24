@@ -1,3 +1,10 @@
+## [2.6.7](https://github.com/mouse484/astraea/compare/v2.6.6...v2.6.7) (2023-03-24)
+
+
+### Bug Fixes
+
+* display badges again ([5dbd257](https://github.com/mouse484/astraea/commit/5dbd257cc5fe291e79b4d04477fe74bbf551d9c9)), closes [#271](https://github.com/mouse484/astraea/issues/271)
+
 ## [2.6.6](https://github.com/mouse484/astraea/compare/v2.6.5...v2.6.6) (2023-03-23)
 
 
