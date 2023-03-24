@@ -5,6 +5,8 @@
 		type ProfileDate
 	} from '$lib/store/profiles';
 	import Icon from '@iconify/svelte';
+	import Badge from './Badge.svelte';
+
 	export let pubkey: string;
 	export let imageOnly = false;
 	export let detail = false;
@@ -83,7 +85,7 @@
 	{#if detail}
 		<div class="flex flex-col gap-4">
 			<div class="mt-4 break-words">{profile?.about || ''}</div>
-			<!-- <Badge pubkey={npubHex} /> -->
+			<Badge {pubkey} />
 			{#if profile?.website}
 				<a
 					class="mt-2 break-words"

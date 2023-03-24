@@ -11,6 +11,12 @@ import { get } from 'svelte/store';
 
 export const pool = new SimplePool();
 
+const useRalays = (isType: 'read' | 'write') => {
+	return Object.entries(get(relays)).flatMap(([url, type]) => {
+		return type[isType] ? url : [];
+	});
+};
+
 export type Subscribe = {
 	sub: (filters: Filter[]) => Sub;
 	unsub: () => void;
@@ -27,11 +33,7 @@ export const subscribeEvents = (
 	autoUnsub?: 'eose' | '',
 	orelays: string[] = []
 ) => {
-	const subRelays = orelays.length
-		? orelays
-		: Object.entries(get(relays)).flatMap(([url, { read }]) => {
-				return read ? url : [];
-		  });
+	const subRelays = orelays.length ? orelays : useRalays('read');
 
 	const sub = pool.sub(subRelays, [
 		{ kinds: typeof kind === 'number' ? [kind] : kind, ...filter }
@@ -43,10 +45,18 @@ export const subscribeEvents = (
 	return sub;
 };
 
-export const publishEvent = async (unsignedEvent: UnsignedEvent) => {
-	const pubRelays = Object.entries(get(relays)).flatMap(([url, { write }]) => {
-		return write ? url : [];
+export const getEvent = (
+	kind: number | number[],
+	filter: Omit<Filter, 'kinds'>
+) => {
+	return pool.get(useRalays('read'), {
+		kinds: typeof kind === 'number' ? [kind] : kind,
+		...filter
 	});
+};
+
+export const publishEvent = async (unsignedEvent: UnsignedEvent) => {
+	const pubRelays = useRalays('write');
 
 	if (!window.nostr) return;
 	const signedEvent = await window.nostr.signEvent({
