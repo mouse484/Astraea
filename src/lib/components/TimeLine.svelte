@@ -33,7 +33,7 @@
 	let sub: Subscribe | undefined;
 
 	onMount(() => {
-		const usefilter = { limit: 30, ...filter };
+		const usefilter = { limit: 100, ...filter };
 		if (authors !== 'ALL' && authors.length) {
 			usefilter.authors = authors;
 		}

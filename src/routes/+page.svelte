@@ -6,6 +6,7 @@
 	import Trend from '$lib/components/Trend.svelte';
 	import { pubkey } from '$lib/store/setting';
 	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
+	import { Data } from 'emoji-mart';
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { z } from 'zod';
@@ -35,7 +36,15 @@
 	<div class="mt-8 md:flex md:gap-4">
 		<div class="md:flex-grow">
 			{#key contacts}
-				<TimeLine authors={[...contacts]} />
+				<TimeLine
+					authors={[...contacts]}
+					filter={{
+						since:
+							new Date(
+								new Date().setHours(new Date().getHours() - 1)
+							).getTime() / 1000
+					}}
+				/>
 			{/key}
 		</div>
 
