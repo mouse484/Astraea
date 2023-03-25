@@ -6,7 +6,7 @@ specifiers:
   '@semantic-release/changelog': ^6.0.3
   '@semantic-release/git': ^10.0.1
   '@sveltejs/adapter-auto': ^2.0.0
-  '@sveltejs/kit': ^1.13.0
+  '@sveltejs/kit': ^1.14.0
   '@types/markdown-it': ^12.2.3
   '@types/prettier': ^2.7.2
   '@typescript-eslint/eslint-plugin': ^5.56.0
@@ -56,13 +56,13 @@ dependencies:
 devDependencies:
   '@semantic-release/changelog': 6.0.3_semantic-release@21.0.0
   '@semantic-release/git': 10.0.1_semantic-release@21.0.0
-  '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.13.0
-  '@sveltejs/kit': 1.13.0_svelte@3.57.0+vite@4.2.1
+  '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.14.0
+  '@sveltejs/kit': 1.14.0_svelte@3.57.0+vite@4.2.1
   '@types/markdown-it': 12.2.3
   '@types/prettier': 2.7.2
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
   '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
-  '@vite-pwa/sveltekit': 0.2.0_gqsefw6q7agejka6ldtqolx3im
+  '@vite-pwa/sveltekit': 0.2.0_zdfbyl2riyhlzi3mx4ctyxjgfi
   autoprefixer: 10.4.14_postcss@8.4.21
   eslint: 8.36.0
   eslint-config-prettier: 8.8.0_eslint@8.36.0
@@ -2600,17 +2600,17 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /@sveltejs/adapter-auto/2.0.0_@sveltejs+kit@1.13.0:
+  /@sveltejs/adapter-auto/2.0.0_@sveltejs+kit@1.14.0:
     resolution: {integrity: sha512-b+gkHFZgD771kgV3aO4avHFd7y1zhmMYy9i6xOK7m/rwmwaRO8gnF5zBc0Rgca80B2PMU1bKNxyBTHA14OzUAQ==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.13.0_svelte@3.57.0+vite@4.2.1
+      '@sveltejs/kit': 1.14.0_svelte@3.57.0+vite@4.2.1
       import-meta-resolve: 2.2.2
     dev: true
 
-  /@sveltejs/kit/1.13.0_svelte@3.57.0+vite@4.2.1:
-    resolution: {integrity: sha512-t44xqlSTn/k+BridiJFTD8dCRPNd9msCSSPLZT+/3P9deNp/al6ed396MSpsskK7r2kevYmmxywK16qtn6Rvjw==}
+  /@sveltejs/kit/1.14.0_svelte@3.57.0+vite@4.2.1:
+    resolution: {integrity: sha512-4e/cZT0z4IppEkqNvMrurGz6VE1gScukFU7XqwTL/yrGJGXHqS9D7RvsOcE1hASsgrMu6w/fKTIhxT5oN0K1Jw==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -3292,14 +3292,14 @@ packages:
       ts-morph: 12.0.0
     dev: true
 
-  /@vite-pwa/sveltekit/0.2.0_gqsefw6q7agejka6ldtqolx3im:
+  /@vite-pwa/sveltekit/0.2.0_zdfbyl2riyhlzi3mx4ctyxjgfi:
     resolution: {integrity: sha512-gW1WkIFVmTQWaMnimqI2QFiUg12UAb2HUTTbhwhsQQssriOpOB95U+ACmXrgtLgKVunp9DHl3YlSy1gfx9Prew==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@sveltejs/kit': ^1.3.1
       vite-plugin-pwa: ^0.14.0
     dependencies:
-      '@sveltejs/kit': 1.13.0_svelte@3.57.0+vite@4.2.1
+      '@sveltejs/kit': 1.14.0_svelte@3.57.0+vite@4.2.1
       vite-plugin-pwa: 0.14.6_2zwjfzulkrffi34qjwvtq6zb6a
     dev: true
 
