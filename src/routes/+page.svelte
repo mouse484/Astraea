@@ -39,10 +39,11 @@
 				<TimeLine
 					authors={[...contacts]}
 					filter={{
-						since:
+						since: Math.floor(
 							new Date(
 								new Date().setHours(new Date().getHours() - 1)
 							).getTime() / 1000
+						)
 					}}
 				/>
 			{/key}
