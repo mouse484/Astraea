@@ -1,3 +1,10 @@
+## [2.6.10](https://github.com/mouse484/astraea/compare/v2.6.9...v2.6.10) (2023-03-25)
+
+
+### Bug Fixes
+
+* filterの時間を整数にする ([7d2f4bf](https://github.com/mouse484/astraea/commit/7d2f4bfdd239a5dd72e15bb46b22b4005a48ce98))
+
 ## [2.6.9](https://github.com/mouse484/astraea/compare/v2.6.8...v2.6.9) (2023-03-25)
 
 
