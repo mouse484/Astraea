@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { Event } from 'nostr-tools';
 	import Button from '../elements/Button.svelte';
 	import Profile from '../Profile/Profile.svelte';
@@ -21,7 +22,10 @@
 			{@const [, id] = isReply}
 			<NoteWithId {id} />
 		{/if}
-		<div class="border p-2 rounded {isReply ? 'border-t-0' : ''}">
+		<div
+			class="border p-2 rounded {isReply ? 'border-t-0' : ''}"
+			on:dblclick={() => goto(`/note/${event.id}`)}
+		>
 			<Profile pubkey={event.pubkey} detail={false} />
 			<div class="mt-4">
 				{#if isWarn}
