@@ -7,7 +7,7 @@
 	import type { Unsubscriber } from 'svelte/store';
 	import Note from './Note/Note.svelte';
 
-	export let authors: string[] | 'ALL';
+	export let authors: string[] | 'ALL' = 'ALL';
 	export let filter: Filter = {};
 	export let relays: string[] = [];
 	export let newOnly = false;
