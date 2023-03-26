@@ -10,5 +10,7 @@
 {#if event}
 	<Note {event} />
 {:else}
-	<p class="p-2 rounded border">Loading Note...</p>
+	<a class="p-2 rounded border block text-blue-400" href="/note/{id}">
+		note:{id.substring(0, 8)}...
+	</a>
 {/if}
