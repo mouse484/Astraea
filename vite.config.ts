@@ -7,7 +7,7 @@ export default defineConfig({
 		sveltekit(),
 		SvelteKitPWA({
 			injectRegister: 'auto',
-			devOptions: { enabled: true },
+			devOptions: { enabled: false },
 			useCredentials: true,
 			manifest: {
 				name: `Astraea`,
