@@ -1,3 +1,17 @@
+# [2.7.0](https://github.com/mouse484/astraea/compare/v2.6.10...v2.7.0) (2023-03-26)
+
+
+### Bug Fixes
+
+* 開発環境ではPWA化しない ([f4fbbd2](https://github.com/mouse484/astraea/commit/f4fbbd223060eea019151bf8dbac4300075f65a2)), closes [#281](https://github.com/mouse484/astraea/issues/281)
+
+
+### Features
+
+* note page ([237f37f](https://github.com/mouse484/astraea/commit/237f37f366dedc0e801aff4a8c0472ccb34fc212))
+* リプライの表示（仮） ([9bce445](https://github.com/mouse484/astraea/commit/9bce445ebde60595b958bcd9e093d362df3d72c0))
+* ロードしないノートは直接ページへリンクする ([1b1a5a3](https://github.com/mouse484/astraea/commit/1b1a5a31d61310fb2eb38f5f016182ecb2eaaf5b))
+
 ## [2.6.10](https://github.com/mouse484/astraea/compare/v2.6.9...v2.6.10) (2023-03-25)
 
 
