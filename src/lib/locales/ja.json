@@ -16,6 +16,9 @@
 	"trend": {
 		"trend": "トレンド"
 	},
+	"profile": {
+		"copyId": "ユーザーIDをコピー"
+	},
 	"search": {
 		"search": "検索"
 	},
@@ -34,6 +37,7 @@
 	},
 	"general": {
 		"relays": "リレー",
-		"info": "情報"
+		"info": "情報",
+		"copied": "コピーしました"
 	}
 }
