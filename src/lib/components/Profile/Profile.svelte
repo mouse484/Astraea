@@ -6,6 +6,7 @@
 	} from '$lib/store/profiles';
 	import Icon from '@iconify/svelte';
 	import Badge from './Badge.svelte';
+	import Menu from './Menu.svelte';
 
 	export let pubkey: string;
 	export let imageOnly = false;
@@ -78,9 +79,9 @@
 				</div>
 			{/if}
 		</a>
-		<!-- {#if detail}
-			<ProfileMenu {npubHex} />
-		{/if} -->
+		{#if detail}
+			<Menu {pubkey} />
+		{/if}
 	</div>
 	{#if detail}
 		<div class="flex flex-col gap-4">
