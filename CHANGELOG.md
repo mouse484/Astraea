@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/mouse484/astraea/compare/v2.7.2...v2.8.0) (2023-03-27)
+
+
+### Features
+
+* profile menu ([04674c7](https://github.com/mouse484/astraea/commit/04674c7a27a4cd920d7377b0e1284382c7277539)), closes [#272](https://github.com/mouse484/astraea/issues/272)
+
 ## [2.7.2](https://github.com/mouse484/astraea/compare/v2.7.1...v2.7.2) (2023-03-27)
 
 
