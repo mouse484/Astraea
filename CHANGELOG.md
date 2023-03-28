@@ -1,3 +1,11 @@
+## [2.8.1](https://github.com/mouse484/astraea/compare/v2.8.0...v2.8.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nostr-tools to ^1.8.1 ([a599ad0](https://github.com/mouse484/astraea/commit/a599ad0c6a30d7d6ca6b1e25e2511194b09baa0d))
+* **translate:** New translations from Crowdin ([29e99ac](https://github.com/mouse484/astraea/commit/29e99ac434fde19baf25cadddb4010871aede3ae))
+
 # [2.8.0](https://github.com/mouse484/astraea/compare/v2.7.2...v2.8.0) (2023-03-27)
 
 
