@@ -16,6 +16,9 @@
 	"trend": {
 		"trend": "Trends (Japanese)"
 	},
+	"profile": {
+		"copyId": "Copy User ID"
+	},
 	"search": {
 		"search": "Search"
 	},
@@ -34,6 +37,7 @@
 	},
 	"general": {
 		"relays": "Relays",
-		"info": "Information"
+		"info": "Information",
+		"copied": "Copied"
 	}
 }
