@@ -19,7 +19,7 @@ specifiers:
   eslint-plugin-svelte3: ^4.0.0
   isomorphic-dompurify: ^1.2.0
   markdown-it: ^13.0.1
-  nostr-tools: ^1.7.5
+  nostr-tools: ^1.8.1
   postcss: ^8.4.21
   prettier: ^2.8.7
   prettier-plugin-svelte: ^2.10.0
@@ -45,7 +45,7 @@ dependencies:
   emoji-mart: 5.5.2
   isomorphic-dompurify: 1.2.0
   markdown-it: 13.0.1
-  nostr-tools: 1.7.5
+  nostr-tools: 1.8.1
   svelte-i18n: 3.6.0_svelte@3.57.0
   svelte-lightbox: 1.1.1_svelte@3.57.0
   twemoji: 14.0.2
@@ -7650,8 +7650,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /nostr-tools/1.7.5:
-    resolution: {integrity: sha512-FFaYOAn9lFyISClbBzPe2eQ2ZiKx8xFviwHmdgTAmuue+eLrtPEI3tCqPtP624HghX/X4VnaixoiMvDB8g2+tQ==}
+  /nostr-tools/1.8.1:
+    resolution: {integrity: sha512-/2IUe5xINUYT5hYBoEz51dfRaodbRHnyF8n+ZbKWCoh0ZRX6AL88OoDNrWaWWo7tP5j5OyzSL9g/z4TP7bshEA==}
     dependencies:
       '@noble/hashes': 1.0.0
       '@noble/secp256k1': 1.7.1
