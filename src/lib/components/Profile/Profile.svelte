@@ -25,11 +25,13 @@
 					return parsed.data;
 				}
 			}
-			return { name: 'loading' } as ProfileDate;
-		}
+			throw new Error('profile');
+		},
+		initialData: { name: 'loading' },
+		retry: 3
 	});
 
-	$: profile = $query.data;
+	$: profile = $query.isError ? { name: 'error' } : $query.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 	$: maxWitdh =
