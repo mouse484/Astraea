@@ -42,6 +42,7 @@
 	"dependencies": {
 		"@emoji-mart/data": "^1.1.2",
 		"@iconify/svelte": "^3.1.0",
+		"@tanstack/svelte-query": "^4.27.0",
 		"emoji-mart": "^5.5.2",
 		"isomorphic-dompurify": "^1.2.0",
 		"markdown-it": "^13.0.1",
