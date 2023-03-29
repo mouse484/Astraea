@@ -7,6 +7,10 @@
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import MenuBar from '$lib/components/MenuBar.svelte';
+	import { QueryClientProvider } from '@tanstack/svelte-query';
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
 
 	let mounted = false;
 	if (browser) {
@@ -43,22 +47,24 @@
 	{@html webManifest}
 </svelte:head>
 
-<main>
-	<div class="m-8">
-		<Header />
-	</div>
-	<section class="w-full">
-		{#if mounted}
-			{#if $pubkey}
-				<div class="m-8">
-					<slot />
-				</div>
-				<div class="mt-16">
-					<MenuBar />
-				</div>
-			{:else}
-				<Login />
+<QueryClientProvider client={data.queryClient}>
+	<main>
+		<div class="m-8">
+			<Header />
+		</div>
+		<section class="w-full">
+			{#if mounted}
+				{#if $pubkey}
+					<div class="m-8">
+						<slot />
+					</div>
+					<div class="mt-16">
+						<MenuBar />
+					</div>
+				{:else}
+					<Login />
+				{/if}
 			{/if}
-		{/if}
-	</section>
-</main>
+		</section>
+	</main>
+</QueryClientProvider>
