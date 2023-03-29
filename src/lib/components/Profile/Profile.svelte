@@ -4,7 +4,9 @@
 		profileScheme,
 		type ProfileDate
 	} from '$lib/store/profiles';
+	import { getEvent } from '$lib/utils/nostr';
 	import Icon from '@iconify/svelte';
+	import { createQuery } from '@tanstack/svelte-query';
 	import Badge from './Badge.svelte';
 	import Menu from './Menu.svelte';
 
@@ -13,18 +15,21 @@
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
-	let profileEvent = profiles.get(pubkey);
-
-	profiles.on(pubkey, (event) => {
-		profileEvent = event;
+	const query = createQuery({
+		queryKey: ['profile', pubkey],
+		queryFn: async () => {
+			const event = await getEvent(0, { authors: [pubkey] });
+			if (event) {
+				const parsed = profileScheme.safeParse(JSON.parse(event.content));
+				if (parsed.success) {
+					return parsed.data;
+				}
+			}
+			return { name: 'loading' } as ProfileDate;
+		}
 	});
 
-	$: parsed = profileScheme.safeParse(
-		profileEvent?.content ? JSON.parse(profileEvent?.content) : ''
-	);
-	$: profile = parsed.success
-		? parsed.data
-		: ({ name: 'loading' } as ProfileDate);
+	$: profile = $query.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 	$: maxWitdh =
