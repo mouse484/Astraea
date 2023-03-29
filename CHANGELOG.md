@@ -1,3 +1,11 @@
+# [2.9.0](https://github.com/mouse484/astraea/compare/v2.8.1...v2.9.0) (2023-03-29)
+
+
+### Features
+
+* tanstack/svelte-query init ([8fee8d3](https://github.com/mouse484/astraea/commit/8fee8d37c4c59b89fc4b8f1da422de87332c5f7c))
+* プロフィールの読み込みをtanstack/queryで ([ad62697](https://github.com/mouse484/astraea/commit/ad62697286342eca7be1c8e1653069575f17f368))
+
 ## [2.8.1](https://github.com/mouse484/astraea/compare/v2.8.0...v2.8.1) (2023-03-28)
 
 
