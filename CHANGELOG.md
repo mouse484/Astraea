@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/mouse484/astraea/compare/v2.9.0...v2.9.1) (2023-03-29)
+
+
+### Bug Fixes
+
+* profile load ([db40076](https://github.com/mouse484/astraea/commit/db4007627c8f37b419e222a1cea9f852af9763f4))
+
 # [2.9.0](https://github.com/mouse484/astraea/compare/v2.8.1...v2.9.0) (2023-03-29)
 
 
