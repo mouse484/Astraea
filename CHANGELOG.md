@@ -1,3 +1,10 @@
+## [2.9.2](https://github.com/mouse484/astraea/compare/v2.9.1...v2.9.2) (2023-03-30)
+
+
+### Bug Fixes
+
+* emoji picker 貫通防止 ([0c2655b](https://github.com/mouse484/astraea/commit/0c2655bfab6b999e2a0f574b34d9cfc722d5ab5c))
+
 ## [2.9.1](https://github.com/mouse484/astraea/compare/v2.9.0...v2.9.1) (2023-03-29)
 
 
