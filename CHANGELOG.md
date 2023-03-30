@@ -1,3 +1,10 @@
+## [2.9.3](https://github.com/mouse484/astraea/compare/v2.9.2...v2.9.3) (2023-03-30)
+
+
+### Bug Fixes
+
+* **dev:** dev server error ([2fb4d23](https://github.com/mouse484/astraea/commit/2fb4d237bd40ff87bd8efb406b5d6d339eddcd8c))
+
 ## [2.9.2](https://github.com/mouse484/astraea/compare/v2.9.1...v2.9.2) (2023-03-30)
 
 
