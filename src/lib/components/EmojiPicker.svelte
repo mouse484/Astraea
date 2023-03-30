@@ -26,7 +26,7 @@
 </script>
 
 <div
-	class="absolute top-0 mt-8"
+	class="absolute top-0 mt-8 z-40"
 	use:emojiPicker={(data) => {
 		dispatch('onEmojiSelect', data);
 	}}
