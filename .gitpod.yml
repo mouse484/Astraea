@@ -1,5 +1,7 @@
+image: gitpod/workspace-node
+
 tasks:
-  - before: nvm install 18
+  - before: corepack enable
     init: pnpm install
     command: pnpm run dev
 
