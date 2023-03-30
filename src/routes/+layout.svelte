@@ -47,24 +47,26 @@
 	{@html webManifest}
 </svelte:head>
 
-<QueryClientProvider client={data.queryClient}>
-	<main>
-		<div class="m-8">
-			<Header />
-		</div>
-		<section class="w-full">
-			{#if mounted}
-				{#if $pubkey}
-					<div class="m-8">
-						<slot />
-					</div>
-					<div class="mt-16">
-						<MenuBar />
-					</div>
-				{:else}
-					<Login />
+{#if data.queryClient}
+	<QueryClientProvider client={data.queryClient}>
+		<main>
+			<div class="m-8">
+				<Header />
+			</div>
+			<section class="w-full">
+				{#if mounted}
+					{#if $pubkey}
+						<div class="m-8">
+							<slot />
+						</div>
+						<div class="mt-16">
+							<MenuBar />
+						</div>
+					{:else}
+						<Login />
+					{/if}
 				{/if}
-			{/if}
-		</section>
-	</main>
-</QueryClientProvider>
+			</section>
+		</main>
+	</QueryClientProvider>
+{/if}

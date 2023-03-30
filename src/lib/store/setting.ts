@@ -34,10 +34,11 @@ const relayScheme = z.record(
 
 pubkey.subscribe(async (newKey) => {
 	if (!browser) return;
-	if (!newKey) return;
+	if (!newKey || !newKey.length) return;
 	localStorage.setItem('pubkey', newKey);
 	const sub = subscribeEvents(3, { authors: [newKey] });
 	sub.on('event', (event) => {
+		console.log(event);
 		const parsed = relayScheme.safeParse(JSON.parse(event.content));
 		if (parsed.success) {
 			relays.set(parsed.data);
