@@ -1,7 +1,8 @@
+image: gitpod/workspace-node
+
 tasks:
-  - before: nvm install 18
-    init: pnpm install
-    command: pnpm run dev
+   - init: pnpm install
+     command: pnpm run dev
 
 vscode:
   extensions:
