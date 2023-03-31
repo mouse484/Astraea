@@ -3,6 +3,7 @@
 	import { noteQuery } from '$lib/query/note';
 	import { relaysQuery } from '$lib/query/relays';
 	import { pubkey } from '$lib/store/pubkey';
+	import Profile from '../Profile/Profile.svelte';
 
 	export let id: string;
 
@@ -16,7 +17,10 @@
 </script>
 
 {#if event}
-	<p>
-		{event?.content}
-	</p>
+	<div>
+		<Profile pubkey={event.pubkey} />
+		<p>
+			{event.content}
+		</p>
+	</div>
 {/if}
