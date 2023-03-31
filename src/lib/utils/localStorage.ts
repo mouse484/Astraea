@@ -12,3 +12,8 @@ export const getLocalStorage = (type: list) => {
 
 	return localStorage.getItem(type);
 };
+export const removeLocalStorage = (type: list) => {
+	if (!browser) return;
+
+	return localStorage.removeItem(type);
+};

@@ -27,7 +27,9 @@
 	{#if mounted}
 		{#if $pubkey}
 			<Header />
-			<slot />
+			<div class="m-4">
+				<slot />
+			</div>
 		{:else}
 			<Login />
 		{/if}
