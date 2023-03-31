@@ -3,6 +3,7 @@
 	import Button from '$lib/components/elements/form/Button.svelte';
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
+	import Title from '$lib/components/Title.svelte';
 	import { pubkey } from '$lib/store/pubkey';
 	import { removeLocalStorage, setLocalStorage } from '$lib/utils/localStorage';
 	import { _ } from 'svelte-i18n';
@@ -14,6 +15,8 @@
 		goto('/');
 	};
 </script>
+
+<Title pageTitle={$_('setting.setting')} />
 
 <Heading>{$_('setting.setting')}</Heading>
 
