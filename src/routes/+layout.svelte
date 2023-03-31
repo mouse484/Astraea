@@ -1,8 +1,10 @@
 <script lang="ts">
+	import '../app.postcss';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import { onMount } from 'svelte';
 	import RegisterSw from '$lib/RegisterSW.svelte';
 	import { i18nInit } from '$lib/utils/i18n';
+	import { pubkey } from '$lib/store/pubkey';
 	import Login from '$lib/components/Login.svelte';
 
 	let mounted = false;
@@ -21,8 +23,11 @@
 </svelte:head>
 
 <main>
-	<Login />
-	<slot />
+	{#if $pubkey}
+		<slot />
+	{:else}
+		<Login />
+	{/if}
 </main>
 
 {#if mounted && pwaInfo}
