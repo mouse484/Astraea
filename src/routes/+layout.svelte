@@ -6,6 +6,7 @@
 	import { i18nInit } from '$lib/utils/i18n';
 	import { pubkey } from '$lib/store/pubkey';
 	import Login from '$lib/components/Login.svelte';
+	import { name } from '$lib/data/const';
 
 	let mounted = false;
 
@@ -17,6 +18,7 @@
 </script>
 
 <svelte:head>
+	<title>{name}</title>
 	{@html webManifest}
 </svelte:head>
 
