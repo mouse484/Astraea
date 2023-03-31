@@ -11,6 +11,12 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+	interface Window {
+		nostr?: {
+			getPublicKey(): Promise<string>;
+			signEvent(event: UnsignedEvent & { id: string }): Promise<Event>;
+		};
+	}
 }
 
 export {};

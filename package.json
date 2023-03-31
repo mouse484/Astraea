@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@vite-pwa/sveltekit": "^0.2.1",
+		"nostr-tools": "^1.8.1",
 		"svelte-i18n": "^3.6.0",
 		"vite-plugin-pwa": "^0.14.7",
 		"workbox-window": "^6.5.4"
