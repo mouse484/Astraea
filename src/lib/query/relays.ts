@@ -19,6 +19,7 @@ export const relaysQuery = (pubkey: string) => {
 			if (!parsed.success) throw new Error('Cannot parse relay');
 			return parsed.data;
 		},
-		initialData: defaultRelays
+		initialData: defaultRelays,
+		cacheTime: 1 * 60 * 60 * 1000
 	});
 };

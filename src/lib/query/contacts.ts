@@ -1,5 +1,4 @@
-import { defaultRelays } from '$lib/data/const';
-import { getEvent, subscribeEvents, useRelays } from '$lib/nostr/pool';
+import { subscribeEvents } from '$lib/nostr/pool';
 import { createQuery } from '@tanstack/svelte-query';
 import type { Event } from 'nostr-tools';
 import { z } from 'zod';

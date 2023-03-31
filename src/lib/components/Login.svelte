@@ -31,7 +31,6 @@
 	const nip07Login = async () => {
 		if (!window.nostr) return;
 		const nip07key = await window.nostr.getPublicKey();
-		console.log(nip07key)
 		pubkey.set(nip07key);
 	};
 </script>
