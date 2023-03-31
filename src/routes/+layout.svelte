@@ -31,7 +31,7 @@
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
 				<Header />
-				<div class="m-4">
+				<div class="m-8">
 					<slot />
 				</div>
 			</QueryClientProvider>
