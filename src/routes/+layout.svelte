@@ -9,6 +9,7 @@
 	import Header from '$lib/components/Header/Header.svelte';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import type { LayoutData } from './$types';
+	import { relaysQuery } from '$lib/query/relays';
 
 	export let data: LayoutData;
 

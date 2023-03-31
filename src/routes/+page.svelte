@@ -5,13 +5,10 @@
 	import Title from '$lib/components/Title.svelte';
 	import { useRelays } from '$lib/nostr/pool';
 	import { contactsQuery } from '$lib/query/contacts';
-	import { relaysQuery } from '$lib/query/relays';
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
 
-	const relays = relaysQuery($pubkey);
-
-	$: readRelays = useRelays($relays.data, 'read');
+	const readRelays = useRelays('read');
 
 	$: contacts = contactsQuery($pubkey, readRelays);
 </script>

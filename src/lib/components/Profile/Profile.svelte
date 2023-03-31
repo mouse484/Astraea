@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { useRelays } from '$lib/nostr/pool';
 	import { profileQuery } from '$lib/query/profile';
-	import { relays } from '$lib/store/relays';
 	import Icon from '@iconify/svelte';
 
 	export let pubkey: string;
@@ -9,7 +8,7 @@
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
-	const query = profileQuery(pubkey, useRelays($relays, 'read'));
+	const query = profileQuery(pubkey, useRelays('read'));
 
 	$: profile = $query.isError ? { name: 'error' } : $query.data;
 

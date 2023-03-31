@@ -1,12 +1,16 @@
+import { relaysQuery } from '$lib/query/relays';
+import { pubkey } from '$lib/store/pubkey';
 import { SimplePool, type Filter, type Event } from 'nostr-tools';
+import { get } from 'svelte/store';
 
 export const pool = new SimplePool();
 
 export const useRelays = (
-	relays: { [key: string]: { read: boolean; write: boolean } },
-	isType: 'read' | 'write'
+	isType: 'read' | 'write',
+	otherRelays?: { [key: string]: { read: boolean; write: boolean } }
 ) => {
-	return Object.entries(relays).flatMap(([url, type]) => {
+	const query = relaysQuery(get(pubkey));
+	return Object.entries(otherRelays || get(query)?.data || {}).flatMap(([url, type]) => {
 		return type[isType] ? url : [];
 	});
 };

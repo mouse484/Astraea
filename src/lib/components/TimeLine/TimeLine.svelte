@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { subscribeEvents, useRelays } from '$lib/nostr/pool';
+	import { subscribeEvents } from '$lib/nostr/pool';
 	import { setQuery } from '$lib/query/util';
 	import type { Event, Filter } from 'nostr-tools';
 	import { onMount } from 'svelte';
