@@ -7,6 +7,7 @@
 	import { pubkey } from '$lib/store/pubkey';
 	import Login from '$lib/components/Login.svelte';
 	import { name } from '$lib/data/const';
+	import Header from '$lib/components/Header/Header.svelte';
 
 	let mounted = false;
 
@@ -25,6 +26,7 @@
 <main>
 	{#if mounted}
 		{#if $pubkey}
+			<Header />
 			<slot />
 		{:else}
 			<Login />

@@ -1,6 +1,6 @@
 {
 	"name": "astraea",
-	"version": "0.0.1",
+	"version": "3.0.0-dev",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@iconify/svelte": "^3.1.0",
 		"@vite-pwa/sveltekit": "^0.2.1",
 		"nostr-tools": "^1.8.1",
 		"svelte-i18n": "^3.6.0",
