@@ -12,7 +12,10 @@
 
 {#if event}
 	<div>
-		<Profile pubkey={event.pubkey} />
+		<div class="flex justify-between">
+			<Profile pubkey={event.pubkey} />
+			<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
+		</div>
 		<div class="mt-2">
 			{event.content}
 		</div>
