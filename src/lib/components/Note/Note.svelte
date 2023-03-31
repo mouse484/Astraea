@@ -13,8 +13,8 @@
 {#if event}
 	<div>
 		<Profile pubkey={event.pubkey} />
-		<p>
+		<div class="mt-2">
 			{event.content}
-		</p>
+		</div>
 	</div>
 {/if}

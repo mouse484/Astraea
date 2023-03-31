@@ -22,6 +22,7 @@ export const contactsQuery = (pubkey: string, relays: string[]) => {
 				});
 				sub.on('eose', () => {
 					resolve([...contacts]);
+					sub.unsub();
 				});
 			});
 		}
