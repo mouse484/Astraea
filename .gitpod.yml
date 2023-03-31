@@ -2,7 +2,9 @@ image: gitpod/workspace-node
 
 tasks:
   - before: corepack enable
-    init: pnpm install
+    init: |
+      pnpm install &&
+      export HMR_HOST=`gp url 5173`
     command: pnpm run dev
 
 vscode:
