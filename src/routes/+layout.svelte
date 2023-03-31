@@ -2,7 +2,7 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import { pubkey } from '$lib/store/setting';
-	import { browser } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import Login from '$lib/components/Login.svelte';
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
@@ -47,7 +47,7 @@
 	{@html webManifest}
 </svelte:head>
 
-{#if data.queryClient}
+{#if data.queryClient && dev ? mounted : true}
 	<svelte:component this={QueryClientProvider} client={data.queryClient}>
 		<main>
 			<div class="m-8">
