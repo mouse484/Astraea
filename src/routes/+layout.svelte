@@ -3,11 +3,14 @@
 	import { pwaInfo } from 'virtual:pwa-info';
 	import { onMount } from 'svelte';
 	import RegisterSw from '$lib/RegisterSW.svelte';
-	import { i18nInit } from '$lib/utils/i18n';
 	import { pubkey } from '$lib/store/pubkey';
 	import Login from '$lib/components/Login.svelte';
 	import { name } from '$lib/data/const';
 	import Header from '$lib/components/Header/Header.svelte';
+	import { QueryClientProvider } from '@tanstack/svelte-query';
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
 
 	let mounted = false;
 
@@ -26,10 +29,12 @@
 <main>
 	{#if mounted}
 		{#if $pubkey}
-			<Header />
-			<div class="m-4">
-				<slot />
-			</div>
+			<QueryClientProvider client={data.queryClient}>
+				<Header />
+				<div class="m-4">
+					<slot />
+				</div>
+			</QueryClientProvider>
 		{:else}
 			<Login />
 		{/if}

@@ -4,9 +4,13 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import Title from '$lib/components/Title.svelte';
+	import RelayInfo from '$lib/pages/setting/RelayInfo.svelte';
+	import { relaysQuery } from '$lib/query/relays';
 	import { pubkey } from '$lib/store/pubkey';
-	import { removeLocalStorage, setLocalStorage } from '$lib/utils/localStorage';
+	import { removeLocalStorage } from '$lib/utils/localStorage';
 	import { _ } from 'svelte-i18n';
+
+	const relays = relaysQuery($pubkey);
 
 	const logout = () => {
 		pubkey.set('');
@@ -21,6 +25,36 @@
 <Heading>{$_('setting.setting')}</Heading>
 
 <Section>
+	<div>
+		<Heading h={3}>
+			{$_('general.relays')}
+		</Heading>
+		<table class="table-auto border-spacing-4">
+			<thead>
+				<tr>
+					<th>url</th>
+					<th>read</th>
+					<th>write</th>
+					<th>{$_('general.info')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#if $relays.data}
+					{#each Object.entries($relays.data) as [relay, { read, write }]}
+						<tr>
+							<td>{relay}</td>
+							<td>{read}</td>
+							<td>{write}</td>
+							<td>
+								<RelayInfo relayUrl={relay} />
+							</td>
+						</tr>
+					{/each}
+				{/if}
+			</tbody>
+		</table>
+	</div>
+
 	<div>
 		<Heading h={3}>
 			{$_('setting.logout')}
