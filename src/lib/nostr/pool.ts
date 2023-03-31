@@ -1,9 +1,10 @@
 import { relaysQuery } from '$lib/query/relays';
 import { pubkey } from '$lib/store/pubkey';
-import { SimplePool, type Filter, type Event } from 'nostr-tools';
+import { RelayPool } from 'nostr-relaypool';
+import type { Event, Filter } from 'nostr-tools';
 import { get } from 'svelte/store';
 
-export const pool = new SimplePool();
+export const pool = new RelayPool();
 
 export const useRelays = (
 	isType: 'read' | 'write',
@@ -15,18 +16,18 @@ export const useRelays = (
 	});
 };
 
-export const subscribeEvents = (kind: number, filter: Filter, relays: string[]) => {
-	return pool.sub(relays, [{ kinds: [kind], ...filter }]);
-};
-
 export const getEvent = (kind: number, filter: Filter, relays: string[]) => {
 	return new Promise<Event>((resolve) => {
-		const sub = pool.sub(relays, [{ kinds: [kind], limit: 1, ...filter }]);
-		sub.on('event', (event: Event) => {
-			if (event) {
+		const unsub = pool.subscribe(
+			[{ kinds: [kind], limit: 1, ...filter }],
+			relays,
+			(event) => {
 				resolve(event);
-				sub.unsub();
+			},
+			undefined,
+			() => {
+				unsub();
 			}
-		});
+		);
 	});
 };

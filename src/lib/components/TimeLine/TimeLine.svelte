@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { subscribeEvents } from '$lib/nostr/pool';
-	import { setQuery } from '$lib/query/util';
-	import type { Event, Filter, Sub } from 'nostr-tools';
+	import { pool } from '$lib/nostr/pool';
+	import { getQueryClient } from '$lib/query/util';
+	import type { Event, Filter } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import Note from '../Note/Note.svelte';
+
+	const queryClient = getQueryClient();
 
 	const notes = writable<Event[]>([]);
 
@@ -12,17 +14,20 @@
 	export let contacts: string[];
 	export let filter: Filter = {};
 
-	let sub: Sub;
+	let unsub: () => void;
 
 	onMount(() => {
-		sub = subscribeEvents(1, { authors: contacts, limit: 100, ...filter }, relays);
-		sub.on('event', (event: Event) => {
-			notes.set([...$notes, event]);
-			setQuery(['note', event.id], event);
-		});
+		unsub = pool.subscribe(
+			[{ kinds: [1], authors: contacts, limit: 100, ...filter }],
+			relays,
+			(event) => {
+				notes.set([...$notes, event]);
+				queryClient.setQueryData(['note', event.id], event);
+			}
+		);
 	});
 	onDestroy(() => {
-		sub.unsub();
+		unsub();
 	});
 </script>
 

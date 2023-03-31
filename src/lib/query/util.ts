@@ -1,8 +1,6 @@
 import { getContext } from 'svelte';
 import type { QueryClient } from '@tanstack/svelte-query';
 
-export const setQuery = (key: string[], value: unknown) => {
-	const queryClient: QueryClient = getContext('$$_queryClient');
-	if (!queryClient) return;
-	queryClient.setQueryData(key, value);
-};
+export const QUERY_CLIENT_CONTEXT_KEY = '$$_queryClient';
+
+export const getQueryClient = () => getContext(QUERY_CLIENT_CONTEXT_KEY) as QueryClient;

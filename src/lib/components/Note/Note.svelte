@@ -11,7 +11,7 @@
 </script>
 
 {#if event}
-	<div>
+	<div class="border rounded p-2">
 		<div class="flex justify-between">
 			<Profile pubkey={event.pubkey} />
 			<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
