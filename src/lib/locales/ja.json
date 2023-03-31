@@ -1,0 +1,43 @@
+{
+	"home": {
+		"home": "ホーム",
+		"nip36": {
+			"nip36": "投稿に警告を含める",
+			"reason": "理由",
+			"nude": "ヌード",
+			"violence": "暴力",
+			"sensitive": "センシティブ"
+		},
+		"post": {
+			"post": "投稿する",
+			"nip07required": "※:投稿するにはnip-07に対応した拡張機能が必要です"
+		}
+	},
+	"trend": {
+		"trend": "トレンド"
+	},
+	"profile": {
+		"copyId": "ユーザーIDをコピー"
+	},
+	"search": {
+		"search": "検索"
+	},
+	"notifications": {
+		"notifications": "通知"
+	},
+	"login": {
+		"login": "ログイン",
+		"nip07": "nip-07拡張機能",
+		"errorMessage": "pubkeyが間違っているか、問題が発生しました。"
+	},
+	"setting": {
+		"setting": "設定",
+		"language": "言語 (Language)",
+		"logout": "ログアウト"
+	},
+	"general": {
+		"relays": "リレー",
+		"info": "情報",
+		"copied": "コピーしました"
+	}
+}

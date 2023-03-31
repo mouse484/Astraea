@@ -1,0 +1,43 @@
+{
+	"home": {
+		"home": "Home",
+		"nip36": {
+			"nip36": "Sensitive Content",
+			"reason": "reason",
+			"nude": "Nudity",
+			"violence": "Violence",
+			"sensitive": "Sensitive"
+		},
+		"post": {
+			"post": "Post",
+			"nip07required": "You need an extension that supports nip-07 to publish"
+		}
+	},
+	"trend": {
+		"trend": "Trends (Japanese)"
+	},
+	"profile": {
+		"copyId": "Copy User ID"
+	},
+	"search": {
+		"search": "Search"
+	},
+	"notifications": {
+		"notifications": "Notifications"
+	},
+	"login": {
+		"login": "Login",
+		"nip07": "nip-07 Extension",
+		"errorMessage": "An error happened when trying to get your public key."
+	},
+	"setting": {
+		"setting": "Settings",
+		"language": "Language",
+		"logout": "Sign Out"
+	},
+	"general": {
+		"relays": "Relays",
+		"info": "Information",
+		"copied": "Copied"
+	}
+}
