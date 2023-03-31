@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import Heading from './elements/Heading.svelte';
 </script>
 
-<div>
+<Heading>
 	{$_('login.login')}
-</div>
+</Heading>

@@ -9,8 +9,6 @@
 
 	let mounted = false;
 
-	i18nInit();
-
 	onMount(() => {
 		mounted = true;
 	});
@@ -23,10 +21,12 @@
 </svelte:head>
 
 <main>
-	{#if $pubkey}
-		<slot />
-	{:else}
-		<Login />
+	{#if mounted}
+		{#if $pubkey}
+			<slot />
+		{:else}
+			<Login />
+		{/if}
 	{/if}
 </main>
 
