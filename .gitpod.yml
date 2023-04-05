@@ -11,3 +11,4 @@ vscode:
     - bradlc.vscode-tailwindcss
     - heybourn.headwind
     - lokalise.i18n-ally
+    - csstools.postcss

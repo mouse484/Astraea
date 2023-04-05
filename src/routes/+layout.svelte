@@ -1,72 +1,47 @@
 <script lang="ts">
-	import '../app.css';
-	import Header from '$lib/components/Header.svelte';
-	import { pubkey } from '$lib/store/setting';
-	import { browser } from '$app/environment';
-	import Login from '$lib/components/Login.svelte';
-	import { onMount } from 'svelte';
+	import '../app.postcss';
 	import { pwaInfo } from 'virtual:pwa-info';
-	import MenuBar from '$lib/components/MenuBar.svelte';
+	import { onMount } from 'svelte';
+	import RegisterSw from '$lib/RegisterSW.svelte';
+	import { pubkey } from '$lib/store/pubkey';
+	import Login from '$lib/components/Login.svelte';
+	import { name } from '$lib/data/const';
+	import Header from '$lib/components/Header/Header.svelte';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import type { LayoutData } from './$types';
+	import { relaysQuery } from '$lib/query/relays';
 
 	export let data: LayoutData;
 
 	let mounted = false;
-	if (browser) {
-		const localPubkey = localStorage.getItem('pubkey');
-		if (localPubkey) pubkey.set(localPubkey);
-	}
 
-	onMount(async () => {
+	onMount(() => {
 		mounted = true;
-		if (pwaInfo) {
-			const { registerSW } = await import('virtual:pwa-register');
-			registerSW({
-				immediate: true,
-				onRegistered(r: unknown) {
-					// uncomment following code if you want check for updates
-					// r && setInterval(() => {
-					//    console.log('Checking for sw update')
-					//    r.update()
-					// }, 20000 /* 20s for testing purposes */)
-					console.log(`SW Registered: ${r}`);
-				},
-				onRegisterError(error: unknown) {
-					console.log('SW registration error', error);
-				}
-			});
-		}
 	});
 
 	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
 
 <svelte:head>
-	<title>Astraea</title>
+	<title>{name}</title>
 	{@html webManifest}
 </svelte:head>
 
-{#if data.queryClient}
-	<QueryClientProvider client={data.queryClient}>
-		<main>
-			<div class="m-8">
+<main>
+	{#if mounted}
+		{#if $pubkey}
+			<QueryClientProvider client={data.queryClient}>
 				<Header />
-			</div>
-			<section class="w-full">
-				{#if mounted}
-					{#if $pubkey}
-						<div class="m-8">
-							<slot />
-						</div>
-						<div class="mt-16">
-							<MenuBar />
-						</div>
-					{:else}
-						<Login />
-					{/if}
-				{/if}
-			</section>
-		</main>
-	</QueryClientProvider>
+				<div class="m-8">
+					<slot />
+				</div>
+			</QueryClientProvider>
+		{:else}
+			<Login />
+		{/if}
+	{/if}
+</main>
+
+{#if mounted && pwaInfo}
+	<RegisterSw />
 {/if}

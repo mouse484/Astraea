@@ -1,54 +1,30 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
-	import PostNote from '$lib/components/PostNote.svelte';
-	import TimeLine from '$lib/components/TimeLine.svelte';
-	import Trend from '$lib/components/Trend.svelte';
-	import { pubkey } from '$lib/store/setting';
-	import { subscribeEvents, type Subscribe } from '$lib/utils/nostr';
-	import { Data } from 'emoji-mart';
-	import { onMount } from 'svelte';
+	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
+	import Title from '$lib/components/Title.svelte';
+	import { useRelays } from '$lib/nostr/pool';
+	import { contactsQuery } from '$lib/query/contacts';
+	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
-	import { z } from 'zod';
 
-	let contacts = new Set<string>();
+	const readRelays = useRelays('read');
 
-	const contactsScheme = z.tuple([z.string(), z.string()]);
-
-	onMount(() => {
-		const contactsSub = subscribeEvents(3, { authors: [$pubkey] }, 'eose');
-		contactsSub.on('event', (event) => {
-			event.tags.forEach((tag) => {
-				const [, pubkey] = contactsScheme.parse(tag);
-				if (pubkey) {
-					contacts = contacts.add(pubkey);
-					contactsSub.unsub();
-				}
-			});
-		});
-	});
+	$: contacts = contactsQuery($pubkey, readRelays);
 </script>
+
+<Title pageTitle={$_('home.home')} />
 
 <Heading>{$_('home.home')}</Heading>
 
 <Section>
-	<PostNote />
-	<div class="mt-8 md:flex md:gap-4">
-		<div class="md:flex-grow">
-			{#key contacts}
-				<TimeLine
-					authors={[...contacts]}
-					filter={{
-						since: Math.floor(
-							new Date(
-								new Date().setHours(new Date().getHours() - 1)
-							).getTime() / 1000
-						)
-					}}
-				/>
-			{/key}
-		</div>
-
-		<Trend />
-	</div>
+	{#if $contacts.data && readRelays}
+		<TimeLine
+			relays={readRelays}
+			contacts={$contacts.data}
+			filter={{
+				since: Math.floor(new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000)
+			}}
+		/>
+	{/if}
 </Section>

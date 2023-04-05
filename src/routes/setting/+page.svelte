@@ -1,52 +1,68 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Button from '$lib/components/elements/Button.svelte';
+	import Button from '$lib/components/elements/form/Button.svelte';
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
-	import RelayInfo from '$lib/components/RelayInfo.svelte';
-	import { pubkeyClear, relays } from '$lib/store/setting';
-	import { locale, locales, _ } from 'svelte-i18n';
+	import Title from '$lib/components/Title.svelte';
+	import RelayInfo from '$lib/pages/setting/RelayInfo.svelte';
+	import { relaysQuery } from '$lib/query/relays';
+	import { pubkey } from '$lib/store/pubkey';
+	import { removeLocalStorage } from '$lib/utils/localStorage';
+	import { _ } from 'svelte-i18n';
+
+	const relays = relaysQuery($pubkey);
+
+	const logout = () => {
+		pubkey.set('');
+		removeLocalStorage('pubkey');
+
+		goto('/');
+	};
 </script>
+
+<Title pageTitle={$_('setting.setting')} />
 
 <Heading>{$_('setting.setting')}</Heading>
 
 <Section>
-	<h3>{$_('general.relays')}</h3>
-	<table class="table-auto border-spacing-4">
-		<thead>
-			<tr>
-				<th>url</th>
-				<th>read</th>
-				<th>write</th>
-				<th>{$_('general.info')}</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each Object.entries($relays) as [relay, { read, write }]}
+	<div>
+		<Heading h={3}>
+			{$_('general.relays')}
+		</Heading>
+		<table class="table-auto border-spacing-4">
+			<thead>
 				<tr>
-					<td>{relay}</td>
-					<td>{read}</td>
-					<td>{write}</td>
-					<td><RelayInfo relayUrl={relay} /></td>
+					<th>url</th>
+					<th>read</th>
+					<th>write</th>
+					<th>{$_('general.info')}</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#if $relays.data}
+					{#each Object.entries($relays.data) as [relay, { read, write }]}
+						<tr>
+							<td>{relay}</td>
+							<td>{read}</td>
+							<td>{write}</td>
+							<td>
+								<RelayInfo relayUrl={relay} />
+							</td>
+						</tr>
+					{/each}
+				{/if}
+			</tbody>
+		</table>
+	</div>
 
-	<h3 class="mt-8 text-2xl">{$_('setting.language')}</h3>
-	<select class="mt-4" name="locale" id="locale" bind:value={$locale}>
-		{#each $locales as item (item)}
-			<option value={item}>{item}</option>
-		{/each}
-	</select>
-
-	<h3 class="mt-8 text-2xl">{$_('setting.logout')}</h3>
-	<Button
-		on:click={() => {
-			pubkeyClear();
-			goto('/');
-		}}
-	>
-		{$_('setting.logout')}
-	</Button>
+	<div>
+		<Heading h={3}>
+			{$_('setting.logout')}
+		</Heading>
+		<div class="m-4">
+			<Button on:click={logout}>
+				{$_('setting.logout')}
+			</Button>
+		</div>
+	</div>
 </Section>

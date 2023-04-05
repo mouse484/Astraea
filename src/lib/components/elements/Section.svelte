@@ -1,3 +1,3 @@
-<section class="mt-8">
+<section class="m-4">
 	<slot />
 </section>

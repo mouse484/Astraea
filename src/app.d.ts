@@ -1,8 +1,9 @@
+/// <reference types="vite-plugin-pwa/client" />
+/// <reference types="vite-plugin-pwa/info" />
+
 // See https://kit.svelte.dev/docs/types#app
-
-import type { Event, UnsignedEvent } from 'nostr-tools';
-
 // for information about these interfaces
+
 declare global {
 	namespace App {
 		// interface Error {}
@@ -17,7 +18,5 @@ declare global {
 		};
 	}
 }
-
-declare const APP_VERSION: string;
 
 export {};

@@ -1,45 +1,19 @@
 <script lang="ts">
-	import {
-		profiles,
-		profileScheme,
-		type ProfileDate
-	} from '$lib/store/profiles';
-	import { getEvent } from '$lib/utils/nostr';
+	import { useRelays } from '$lib/nostr/pool';
+	import { profileQuery } from '$lib/query/profile';
 	import Icon from '@iconify/svelte';
-	import { createQuery } from '@tanstack/svelte-query';
-	import Badge from './Badge.svelte';
-	import Menu from './Menu.svelte';
 
 	export let pubkey: string;
 	export let imageOnly = false;
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
-	const query = createQuery({
-		queryKey: ['profile', pubkey],
-		queryFn: async () => {
-			const event = await getEvent(0, { authors: [pubkey] });
-			if (event) {
-				const parsed = profileScheme.safeParse(JSON.parse(event.content));
-				if (parsed.success) {
-					return parsed.data;
-				}
-			}
-			throw new Error('profile');
-		},
-		initialData: { name: 'loading' },
-		retry: 3
-	});
+	const query = profileQuery(pubkey, useRelays('read'));
 
 	$: profile = $query.isError ? { name: 'error' } : $query.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
-	$: maxWitdh =
-		name.length > 20
-			? domain.length > 10
-				? 'max-w-[5em]'
-				: 'max-w-[10em]'
-			: '';
+	$: maxWitdh = name.length > 20 ? (domain.length > 10 ? 'max-w-[5em]' : 'max-w-[10em]') : '';
 </script>
 
 <div>
@@ -51,16 +25,9 @@
 		{/if}
 	{/if}
 	<div class="flex justify-between">
-		<a
-			class="flex gap-2 items-center text-inherit visited:text-inherit w-fit"
-			href={to}
-		>
+		<a class="flex gap-2 items-center text-inherit visited:text-inherit w-fit" href={to}>
 			{#if profile?.picture}
-				<img
-					class="w-12 h-12 rounded"
-					src={profile.picture}
-					alt={profile?.name}
-				/>
+				<img class="w-12 h-12 rounded" src={profile.picture} alt={profile?.name} />
 			{:else}
 				<Icon icon="mdi:account" class="w-8 h-8" />
 			{/if}
@@ -86,14 +53,14 @@
 				</div>
 			{/if}
 		</a>
-		{#if detail}
+		<!-- {#if detail}
 			<Menu {pubkey} />
-		{/if}
+		{/if} -->
 	</div>
 	{#if detail}
 		<div class="flex flex-col gap-4">
 			<div class="mt-4 break-words">{profile?.about || ''}</div>
-			<Badge {pubkey} />
+			<!-- <Badge {pubkey} /> -->
 			{#if profile?.website}
 				<a
 					class="mt-2 break-words"

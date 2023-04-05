@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { pubkey } from '$lib/store/setting';
-	import { nip19 } from 'nostr-tools';
+	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
-	import Button from './elements/Button.svelte';
+	import Button from './elements/form/Button.svelte';
 	import Heading from './elements/Heading.svelte';
+	import { decode } from '$lib/nostr/nip19';
+
 	let inputPubkey: string;
 	let pubkeyInfo: string;
 
@@ -19,14 +20,11 @@
 	}
 
 	const savePubkey = () => {
-		try {
-			const decode = nip19.decode(inputPubkey);
-			if (decode.type === 'npub') {
-				// 後で直す
-				pubkey.set(decode.data as string);
-			}
-		} catch {
-			pubkeyInfo = $_("login.errorMessage")
+		const decoded = decode('npub', inputPubkey);
+		if (decoded) {
+			pubkey.set(decoded);
+		} else {
+			pubkeyInfo = $_('login.errorMessage');
 		}
 	};
 
@@ -37,7 +35,9 @@
 	};
 </script>
 
-<Heading>{$_('login.login')}</Heading>
+<Heading>
+	{$_('login.login')}
+</Heading>
 
 <div class="flex flex-col gap-4 justify-center mt-4">
 	<input
@@ -46,14 +46,19 @@
 		bind:value={inputPubkey}
 		placeholder="npub key"
 	/>
-	<Button on:click={savePubkey} disabled={!inputPubkey}
-		>{$_('login.login')}</Button
-	>
-	{#key pubkeyInfo}
-		{#if pubkeyInfo}
-			<p>{pubkeyInfo}</p>
-		{/if}
-	{/key}
+	<Button on:click={savePubkey} disabled={!inputPubkey}>
+		{$_('login.login')}
+	</Button>
+
 	<p class="text-center">or</p>
-	<Button disabled={!isNip07} on:click={nip07Login}>{$_("login.nip07")}</Button>
+
+	<Button disabled={!isNip07} on:click={nip07Login}>
+		{$_('login.nip07')}
+	</Button>
+
+	{#if pubkeyInfo}
+		<div>
+			<p>{pubkeyInfo}</p>
+		</div>
+	{/if}
 </div>

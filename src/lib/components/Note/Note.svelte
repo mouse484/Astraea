@@ -1,48 +1,52 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { useRelays } from '$lib/nostr/pool';
+	import { noteQuery } from '$lib/query/note';
+	import { reactions } from '$lib/store/reactions';
 	import type { Event } from 'nostr-tools';
-	import Button from '../elements/Button.svelte';
+	import { onDestroy } from 'svelte';
+	import { writable } from 'svelte/store';
+	import Emoji from '../elements/Emoji.svelte';
 	import Profile from '../Profile/Profile.svelte';
-	import Content from './Content.svelte';
-	import Footer from './Footer.svelte';
-	import NoteWithId from './NoteWithId.svelte';
 
-	export let event: Event;
-	export let isReply = false;
+	export let id: string;
 
-	let isWarn = event.tags.find(([type]) => type === 'content-warning')?.[1];
+	const useReactions = writable(new Map<string, Event>());
 
-	const hasReply = event.tags.reverse().find(([type, , , marker]) => {
-		return type === 'e' && (!marker || marker === 'reply');
+	const unsubscribe = reactions.subscribe((v) => {
+		const react = v.get(id);
+		if (react) {
+			useReactions.update((uv) => {
+				react.events.forEach((event) => {
+					uv.set(event.id, event);
+				});
+				return uv;
+			});
+		}
+	});
+
+	$: note = noteQuery(id, useRelays('read'));
+
+	$: event = $note.data;
+
+	onDestroy(() => {
+		unsubscribe();
 	});
 </script>
 
-<div>
-	{#if event}
-		{#if !isReply && hasReply}
-			{@const [, id] = hasReply}
-			<NoteWithId {id} {isReply} />
-		{/if}
-		<div
-			class="p-2 border rounded {isReply ? 'border-b-0 border-blue-800' : ''}"
-			on:dblclick={() => goto(`/note/${event.id}`)}
-		>
-			<Profile pubkey={event.pubkey} detail={false} />
-			<div class="mt-4">
-				{#if isWarn}
-					<Button on:click={() => (isWarn = undefined)}>
-						このコンテンツを表示する (理由:{isWarn})
-					</Button>
-				{:else}
-					<Content rawContent={event.content} tags={event.tags} />
-				{/if}
-			</div>
-			<div class="flex justify-between mt-4">
-				<Footer {event} />
-				<div>
-					{new Date(event.created_at * 1000).toLocaleString()}
-				</div>
-			</div>
+{#if event}
+	<div class="border rounded p-2">
+		<div class="flex justify-between">
+			<Profile pubkey={event.pubkey} />
+			<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
 		</div>
-	{/if}
-</div>
+		<div class="mt-2">
+			{event.content}
+		</div>
+		<div>
+			<Emoji emoji="❤" />
+			{#if $useReactions.size}
+				{$useReactions.size}
+			{/if}
+		</div>
+	</div>
+{/if}
