@@ -1,7 +1,7 @@
 import { relaysQuery } from '$lib/query/relays';
 import { pubkey } from '$lib/store/pubkey';
 import { RelayPool } from 'nostr-relaypool';
-import type { Event, Filter } from 'nostr-tools';
+import { getEventHash, type Event, type Filter, type UnsignedEvent } from 'nostr-tools';
 import { get } from 'svelte/store';
 
 export const pool = new RelayPool();
@@ -30,4 +30,13 @@ export const getEvent = (kind: number, filter: Filter, relays: string[]) => {
 			}
 		);
 	});
+};
+
+export const publishEvent = async (unsignedEvent: UnsignedEvent, relays: string[]) => {
+	if (!window.nostr) return;
+	const signedEvent = await window.nostr.signEvent({
+		id: getEventHash(unsignedEvent),
+		...unsignedEvent
+	});
+	return pool.publish(signedEvent, relays);
 };
