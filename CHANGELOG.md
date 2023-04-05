@@ -1,3 +1,55 @@
+# [3.0.0](https://github.com/mouse484/astraea/compare/v2.9.3...v3.0.0) (2023-04-05)
+
+
+* V3 (#335) ([fbee90f](https://github.com/mouse484/astraea/commit/fbee90f456ffea225a8048cececde86a14cc73dd)), closes [#335](https://github.com/mouse484/astraea/issues/335)
+
+
+### BREAKING CHANGES
+
+* REMOVE ALL CODES
+
+* feat: sveltekit init
+
+* feat: pwa
+
+* feat: i18n setup
+
+* feat: tailwindcss
+
+* fix: i18n error
+
+* feat: ログイン
+
+* feat: pubkeyが保存されていれば自動ログイン
+
+* fix: localstorageはutilから使う
+
+* feat: ファビコンとタイトル
+
+* feat: header
+
+* feat: ログアウト
+
+* fix: setting page title
+
+* feat: リレーの取得と情報を表示
+
+* feat: タイムライン表示
+
+* feat: timelineのキャッシュ
+
+* feat: プロフィールを表示
+
+* fix: リレー周り使いやすく
+
+* fix: unsubする
+
+* feat: ノートに時間表示
+
+* feat: nostr-relaypoolを使う
+
+* feat: リアクション+のみ
+
 ## [2.9.3](https://github.com/mouse484/astraea/compare/v2.9.2...v2.9.3) (2023-03-30)
 
 
