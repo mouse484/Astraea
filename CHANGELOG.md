@@ -1,3 +1,11 @@
+# [3.1.0](https://github.com/mouse484/astraea/compare/v3.0.0...v3.1.0) (2023-04-05)
+
+
+### Features
+
+* リアクションの表示 ([b4b1916](https://github.com/mouse484/astraea/commit/b4b19165edbf794819c9977b9a0754a6739b07e9))
+* 絵文字追加 ([54bc064](https://github.com/mouse484/astraea/commit/54bc06430b9f024107f89741a5ba51c2db8dd18d))
+
 # [3.0.0](https://github.com/mouse484/astraea/compare/v2.9.3...v3.0.0) (2023-04-05)
 
 
