@@ -43,7 +43,7 @@
 		"@vite-pwa/sveltekit": "^0.2.1",
 		"emoji-mart": "^5.5.2",
 		"nostr-relaypool": "^0.6.8",
-		"nostr-tools": "^1.8.1",
+		"nostr-tools": "^1.8.2",
 		"svelte-i18n": "^3.6.0",
 		"vite-plugin-pwa": "^0.14.7",
 		"workbox-window": "^6.5.4",
