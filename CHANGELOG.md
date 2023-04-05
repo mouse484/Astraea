@@ -1,3 +1,10 @@
+## [2.9.4](https://github.com/mouse484/astraea/compare/v2.9.3...v2.9.4) (2023-04-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nostr-tools to ^1.8.2 ([4e97e9e](https://github.com/mouse484/astraea/commit/4e97e9ec18b7c615dfe3f0ac113cc1773a8113ef))
+
 ## [2.9.3](https://github.com/mouse484/astraea/compare/v2.9.2...v2.9.3) (2023-03-30)
 
 
