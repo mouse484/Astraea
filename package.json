@@ -42,7 +42,7 @@
 		"@tanstack/svelte-query": "^4.27.0",
 		"@vite-pwa/sveltekit": "^0.2.1",
 		"emoji-mart": "^5.5.2",
-		"nostr-relaypool": "^0.6.8",
+		"nostr-relaypool": "^0.6.10",
 		"nostr-tools": "^1.8.2",
 		"svelte-i18n": "^3.6.0",
 		"vite-plugin-pwa": "^0.14.7",
