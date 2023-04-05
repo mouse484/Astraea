@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/mouse484/astraea/compare/v3.1.1...v3.1.2) (2023-04-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nostr-relaypool to ^0.6.10 ([c069061](https://github.com/mouse484/astraea/commit/c0690619458f3571d744dd25d019d19164e8a8e6))
+
 ## [3.1.1](https://github.com/mouse484/astraea/compare/v3.1.0...v3.1.1) (2023-04-05)
 
 
