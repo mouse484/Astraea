@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/mouse484/astraea/compare/v3.1.2...v3.1.3) (2023-04-07)
+
+
+### Bug Fixes
+
+* リアクション時のエラー ([1f70923](https://github.com/mouse484/astraea/commit/1f709235c47be6c4f7662418f3f1c553d46d2996)), closes [#339](https://github.com/mouse484/astraea/issues/339)
+
 ## [3.1.2](https://github.com/mouse484/astraea/compare/v3.1.1...v3.1.2) (2023-04-05)
 
 
