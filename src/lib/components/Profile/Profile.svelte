@@ -2,6 +2,8 @@
 	import { useRelays } from '$lib/nostr/pool';
 	import { profileQuery } from '$lib/query/profile';
 	import Icon from '@iconify/svelte';
+	import { nip05 } from 'nostr-tools';
+	import type { ProfilePointer } from 'nostr-tools/lib/nip19';
 
 	export let pubkey: string;
 	export let imageOnly = false;
@@ -14,6 +16,15 @@
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 	$: maxWitdh = name.length > 20 ? (domain.length > 10 ? 'max-w-[5em]' : 'max-w-[10em]') : '';
+
+	let nip05Status = false;
+	$: {
+		(async () => {
+			if (!profile.nip05) return;
+			const profilePointer = await nip05.queryProfile(profile.nip05);
+			nip05Status = profilePointer?.pubkey === pubkey;
+		})();
+	}
 </script>
 
 <div>
@@ -43,12 +54,18 @@
 							{profile?.name}
 						{/if}
 					</div>
-					<div class="flex mt-2 text-xs text-gray-500">
-						<div class="truncate ... {maxWitdh}">
+					<div class="flex items-center mt-2 text-xs text-gray-500">
+						<span class="truncate ... {maxWitdh}">
 							{name}
-						</div>
-						<div>@</div>
-						<div>{domain}</div>
+						</span>
+						{#if nip05Status}
+							<span class="text-blue-500">
+								<Icon icon="mdi:check-decagram-outline" />
+							</span>
+						{:else}
+							<span>@</span>
+						{/if}
+						<span>{domain}</span>
 					</div>
 				</div>
 			{/if}
