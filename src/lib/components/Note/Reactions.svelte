@@ -12,6 +12,7 @@
 	export let id: string;
 
 	const displayReactions = writable(new Map<string, Map<string, Event>>());
+	const writeRelays = useRelays('write');
 
 	let isOpenEmojiPicker = false;
 
@@ -43,7 +44,7 @@
 			content: content,
 			pubkey: $pubkey
 		};
-		publishEvent(unsignedEvent, useRelays('write'));
+		publishEvent(unsignedEvent, writeRelays);
 	};
 
 	onDestroy(() => {
