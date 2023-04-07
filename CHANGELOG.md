@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/mouse484/astraea/compare/v3.1.3...v3.2.0) (2023-04-07)
+
+
+### Features
+
+* nip05認証 ([55d2e09](https://github.com/mouse484/astraea/commit/55d2e09f1665895a2427a56952e450e20dc45a42)), closes [#111](https://github.com/mouse484/astraea/issues/111)
+
 ## [3.1.3](https://github.com/mouse484/astraea/compare/v3.1.2...v3.1.3) (2023-04-07)
 
 
