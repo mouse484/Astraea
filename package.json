@@ -38,7 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emoji-mart/data": "^1.1.2",
-		"@iconify/svelte": "^3.1.0",
+		"@iconify/svelte": "^3.1.1",
 		"@tanstack/svelte-query": "^4.27.0",
 		"@vite-pwa/sveltekit": "^0.2.1",
 		"emoji-mart": "^5.5.2",

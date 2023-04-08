@@ -5,8 +5,8 @@ dependencies:
     specifier: ^1.1.2
     version: 1.1.2
   '@iconify/svelte':
-    specifier: ^3.1.0
-    version: 3.1.0(svelte@3.58.0)
+    specifier: ^3.1.1
+    version: 3.1.1(svelte@3.58.0)
   '@tanstack/svelte-query':
     specifier: ^4.27.0
     version: 4.27.0(svelte@3.58.0)
@@ -1527,8 +1527,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify/svelte@3.1.0(svelte@3.58.0):
-    resolution: {integrity: sha512-G1w1dcO7eiD+JmQJNwNW4qnAn86oQxKLe1P/iAPjJ0qYYuF7Pb60TPrlcj4+2gu4SXe3a0Jrv++8YmceG+gX/g==}
+  /@iconify/svelte@3.1.1(svelte@3.58.0):
+    resolution: {integrity: sha512-z9w/Z2ei+nxByWgbGYKDmMxY0TKJtrK/6eZS9N2/eMkzQFQnOwbdcaSJDP4kpAFImY7s/WmE49GLH0zHvs9yPw==}
     peerDependencies:
       svelte: '>=3'
     dependencies:
