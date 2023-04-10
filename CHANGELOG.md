@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/mouse484/astraea/compare/v3.2.4...v3.3.0) (2023-04-10)
+
+
+### Features
+
+* トレンドを表示 ([d9eefe5](https://github.com/mouse484/astraea/commit/d9eefe51ece4a0a1aeaf3de257f39c0e436c3b14)), closes [#355](https://github.com/mouse484/astraea/issues/355)
+
 ## [3.2.4](https://github.com/mouse484/astraea/compare/v3.2.3...v3.2.4) (2023-04-10)
 
 
