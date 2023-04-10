@@ -9,7 +9,7 @@
 	import Header from '$lib/components/Header/Header.svelte';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import type { LayoutData } from './$types';
-	import { relaysQuery } from '$lib/query/relays';
+	import RelaysHandle from '$lib/components/RelaysHandle.svelte';
 
 	export let data: LayoutData;
 
@@ -33,7 +33,9 @@
 			<QueryClientProvider client={data.queryClient}>
 				<Header />
 				<div class="m-8">
-					<slot />
+					<RelaysHandle pubkey={$pubkey}>
+						<slot />
+					</RelaysHandle>
 				</div>
 			</QueryClientProvider>
 		{:else}

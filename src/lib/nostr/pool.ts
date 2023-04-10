@@ -1,3 +1,4 @@
+import { defaultRelays } from '$lib/data/const';
 import { relaysQuery } from '$lib/query/relays';
 import { pubkey } from '$lib/store/pubkey';
 import { RelayPool } from 'nostr-relaypool';
@@ -10,8 +11,9 @@ export const useRelays = (
 	isType: 'read' | 'write',
 	otherRelays?: { [key: string]: { read: boolean; write: boolean } }
 ) => {
-	const query = relaysQuery(get(pubkey));
-	return Object.entries(otherRelays || get(query)?.data || {}).flatMap(([url, type]) => {
+	return Object.entries(
+		otherRelays || get(relaysQuery(get(pubkey)))?.data || defaultRelays
+	).flatMap(([url, type]) => {
 		return type[isType] ? url : [];
 	});
 };
