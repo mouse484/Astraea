@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
+	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
 	import Title from '$lib/components/Title.svelte';
+	import Trend from '$lib/components/Trend.svelte';
 	import { useRelays } from '$lib/nostr/pool';
 	import { contactsQuery } from '$lib/query/contacts';
 	import { pubkey } from '$lib/store/pubkey';
@@ -15,16 +17,27 @@
 
 <Title pageTitle={$_('home.home')} />
 
-<Heading>{$_('home.home')}</Heading>
+{#if $contacts.data && readRelays}
+	<div class="flex gap-4">
+		<div>
+			<Heading>{$_('home.home')}</Heading>
+			<Section>
+				<TimeLine
+					relays={readRelays}
+					contacts={$contacts.data}
+					filter={{
+						since: Math.floor(
+							new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
+						)
+					}}
+				/>
+			</Section>
+		</div>
 
-<Section>
-	{#if $contacts.data && readRelays}
-		<TimeLine
-			relays={readRelays}
-			contacts={$contacts.data}
-			filter={{
-				since: Math.floor(new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000)
-			}}
-		/>
-	{/if}
-</Section>
+		<Responsive breakpoint="md">
+			<div>
+				<Trend />
+			</div>
+		</Responsive>
+	</div>
+{/if}
