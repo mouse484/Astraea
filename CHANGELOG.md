@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/mouse484/astraea/compare/v3.3.0...v3.3.1) (2023-04-10)
+
+
+### Bug Fixes
+
+* デフォルトリレーは初期値ではなくエラーで動かないときに使う ([83cbf80](https://github.com/mouse484/astraea/commit/83cbf801df545e17d0da2a06e151e440c131f4ea)), closes [#357](https://github.com/mouse484/astraea/issues/357)
+
 # [3.3.0](https://github.com/mouse484/astraea/compare/v3.2.4...v3.3.0) (2023-04-10)
 
 
