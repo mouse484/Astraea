@@ -17,8 +17,8 @@ dependencies:
     specifier: ^5.5.2
     version: 5.5.2
   nostr-relaypool:
-    specifier: ^0.6.13
-    version: 0.6.13(ws@8.13.0)
+    specifier: ^0.6.15
+    version: 0.6.15(ws@8.13.0)
   nostr-tools:
     specifier: ^1.8.3
     version: 1.8.3
@@ -4450,8 +4450,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /nostr-relaypool@0.6.13(ws@8.13.0):
-    resolution: {integrity: sha512-t1SLd846qCR2w87jt/0OY1ePGDRjWsfzZQamgwH+RMEOsKejzHTnevewvPWHoLkKWP316Cfzlb6aXjQVSci04w==}
+  /nostr-relaypool@0.6.15(ws@8.13.0):
+    resolution: {integrity: sha512-SULVqzfOXJbXjOX49l6ep0pL83PTrw78DjdAzvI86l2Y+DLfMsN5Vp7s9W9hpkAjjmUazZ32om1SUOAe48N8Jg==}
     dependencies:
       '@jest/source-map': 29.4.3
       isomorphic-ws: 5.0.0(ws@8.13.0)
