@@ -1,3 +1,10 @@
+## [3.3.2](https://github.com/mouse484/astraea/compare/v3.3.1...v3.3.2) (2023-04-10)
+
+
+### Bug Fixes
+
+* リレー取得周りを修正 ([5d89db3](https://github.com/mouse484/astraea/commit/5d89db38a0e2de8ae5e692bcef0c88ba0d994d6b))
+
 ## [3.3.1](https://github.com/mouse484/astraea/compare/v3.3.0...v3.3.1) (2023-04-10)
 
 
