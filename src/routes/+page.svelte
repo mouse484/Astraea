@@ -5,7 +5,7 @@
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Trend from '$lib/components/Trend.svelte';
-	import { useRelays } from '$lib/nostr/pool';
+	import { useRelays } from '$lib/nostr/relays';
 	import { contactsQuery } from '$lib/query/contacts';
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';

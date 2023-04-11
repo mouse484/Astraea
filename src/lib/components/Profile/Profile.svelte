@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { useRelays } from '$lib/nostr/pool';
+	import { useRelays } from '$lib/nostr/relays';
 	import { profileQuery } from '$lib/query/profile';
 	import Icon from '@iconify/svelte';
 	import { nip05 } from 'nostr-tools';
-	import type { ProfilePointer } from 'nostr-tools/lib/nip19';
 
 	export let pubkey: string;
 	export let imageOnly = false;
@@ -40,7 +39,9 @@
 			{#if profile?.picture}
 				<img class="w-12 h-12 rounded" src={profile.picture} alt={profile?.name} />
 			{:else}
-				<Icon icon="mdi:account" class="w-8 h-8" />
+				<div class="w-8 h-8">
+					<Icon icon="mdi:account" />
+				</div>
 			{/if}
 			{#if !imageOnly}
 				<div>

@@ -1,21 +1,6 @@
-import { defaultRelays } from '$lib/data/const';
-import { relaysQuery } from '$lib/query/relays';
-import { pubkey } from '$lib/store/pubkey';
 import { getEventHash, type Event, type Filter, type UnsignedEvent, SimplePool } from 'nostr-tools';
-import { get } from 'svelte/store';
 
 const pool = new SimplePool();
-
-export const useRelays = (
-	isType: 'read' | 'write',
-	otherRelays?: { [key: string]: { read: boolean; write: boolean } }
-) => {
-	return Object.entries(
-		otherRelays || get(relaysQuery(get(pubkey)))?.data || defaultRelays
-	).flatMap(([url, type]) => {
-		return type[isType] ? url : [];
-	});
-};
 
 export const subscribeEvents = (
 	kind: number,

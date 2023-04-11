@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useRelays } from '$lib/nostr/pool';
+	import { useRelays } from '$lib/nostr/relays';
 	import { noteQuery } from '$lib/query/note';
 	import type { Event } from 'nostr-tools';
 	import { writable } from 'svelte/store';
