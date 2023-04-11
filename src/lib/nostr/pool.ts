@@ -1,11 +1,10 @@
 import { defaultRelays } from '$lib/data/const';
 import { relaysQuery } from '$lib/query/relays';
 import { pubkey } from '$lib/store/pubkey';
-import { RelayPool } from 'nostr-relaypool';
-import { getEventHash, type Event, type Filter, type UnsignedEvent } from 'nostr-tools';
+import { getEventHash, type Event, type Filter, type UnsignedEvent, SimplePool } from 'nostr-tools';
 import { get } from 'svelte/store';
 
-export const pool = new RelayPool();
+const pool = new SimplePool();
 
 export const useRelays = (
 	isType: 'read' | 'write',
@@ -18,19 +17,28 @@ export const useRelays = (
 	});
 };
 
+export const subscribeEvents = (
+	kind: number,
+	filter: Filter,
+	relays: string[],
+	options?: { eoseUnsub?: boolean }
+) => {
+	const sub = pool.sub(relays, [{ kinds: [kind], ...filter }]);
+	if (options?.eoseUnsub) {
+		sub.on('eose', () => {
+			sub.unsub();
+		});
+	}
+	return sub;
+};
+
 export const getEvent = (kind: number, filter: Filter, relays: string[]) => {
 	return new Promise<Event>((resolve) => {
-		const unsub = pool.subscribe(
-			[{ kinds: [kind], limit: 1, ...filter }],
-			relays,
-			(event) => {
-				resolve(event);
-			},
-			undefined,
-			() => {
-				unsub();
-			}
-		);
+		const sub = pool.sub(relays, [{ kinds: [kind], limit: 1, ...filter }]);
+		sub.on('event', (event: Event) => {
+			resolve(event);
+			sub.unsub();
+		});
 	});
 };
 
@@ -40,5 +48,5 @@ export const publishEvent = async (unsignedEvent: UnsignedEvent, relays: string[
 		id: getEventHash(unsignedEvent),
 		...unsignedEvent
 	});
-	return pool.publish(signedEvent, relays);
+	return pool.publish(relays, signedEvent);
 };

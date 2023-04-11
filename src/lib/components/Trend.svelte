@@ -1,27 +1,24 @@
 <script lang="ts">
-	import { pool } from '$lib/nostr/pool';
+	import { subscribeEvents } from '$lib/nostr/pool';
 	import { onMount } from 'svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, t } from 'svelte-i18n';
 	import Heading from './elements/Heading.svelte';
 	import Section from './elements/Section.svelte';
 
 	let trends: string[] = [];
 
 	onMount(async () => {
-		const unsub = pool.subscribe(
-			[{ kinds: [38225], limit: 1 }],
-			['wss://nostrbuzzs-relay.fly.dev/'],
-			(event) => {
-				const parsed = JSON.parse(event.content) as {
-					phrases: { text: string }[];
-				};
-				trends = parsed.phrases.map(({ text }) => {
-					return text;
-				});
-			},
-			undefined,
-			() => unsub()
-		);
+		const sub = subscribeEvents(38225, { limit: 1 }, ['wss://nostrbuzzs-relay.fly.dev/'], {
+			eoseUnsub: true
+		});
+		sub.on('event', (event) => {
+			const parsed = JSON.parse(event.content) as {
+				phrases: { text: string }[];
+			};
+			trends = parsed.phrases.map(({ text }) => {
+				return text;
+			});
+		});
 	});
 </script>
 
