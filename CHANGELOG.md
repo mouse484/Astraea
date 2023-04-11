@@ -1,3 +1,11 @@
+## [3.3.4](https://github.com/mouse484/astraea/compare/v3.3.3...v3.3.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* nostr-relaypoolを辞める ([5c5ae72](https://github.com/mouse484/astraea/commit/5c5ae7204db16185b818ae3db3d1197560307a37)), closes [#361](https://github.com/mouse484/astraea/issues/361)
+* useRelaysのファイルを変更 ([0f5d578](https://github.com/mouse484/astraea/commit/0f5d578f47db2a5efd440bcc396e0c955d74908d))
+
 ## [3.3.3](https://github.com/mouse484/astraea/compare/v3.3.2...v3.3.3) (2023-04-11)
 
 
