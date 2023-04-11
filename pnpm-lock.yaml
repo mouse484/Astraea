@@ -17,8 +17,8 @@ dependencies:
     specifier: ^5.5.2
     version: 5.5.2
   nostr-tools:
-    specifier: ^1.8.3
-    version: 1.8.3
+    specifier: ^1.8.4
+    version: 1.8.4
   svelte-i18n:
     specifier: ^3.6.0
     version: 3.6.0(svelte@3.58.0)
@@ -4431,8 +4431,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /nostr-tools@1.8.3:
-    resolution: {integrity: sha512-0giVDk0ElhqlGY032ma/8Q8NsIyFL53fCCkndFCpuLabZ2E134Kth0sbnIIIFXLqm7VnYIlgLVtCna8+dUiZUg==}
+  /nostr-tools@1.8.4:
+    resolution: {integrity: sha512-oaRgZ8jpLmkMgtvhH9jbUI0k6XeXAUXSDv7qYBNwnIonfWYYZ0C19snJv1YRS+GWGf2gJ8ePJkXMJWlcsNR2yA==}
     dependencies:
       '@noble/hashes': 1.2.0
       '@noble/secp256k1': 1.7.0
