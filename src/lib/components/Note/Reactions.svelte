@@ -5,9 +5,10 @@
 	import Emoji from '../elements/Emoji.svelte';
 	import type { Event, UnsignedEvent } from 'nostr-tools';
 	import { pubkey } from '$lib/store/pubkey';
-	import { publishEvent, useRelays } from '$lib/nostr/pool';
+	import { publishEvent } from '$lib/nostr/pool';
 	import Icon from '@iconify/svelte';
 	import EmojiPicker from '../elements/EmojiPicker.svelte';
+	import { useRelays } from '$lib/nostr/relays';
 
 	export let id: string;
 
