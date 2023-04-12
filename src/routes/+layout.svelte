@@ -27,7 +27,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<main>
+<main class="break-all">
 	{#if mounted}
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
