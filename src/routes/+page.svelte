@@ -2,6 +2,7 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
+	import NoteForm from '$lib/components/Note/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Trend from '$lib/components/Trend.svelte';
@@ -21,6 +22,11 @@
 	<div class="flex gap-4">
 		<div>
 			<Heading>{$_('home.home')}</Heading>
+
+			<div class="m-4 mb-8">
+				<NoteForm />
+			</div>
+
 			<Section>
 				<TimeLine
 					relays={readRelays}
