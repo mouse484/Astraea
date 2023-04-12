@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { marked } from 'marked';
 	import Link from '../elements/Link.svelte';
+	import NoteImage from './NoteImage.svelte';
 
 	export let token: marked.Tokens.Link;
 
@@ -8,7 +9,7 @@
 </script>
 
 {#if isImage}
-	<img src={token.href} title={token.title} alt={token.text} />
+	<NoteImage src={token.href} alt={token.text} />
 {:else}
-	<Link href="href">{token.title}</Link>
+	<Link href={token.href}>{token.title || token.href}</Link>
 {/if}

@@ -10,6 +10,9 @@ dependencies:
   '@magidoc/plugin-svelte-marked':
     specifier: ^3.6.0
     version: 3.6.0
+  '@svelte-put/clickoutside':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@tanstack/svelte-query':
     specifier: ^4.29.1
     version: 4.29.1(svelte@3.58.0)
@@ -2000,6 +2003,10 @@ packages:
       json5: 2.2.3
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.8
+    dev: false
+
+  /@svelte-put/clickoutside@2.0.0:
+    resolution: {integrity: sha512-04xYxOT5Ti+VlP70+uY/a5tGnVWl3XFgnRiO9bMSHbkwOlzHxSgXyM1NCS4NV09B3i41LRuShgeMrbgU0J5cPg==}
     dev: false
 
   /@sveltejs/adapter-auto@2.0.0(@sveltejs/kit@1.15.4):
