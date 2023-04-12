@@ -1,3 +1,10 @@
+## [3.3.5](https://github.com/mouse484/astraea/compare/v3.3.4...v3.3.5) (2023-04-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nostr-tools to ^1.8.4 ([376e6d1](https://github.com/mouse484/astraea/commit/376e6d16b3465e502eaa20d2cec3a78ecc07cb45))
+
 ## [3.3.4](https://github.com/mouse484/astraea/compare/v3.3.3...v3.3.4) (2023-04-11)
 
 
