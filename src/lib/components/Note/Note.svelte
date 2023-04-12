@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { useRelays } from '$lib/nostr/relays';
 	import { noteQuery } from '$lib/query/note';
-	import type { Event } from 'nostr-tools';
-	import { writable } from 'svelte/store';
 	import Profile from '../Profile/Profile.svelte';
+	import NoteContent from './NoteContent.svelte';
 	import Reactions from './Reactions.svelte';
 
 	export let id: string;
-
-	const useReactions = writable(new Map<string, Event>());
 
 	$: note = noteQuery(id, useRelays('read'));
 
@@ -21,9 +18,7 @@
 			<Profile pubkey={event.pubkey} />
 			<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
 		</div>
-		<div>
-			{event.content}
-		</div>
+		<NoteContent rawContent={event.content} />
 		<Reactions {id} />
 	</div>
 {/if}
