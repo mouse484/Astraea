@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/mouse484/astraea/compare/v3.4.0...v3.5.0) (2023-04-12)
+
+
+### Features
+
+* profile page ([6893154](https://github.com/mouse484/astraea/commit/68931546b910acc8e22fb11c71a015332b01a0f5)), closes [#337](https://github.com/mouse484/astraea/issues/337)
+
 # [3.4.0](https://github.com/mouse484/astraea/compare/v3.3.6...v3.4.0) (2023-04-12)
 
 
