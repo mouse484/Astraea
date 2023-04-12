@@ -1,3 +1,10 @@
+## [3.3.6](https://github.com/mouse484/astraea/compare/v3.3.5...v3.3.6) (2023-04-12)
+
+
+### Bug Fixes
+
+* 文字列を折り返すように ([3e8583c](https://github.com/mouse484/astraea/commit/3e8583c943f850b3be5fd5f11c66554b1a8a0c4f)), closes [#327](https://github.com/mouse484/astraea/issues/327)
+
 ## [3.3.5](https://github.com/mouse484/astraea/compare/v3.3.4...v3.3.5) (2023-04-12)
 
 
