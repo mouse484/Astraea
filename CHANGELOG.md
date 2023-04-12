@@ -1,3 +1,12 @@
+# [3.6.0](https://github.com/mouse484/astraea/compare/v3.5.0...v3.6.0) (2023-04-12)
+
+
+### Features
+
+* parserをmarkedで ([0bf0788](https://github.com/mouse484/astraea/commit/0bf07889dd85da78e35ff9679444bdbf7412fb3f))
+* ノート内の画像を見やすく ([b63d097](https://github.com/mouse484/astraea/commit/b63d097face28d8251da7f1fe4630c0cab9fc357))
+* ハッシュタグをリンク化 ([e8ee8f5](https://github.com/mouse484/astraea/commit/e8ee8f5d8b406d4a142b4dc0846c27501f904bd7))
+
 # [3.5.0](https://github.com/mouse484/astraea/compare/v3.4.0...v3.5.0) (2023-04-12)
 
 
