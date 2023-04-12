@@ -11,5 +11,5 @@
 {#if isImage}
 	<NoteImage src={token.href} alt={token.text} />
 {:else}
-	<Link href={token.href}>{token.title || token.href}</Link>
+	<Link href={token.href}>{token.title || token.text || token.href}</Link>
 {/if}
