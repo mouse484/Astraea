@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/mouse484/astraea/compare/v3.3.6...v3.4.0) (2023-04-12)
+
+
+### Features
+
+* 投稿機能 ([f152ebf](https://github.com/mouse484/astraea/commit/f152ebfca896a3c47b1f04cff25989d1bc1e8711)), closes [#347](https://github.com/mouse484/astraea/issues/347)
+
 ## [3.3.6](https://github.com/mouse484/astraea/compare/v3.3.5...v3.3.6) (2023-04-12)
 
 
