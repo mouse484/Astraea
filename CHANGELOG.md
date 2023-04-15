@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/mouse484/Astraea/compare/v3.6.1...v3.7.0) (2023-04-15)
+
+
+### Features
+
+* リプライ表示（仮） ([a27fd8c](https://github.com/mouse484/Astraea/commit/a27fd8c929bb99aae361f044ed51edc812c16246))
+
 ## [3.6.1](https://github.com/mouse484/Astraea/compare/v3.6.0...v3.6.1) (2023-04-15)
 
 
