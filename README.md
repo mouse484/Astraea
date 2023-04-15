@@ -1,6 +1,6 @@
 # Astraea
 
-![icon](https://github.com/nostr-protocol/nips/blob/master//static/icon.png)
+![icon](/static/icon.png)
 
 ### nips
 
