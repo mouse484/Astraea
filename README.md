@@ -19,7 +19,7 @@
 - [ ] [NIP-13: Proof of Work](https://github.com/nostr-protocol/nips/blob/master/13.md)
 - [ ] [NIP-14: Subject tag in text events.](https://github.com/nostr-protocol/nips/blob/master/14.md)
 - [ ] [NIP-16: Event Treatment](https://github.com/nostr-protocol/nips/blob/master/16.md)
-- [ ] [NIP-18: Reposts](https://github.com/nostr-protocol/nips/blob/master/18.md)
+- [x] [NIP-18: Reposts](https://github.com/nostr-protocol/nips/blob/master/18.md)
 - [ ] [NIP-19: bech32-encoded entities](https://github.com/nostr-protocol/nips/blob/master/19.md)
 - [x] [NIP-20: Command Results](https://github.com/nostr-protocol/nips/blob/master/20.md)
 - [ ] [NIP-21: `nostr:` URL scheme](https://github.com/nostr-protocol/nips/blob/master/21.md)

@@ -3,12 +3,12 @@ import { getEventHash, type Event, type Filter, type UnsignedEvent, SimplePool }
 const pool = new SimplePool();
 
 export const subscribeEvents = (
-	kind: number,
+	kind: number | number[],
 	filter: Filter,
 	relays: string[],
 	options?: { eoseUnsub?: boolean }
 ) => {
-	const sub = pool.sub(relays, [{ kinds: [kind], ...filter }]);
+	const sub = pool.sub(relays, [{ kinds: typeof kind === 'number' ? [kind] : kind, ...filter }]);
 	if (options?.eoseUnsub) {
 		sub.on('eose', () => {
 			sub.unsub();

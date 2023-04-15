@@ -2,14 +2,16 @@
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { getQueryClient } from '$lib/query/util';
 	import { reactions } from '$lib/store/reactions';
-	import type { Event, Filter, Sub } from 'nostr-tools';
+	import type { Event, Filter, Kind, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import Note from '../Note/Note.svelte';
 
 	const queryClient = getQueryClient();
 
-	const notes = writable<Event[]>([]);
+	type TLEvent = Event & { repost: string | undefined };
+
+	const notes = writable(new Map<string, TLEvent>());
 
 	export let relays: string[];
 	export let contacts: string[];
@@ -18,20 +20,28 @@
 	let sub: Sub | undefined = undefined;
 
 	onMount(() => {
-		sub = subscribeEvents(1, { authors: contacts, limit: 100, ...filter }, relays);
+		sub = subscribeEvents([1, 6], { authors: contacts, limit: 100, ...filter }, relays);
 		sub.on('event', (event) => {
-			notes.set([...$notes, event]);
-			queryClient.setQueryData(['note', event.id], event);
+			const isRepost = event.kind === (6 as Kind);
+			const tlEvent: TLEvent = {
+				...(isRepost ? JSON.parse(event.content) : event),
+				repost: isRepost ? event.pubkey : undefined
+			};
+			const current = $notes.get(tlEvent.id);
+			notes.update((n) => n.set(tlEvent.id, current ? { ...current, ...tlEvent } : tlEvent));
+			queryClient.setQueryData(['note', tlEvent.id], tlEvent);
 		});
 	});
 
-	$: noteIds = $notes.sort((a, b) => b.created_at - a.created_at).map((event) => event.id);
+	$: notelists = [...$notes.values()]
+		.sort((a, b) => b.created_at - a.created_at)
+		.map<[string, string | undefined]>((event) => [event.id, event.repost]);
 
 	let reactionsub: Sub | undefined = undefined;
 	let notNew = false;
 	let saveIds = 0;
 	$: {
-		if (noteIds.length && !notNew && saveIds !== noteIds.length) {
+		if (notelists.length && !notNew && saveIds !== notelists.length) {
 			reactionsub?.unsub();
 			setTimeout(() => {
 				notNew = false;
@@ -40,7 +50,7 @@
 			reactionsub = subscribeEvents(
 				7,
 				{
-					'#e': noteIds
+					'#e': notelists.map(([id]) => id)
 				},
 				relays
 			);
@@ -57,7 +67,7 @@
 </script>
 
 <div class="flex flex-col gap-4">
-	{#each noteIds as note (note)}
-		<Note id={note} />
+	{#each notelists as [id, repost] (id)}
+		<Note {id} {repost} />
 	{/each}
 </div>
