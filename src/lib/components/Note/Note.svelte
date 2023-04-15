@@ -6,19 +6,31 @@
 	import Reactions from './Reactions.svelte';
 
 	export let id: string;
+	export let isReply = false;
 
 	$: note = noteQuery(id, useRelays('read'));
 
 	$: event = $note.data;
+
+	$: hasReply = event?.tags.reverse().find(([type, , , marker]) => {
+		return type === 'e' && (!marker || marker === 'reply');
+	});
 </script>
 
 {#if event}
-	<div class="border rounded p-2 flex-col flex gap-2">
-		<div class="flex justify-between">
-			<Profile pubkey={event.pubkey} />
-			<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
+	<div>
+		{#if !isReply && hasReply}
+			<svelte:self id={hasReply[1]} isReplay={true} />
+		{/if}
+		<div
+			class="border rounded p-2 flex-col flex gap-2 {isReply ? 'border-b-0 border-blue-800' : ''}"
+		>
+			<div class="flex justify-between">
+				<Profile pubkey={event.pubkey} />
+				<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
+			</div>
+			<NoteContent rawContent={event.content} />
+			<Reactions {id} />
 		</div>
-		<NoteContent rawContent={event.content} />
-		<Reactions {id} />
 	</div>
 {/if}
