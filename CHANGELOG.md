@@ -1,3 +1,16 @@
+# [3.9.0](https://github.com/mouse484/Astraea/compare/v3.8.0...v3.9.0) (2023-04-16)
+
+
+### Bug Fixes
+
+* トレンドをleyoutに ([34d3a74](https://github.com/mouse484/Astraea/commit/34d3a74e39398f335da83c38da0bf8c0e85435f2))
+
+
+### Features
+
+* PC画面のメニュー ([927893b](https://github.com/mouse484/Astraea/commit/927893b883a6a346f3eae9820604a6f4dbf5e9bd))
+* スマホ画面ではフッターをメニューに ([8c10dfe](https://github.com/mouse484/Astraea/commit/8c10dfe6f3b3557ace09cdbeef9de4da788857e3))
+
 # [3.8.0](https://github.com/mouse484/Astraea/compare/v3.7.0...v3.8.0) (2023-04-15)
 
 
