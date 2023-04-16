@@ -13,6 +13,7 @@
 	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Trend from '$lib/components/Trend.svelte';
+	import Footer from '$lib/components/Menu/Footer.svelte';
 
 	export let data: LayoutData;
 
@@ -34,7 +35,7 @@
 	{#if mounted}
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
-				<Responsive breakpoint="sm" than="bigger">
+				<Responsive breakpoint="sm" than="less">
 					<Header />
 				</Responsive>
 				<div class="flex gap-4 m-8">
@@ -50,6 +51,9 @@
 						</Responsive>
 					</RelaysHandle>
 				</div>
+				<Responsive breakpoint="sm" than="less">
+					<Footer />
+				</Responsive>
 			</QueryClientProvider>
 		{:else}
 			<Login />
