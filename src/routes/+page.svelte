@@ -1,11 +1,9 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
-	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import NoteForm from '$lib/components/Note/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
 	import Title from '$lib/components/Title.svelte';
-	import Trend from '$lib/components/Trend.svelte';
 	import { useRelays } from '$lib/nostr/relays';
 	import { contactsQuery } from '$lib/query/contacts';
 	import { pubkey } from '$lib/store/pubkey';
@@ -39,11 +37,5 @@
 				/>
 			</Section>
 		</div>
-
-		<Responsive breakpoint="md">
-			<div>
-				<Trend />
-			</div>
-		</Responsive>
 	</div>
 {/if}
