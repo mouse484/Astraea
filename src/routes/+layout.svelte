@@ -12,6 +12,7 @@
 	import RelaysHandle from '$lib/components/RelaysHandle.svelte';
 	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
+	import Trend from '$lib/components/Trend.svelte';
 
 	export let data: LayoutData;
 
@@ -42,6 +43,11 @@
 					</Responsive>
 					<RelaysHandle pubkey={$pubkey}>
 						<slot />
+						<Responsive breakpoint="md">
+							<div>
+								<Trend />
+							</div>
+						</Responsive>
 					</RelaysHandle>
 				</div>
 			</QueryClientProvider>
