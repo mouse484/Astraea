@@ -6,6 +6,7 @@
 
 	export let pubkey: string;
 	export let imageOnly = false;
+	export let imageSize: 8 | 12 = 12;
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
@@ -36,13 +37,14 @@
 	{/if}
 	<div class="flex justify-between">
 		<a class="flex gap-2 items-center text-inherit visited:text-inherit w-fit" href={to}>
-			{#if profile?.picture}
-				<img class="w-12 h-12 rounded" src={profile.picture} alt={profile?.name} />
-			{:else}
-				<div class="w-8 h-8">
+			<div class="w-{imageSize} h-{imageSize}">
+				{#if profile?.picture}
+					<img class="rounded" src={profile.picture} alt={profile?.name} />
+				{:else}
 					<Icon icon="mdi:account" />
-				</div>
-			{/if}
+				{/if}
+			</div>
+
 			{#if !imageOnly}
 				<div>
 					<div>

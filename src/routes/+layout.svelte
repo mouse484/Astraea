@@ -6,10 +6,12 @@
 	import { pubkey } from '$lib/store/pubkey';
 	import Login from '$lib/components/Login.svelte';
 	import { name } from '$lib/data/const';
-	import Header from '$lib/components/Header/Header.svelte';
+	import Header from '$lib/components/Menu/Header.svelte';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import type { LayoutData } from './$types';
 	import RelaysHandle from '$lib/components/RelaysHandle.svelte';
+	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
+	import Responsive from '$lib/components/elements/Responsive.svelte';
 
 	export let data: LayoutData;
 
@@ -27,12 +29,17 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="break-all">
+<main class="h-screen break-all">
 	{#if mounted}
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
-				<Header />
-				<div class="m-8">
+				<Responsive breakpoint="sm" than="bigger">
+					<Header />
+				</Responsive>
+				<div class="flex gap-4 m-8">
+					<Responsive breakpoint="md">
+						<SideMenu />
+					</Responsive>
 					<RelaysHandle pubkey={$pubkey}>
 						<slot />
 					</RelaysHandle>
