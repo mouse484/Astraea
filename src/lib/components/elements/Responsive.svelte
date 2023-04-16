@@ -11,7 +11,7 @@
 	import { onMount } from 'svelte';
 
 	export let breakpoint: keyof typeof breakpointList;
-	export let than: 'bigger' | 'less' = 'less';
+	export let than: 'bigger' | 'less' = 'bigger';
 
 	let result = false;
 
@@ -19,7 +19,7 @@
 
 	onMount(() => {
 		const mql = window.matchMedia(
-			than === 'less'
+			than === 'bigger'
 				? `(min-width: ${breakpointList[breakpoint]}px)`
 				: `(max-width: ${breakpointList[breakpoint]}px)`
 		);

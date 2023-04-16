@@ -5,10 +5,7 @@
 
 <header class="flex sticky top-0 z-30 justify-between items-center p-8 bg-white">
 	<Title />
-
-	<div class="flex gap-4">
-		<a href="/setting">
-			<Icon name="cog" size="2" />
-		</a>
-	</div>
+	<a href="/setting">
+		<Icon name="cog" size="2" />
+	</a>
 </header>
