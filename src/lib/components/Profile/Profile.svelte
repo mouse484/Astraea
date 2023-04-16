@@ -6,7 +6,7 @@
 
 	export let pubkey: string;
 	export let imageOnly = false;
-	export let imageSize: 8 | 12 = 12;
+	export let imageSize: 's' | 'm' = 'm';
 	export let detail = false;
 	export let to = `/profile/${pubkey}`;
 
@@ -37,7 +37,7 @@
 	{/if}
 	<div class="flex justify-between">
 		<a class="flex gap-2 items-center text-inherit visited:text-inherit w-fit" href={to}>
-			<div class="w-{imageSize} h-{imageSize}">
+			<div class={imageSize === 'm' ? 'w-12' : 'w-8'}>
 				{#if profile?.picture}
 					<img class="rounded" src={profile.picture} alt={profile?.name} />
 				{:else}

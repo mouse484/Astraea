@@ -9,7 +9,7 @@
 
 <a {href} class="flex gap-2">
 	{#if iconName === '__profile__'}
-		<Profile pubkey={$pubkey} imageOnly={true} imageSize={8} />
+		<Profile pubkey={$pubkey} imageOnly={true} imageSize="s" />
 	{:else}
 		<Icon name={iconName} size={'2'} />
 	{/if}
