@@ -1,3 +1,10 @@
+## [3.9.1](https://github.com/mouse484/Astraea/compare/v3.9.0...v3.9.1) (2023-04-16)
+
+
+### Bug Fixes
+
+* profile image size ([afc7e3e](https://github.com/mouse484/Astraea/commit/afc7e3e5d194fb56d4b6037ca7a4922d45fbc7f5))
+
 # [3.9.0](https://github.com/mouse484/Astraea/compare/v3.8.0...v3.9.0) (2023-04-16)
 
 
