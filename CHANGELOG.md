@@ -1,3 +1,10 @@
+## [3.9.4](https://github.com/mouse484/Astraea/compare/v3.9.3...v3.9.4) (2023-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @magidoc/plugin-svelte-marked to ^3.6.4 ([53a49e4](https://github.com/mouse484/Astraea/commit/53a49e44716b53febf2277bc2c00e24bad6d5f32))
+
 ## [3.9.3](https://github.com/mouse484/Astraea/compare/v3.9.2...v3.9.3) (2023-04-19)
 
 
