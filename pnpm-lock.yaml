@@ -8,8 +8,8 @@ dependencies:
     specifier: ^3.1.2
     version: 3.1.2(svelte@3.58.0)
   '@magidoc/plugin-svelte-marked':
-    specifier: ^3.6.0
-    version: 3.6.0
+    specifier: ^3.6.4
+    version: 3.6.4
   '@svelte-put/clickoutside':
     specifier: ^2.0.0
     version: 2.0.0
@@ -1597,8 +1597,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  /@magidoc/plugin-svelte-marked@3.6.0:
-    resolution: {integrity: sha512-YHL3P8AtlHcGb5D/Jg7hm/H8Fu4uC2HDPAgthYmTWPFgfIA5UeipOCc84I2Qtk5VaoGcWCMqQ+W6pDT/BEpvzg==}
+  /@magidoc/plugin-svelte-marked@3.6.4:
+    resolution: {integrity: sha512-1fC9Ilil0HzykBFsG3BgcRVbgd4wqkGcB04315v+FjWuQaDz6OrLX6NTwWz20kHXcfcgQWUh98irX3fb4p5ZdQ==}
     dependencies:
       marked: 4.3.0
       svelte: 3.58.0
