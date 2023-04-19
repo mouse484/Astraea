@@ -1,3 +1,10 @@
+## [3.9.3](https://github.com/mouse484/Astraea/compare/v3.9.2...v3.9.3) (2023-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @iconify/svelte to ^3.1.2 ([e3eac30](https://github.com/mouse484/Astraea/commit/e3eac30af608e08585f3ebf4ac8f7707daf262e1))
+
 ## [3.9.2](https://github.com/mouse484/Astraea/compare/v3.9.1...v3.9.2) (2023-04-16)
 
 
