@@ -40,7 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emoji-mart/data": "^1.1.2",
-		"@iconify/svelte": "^3.1.2",
+		"@iconify/svelte": "^3.1.3",
 		"@magidoc/plugin-svelte-marked": "^3.6.4",
 		"@svelte-put/clickoutside": "^2.0.0",
 		"@tanstack/svelte-query": "^4.29.1",
