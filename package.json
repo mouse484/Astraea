@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-auto": "^2.0.1",
 		"@sveltejs/kit": "^1.15.7",
 		"@types/linkify-it": "^3.0.2",
 		"@types/marked": "^4.0.8",
