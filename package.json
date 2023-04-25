@@ -43,7 +43,7 @@
 		"@iconify/svelte": "^3.1.3",
 		"@magidoc/plugin-svelte-marked": "^3.6.4",
 		"@svelte-put/clickoutside": "^2.0.0",
-		"@tanstack/svelte-query": "^4.29.1",
+		"@tanstack/svelte-query": "^4.29.5",
 		"@vite-pwa/sveltekit": "^0.2.1",
 		"emoji-mart": "^5.5.2",
 		"isomorphic-dompurify": "^1.3.0",
