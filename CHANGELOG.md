@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/mouse484/Astraea/compare/v3.9.7...v3.10.0) (2023-04-27)
+
+
+### Features
+
+* リプライできる ([dca09d9](https://github.com/mouse484/Astraea/commit/dca09d902ad282d14c557667144d1110683b303c)), closes [#383](https://github.com/mouse484/Astraea/issues/383)
+
 ## [3.9.7](https://github.com/mouse484/Astraea/compare/v3.9.6...v3.9.7) (2023-04-25)
 
 
