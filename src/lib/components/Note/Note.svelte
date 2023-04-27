@@ -5,6 +5,7 @@
 	import Profile from '../Profile/Profile.svelte';
 	import NoteContent from './NoteContent.svelte';
 	import Reactions from './Reactions.svelte';
+	import NoteFooter from './NoteFooter.svelte';
 
 	export let id: string;
 	export let isReply = false;
@@ -40,7 +41,7 @@
 				<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
 			</div>
 			<NoteContent rawContent={event.content} />
-			<Reactions {id} />
+			<NoteFooter {id} />
 		</div>
 	</div>
 {/if}

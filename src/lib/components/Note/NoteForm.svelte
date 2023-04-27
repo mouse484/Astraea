@@ -7,6 +7,11 @@
 	import type { UnsignedEvent } from 'nostr-tools';
 	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher<{ status: 'success' }>();
+
+	export let replyFor: string | undefined = undefined;
 
 	let textarea: HTMLTextAreaElement;
 
@@ -20,6 +25,10 @@
 
 	const publishPost = async () => {
 		const tags: string[][] = [];
+
+		if (replyFor) {
+			tags.push(['e', replyFor, '', 'reply']);
+		}
 		if (isNip36) {
 			tags.push(['content-warning', nip36Content]);
 		}
@@ -38,6 +47,8 @@
 			content = '';
 			isNip36 = false;
 			nip36Content = '';
+
+			dispatch('status', 'success');
 		});
 	};
 </script>
