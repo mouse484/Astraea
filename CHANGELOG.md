@@ -1,3 +1,10 @@
+## [3.10.1](https://github.com/mouse484/Astraea/compare/v3.10.0...v3.10.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* nip36を適切に隠す ([8469171](https://github.com/mouse484/Astraea/commit/8469171badbe6972cf38c80c020ca16e4fbcc1e0)), closes [#414](https://github.com/mouse484/Astraea/issues/414)
+
 # [3.10.0](https://github.com/mouse484/Astraea/compare/v3.9.7...v3.10.0) (2023-04-27)
 
 
