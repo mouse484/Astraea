@@ -1,3 +1,15 @@
+# [3.11.0](https://github.com/mouse484/Astraea/compare/v3.10.1...v3.11.0) (2023-04-29)
+
+
+### Bug Fixes
+
+* update timeline component ([8a8a83c](https://github.com/mouse484/Astraea/commit/8a8a83c85f94eb8961e6584fc67ce6467965ef2a))
+
+
+### Features
+
+* search page ([556d55c](https://github.com/mouse484/Astraea/commit/556d55cc18ccdfcf88fcbdb0eceee809e3b6e6b9)), closes [#369](https://github.com/mouse484/Astraea/issues/369)
+
 ## [3.10.1](https://github.com/mouse484/Astraea/compare/v3.10.0...v3.10.1) (2023-04-28)
 
 
