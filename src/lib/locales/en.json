@@ -3,6 +3,7 @@
 		"home": "Home",
 		"nip36": {
 			"nip36": "Sensitive Content",
+			"why": "この投稿には警告が含まれています、クリックで表示します。",
 			"reason": "reason",
 			"nude": "Nudity",
 			"violence": "Violence",
@@ -17,6 +18,7 @@
 		"trend": "Trends (Japanese)"
 	},
 	"profile": {
+		"profile": "プロフィール",
 		"copyId": "Copy User ID"
 	},
 	"search": {
