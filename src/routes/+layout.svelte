@@ -38,12 +38,14 @@
 				<Responsive breakpoint="sm" than="less">
 					<Header />
 				</Responsive>
-				<div class="flex gap-4 m-8">
+				<div class="flex gap-4 m-8 justify-between">
 					<Responsive breakpoint="md">
 						<SideMenu />
 					</Responsive>
 					<RelaysHandle pubkey={$pubkey}>
-						<slot />
+						<div class="flex-grow">
+							<slot />
+						</div>
 						<Responsive breakpoint="md">
 							<div>
 								<Trend />
