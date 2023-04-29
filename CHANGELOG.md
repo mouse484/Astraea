@@ -1,3 +1,10 @@
+## [3.11.1](https://github.com/mouse484/Astraea/compare/v3.11.0...v3.11.1) (2023-04-29)
+
+
+### Bug Fixes
+
+* layout witdh ([f50530c](https://github.com/mouse484/Astraea/commit/f50530cb4b1b8399205a965b9e92facedcbe97d8))
+
 # [3.11.0](https://github.com/mouse484/Astraea/compare/v3.10.1...v3.11.0) (2023-04-29)
 
 
