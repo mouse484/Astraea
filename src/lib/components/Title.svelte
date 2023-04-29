@@ -5,5 +5,5 @@
 </script>
 
 <svelte:head>
-	<title>{pageTitle} - {name}</title>
+	<title>{pageTitle} / {name}</title>
 </svelte:head>
