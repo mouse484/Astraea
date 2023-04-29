@@ -14,13 +14,18 @@
 	const notes = writable(new Map<string, TLEvent>());
 
 	export let relays: string[];
-	export let contacts: string[];
+	export let authors: string[] | 'ALL';
+	export let limit: number = 100;
 	export let filter: Filter = {};
 
 	let sub: Sub | undefined = undefined;
 
 	onMount(() => {
-		sub = subscribeEvents([1, 6], { authors: contacts, limit: 100, ...filter }, relays);
+		const subFilter = { limit, ...filter };
+		if (authors !== 'ALL') {
+			subFilter.authors = authors;
+		}
+		sub = subscribeEvents([1, 6], subFilter, relays);
 		sub.on('event', (event) => {
 			const isRepost = event.kind === (6 as Kind);
 			const tlEvent: TLEvent = {
