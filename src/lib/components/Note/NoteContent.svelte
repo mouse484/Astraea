@@ -6,6 +6,7 @@
 
 	export let rawContent: string;
 
+	marked.setOptions({ breaks: true });
 	marked.use(
 		markedLinkifyIt({
 			'#': {
