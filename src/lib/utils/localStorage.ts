@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 
-type list = 'pubkey' | 'locale';
+type list = 'pubkey' | 'locale' | 'theme';
 
 export const setLocalStorage = (type: list, value: string) => {
 	if (!browser) return;

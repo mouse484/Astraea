@@ -14,6 +14,7 @@
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Trend from '$lib/components/Trend.svelte';
 	import Footer from '$lib/components/Menu/Footer.svelte';
+	import { theme } from '$lib/store/theme';
 
 	export let data: LayoutData;
 
@@ -31,37 +32,39 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="min-h-screen break-all dark:bg-[#171717] dark:text-gray-300">
-	{#if mounted}
-		{#if $pubkey}
-			<QueryClientProvider client={data.queryClient}>
-				<Responsive breakpoint="sm" than="less">
-					<Header />
-				</Responsive>
-				<div class="flex gap-4 justify-between mx-8">
-					<Responsive breakpoint="md">
-						<SideMenu />
+<div class="{$theme}">
+	<main class="min-h-screen break-all dark:bg-[#171717] dark:text-gray-300">
+		{#if mounted}
+			{#if $pubkey}
+				<QueryClientProvider client={data.queryClient}>
+					<Responsive breakpoint="sm" than="less">
+						<Header />
 					</Responsive>
-					<RelaysHandle pubkey={$pubkey}>
-						<div class="flex-grow">
-							<slot />
-						</div>
+					<div class="flex gap-4 justify-between mx-8">
 						<Responsive breakpoint="md">
-							<div>
-								<Trend />
-							</div>
+							<SideMenu />
 						</Responsive>
-					</RelaysHandle>
-				</div>
-				<Responsive breakpoint="sm" than="less">
-					<Footer />
-				</Responsive>
-			</QueryClientProvider>
-		{:else}
-			<Login />
+						<RelaysHandle pubkey={$pubkey}>
+							<div class="flex-grow">
+								<slot />
+							</div>
+							<Responsive breakpoint="md">
+								<div>
+									<Trend />
+								</div>
+							</Responsive>
+						</RelaysHandle>
+					</div>
+					<Responsive breakpoint="sm" than="less">
+						<Footer />
+					</Responsive>
+				</QueryClientProvider>
+			{:else}
+				<Login />
+			{/if}
 		{/if}
-	{/if}
-</main>
+	</main>
+</div>
 
 {#if mounted && pwaInfo}
 	<RegisterSw />
