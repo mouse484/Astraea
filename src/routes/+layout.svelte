@@ -31,14 +31,14 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="h-screen break-all">
+<main class="min-h-screen break-all dark:bg-[#171717] dark:text-gray-300">
 	{#if mounted}
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
 				<Responsive breakpoint="sm" than="less">
 					<Header />
 				</Responsive>
-				<div class="flex gap-4 m-8 justify-between">
+				<div class="flex gap-4 justify-between mx-8">
 					<Responsive breakpoint="md">
 						<SideMenu />
 					</Responsive>
