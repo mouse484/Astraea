@@ -1,3 +1,10 @@
+## [3.12.1](https://github.com/mouse484/Astraea/compare/v3.12.0...v3.12.1) (2023-04-30)
+
+
+### Bug Fixes
+
+* theme stored ([dc6be5c](https://github.com/mouse484/Astraea/commit/dc6be5c41f8b027265968a17f98c4c1f6fc8c900))
+
 # [3.12.0](https://github.com/mouse484/Astraea/compare/v3.11.2...v3.12.0) (2023-04-30)
 
 
