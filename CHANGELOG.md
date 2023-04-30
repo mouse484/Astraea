@@ -1,3 +1,11 @@
+# [3.12.0](https://github.com/mouse484/Astraea/compare/v3.11.2...v3.12.0) (2023-04-30)
+
+
+### Features
+
+* dark mode ([d04f584](https://github.com/mouse484/Astraea/commit/d04f5846747a9c0f22e80839c0e8f0c05480d91f))
+* theme切り替え ([ec49f65](https://github.com/mouse484/Astraea/commit/ec49f65efb80584f4bbad4303e5bf5a0b71b7ea5))
+
 ## [3.11.2](https://github.com/mouse484/Astraea/compare/v3.11.1...v3.11.2) (2023-04-29)
 
 
