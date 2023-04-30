@@ -1,3 +1,10 @@
+## [3.12.2](https://github.com/mouse484/Astraea/compare/v3.12.1...v3.12.2) (2023-04-30)
+
+
+### Bug Fixes
+
+* note breaks ([ab12119](https://github.com/mouse484/Astraea/commit/ab121197d4bae0cd47bfd33fc6c59c6a2beacbdd))
+
 ## [3.12.1](https://github.com/mouse484/Astraea/compare/v3.12.0...v3.12.1) (2023-04-30)
 
 
