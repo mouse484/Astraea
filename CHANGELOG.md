@@ -1,3 +1,10 @@
+## [3.13.1](https://github.com/mouse484/Astraea/compare/v3.13.0...v3.13.1) (2023-04-30)
+
+
+### Bug Fixes
+
+* note form ([03ad97c](https://github.com/mouse484/Astraea/commit/03ad97c379d309683d4c3963870d4d05c9a9de31))
+
 # [3.13.0](https://github.com/mouse484/Astraea/compare/v3.12.2...v3.13.0) (2023-04-30)
 
 
