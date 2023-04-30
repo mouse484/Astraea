@@ -3,8 +3,31 @@
 	import NoteLink from './NoteLink.svelte';
 	import { marked } from 'marked';
 	import markedLinkifyIt from 'marked-linkify-it';
+	import NostrLinker from './NostrLinker.svelte';
+	import { nip19 } from 'nostr-tools';
 
 	export let rawContent: string;
+
+	const nostrLinkerMarkedExtention: marked.TokenizerExtension = {
+		name: 'nostr',
+		level: 'inline',
+		start(src) {
+			return src.match(/^nostr:.+/)?.index;
+		},
+		tokenizer(src) {
+			const match = src.match(/^nostr:(?<id>.+)/);
+			if (!match) return;
+			if (!match.groups?.id) return;
+			try {
+				const decoded = nip19.decode(match.groups.id);
+				return {
+					type: 'nostr',
+					raw: match[0],
+					decoded: decoded
+				};
+			} catch {}
+		}
+	};
 
 	marked.setOptions({ breaks: true });
 	marked.use(
@@ -17,11 +40,13 @@
 			}
 		})
 	);
+	marked.use({ extensions: [nostrLinkerMarkedExtention] });
 </script>
 
 <Markdown
 	source={rawContent}
 	renderers={{
-		link: NoteLink
+		link: NoteLink,
+		nostr: NostrLinker
 	}}
 />

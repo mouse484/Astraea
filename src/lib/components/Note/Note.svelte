@@ -4,9 +4,9 @@
 	import Icon from '@iconify/svelte';
 	import Profile from '../Profile/Profile.svelte';
 	import NoteContent from './NoteContent.svelte';
-	import Reactions from './Reactions.svelte';
 	import NoteFooter from './NoteFooter.svelte';
 	import { _ } from 'svelte-i18n';
+	import { parseReferences } from 'nostr-tools';
 
 	export let id: string;
 	export let isReply = false;
