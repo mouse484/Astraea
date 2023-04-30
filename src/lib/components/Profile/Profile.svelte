@@ -15,7 +15,7 @@
 	$: profile = $query.isError ? { name: 'error' } : $query.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
-	$: maxWitdh = name.length > 20 ? (domain.length > 10 ? 'max-w-[5em]' : 'max-w-[10em]') : '';
+	$: maxWitdh = name?.length > 20 ? (domain?.length > 10 ? 'max-w-[5em]' : 'max-w-[10em]') : '';
 
 	let nip05Status = false;
 	$: {

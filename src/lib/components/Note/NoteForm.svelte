@@ -7,7 +7,7 @@
 	import type { UnsignedEvent } from 'nostr-tools';
 	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -51,6 +51,10 @@
 			dispatch('status', 'success');
 		});
 	};
+
+	onMount(() => {
+		content = '';
+	});
 </script>
 
 <div>
@@ -59,7 +63,7 @@
 			class="p-2 pr-24 w-full h-32 rounded border resize-none dark:bg-inherit"
 			bind:value={content}
 			bind:this={textarea}
-			on:keydown={(event) => event.ctrlKey && event.key === 'Enter' && publishPost()}
+			on:keydown={(event) => content && event.ctrlKey && event.key === 'Enter' && publishPost()}
 		/>
 		<button
 			class="absolute top-0 right-0 m-4"
