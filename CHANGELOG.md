@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/mouse484/Astraea/compare/v3.12.2...v3.13.0) (2023-04-30)
+
+
+### Features
+
+* 引用note表示 ([c8ae59e](https://github.com/mouse484/Astraea/commit/c8ae59e182d5f6369f7add9d520360e08acd5415))
+
 ## [3.12.2](https://github.com/mouse484/Astraea/compare/v3.12.1...v3.12.2) (2023-04-30)
 
 
