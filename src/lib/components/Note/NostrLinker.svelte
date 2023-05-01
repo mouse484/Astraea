@@ -1,13 +1,14 @@
 <script lang="ts">
-	import type { DecodeResult } from 'nostr-tools/lib/nip19';
-	import Note from './Note.svelte';
+	import Note from "./Note.svelte";
 
-	export let token: { type: 'nostr'; decoded: DecodeResult };
+	export let token: { type: 'nostr'; ntype: string; text: string };
 
-	$: type = token.decoded.type;
-	$: id = token.decoded.data as string;
+	$: type = token.ntype;
+	$: id = token.text;
 </script>
 
 {#if type === 'note'}
 	<Note {id} />
+{:else}
+	<p class="text-pink-300">{type}:{id}</p>
 {/if}

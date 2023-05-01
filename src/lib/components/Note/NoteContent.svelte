@@ -12,9 +12,9 @@
 		name: 'nostr',
 		level: 'inline',
 		start(src) {
-			return src.match(/^nostr:.+/)?.index;
+			return src.match(/nostr:/)?.index;
 		},
-		tokenizer(src) {
+		tokenizer(src, tokens) {
 			const match = src.match(/^nostr:(?<id>.+)/);
 			if (!match) return;
 			if (!match.groups?.id) return;
@@ -23,7 +23,8 @@
 				return {
 					type: 'nostr',
 					raw: match[0],
-					decoded: decoded
+					text: decoded.data,
+					ntype: decoded.type
 				};
 			} catch {}
 		}
