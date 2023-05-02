@@ -1,3 +1,10 @@
+## [3.13.3](https://github.com/mouse484/Astraea/compare/v3.13.2...v3.13.3) (2023-05-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked to v5 ([73958fe](https://github.com/mouse484/Astraea/commit/73958fe3f8b4ca3607e1ff3ed17d9bfd1483828e))
+
 ## [3.13.2](https://github.com/mouse484/Astraea/compare/v3.13.1...v3.13.2) (2023-05-01)
 
 
