@@ -1,3 +1,10 @@
+## [3.13.4](https://github.com/mouse484/Astraea/compare/v3.13.3...v3.13.4) (2023-05-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency marked-linkify-it to ^3.0.2 ([6b75d5f](https://github.com/mouse484/Astraea/commit/6b75d5f58d9eaf9b8b4e5095d0e1056c185216a2))
+
 ## [3.13.3](https://github.com/mouse484/Astraea/compare/v3.13.2...v3.13.3) (2023-05-02)
 
 
