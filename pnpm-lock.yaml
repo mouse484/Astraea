@@ -29,8 +29,8 @@ dependencies:
     specifier: ^5.0.0
     version: 5.0.0
   marked-linkify-it:
-    specifier: ^3.0.1
-    version: 3.0.1(marked@5.0.0)
+    specifier: ^3.0.2
+    version: 3.0.2(marked@5.0.0)
   nostr-tools:
     specifier: ^1.10.1
     version: 1.10.1
@@ -4438,10 +4438,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /marked-linkify-it@3.0.1(marked@5.0.0):
-    resolution: {integrity: sha512-E06YCDuaezHRz3FEZaDB7lRZbZr8oRXQkuvTHtCJl1e9hI9bbiEqke1g9DfiGhSYV14DKk8vgtFZYbjIhrcC4Q==}
+  /marked-linkify-it@3.0.2(marked@5.0.0):
+    resolution: {integrity: sha512-MK+uwKrXYzGoNE8HH+Kgl3r3BomCJb0mxf7BJlMSYWkiBkkk2oO02khpc8vLWoQB6QAGJoVA0HprcLdDu3N+sw==}
     peerDependencies:
-      marked: ^4.2.5
+      marked: ^4 || ^5
     dependencies:
       linkify-it: 4.0.1
       marked: 5.0.0
