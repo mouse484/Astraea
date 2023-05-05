@@ -60,7 +60,7 @@
 			<button on:click={() => reactPublish(reaction)} disabled={hasOwnReaction}>
 				<div
 					class="[&>.emoji]:h-4 flex gap-2 items-center rounded px-1
-        {hasOwnReaction ? 'bg-blue-200' : ''}"
+        {hasOwnReaction ? 'bg-blue-200 dark:bg-sky-600 dark:text-black' : ''}"
 				>
 					<Emoji emoji={reaction.replace('+', '❤')} />
 					<span>{items.size}</span>
