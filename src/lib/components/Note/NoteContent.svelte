@@ -15,7 +15,7 @@
 			return src.match(/nostr:/)?.index;
 		},
 		tokenizer(src, tokens) {
-			const match = src.match(/^nostr:(?<id>.+)/);
+			const match = src.match(/^nostr:(?<id>[^ \s]+)/);
 			if (!match) return;
 			if (!match.groups?.id) return;
 			try {
