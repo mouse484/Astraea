@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Note from "./Note.svelte";
+	import Mention from './Mention.svelte';
+	import Note from './Note.svelte';
 
 	export let token: { type: 'nostr'; ntype: string; text: string };
 
@@ -9,6 +10,8 @@
 
 {#if type === 'note'}
 	<Note {id} />
+{:else if type === 'npub'}
+	<Mention pubkey={id} />
 {:else}
 	<p class="text-pink-300">{type}:{id}</p>
 {/if}
