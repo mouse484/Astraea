@@ -26,11 +26,11 @@ dependencies:
     specifier: ^1.3.0
     version: 1.3.0
   marked:
-    specifier: ^5.0.0
-    version: 5.0.0
+    specifier: ^4.3.0
+    version: 4.3.0
   marked-linkify-it:
     specifier: ^3.0.2
-    version: 3.0.2(marked@5.0.0)
+    version: 3.0.2(marked@4.3.0)
   nostr-tools:
     specifier: ^1.10.1
     version: 1.10.1
@@ -4438,13 +4438,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /marked-linkify-it@3.0.2(marked@5.0.0):
+  /marked-linkify-it@3.0.2(marked@4.3.0):
     resolution: {integrity: sha512-MK+uwKrXYzGoNE8HH+Kgl3r3BomCJb0mxf7BJlMSYWkiBkkk2oO02khpc8vLWoQB6QAGJoVA0HprcLdDu3N+sw==}
     peerDependencies:
       marked: ^4 || ^5
     dependencies:
       linkify-it: 4.0.1
-      marked: 5.0.0
+      marked: 4.3.0
     dev: false
 
   /marked-terminal@5.1.1(marked@4.3.0):
@@ -4466,12 +4466,6 @@ packages:
     resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
     engines: {node: '>= 12'}
     hasBin: true
-
-  /marked@5.0.0:
-    resolution: {integrity: sha512-YQ6+L9l/NSBDjFgCQQebmTCc62EUdZ5RpIZ7A/FmC8IYMB5s7Cz8sT7imuMAkbIL4CvXpQLdW45fpK5UwiU7DA==}
-    engines: {node: '>= 18'}
-    hasBin: true
-    dev: false
 
   /memoizee@0.4.15:
     resolution: {integrity: sha512-UBWmJpLZd5STPm7PMUlOw/TSy972M+z8gcyQ5veOnSDRREz/0bmpyTfKt3/51DhEBqCZQn1udM/5flcSPYhkdQ==}
