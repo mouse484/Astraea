@@ -6,7 +6,6 @@
 	import NoteContent from './NoteContent.svelte';
 	import NoteFooter from './NoteFooter.svelte';
 	import { _ } from 'svelte-i18n';
-	import { parseReferences } from 'nostr-tools';
 
 	export let id: string;
 	export let isReply = false;
@@ -28,7 +27,7 @@
 {#if event}
 	<div>
 		{#if !isReply && hasReply}
-			<svelte:self id={hasReply[1]} isReplay={true} />
+			<svelte:self id={hasReply[1]} isReply={true} />
 		{/if}
 		{#if repost && !!repost.length}
 			<div class="flex items-center mb-2">
