@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/mouse484/Astraea/compare/v3.14.0...v3.15.0) (2023-05-05)
+
+
+### Features
+
+* ダークテーマのリアクション色 ([aa8d52b](https://github.com/mouse484/Astraea/commit/aa8d52bf8fe2c44c36c77eaeb441fba889298b39)), closes [#423](https://github.com/mouse484/Astraea/issues/423)
+
 # [3.14.0](https://github.com/mouse484/Astraea/compare/v3.13.5...v3.14.0) (2023-05-05)
 
 
