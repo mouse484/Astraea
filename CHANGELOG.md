@@ -1,3 +1,10 @@
+## [3.15.1](https://github.com/mouse484/Astraea/compare/v3.15.0...v3.15.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency isomorphic-dompurify to ^1.4.0 ([8343058](https://github.com/mouse484/Astraea/commit/8343058c540edb3e968ae07e5741f554821fd0f6))
+
 # [3.15.0](https://github.com/mouse484/Astraea/compare/v3.14.0...v3.15.0) (2023-05-05)
 
 
