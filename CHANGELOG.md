@@ -1,3 +1,11 @@
+## [3.13.5](https://github.com/mouse484/Astraea/compare/v3.13.4...v3.13.5) (2023-05-05)
+
+
+### Bug Fixes
+
+* markedのバージョンを4に ([6f1730e](https://github.com/mouse484/Astraea/commit/6f1730eb8e2985b9cffba47fb39e94f67ce9102d))
+* typo ([3d96b5d](https://github.com/mouse484/Astraea/commit/3d96b5df953259b12f4ba301e51b831f5ccef852))
+
 ## [3.13.4](https://github.com/mouse484/Astraea/compare/v3.13.3...v3.13.4) (2023-05-03)
 
 
