@@ -23,8 +23,7 @@
 				return {
 					type: 'nostr',
 					raw: match[0],
-					text: decoded.data,
-					ntype: decoded.type
+					value: decoded
 				};
 			} catch {}
 		}
