@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/mouse484/Astraea/compare/v3.15.1...v3.16.0) (2023-05-06)
+
+
+### Features
+
+* nevent ([f806cd7](https://github.com/mouse484/Astraea/commit/f806cd74146c28870dcb65b21917212744e4f63b))
+
 ## [3.15.1](https://github.com/mouse484/Astraea/compare/v3.15.0...v3.15.1) (2023-05-05)
 
 
