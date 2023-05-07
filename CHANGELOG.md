@@ -1,3 +1,10 @@
+## [3.17.1](https://github.com/mouse484/Astraea/compare/v3.17.0...v3.17.1) (2023-05-07)
+
+
+### Bug Fixes
+
+* profileを適切にキャッシュする ([bd0b438](https://github.com/mouse484/Astraea/commit/bd0b438693ba70a0808724034a1237ea3e411832))
+
 # [3.17.0](https://github.com/mouse484/Astraea/compare/v3.16.0...v3.17.0) (2023-05-07)
 
 
