@@ -12,7 +12,11 @@
 
 	const query = profileQuery(pubkey, useRelays('read'));
 
-	$: profile = $query.isError ? { name: 'error' } : $query.data;
+	$: profile = $query.isError
+		? { name: 'error' }
+		: $query.isLoading
+		? { name: 'loading' }
+		: $query.data;
 
 	$: [name, domain] = (profile?.nip05 || `@${profile?.name || ''}`).split('@');
 	$: maxWitdh = name?.length > 20 ? (domain?.length > 10 ? 'max-w-[5em]' : 'max-w-[10em]') : '';
