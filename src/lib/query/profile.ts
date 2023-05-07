@@ -28,7 +28,8 @@ export const profileQuery = (pubkey: string, relays: string[]) => {
 			}
 			throw new Error('profile');
 		},
-		initialData: { name: 'loading' },
-		retry: 3
+		retry: 3,
+		cacheTime: 1 * 60 * 60 * 1000,
+		staleTime: 1 * 60 * 60 * 1000
 	});
 };
