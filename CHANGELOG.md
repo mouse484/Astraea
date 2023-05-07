@@ -1,3 +1,10 @@
+# [3.17.0](https://github.com/mouse484/Astraea/compare/v3.16.0...v3.17.0) (2023-05-07)
+
+
+### Features
+
+* 簡易通知 ([8029d10](https://github.com/mouse484/Astraea/commit/8029d103338c500cdb0a453b839dd120b45bfbf8)), closes [#259](https://github.com/mouse484/Astraea/issues/259)
+
 # [3.16.0](https://github.com/mouse484/Astraea/compare/v3.15.1...v3.16.0) (2023-05-06)
 
 
