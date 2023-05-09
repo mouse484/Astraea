@@ -1,3 +1,10 @@
+## [3.17.2](https://github.com/mouse484/Astraea/compare/v3.17.1...v3.17.2) (2023-05-09)
+
+
+### Bug Fixes
+
+* mention ([68704bc](https://github.com/mouse484/Astraea/commit/68704bcd6384e537262ba049d58c7335e228c926))
+
 ## [3.17.1](https://github.com/mouse484/Astraea/compare/v3.17.0...v3.17.1) (2023-05-07)
 
 
