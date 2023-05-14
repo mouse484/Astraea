@@ -1,3 +1,10 @@
+# [3.18.0](https://github.com/mouse484/Astraea/compare/v3.17.4...v3.18.0) (2023-05-14)
+
+
+### Features
+
+* virtual-scroll （仮） ([620516e](https://github.com/mouse484/Astraea/commit/620516ee28f5f00ad16ccaf894c1ea8b48815857))
+
 ## [3.17.4](https://github.com/mouse484/Astraea/compare/v3.17.3...v3.17.4) (2023-05-14)
 
 
