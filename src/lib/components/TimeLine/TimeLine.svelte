@@ -5,6 +5,7 @@
 	import type { Event, Filter, Kind, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from '../Note/Note.svelte';
 
 	const queryClient = getQueryClient();
@@ -38,9 +39,7 @@
 		});
 	});
 
-	$: notelists = [...$notes.values()]
-		.sort((a, b) => b.created_at - a.created_at)
-		.map<[string, string | undefined]>((event) => [event.id, event.repost]);
+	$: notelists = [...$notes.values()].sort((a, b) => b.created_at - a.created_at);
 
 	let reactionsub: Sub | undefined = undefined;
 	let notNew = false;
@@ -55,7 +54,7 @@
 			reactionsub = subscribeEvents(
 				7,
 				{
-					'#e': notelists.map(([id]) => id)
+					'#e': notelists.map(({ id }) => id)
 				},
 				relays
 			);
@@ -71,8 +70,13 @@
 	});
 </script>
 
-<div class="flex flex-col gap-4">
-	{#each notelists as [id, repost] (id)}
-		<Note {id} {repost} />
-	{/each}
+<div class="h-full">
+	<VirtualScroll data={notelists} key="id" let:data>
+		<div class="mt-4">
+			{#if data}
+				{@const { id, repost } = data}
+				<Note {id} {repost} />
+			{/if}
+		</div>
+	</VirtualScroll>
 </div>
