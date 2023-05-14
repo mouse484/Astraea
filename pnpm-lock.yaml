@@ -14,8 +14,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   '@tanstack/svelte-query':
-    specifier: ^4.29.5
-    version: 4.29.5(svelte@3.59.1)
+    specifier: ^4.29.7
+    version: 4.29.7(svelte@3.59.1)
   '@vite-pwa/sveltekit':
     specifier: ^0.2.1
     version: 0.2.1(@sveltejs/kit@1.16.3)(vite-plugin-pwa@0.14.7)
@@ -2073,16 +2073,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@tanstack/query-core@4.29.5:
-    resolution: {integrity: sha512-xXIiyQ/4r9KfaJ3k6kejqcaqFXXBTzN2aOJ5H1J6aTJE9hl/nbgAdfF6oiIu0CD5xowejJEJ6bBg8TO7BN4NuQ==}
+  /@tanstack/query-core@4.29.7:
+    resolution: {integrity: sha512-GXG4b5hV2Loir+h2G+RXhJdoZhJLnrBWsuLB2r0qBRyhWuXq9w/dWxzvpP89H0UARlH6Mr9DiVj4SMtpkF/aUA==}
     dev: false
 
-  /@tanstack/svelte-query@4.29.5(svelte@3.59.1):
-    resolution: {integrity: sha512-8FKUEBPzTcn1jyro9bhvihaZC858gT2XkHfrKNrN7J4fJDj/ZB0X+7xk9bpwWQ1vboe4mKvBreD916MFs+WA6A==}
+  /@tanstack/svelte-query@4.29.7(svelte@3.59.1):
+    resolution: {integrity: sha512-+GvOcGEiFZYj91luPcIIVakmDqXkS5tyWlBLf/zg9E9hohq7SiGug9C9DUWwvSBk80JefAOCioja5jrumrPp6Q==}
     peerDependencies:
       svelte: ^3.54.0
     dependencies:
-      '@tanstack/query-core': 4.29.5
+      '@tanstack/query-core': 4.29.7
       svelte: 3.59.1
     dev: false
 
