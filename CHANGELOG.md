@@ -1,3 +1,10 @@
+## [3.17.4](https://github.com/mouse484/Astraea/compare/v3.17.3...v3.17.4) (2023-05-14)
+
+
+### Bug Fixes
+
+* layout ([1545ddc](https://github.com/mouse484/Astraea/commit/1545ddc966dbb25daa14ef2cb190f80289a881b4))
+
 ## [3.17.3](https://github.com/mouse484/Astraea/compare/v3.17.2...v3.17.3) (2023-05-11)
 
 
