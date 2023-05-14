@@ -17,25 +17,23 @@
 <Title pageTitle={$_('home.home')} />
 
 {#if $contacts.data && readRelays}
-	<div class="flex gap-4">
-		<div>
-			<Heading>{$_('home.home')}</Heading>
+	<div>
+		<Heading>{$_('home.home')}</Heading>
 
-			<div class="m-4 mb-8">
-				<NoteForm />
-			</div>
-
-			<Section>
-				<TimeLine
-					relays={readRelays}
-					authors={$contacts.data}
-					filter={{
-						since: Math.floor(
-							new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
-						)
-					}}
-				/>
-			</Section>
+		<div class="m-4 mb-8">
+			<NoteForm />
 		</div>
+
+		<Section>
+			<TimeLine
+				relays={readRelays}
+				authors={$contacts.data}
+				filter={{
+					since: Math.floor(
+						new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
+					)
+				}}
+			/>
+		</Section>
 	</div>
 {/if}

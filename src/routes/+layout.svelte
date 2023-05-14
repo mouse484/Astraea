@@ -32,7 +32,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<div class="{$theme}">
+<div class={$theme}>
 	<main class="min-h-screen break-all dark:bg-[#171717] dark:text-gray-300">
 		{#if mounted}
 			{#if $pubkey}
@@ -40,12 +40,12 @@
 					<Responsive breakpoint="sm" than="less">
 						<Header />
 					</Responsive>
-					<div class="flex gap-4 justify-between mx-8">
+					<div class="md:flex gap-4 justify-between mx-8">
 						<Responsive breakpoint="md">
 							<SideMenu />
 						</Responsive>
 						<RelaysHandle pubkey={$pubkey}>
-							<div class="flex-grow">
+							<div class="w-full">
 								<slot />
 							</div>
 							<Responsive breakpoint="md">
