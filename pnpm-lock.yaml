@@ -37,6 +37,9 @@ dependencies:
   svelte-i18n:
     specifier: ^3.6.0
     version: 3.6.0(svelte@3.59.1)
+  svelte-virtual-scroll-list:
+    specifier: ^1.1.0
+    version: 1.1.0(svelte@3.59.1)
   vite-plugin-pwa:
     specifier: ^0.14.7
     version: 0.14.7(vite@4.3.5)(workbox-build@6.5.4)(workbox-window@6.5.4)
@@ -5895,6 +5898,14 @@ packages:
       svelte: 3.59.1
       typescript: 5.0.4
     dev: true
+
+  /svelte-virtual-scroll-list@1.1.0(svelte@3.59.1):
+    resolution: {integrity: sha512-GFaBhD9izv77xgJTyFMD1MP+ElGMUGMC9CDCM+uX9hkZIYipNS6u8oDMYDGwCXUw7QGEihU4yLmBvBSeBp78uw==}
+    peerDependencies:
+      svelte: ^3.0.0
+    dependencies:
+      svelte: 3.59.1
+    dev: false
 
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
