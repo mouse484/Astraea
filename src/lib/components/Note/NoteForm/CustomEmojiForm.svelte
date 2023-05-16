@@ -1,31 +1,32 @@
 <script lang="ts">
-	import Button from '$lib/components/elements/form/Button.svelte';
+	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
+	import { onMount } from 'svelte';
 
-	export let emojis: { code: string; url: string }[];
+	export let emojis: [string, string, string][];
 
-	let code: string;
-	let url: string;
+	let selectedEmojis: string[] = [];
+	$: emojis;
 
-	const add = () => {
-		if (!code || !url) return;
-		emojis = [...emojis, { code, url }];
-		code = '';
-		url = '';
-	};
-	$: emojiList = emojis.map(({ code }) => `:${code}:`);
+	$: emojis = selectedEmojis.map((code) => ['emoji', code, $customEmojis.get(code) || '']);
+
+	onMount(() => {
+		getCustomEmojis();
+	});
 </script>
 
-<div>
-	<p>Emoji <span class="text-sx">{emojiList}</span></p>
-	<div class="flex flex-col">
-		<label>
-			<span class="text-xs">name</span>
-			<input type="text" bind:value={code} />
+<div class="h-16 overflow-y-auto">
+	{#each [...$customEmojis.entries()] as [code, url] (code)}
+		<label class="label cursor-pointer">
+			<span class="label-text flex gap-2">
+				<img src={url} alt={code} class="h-4 w-4" />
+				{code}
+			</span>
+			<input
+				type="checkbox"
+				class="checkbox checkbox-primary ml-2"
+				bind:group={selectedEmojis}
+				value={code}
+			/>
 		</label>
-		<label>
-			<span class="text-xs">url</span>
-			<input type="text" bind:value={url} />
-		</label>
-	</div>
-	<Button on:click={() => add()} disabled={!code || !url}>追加</Button>
+	{/each}
 </div>

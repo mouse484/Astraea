@@ -19,7 +19,7 @@
 	let content = '';
 	let isNip36 = false;
 	let nip36Content = '';
-	let emojis: { code: string; url: string }[] = [];
+	let emojis: [string, string, string][] = [];
 
 	$: isPublish = !(isNip07() && !!content);
 
@@ -32,7 +32,7 @@
 			tags.push(['e', replyFor, '', 'reply']);
 		}
 		if (emojis) {
-			tags.push(...emojis.map(({ code, url }) => ['emoji', code, url]));
+			tags.push(...emojis);
 		}
 		if (isNip36) {
 			tags.push(['content-warning', nip36Content]);
