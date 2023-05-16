@@ -31,7 +31,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="overflow-hidden h-screen break-all bg-base-100">
+<main class="overflow-x-auto overflow-y-hidden h-screen break-all bg-base-100">
 	{#if mounted}
 		{#if $pubkey}
 			<QueryClientProvider client={data.queryClient}>
@@ -43,7 +43,7 @@
 						<SideMenu />
 					</Responsive>
 					<RelaysHandle pubkey={$pubkey}>
-						<div class="w-full h-screen overflow-y-scroll">
+						<div class="overflow-y-scroll w-full h-screen">
 							<slot />
 						</div>
 						<Responsive breakpoint="md">
