@@ -1,3 +1,10 @@
+## [3.21.1](https://github.com/mouse484/Astraea/compare/v3.21.0...v3.21.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* 投稿画面が入力中に消えないように ([babfbea](https://github.com/mouse484/Astraea/commit/babfbea4480b7bfb181f04079f4ea2c2d961c263))
+
 # [3.21.0](https://github.com/mouse484/Astraea/compare/v3.20.0...v3.21.0) (2023-05-16)
 
 
