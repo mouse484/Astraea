@@ -16,14 +16,14 @@
 
 <Title pageTitle={$_('home.home')} />
 
-<div class="h-screen">
+<div class="overflow-hidden h-full">
 	<Heading>{$_('home.home')}</Heading>
 
 	<div class="m-4 mb-8">
 		<NoteForm />
 	</div>
 	{#if $contacts.data && readRelays}
-		<section class="m-4 h-3/4">
+		<section class="m-4 h-2/3">
 			<TimeLine
 				relays={readRelays}
 				authors={$contacts.data}
