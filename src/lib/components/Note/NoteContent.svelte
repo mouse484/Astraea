@@ -51,8 +51,6 @@
 	marked.use({ extensions: [nostrLinkerMarkedExtention] });
 </script>
 
-<!-- {JSON.stringify(marked.lexer(event.content))} -->
-
 <Markdown
 	source={event.content}
 	renderers={{
