@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
-	import NoteForm from '$lib/components/Note/NoteForm.svelte';
+	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import { useRelays } from '$lib/nostr/relays';
