@@ -8,6 +8,7 @@
 	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
 	import { createEventDispatcher, onMount } from 'svelte';
+	import CustomEmojiForm from './NoteForm/CustomEmojiForm.svelte';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -18,6 +19,7 @@
 	let content = '';
 	let isNip36 = false;
 	let nip36Content = '';
+	let emojis: { code: string; url: string }[] = [];
 
 	$: isPublish = !(isNip07() && !!content);
 
@@ -99,6 +101,8 @@
 				</datalist>
 			{/if}
 		</div>
+		<CustomEmojiForm {emojis} />
+		{emojis}
 		<Button on:click={publishPost} disabled={isPublish}>
 			{$_('home.post.post')}
 		</Button>
