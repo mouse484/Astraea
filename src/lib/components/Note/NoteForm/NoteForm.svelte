@@ -65,7 +65,7 @@
 <div>
 	<div class="relative">
 		<textarea
-			class="p-2 pr-24 w-full h-32 rounded border resize-none"
+			class="w-full h-32 text-base resize-none textarea textarea-primary textarea-bordered"
 			bind:value={content}
 			bind:this={textarea}
 			on:keydown={(event) => content && event.ctrlKey && event.key === 'Enter' && publishPost()}
@@ -82,27 +82,24 @@
 	</div>
 
 	<div class="flex gap-2 justify-between mt-2">
-		<div class="flex gap-2">
-			<label class="block p-2 rounded border">
-				{$_('home.nip36.nip36')}
-				<input type="checkbox" bind:checked={isNip36} />
-			</label>
-			{#if isNip36}
+		<div class="form-control">
+			<label class="label input-group">
+				<span class="label-text">{$_('home.nip36.nip36')}</span>
+				<input type="checkbox" class="btn checkbox checkbox-lg" bind:checked={isNip36} />
 				<input
-					class="p-2 rounded border"
+					class="input input-bordered"
 					list="nip36-reason"
 					type="text"
 					placeholder={$_('home.nip36.reason')}
 					bind:value={nip36Content}
 					disabled={!isNip36}
 				/>
-
 				<datalist id="nip36-reason">
 					<option value={$_('home.nip36.nude')} />
 					<option value={$_('home.nip36.violence')} />
 					<option value={$_('home.nip36.sensitive')} />
 				</datalist>
-			{/if}
+			</label>
 		</div>
 		<CustomEmojiForm bind:emojis />
 		<Button on:click={publishPost} disabled={isPublish}>
