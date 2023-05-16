@@ -16,7 +16,7 @@
 
 <Title pageTitle={$_('home.home')} />
 
-<div class="overflow-hidden h-full">
+<div class="overflow-y-hidden h-full">
 	<Heading>{$_('home.home')}</Heading>
 
 	<div class="m-4 mb-8">

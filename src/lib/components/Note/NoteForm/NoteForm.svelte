@@ -80,10 +80,10 @@
 		</button>
 	</div>
 
-	<div class="flex gap-2 justify-between mt-2">
+	<div class="flex flex-wrap gap-2 justify-between mt-2">
 		<div class="form-control">
 			<label class="label input-group">
-				<span class="label-text">{$_('home.nip36.nip36')}</span>
+				<span class="w-max label-text">{$_('home.nip36.nip36')}</span>
 				<input type="checkbox" class="checkbox checkbox-accent btn" bind:checked={isNip36} />
 				<input
 					class="input input-bordered"
