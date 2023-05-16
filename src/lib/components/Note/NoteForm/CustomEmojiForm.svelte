@@ -28,5 +28,6 @@
 				value={code}
 			/>
 		</label>
+		<div class="divider" />
 	{/each}
 </div>

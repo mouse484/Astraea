@@ -2,10 +2,6 @@
 	export let disabled = false;
 </script>
 
-<button
-	on:click
-	class="p-2 bg-info rounded border disabled:bg-inherit"
-	{disabled}
->
+<button on:click class="btn btn-info" {disabled}>
 	<slot />
 </button>
