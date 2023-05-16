@@ -1,3 +1,18 @@
+# [3.21.0](https://github.com/mouse484/Astraea/compare/v3.20.0...v3.21.0) (2023-05-16)
+
+
+### Bug Fixes
+
+* layout overflow ([2b9a04b](https://github.com/mouse484/Astraea/commit/2b9a04bbcd4591588ac7032aaaaf8d9c74ec6e10))
+* 絵文字を削除できるように ([e1ce8ab](https://github.com/mouse484/Astraea/commit/e1ce8abbdf893adc8ec3ba936d9ccfc1a5636907))
+* 絵文字を投稿できるように ([670c087](https://github.com/mouse484/Astraea/commit/670c08778f5adf6f13c14ff8eae5d627bbfb7db3))
+
+
+### Features
+
+* カスタム絵文字設定 ([abfc471](https://github.com/mouse484/Astraea/commit/abfc47161bcd4c8ba909e2394b249884ca17f026))
+* 絵文字をローカルストレージに保存する ([56e283a](https://github.com/mouse484/Astraea/commit/56e283aa25325802954994cda2df9fe9f7ab91c7))
+
 # [3.20.0](https://github.com/mouse484/Astraea/compare/v3.19.0...v3.20.0) (2023-05-16)
 
 
