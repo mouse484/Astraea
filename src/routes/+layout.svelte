@@ -14,7 +14,7 @@
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Trend from '$lib/components/Trend.svelte';
 	import Footer from '$lib/components/Menu/Footer.svelte';
-	
+
 	export let data: LayoutData;
 
 	let mounted = false;
@@ -31,39 +31,37 @@
 	{@html webManifest}
 </svelte:head>
 
-<div>
-	<main class="min-h-screen break-all bg-base-100">
-		{#if mounted}
-			{#if $pubkey}
-				<QueryClientProvider client={data.queryClient}>
-					<Responsive breakpoint="sm" than="less">
-						<Header />
+<main class="overflow-hidden h-screen break-all bg-base-100">
+	{#if mounted}
+		{#if $pubkey}
+			<QueryClientProvider client={data.queryClient}>
+				<Responsive breakpoint="sm" than="less">
+					<Header />
+				</Responsive>
+				<div class="gap-4 justify-between mx-8 md:flex">
+					<Responsive breakpoint="md">
+						<SideMenu />
 					</Responsive>
-					<div class="md:flex gap-4 justify-between mx-8">
+					<RelaysHandle pubkey={$pubkey}>
+						<div class="w-full">
+							<slot />
+						</div>
 						<Responsive breakpoint="md">
-							<SideMenu />
-						</Responsive>
-						<RelaysHandle pubkey={$pubkey}>
-							<div class="w-full">
-								<slot />
+							<div>
+								<Trend />
 							</div>
-							<Responsive breakpoint="md">
-								<div>
-									<Trend />
-								</div>
-							</Responsive>
-						</RelaysHandle>
-					</div>
-					<Responsive breakpoint="sm" than="less">
-						<Footer />
-					</Responsive>
-				</QueryClientProvider>
-			{:else}
-				<Login />
-			{/if}
+						</Responsive>
+					</RelaysHandle>
+				</div>
+				<Responsive breakpoint="sm" than="less">
+					<Footer />
+				</Responsive>
+			</QueryClientProvider>
+		{:else}
+			<Login />
 		{/if}
-	</main>
-</div>
+	{/if}
+</main>
 
 {#if mounted && pwaInfo}
 	<RegisterSw />

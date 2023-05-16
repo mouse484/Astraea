@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { onMount } from 'svelte';
-	import { _, t } from 'svelte-i18n';
+	import { _ } from 'svelte-i18n';
 	import Heading from './elements/Heading.svelte';
 	import Section from './elements/Section.svelte';
 
@@ -27,7 +27,7 @@
 </Heading>
 
 <Section>
-	<ul class="mt-4">
+	<ul class="overflow-y-scroll h-[85vh]">
 		{#key trends}
 			{#each trends as trend}
 				<a href="/search?q={trend}">
@@ -39,7 +39,8 @@
 		{/key}
 	</ul>
 	<p class="mt-4 text-right">
-		powerd by <a class="text-blue-600 visited:text-purple-600" href="https://nostrbuzzs.deno.dev/">
+		powerd by
+		<a class="text-blue-600 visited:text-purple-600" href="https://nostrbuzzs.deno.dev/">
 			nostrbuzzs
 		</a>
 	</p>
