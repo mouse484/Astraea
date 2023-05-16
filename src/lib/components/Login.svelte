@@ -2,7 +2,6 @@
 	import { browser } from '$app/environment';
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
-	import Button from './elements/form/Button.svelte';
 	import Heading from './elements/Heading.svelte';
 	import { decode } from '$lib/nostr/nip19';
 
@@ -46,15 +45,15 @@
 		bind:value={inputPubkey}
 		placeholder="npub key"
 	/>
-	<Button on:click={savePubkey} disabled={!inputPubkey}>
+	<button on:click={savePubkey} class="btn" disabled={!inputPubkey}>
 		{$_('login.login')}
-	</Button>
+	</button>
 
 	<p class="text-center">or</p>
 
-	<Button disabled={!isNip07} on:click={nip07Login}>
+	<button disabled={!isNip07} class="btn" on:click={nip07Login}>
 		{$_('login.nip07')}
-	</Button>
+	</button>
 
 	{#if pubkeyInfo}
 		<div>
