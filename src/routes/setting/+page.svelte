@@ -4,6 +4,7 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Icon from '$lib/components/elements/Icon.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
+	import CustomEmojiSetting from '$lib/pages/setting/CustomEmojiSetting.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import RelayInfo from '$lib/pages/setting/RelayInfo.svelte';
 	import { relaysQuery } from '$lib/query/relays';
@@ -91,6 +92,13 @@
 				{/if}
 			</tbody>
 		</table>
+	</div>
+
+	<div>
+		<Heading h={3}>
+			{$_('emoji.emoji')}
+		</Heading>
+		<CustomEmojiSetting />
 	</div>
 
 	<div>

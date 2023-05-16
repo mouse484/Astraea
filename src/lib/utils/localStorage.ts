@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 
-type list = 'pubkey' | 'locale' | 'theme';
+type list = 'pubkey' | 'locale' | 'theme' | 'emojis';
 
 export const setLocalStorage = (type: list, value: string) => {
 	if (!browser) return;
