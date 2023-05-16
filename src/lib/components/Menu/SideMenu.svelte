@@ -5,7 +5,7 @@
 	import MenuLink from './MenuLink.svelte';
 </script>
 
-<div class="flex sticky top-8 flex-col gap-4 pb-16 min-w-max h-screen">
+<div class="flex float-right sticky top-0 flex-col gap-4 py-8 min-w-max h-screen">
 	<div class="mb-8">
 		<Title />
 	</div>
