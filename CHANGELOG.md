@@ -1,3 +1,17 @@
+# [3.22.0](https://github.com/mouse484/Astraea/compare/v3.21.1...v3.22.0) (2023-05-16)
+
+
+### Bug Fixes
+
+* timeline scroll ([0046633](https://github.com/mouse484/Astraea/commit/00466334eabac3b7f2b397ca9a6e3cc03091d80a))
+
+
+### Features
+
+* remove Button component ([da7768f](https://github.com/mouse484/Astraea/commit/da7768f5e3d1c840ea4dcf2126691a7cf2d718a0))
+* 投稿画面周りのデザイン ([b8495a3](https://github.com/mouse484/Astraea/commit/b8495a352061690d007aa804b5e6b70bd0d34790))
+* 設定ページのデザイン ([fb4e6ab](https://github.com/mouse484/Astraea/commit/fb4e6abac36bc8350ddfab977a80c2a19113a033))
+
 ## [3.21.1](https://github.com/mouse484/Astraea/compare/v3.21.0...v3.21.1) (2023-05-16)
 
 
