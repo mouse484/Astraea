@@ -28,6 +28,9 @@ dependencies:
   marked:
     specifier: ^4.3.0
     version: 4.3.0
+  marked-emoji:
+    specifier: ^1.0.1
+    version: 1.0.1(marked@4.3.0)
   marked-linkify-it:
     specifier: ^3.0.2
     version: 3.0.2(marked@4.3.0)
@@ -4395,6 +4398,14 @@ packages:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
     dev: true
+
+  /marked-emoji@1.0.1(marked@4.3.0):
+    resolution: {integrity: sha512-1qSdZ078ySSIYSupZZ37YT4iV8mc1Na6oay6vx610lW6ZgU00kVjLcwGqS0NMBh5Rn8CmGHAwFtgUj1Vp+lnTg==}
+    peerDependencies:
+      marked: ^4.2.4
+    dependencies:
+      marked: 4.3.0
+    dev: false
 
   /marked-linkify-it@3.0.2(marked@4.3.0):
     resolution: {integrity: sha512-MK+uwKrXYzGoNE8HH+Kgl3r3BomCJb0mxf7BJlMSYWkiBkkk2oO02khpc8vLWoQB6QAGJoVA0HprcLdDu3N+sw==}
