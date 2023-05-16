@@ -14,8 +14,7 @@
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Trend from '$lib/components/Trend.svelte';
 	import Footer from '$lib/components/Menu/Footer.svelte';
-	import { theme } from '$lib/store/theme';
-
+	
 	export let data: LayoutData;
 
 	let mounted = false;
@@ -32,7 +31,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<div class={$theme}>
+<div>
 	<main class="min-h-screen break-all bg-base-100">
 		{#if mounted}
 			{#if $pubkey}
