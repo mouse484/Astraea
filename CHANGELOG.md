@@ -1,3 +1,17 @@
+# [3.20.0](https://github.com/mouse484/Astraea/compare/v3.19.0...v3.20.0) (2023-05-16)
+
+
+### Bug Fixes
+
+* side bar padding ([f850f1e](https://github.com/mouse484/Astraea/commit/f850f1e1041dc7131cc102d206444bb57dae982e))
+
+
+### Features
+
+* **css:** install daisy ui ([c9d3b71](https://github.com/mouse484/Astraea/commit/c9d3b71d59e7076aee7518fe1cf2dca33e310fb1))
+* overflow hidden ([f3affcf](https://github.com/mouse484/Astraea/commit/f3affcfdc530103373fa2846ef9c89f6c0e8c9e0))
+* theme switch use theme change ([ace4d83](https://github.com/mouse484/Astraea/commit/ace4d83954b9ca8b6c4d48539816d09992ce82fb))
+
 # [3.19.0](https://github.com/mouse484/Astraea/compare/v3.18.2...v3.19.0) (2023-05-16)
 
 
