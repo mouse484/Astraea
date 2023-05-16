@@ -43,71 +43,82 @@
 			{$_('setting.theme')}
 		</Heading>
 
-		<!-- themeChangeがクリックイベントを奪うので親で変更を検知するために -->
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class="flex" on:click={() => themeUpdate()}>
-			<button
-				data-set-theme="light"
-				data-act-class="ACTIVECLASS"
-				class={theme === 'light' ? 'text-info' : ''}
-			>
-				<Icon name="white-balance-sunny" />
-			</button>
-			<button
-				data-set-theme="dark"
-				data-act-class="ACTIVECLASS"
-				class={theme === 'dark' ? 'text-info' : ''}
-			>
-				<Icon name="moon-waxing-crescent" />
-			</button>
-		</div>
+		<Section>
+			<!-- themeChangeがクリックイベントを奪うので親で変更を検知するために -->
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<div class="flex" on:click={() => themeUpdate()}>
+				<button
+					data-set-theme="light"
+					data-act-class="ACTIVECLASS"
+					class={theme === 'light' ? 'text-info' : ''}
+				>
+					<Icon name="white-balance-sunny" />
+				</button>
+				<button
+					data-set-theme="dark"
+					data-act-class="ACTIVECLASS"
+					class={theme === 'dark' ? 'text-info' : ''}
+				>
+					<Icon name="moon-waxing-crescent" />
+				</button>
+			</div>
+		</Section>
 	</div>
 
 	<div>
 		<Heading h={3}>
 			{$_('general.relays')}
 		</Heading>
-		<table class="table-auto border-spacing-4">
-			<thead>
-				<tr>
-					<th>url</th>
-					<th>read</th>
-					<th>write</th>
-					<th>{$_('general.info')}</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#if $relays.data}
-					{#each Object.entries($relays.data) as [relay, { read, write }]}
+
+		<Section>
+			<div class="overflow-scroll h-80">
+				<table class="table">
+					<thead>
 						<tr>
-							<td>{relay}</td>
-							<td>{read}</td>
-							<td>{write}</td>
-							<td>
-								<RelayInfo relayUrl={relay} />
-							</td>
+							<th>url</th>
+							<th>read</th>
+							<th>write</th>
+							<th>{$_('general.info')}</th>
 						</tr>
-					{/each}
-				{/if}
-			</tbody>
-		</table>
+					</thead>
+					<tbody>
+						{#if $relays.data}
+							{#each Object.entries($relays.data) as [relay, { read, write }]}
+								<tr>
+									<td>{relay}</td>
+									<td>{read}</td>
+									<td>{write}</td>
+									<td>
+										<RelayInfo relayUrl={relay} />
+									</td>
+								</tr>
+							{/each}
+						{/if}
+					</tbody>
+				</table>
+			</div>
+		</Section>
 	</div>
 
 	<div>
 		<Heading h={3}>
 			{$_('emoji.emoji')}
 		</Heading>
-		<CustomEmojiSetting />
+
+		<Section>
+			<CustomEmojiSetting />
+		</Section>
 	</div>
 
 	<div>
 		<Heading h={3}>
 			{$_('setting.logout')}
 		</Heading>
-		<div class="m-4">
-			<button on:click={logout} class="btn">
+
+		<Section>
+			<button on:click={logout} class="btn btn-error">
 				{$_('setting.logout')}
 			</button>
-		</div>
+		</Section>
 	</div>
 </Section>
