@@ -21,6 +21,13 @@
 		url = '';
 		setLocalStorage('emojis', JSON.stringify([...$emojis.entries()]));
 	};
+	const deleteEmoji = (code: string) => {
+		emojis.update((v) => {
+			v.delete(code);
+			return v;
+		});
+		setLocalStorage('emojis', JSON.stringify([...$emojis.entries()]));
+	};
 </script>
 
 <div class="w-64">
@@ -60,16 +67,7 @@
 							</span>
 						</td>
 						<td>
-							<Button
-								on:click={() => {
-									emojis.update((v) => {
-										v.delete(code);
-										return v;
-									});
-								}}
-							>
-								X
-							</Button>
+							<Button on:click={() => deleteEmoji(code)}>X</Button>
 						</td>
 					</tr>
 				{/each}
