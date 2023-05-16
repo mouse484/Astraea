@@ -1,3 +1,11 @@
+# [3.19.0](https://github.com/mouse484/Astraea/compare/v3.18.2...v3.19.0) (2023-05-16)
+
+
+### Features
+
+* custom emoji (NIP-30) ([d4545ce](https://github.com/mouse484/Astraea/commit/d4545ced6731298d234a1edf4600aade157536d4))
+* custom emoji form (仮) ([29d7d4b](https://github.com/mouse484/Astraea/commit/29d7d4ba5e83990467f819ec57f635406f98e760))
+
 ## [3.18.2](https://github.com/mouse484/Astraea/compare/v3.18.1...v3.18.2) (2023-05-16)
 
 
