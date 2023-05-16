@@ -18,7 +18,7 @@
 			<Icon icon="mdi:message-outline" />
 		</button>
 		{#if isReplyOpen}
-			<div class="absolute top-8 z-30 p-2 w-max bg-white border border-dashed">
+			<div class="absolute top-8 z-30 p-2 w-max bg-base-100 border border-dashed">
 				<NoteForm
 					replyFor={id}
 					on:status={(ev) => {

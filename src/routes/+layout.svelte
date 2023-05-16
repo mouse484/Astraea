@@ -33,7 +33,7 @@
 </svelte:head>
 
 <div class={$theme}>
-	<main class="min-h-screen break-all dark:bg-[#171717] dark:text-gray-300">
+	<main class="min-h-screen break-all bg-base-100">
 		{#if mounted}
 			{#if $pubkey}
 				<QueryClientProvider client={data.queryClient}>
