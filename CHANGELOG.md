@@ -1,3 +1,10 @@
+## [3.18.2](https://github.com/mouse484/Astraea/compare/v3.18.1...v3.18.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* type defined ([20fec3f](https://github.com/mouse484/Astraea/commit/20fec3f1e3d2581c8b2c6fef1b1dfa4cf058993c))
+
 ## [3.18.1](https://github.com/mouse484/Astraea/compare/v3.18.0...v3.18.1) (2023-05-14)
 
 
