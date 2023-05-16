@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import Reactions from './Reactions.svelte';
-	import NoteForm from './NoteForm.svelte';
+	import NoteForm from './NoteForm/NoteForm.svelte';
 
 	export let id: string;
 

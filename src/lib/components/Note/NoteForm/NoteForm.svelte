@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { _ } from 'svelte-i18n';
-	import Button from '../elements/form/Button.svelte';
+	import Button from '../../elements/form/Button.svelte';
 	import { isNip07 } from '$lib/nostr/isNip07';
 	import { publishEvent } from '$lib/nostr/pool';
 	import type { UnsignedEvent } from 'nostr-tools';
 	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
 	import { createEventDispatcher, onMount } from 'svelte';
-	import CustomEmojiForm from './NoteForm/CustomEmojiForm.svelte';
+	import CustomEmojiForm from './CustomEmojiForm.svelte';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -30,6 +30,9 @@
 
 		if (replyFor) {
 			tags.push(['e', replyFor, '', 'reply']);
+		}
+		if (emojis) {
+			tags.push(...emojis.map(({ code, url }) => ['emoji', code, url]));
 		}
 		if (isNip36) {
 			tags.push(['content-warning', nip36Content]);
@@ -101,8 +104,7 @@
 				</datalist>
 			{/if}
 		</div>
-		<CustomEmojiForm {emojis} />
-		{emojis}
+		<CustomEmojiForm bind:emojis />
 		<Button on:click={publishPost} disabled={isPublish}>
 			{$_('home.post.post')}
 		</Button>
