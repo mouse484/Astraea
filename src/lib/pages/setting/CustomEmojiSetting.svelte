@@ -29,24 +29,28 @@
 	};
 </script>
 
-<div class="w-64">
-	<div class="flex flex-col mt-4">
-		<label class="flex justify-between">
-			<span class="text-xs">name:</span>
-			<input type="text" bind:value={code} />
+<div>
+	<div>
+		<label class="input-group">
+			<span class="w-20">name</span>
+			<input type="text" class="input input-bordered" bind:value={code} />
 		</label>
-		<label class="flex justify-between">
-			<span class="text-xs">url:</span>
-			<input type="text" bind:value={url} />
+		<label class="mt-2 input-group">
+			<span class="w-20">url</span>
+			<input type="text" class="input input-bordered" bind:value={url} />
 		</label>
 	</div>
-	<button on:click={() => add()} class="btn" disabled={!code || !url}>追加</button>
 
-	<h4>絵文字一覧</h4>
-	<div>
-		<table class="table">
+	<button on:click={() => add()} class="mt-4 btn btn-secondary" disabled={!code || !url}>
+		追加
+	</button>
+
+	<h4 class="mt-4 text-lg">絵文字一覧</h4>
+	<div class="overflow-y-scroll mt-2 h-60">
+		<table class="table table-zebra">
 			<thead>
 				<tr>
+					<th />
 					<th>プレビュー</th>
 					<th>name</th>
 					<th>url</th>
@@ -54,8 +58,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each [...$emojis.entries()] as [code, url] (code)}
+				{#each [...$emojis.entries()] as [code, url], index (code)}
 					<tr>
+						<th>{index}</th>
 						<td>
 							<img src={url} alt={code} class="w-8 h-8" />
 						</td>

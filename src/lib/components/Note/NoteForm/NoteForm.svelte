@@ -64,7 +64,7 @@
 <div>
 	<div class="relative">
 		<textarea
-			class="w-full h-32 text-base resize-none textarea textarea-primary textarea-bordered"
+			class="w-full h-32 text-base resize-none textarea textarea-secondary textarea-bordered"
 			bind:value={content}
 			bind:this={textarea}
 			on:keydown={(event) => content && event.ctrlKey && event.key === 'Enter' && publishPost()}
@@ -84,7 +84,7 @@
 		<div class="form-control">
 			<label class="label input-group">
 				<span class="label-text">{$_('home.nip36.nip36')}</span>
-				<input type="checkbox" class="btn checkbox checkbox-lg" bind:checked={isNip36} />
+				<input type="checkbox" class="checkbox checkbox-accent btn" bind:checked={isNip36} />
 				<input
 					class="input input-bordered"
 					list="nip36-reason"
@@ -101,7 +101,7 @@
 			</label>
 		</div>
 		<CustomEmojiForm bind:emojis />
-		<button on:click={publishPost} class="btn" disabled={isPublish}>
+		<button on:click={publishPost} class="btn btn-primary" disabled={isPublish}>
 			{$_('home.post.post')}
 		</button>
 	</div>

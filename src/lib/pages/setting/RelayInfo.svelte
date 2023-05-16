@@ -23,24 +23,23 @@
 	};
 </script>
 
-<div class="relative">
-	<button on:click={() => (isOpen = !isOpen)} class="btn">Info</button>
-	{#if isOpen}
-		{#await getInfo() then info}
-			{#if info}
-				<table class="absolute z-30 p-4 m-4 rounded border bg-base-100">
-					<tbody>
-						{#each Object.entries(info) as [key, value]}
-							<tr>
-								<th class="text-left">{key}</th>
-								<td class="ml-2">
-									{typeof value === 'object' ? JSON.stringify(value) : value}
-								</td>
-							</tr>
-						{/each}
-					</tbody>
+<div>
+	<label for="info" class="btn btn-info">Info</label>
+	<input type="checkbox" id="info" class="modal-toggle" />
+	{#await getInfo() then info}
+		{#if info}
+			<label for="info" class="modal">
+				<table class="modal-box">
+					{#each Object.entries(info) as [key, value]}
+						<tr>
+							<th class="text-left">{key}</th>
+							<th class="ml-2">
+								{typeof value === 'object' ? JSON.stringify(value) : value}
+							</th>
+						</tr>
+					{/each}
 				</table>
-			{/if}
-		{/await}
-	{/if}
+			</label>
+		{/if}
+	{/await}
 </div>
