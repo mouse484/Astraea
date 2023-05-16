@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Button from '../elements/form/Button.svelte';
 	import { _ } from 'svelte-i18n';
 
 	export let searchInput: string = '';
@@ -13,6 +12,6 @@
 		searchInput = '';
 	}}
 >
-	<input class="p-2 border rounded grow" type="text" name="q" bind:value={searchInput} />
-	<Button disabled={!searchInput}>{$_('search.search')}</Button>
+	<input class="p-2 rounded border grow" type="text" name="q" bind:value={searchInput} />
+	<button class="btn" disabled={!searchInput}>{$_('search.search')}</button>
 </form>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/elements/form/Button.svelte';
 	import { setLocalStorage } from '$lib/utils/localStorage';
 	import { onMount } from 'svelte';
 	import { customEmojis as emojis, getCustomEmojis } from '$lib/store/customEmoji';
@@ -41,7 +40,7 @@
 			<input type="text" bind:value={url} />
 		</label>
 	</div>
-	<Button on:click={() => add()} disabled={!code || !url}>追加</Button>
+	<button on:click={() => add()} class="btn" disabled={!code || !url}>追加</button>
 
 	<h4>絵文字一覧</h4>
 	<div>
@@ -67,7 +66,7 @@
 							</span>
 						</td>
 						<td>
-							<Button on:click={() => deleteEmoji(code)}>X</Button>
+							<button on:click={() => deleteEmoji(code)} class="btn">X</button>
 						</td>
 					</tr>
 				{/each}

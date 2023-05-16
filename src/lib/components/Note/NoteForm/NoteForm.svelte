@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { _ } from 'svelte-i18n';
-	import Button from '../../elements/form/Button.svelte';
 	import { isNip07 } from '$lib/nostr/isNip07';
 	import { publishEvent } from '$lib/nostr/pool';
 	import type { UnsignedEvent } from 'nostr-tools';
@@ -102,8 +101,8 @@
 			</label>
 		</div>
 		<CustomEmojiForm bind:emojis />
-		<Button on:click={publishPost} disabled={isPublish}>
+		<button on:click={publishPost} class="btn" disabled={isPublish}>
 			{$_('home.post.post')}
-		</Button>
+		</button>
 	</div>
 </div>

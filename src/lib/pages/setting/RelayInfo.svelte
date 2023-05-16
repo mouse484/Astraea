@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/elements/form/Button.svelte';
-
 	export let relayUrl: string;
 
 	let isOpen = false;
@@ -26,11 +24,11 @@
 </script>
 
 <div class="relative">
-	<Button on:click={() => (isOpen = !isOpen)}>Info</Button>
+	<button on:click={() => (isOpen = !isOpen)} class="btn">Info</button>
 	{#if isOpen}
 		{#await getInfo() then info}
 			{#if info}
-				<table class="absolute z-30 p-4 m-4 bg-base-100 rounded border">
+				<table class="absolute z-30 p-4 m-4 rounded border bg-base-100">
 					<tbody>
 						{#each Object.entries(info) as [key, value]}
 							<tr>

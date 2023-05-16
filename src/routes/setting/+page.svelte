@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Button from '$lib/components/elements/form/Button.svelte';
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Icon from '$lib/components/elements/Icon.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
@@ -106,9 +105,9 @@
 			{$_('setting.logout')}
 		</Heading>
 		<div class="m-4">
-			<Button on:click={logout}>
+			<button on:click={logout} class="btn">
 				{$_('setting.logout')}
-			</Button>
+			</button>
 		</div>
 	</div>
 </Section>
