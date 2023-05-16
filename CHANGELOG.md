@@ -1,3 +1,10 @@
+## [3.22.1](https://github.com/mouse484/Astraea/compare/v3.22.0...v3.22.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* over flow x ([35a9cfd](https://github.com/mouse484/Astraea/commit/35a9cfd3475e8dad0936f020315271fcfa121f87))
+
 # [3.22.0](https://github.com/mouse484/Astraea/compare/v3.21.1...v3.22.0) (2023-05-16)
 
 
