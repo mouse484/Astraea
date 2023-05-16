@@ -1,23 +1,11 @@
 <script lang="ts">
 	import Button from '$lib/components/elements/form/Button.svelte';
-	import { getLocalStorage, setLocalStorage } from '$lib/utils/localStorage';
+	import { setLocalStorage } from '$lib/utils/localStorage';
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-	import { z } from 'zod';
-
-	const customEmojiScheme = z.array(z.tuple([z.string(), z.string()]));
-
-	const emojis = writable(new Map<string, string>());
+	import { customEmojis as emojis, getCustomEmojis } from '$lib/store/customEmoji';
 
 	onMount(() => {
-		const storedEmojis = getLocalStorage('emojis');
-		if (!storedEmojis) return;
-		const parsed = customEmojiScheme.safeParse(JSON.parse(storedEmojis));
-		if (parsed.success) {
-			parsed.data.forEach(([code, url]) => {
-				emojis.update((v) => v.set(code, url));
-			});
-		}
+		getCustomEmojis();
 	});
 
 	$: console.log($emojis);
