@@ -45,6 +45,7 @@
 		"@svelte-put/clickoutside": "^2.0.0",
 		"@tanstack/svelte-query": "^4.29.7",
 		"@vite-pwa/sveltekit": "^0.2.1",
+		"daisyui": "^2.51.6",
 		"emoji-mart": "^5.5.2",
 		"isomorphic-dompurify": "^1.5.0",
 		"marked": "^4.3.0",
@@ -53,6 +54,7 @@
 		"nostr-tools": "^1.10.1",
 		"svelte-i18n": "^3.6.0",
 		"svelte-virtual-scroll-list": "^1.1.0",
+		"theme-change": "^2.5.0",
 		"vite-plugin-pwa": "^0.14.7",
 		"workbox-window": "^6.5.4",
 		"zod": "^3.21.4"

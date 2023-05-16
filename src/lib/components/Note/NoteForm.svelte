@@ -62,7 +62,7 @@
 <div>
 	<div class="relative">
 		<textarea
-			class="p-2 pr-24 w-full h-32 rounded border resize-none dark:bg-inherit"
+			class="p-2 pr-24 w-full h-32 rounded border resize-none"
 			bind:value={content}
 			bind:this={textarea}
 			on:keydown={(event) => content && event.ctrlKey && event.key === 'Enter' && publishPost()}
@@ -86,7 +86,7 @@
 			</label>
 			{#if isNip36}
 				<input
-					class="p-2 rounded border dark:bg-inherit"
+					class="p-2 rounded border"
 					list="nip36-reason"
 					type="text"
 					placeholder={$_('home.nip36.reason')}

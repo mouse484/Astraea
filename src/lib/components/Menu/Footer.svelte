@@ -4,7 +4,7 @@
 	import MenuLink from './MenuLink.svelte';
 </script>
 
-<div class="flex fixed bottom-0 z-40 gap-4 justify-between p-4 w-screen bg-white border-t">
+<div class="flex fixed bottom-0 z-40 gap-4 justify-between p-4 w-screen bg-base-100 border-t">
 	<MenuLink href="/" iconName="home-outline" />
 	<MenuLink href="/search" iconName="search" />
 	<MenuLink href="/trend" iconName="trending-up" />

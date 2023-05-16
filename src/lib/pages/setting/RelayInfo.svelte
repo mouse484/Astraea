@@ -30,7 +30,7 @@
 	{#if isOpen}
 		{#await getInfo() then info}
 			{#if info}
-				<table class="absolute z-30 p-4 m-4 bg-white rounded border">
+				<table class="absolute z-30 p-4 m-4 bg-base-100 rounded border">
 					<tbody>
 						{#each Object.entries(info) as [key, value]}
 							<tr>
