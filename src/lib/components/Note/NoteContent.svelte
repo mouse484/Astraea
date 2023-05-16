@@ -13,7 +13,6 @@
 	const emojis = Object.fromEntries(
 		event.tags.filter(([key]) => key === 'emoji').map(([, code, url]) => [code, url])
 	);
-	console.log(emojis);
 
 	const nostrLinkerMarkedExtention: marked.TokenizerExtension = {
 		name: 'nostr',
