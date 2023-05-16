@@ -8,11 +8,22 @@
 	import RelayInfo from '$lib/pages/setting/RelayInfo.svelte';
 	import { relaysQuery } from '$lib/query/relays';
 	import { pubkey } from '$lib/store/pubkey';
-	import { theme } from '$lib/store/theme';
-	import { removeLocalStorage } from '$lib/utils/localStorage';
+	import { getLocalStorage, removeLocalStorage } from '$lib/utils/localStorage';
+	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
+	import { themeChange } from 'theme-change';
 
 	const relays = relaysQuery($pubkey);
+	let theme = 'light';
+
+	const themeUpdate = () => {
+		theme = getLocalStorage('theme') || theme;
+	};
+
+	onMount(() => {
+		themeChange(false);
+		themeUpdate();
+	});
 
 	const logout = () => {
 		pubkey.set('');
@@ -32,15 +43,23 @@
 			{$_('setting.theme')}
 		</Heading>
 
-		<div class="flex">
-			<label class={$theme === 'light' ? 'text-blue-400' : 'cursor-pointer'}>
-				<input type="radio" bind:group={$theme} name="theme" value="light" class="hidden" />
+		<!-- themeChangeがクリックイベントを奪うので親で変更を検知するために -->
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div class="flex" on:click={() => themeUpdate()}>
+			<button
+				data-set-theme="light"
+				data-act-class="ACTIVECLASS"
+				class={theme === 'light' ? 'text-info' : ''}
+			>
 				<Icon name="white-balance-sunny" />
-			</label>
-			<label class={$theme === 'dark' ? 'text-blue-400' : 'cursor-pointer'}>
-				<input type="radio" bind:group={$theme} name="theme" value="dark" class="hidden" />
+			</button>
+			<button
+				data-set-theme="dark"
+				data-act-class="ACTIVECLASS"
+				class={theme === 'dark' ? 'text-info' : ''}
+			>
 				<Icon name="moon-waxing-crescent" />
-			</label>
+			</button>
 		</div>
 	</div>
 
