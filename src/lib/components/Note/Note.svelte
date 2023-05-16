@@ -50,7 +50,7 @@
 					<p>{$_('home.nip36.reason')}: <span class="font-bold">{hasNip36Warn}</span></p>
 				</button>
 			{:else}
-				<NoteContent rawContent={event.content} />
+				<NoteContent {event} />
 			{/if}
 			<NoteFooter {id} />
 		</div>

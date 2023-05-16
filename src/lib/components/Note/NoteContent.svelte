@@ -3,10 +3,17 @@
 	import NoteLink from './NoteLink.svelte';
 	import { marked } from 'marked';
 	import markedLinkifyIt from 'marked-linkify-it';
+	import { markedEmoji } from 'marked-emoji';
 	import NostrLinker from './NostrLinker.svelte';
-	import { nip19 } from 'nostr-tools';
+	import { nip19, type Event } from 'nostr-tools';
+	import CustomEmoji from './CustomEmoji.svelte';
 
-	export let rawContent: string;
+	export let event: Event;
+
+	const emojis = Object.fromEntries(
+		event.tags.filter(([key]) => key === 'emoji').map(([, code, url]) => [code, url])
+	);
+	console.log(emojis);
 
 	const nostrLinkerMarkedExtention: marked.TokenizerExtension = {
 		name: 'nostr',
@@ -30,6 +37,7 @@
 	};
 
 	marked.setOptions({ breaks: true });
+	marked.use(markedEmoji({ emojis, unicode: false }));
 	marked.use(
 		markedLinkifyIt({
 			'#': {
@@ -43,10 +51,13 @@
 	marked.use({ extensions: [nostrLinkerMarkedExtention] });
 </script>
 
+<!-- {JSON.stringify(marked.lexer(event.content))} -->
+
 <Markdown
-	source={rawContent}
+	source={event.content}
 	renderers={{
 		link: NoteLink,
-		nostr: NostrLinker
+		nostr: NostrLinker,
+		emoji: CustomEmoji
 	}}
 />
