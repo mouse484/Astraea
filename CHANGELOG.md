@@ -1,3 +1,10 @@
+## [3.24.2](https://github.com/mouse484/Astraea/compare/v3.24.1...v3.24.2) (2023-05-17)
+
+
+### Bug Fixes
+
+* kind 7 req query size ([a6cebc7](https://github.com/mouse484/Astraea/commit/a6cebc79d6c6d5866fbc4e7e171f918f8f9b32c7))
+
 ## [3.24.1](https://github.com/mouse484/Astraea/compare/v3.24.0...v3.24.1) (2023-05-17)
 
 
