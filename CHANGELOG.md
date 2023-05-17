@@ -1,3 +1,17 @@
+# [3.24.0](https://github.com/mouse484/Astraea/compare/v3.23.0...v3.24.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* emoji slect ([b090a78](https://github.com/mouse484/Astraea/commit/b090a78ebab724356e8eb5b6b8b3cac91b738edd))
+* note form options ui ([9aecff6](https://github.com/mouse484/Astraea/commit/9aecff6cfd6e3287e15907dda323d519bb945ec3))
+* 絵文字が多かったときにはスクロールするように ([4482844](https://github.com/mouse484/Astraea/commit/448284463cff825192ab31ae765f3bb16d2672d1))
+
+
+### Features
+
+* 絵文字選択初回だけ自動で入力されるように ([4b14625](https://github.com/mouse484/Astraea/commit/4b14625d8acff18bec627d11a0ef9836aff46e72))
+
 # [3.23.0](https://github.com/mouse484/Astraea/compare/v3.22.1...v3.23.0) (2023-05-17)
 
 
