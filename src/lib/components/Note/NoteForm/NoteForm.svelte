@@ -80,7 +80,7 @@
 		</button>
 	</div>
 
-	<div class="flex flex-wrap gap-2 justify-between mt-2">
+	<div class="flex flex-wrap gap-2 justify-between mt-2 items-center">
 		<div class="form-control">
 			<label class="label input-group">
 				<span class="w-max label-text">{$_('home.nip36.nip36')}</span>
