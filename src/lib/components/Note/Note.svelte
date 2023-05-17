@@ -38,7 +38,7 @@
 			</div>
 		{/if}
 		<div
-			class="border rounded p-2 flex-col flex gap-2 {isReply ? 'border-b-0 border-blue-800' : ''}"
+			class="border rounded p-2 flex-col flex gap-2 {isReply ? 'border-b-0 border-primary' : ''}"
 		>
 			<div class="flex justify-between">
 				<Profile pubkey={event.pubkey} />
