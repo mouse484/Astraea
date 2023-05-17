@@ -1,3 +1,10 @@
+## [3.24.1](https://github.com/mouse484/Astraea/compare/v3.24.0...v3.24.1) (2023-05-17)
+
+
+### Bug Fixes
+
+* 絵文字自動入力の動作調整 ([636a248](https://github.com/mouse484/Astraea/commit/636a2485ee89c8983bbf53678dd536f26baac55d))
+
 # [3.24.0](https://github.com/mouse484/Astraea/compare/v3.23.0...v3.24.0) (2023-05-17)
 
 
