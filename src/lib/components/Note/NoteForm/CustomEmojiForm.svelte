@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 
 	export let emojis: [string, string, string][];
+
+	const dispatch = createEventDispatcher<{ selectEmoji: string }>();
 
 	let selectedEmojis: string[] = [];
 
@@ -30,6 +32,7 @@
 							class="checkbox checkbox-accent"
 							value={code}
 							bind:group={selectedEmojis}
+							on:click|once={() => dispatch('selectEmoji', `:${code}:`)}
 						/>
 					</label>
 				</div>

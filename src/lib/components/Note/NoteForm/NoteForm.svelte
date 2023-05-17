@@ -100,7 +100,10 @@
 				</datalist>
 			</label>
 		</div>
-		<CustomEmojiForm bind:emojis />
+		<CustomEmojiForm
+			bind:emojis
+			on:selectEmoji={(emoji) => (content = `${content} ${emoji.detail}`)}
+		/>
 		<button on:click={publishPost} class="btn btn-primary" disabled={isPublish}>
 			{$_('home.post.post')}
 		</button>
