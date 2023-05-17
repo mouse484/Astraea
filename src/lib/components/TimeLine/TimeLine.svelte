@@ -41,11 +41,12 @@
 
 	$: notelists = [...$notes.values()].sort((a, b) => b.created_at - a.created_at);
 
+	const mountedNoteList = writable(new Set<string>());
 	let reactionsub: Sub | undefined = undefined;
 	let notNew = false;
-	let saveIds = 0;
+
 	$: {
-		if (notelists.length && !notNew && saveIds !== notelists.length) {
+		if ($mountedNoteList.size && !notNew) {
 			reactionsub?.unsub();
 			setTimeout(() => {
 				notNew = false;
@@ -54,7 +55,7 @@
 			reactionsub = subscribeEvents(
 				7,
 				{
-					'#e': notelists.map(({ id }) => id)
+					'#e': [...$mountedNoteList].map((id) => id)
 				},
 				relays
 			);
@@ -75,7 +76,16 @@
 		<div class="mt-4">
 			{#if data}
 				{@const { id, repost } = data}
-				<Note {id} {repost} />
+				<Note
+					{id}
+					{repost}
+					on:status={(ev) => {
+						mountedNoteList.update((v) => {
+							ev.detail === 'in' ? v.add(id) : v.delete(id);
+							return v;
+						});
+					}}
+				/>
 			{/if}
 		</div>
 	</VirtualScroll>

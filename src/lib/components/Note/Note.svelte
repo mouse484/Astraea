@@ -6,10 +6,13 @@
 	import NoteContent from './NoteContent.svelte';
 	import NoteFooter from './NoteFooter.svelte';
 	import { _ } from 'svelte-i18n';
+	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
 
 	export let id: string;
 	export let isReply = false;
 	export let repost: string | undefined = undefined;
+
+	const dispatch = createEventDispatcher<{ status: 'in' | 'out' }>();
 
 	$: note = noteQuery(id, useRelays('read'));
 
@@ -22,6 +25,13 @@
 	let isNip36Visable = false;
 	// [type=content-warning,reason=string]
 	$: hasNip36Warn = event?.tags.find(([type]) => type === 'content-warning')?.[1];
+
+	onMount(() => {
+		dispatch('status', 'in');
+	});
+	onDestroy(() => {
+		dispatch('status', 'out');
+	});
 </script>
 
 {#if event}
