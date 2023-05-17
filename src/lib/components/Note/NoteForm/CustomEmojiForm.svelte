@@ -16,7 +16,7 @@
 
 {#if $customEmojis}
 	<div class="dropdown dropdown-end">
-		<button tabindex="-1" class="m-1 btn btn-primary">{$_('emoji.emoji')}</button>
+		<button tabindex="-1" class="m-1 btn btn-primary">カスタム{$_('emoji.emoji')}</button>
 		<div tabindex="-1" class="w-max h-40 dropdown-content bg-base-100 overflow-auto p-2">
 			{#each [...$customEmojis.entries()] as [code, url] (code)}
 				<div class="w-full form-control">
