@@ -1,3 +1,10 @@
+# [3.23.0](https://github.com/mouse484/Astraea/compare/v3.22.1...v3.23.0) (2023-05-17)
+
+
+### Features
+
+* new colors ([33b0983](https://github.com/mouse484/Astraea/commit/33b09837ad6650fb8c1a67f094ec81e8953373ea))
+
 ## [3.22.1](https://github.com/mouse484/Astraea/compare/v3.22.0...v3.22.1) (2023-05-16)
 
 
