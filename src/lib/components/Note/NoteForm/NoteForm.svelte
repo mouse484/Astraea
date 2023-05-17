@@ -51,6 +51,7 @@
 			content = '';
 			isNip36 = false;
 			nip36Content = '';
+			emojis = [];
 
 			dispatch('status', 'success');
 		});
@@ -102,7 +103,7 @@
 		</div>
 		<CustomEmojiForm
 			bind:emojis
-			on:selectEmoji={(emoji) => (content = `${content} ${emoji.detail}`)}
+			on:selectEmoji={({ detail }) => (content = content ? `${content} ${detail}` : detail)}
 		/>
 		<button on:click={publishPost} class="btn btn-primary" disabled={isPublish}>
 			{$_('home.post.post')}
