@@ -51,7 +51,7 @@
 		"marked": "^4.3.0",
 		"marked-emoji": "^1.0.1",
 		"marked-linkify-it": "^3.0.2",
-		"nostr-tools": "^1.10.1",
+		"nostr-tools": "^1.11.1",
 		"svelte-i18n": "^3.6.0",
 		"svelte-virtual-scroll-list": "^1.1.0",
 		"theme-change": "^2.5.0",
