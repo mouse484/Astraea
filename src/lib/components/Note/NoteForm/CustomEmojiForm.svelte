@@ -2,15 +2,10 @@
 	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import type { ChangeEventHandler, PointerEventHandler } from 'svelte/elements';
 
 	export let emojis: [string, string, string][];
 
 	const dispatch = createEventDispatcher<{ selectEmoji: string }>();
-
-	let selectedEmojis: string[] = [];
-
-	$: emojis = selectedEmojis.map((code) => ['emoji', code, $customEmojis.get(code) || '']);
 
 	const onEmoji = (ev: Event, code: string) => {
 		const target = ev.target as HTMLInputElement;
@@ -36,8 +31,8 @@
 						<input
 							type="checkbox"
 							class="checkbox checkbox-accent"
-							value={code}
-							bind:group={selectedEmojis}
+							value={['emoji', code, $customEmojis.get(code) || '']}
+							bind:group={emojis}
 							on:change={(ev) => onEmoji(ev, code)}
 						/>
 					</label>
