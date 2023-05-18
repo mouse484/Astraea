@@ -1,3 +1,10 @@
+## [3.24.3](https://github.com/mouse484/Astraea/compare/v3.24.2...v3.24.3) (2023-05-18)
+
+
+### Bug Fixes
+
+* カスタム絵文字の選択を投稿したら解除する ([8118142](https://github.com/mouse484/Astraea/commit/8118142abd40f7dca1f2888d3cd2a61ccad066b9))
+
 ## [3.24.2](https://github.com/mouse484/Astraea/compare/v3.24.1...v3.24.2) (2023-05-17)
 
 
