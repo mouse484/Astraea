@@ -1,3 +1,10 @@
+## [3.24.4](https://github.com/mouse484/Astraea/compare/v3.24.3...v3.24.4) (2023-05-18)
+
+
+### Bug Fixes
+
+* marked parser ([f5cdc19](https://github.com/mouse484/Astraea/commit/f5cdc19ae7ca23fc9d76f8909a5d767fb2187607))
+
 ## [3.24.3](https://github.com/mouse484/Astraea/compare/v3.24.2...v3.24.3) (2023-05-18)
 
 
