@@ -35,7 +35,7 @@
 		}
 	};
 
-	marked.setOptions({ breaks: true });
+	marked.setOptions({ breaks: true, pedantic: true });
 	marked.use(markedEmoji({ emojis, unicode: false }));
 	marked.use(
 		markedLinkifyIt({
