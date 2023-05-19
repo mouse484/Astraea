@@ -7,19 +7,19 @@ export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: 
 	return (tree) => {
 		findAndReplace(tree as Root, [
 			[
-				/nostr:(.+)/g,
-				(_, id) => {
-					return h('nostr', { id });
-				}
-			],
-			[
-				/:(.+):/g,
+				/:(\w+):/g,
 				(raw, code) => {
 					const emojiUrl = options.emojis[code];
 					if (emojiUrl) {
 						return h('emoji', { code, url: emojiUrl });
 					}
 					return raw;
+				}
+			],
+			[
+				/nostr:(.+)/g,
+				(_, id) => {
+					return h('nostr', { id });
 				}
 			]
 		]);

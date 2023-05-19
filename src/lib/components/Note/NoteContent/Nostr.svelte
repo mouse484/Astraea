@@ -19,7 +19,9 @@
 
 	onMount(() => {
 		if (!properties.id) return;
-		value = nip19.decode(properties.id);
+		try {
+			value = nip19.decode(properties.id);
+		} catch {}
 	});
 </script>
 
