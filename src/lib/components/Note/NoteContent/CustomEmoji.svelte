@@ -3,10 +3,9 @@
 
 	export let type: unknown;
 	export let tagName: unknown;
-	export let position: unknown;
 	export let __index: unknown;
 	export let children: HastNode[];
-	[type, tagName, position, __index, children];
+	[type, tagName, __index, children];
 
 	export let properties: { code: string; url: string };
 </script>
