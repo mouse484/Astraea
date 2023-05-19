@@ -1,3 +1,10 @@
+## [3.26.2](https://github.com/mouse484/Astraea/compare/v3.26.1...v3.26.2) (2023-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vite-plugin-pwa to ^0.15.0 ([d7ae9eb](https://github.com/mouse484/Astraea/commit/d7ae9ebbd34364a1bd74e4103f49a9db2cf2240d))
+
 ## [3.26.1](https://github.com/mouse484/Astraea/compare/v3.26.0...v3.26.1) (2023-05-19)
 
 
