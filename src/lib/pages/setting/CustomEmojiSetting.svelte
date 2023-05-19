@@ -2,24 +2,41 @@
 	import { setLocalStorage } from '$lib/utils/localStorage';
 	import { onMount } from 'svelte';
 	import { customEmojis as emojis, getCustomEmojis } from '$lib/store/customEmoji';
+	import { z } from 'zod';
 
 	onMount(() => {
 		getCustomEmojis();
 	});
 
-	$: console.log($emojis);
-
 	let code: string;
 	let url: string;
 
-	const add = () => {
-		if (!code || !url) return;
-		emojis.update((v) => v.set(code, url));
+	const add = (c: string, u: string, clear = true) => {
+		emojis.update((v) => v.set(c, u));
 
-		code = '';
-		url = '';
+		if (clear) {
+			code = '';
+			url = '';
+		}
+
 		setLocalStorage('emojis', JSON.stringify([...$emojis.entries()]));
 	};
+
+	const emojiListScheme = z.record(z.string());
+
+	const importEmoji = async () => {
+		const response = await fetch(`/api/json?url=${url}`);
+		if (!response) return;
+		const emojiJson = await response.json();
+		const parsed = emojiListScheme.safeParse(emojiJson);
+		if (parsed.success) {
+			Object.entries(parsed.data).forEach(([code, url]) => {
+				add(code, url, false);
+			});
+			url = '';
+		}
+	};
+
 	const deleteEmoji = (code: string) => {
 		emojis.update((v) => {
 			v.delete(code);
@@ -32,17 +49,30 @@
 <div>
 	<div>
 		<label class="input-group">
-			<span class="w-20">name</span>
-			<input type="text" class="input input-bordered" bind:value={code} />
+			<span class="w-28">shortcode</span>
+			<input
+				type="text"
+				placeholder="絵文字の名前（インポートする場合は空）"
+				class="input input-bordered w-80"
+				bind:value={code}
+			/>
 		</label>
 		<label class="mt-2 input-group">
-			<span class="w-20">url</span>
-			<input type="text" class="input input-bordered" bind:value={url} />
+			<span class="w-28">url</span>
+			<input
+				type="text"
+				placeholder="絵文字URL/インポートするJSONのURL"
+				class="input input-bordered w-80"
+				bind:value={url}
+			/>
 		</label>
 	</div>
 
-	<button on:click={() => add()} class="mt-4 btn btn-secondary" disabled={!code || !url}>
+	<button on:click={() => add(code, url)} class="mt-4 btn btn-secondary" disabled={!code || !url}>
 		追加
+	</button>
+	<button on:click={() => importEmoji()} class="mt-4 btn btn-secondary" disabled={!url || !!code}>
+		インポート
 	</button>
 
 	<h4 class="mt-4 text-lg">絵文字一覧</h4>
