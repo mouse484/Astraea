@@ -1,3 +1,18 @@
+# [3.25.0](https://github.com/mouse484/Astraea/compare/v3.24.5...v3.25.0) (2023-05-19)
+
+
+### Bug Fixes
+
+* dont need position ([da6e9ff](https://github.com/mouse484/Astraea/commit/da6e9ff4fb72aa45177ede7e03f78aacb7698a96))
+
+
+### Features
+
+* custom emojis use unified ([ee47d5f](https://github.com/mouse484/Astraea/commit/ee47d5f7625936f31ce47962eee3844905d61e91))
+* markdown parser svelte-exmarkdown (unified) ([323b094](https://github.com/mouse484/Astraea/commit/323b094c158b9763150b3a2a3ac3e7acada4764b))
+* remove marked ([9834564](https://github.com/mouse484/Astraea/commit/9834564a7569245614804e04d7e7e12ceefb9645))
+* support nostr: unified version ([851fa37](https://github.com/mouse484/Astraea/commit/851fa37817247b57264d47effd360e9e96ae7185))
+
 ## [3.24.5](https://github.com/mouse484/Astraea/compare/v3.24.4...v3.24.5) (2023-05-19)
 
 
