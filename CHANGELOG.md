@@ -1,3 +1,10 @@
+# [3.26.0](https://github.com/mouse484/Astraea/compare/v3.25.1...v3.26.0) (2023-05-19)
+
+
+### Features
+
+* emoji import ([bdbeb51](https://github.com/mouse484/Astraea/commit/bdbeb51d693dced781e5f5c17c83cf814a0fa143))
+
 ## [3.25.1](https://github.com/mouse484/Astraea/compare/v3.25.0...v3.25.1) (2023-05-19)
 
 
