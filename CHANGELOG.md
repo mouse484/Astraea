@@ -1,3 +1,10 @@
+## [3.26.1](https://github.com/mouse484/Astraea/compare/v3.26.0...v3.26.1) (2023-05-19)
+
+
+### Bug Fixes
+
+* custom emoji parser ([ac108a4](https://github.com/mouse484/Astraea/commit/ac108a442aba6430edbba6dc512f1eb89a6f81cf))
+
 # [3.26.0](https://github.com/mouse484/Astraea/compare/v3.25.1...v3.26.0) (2023-05-19)
 
 
