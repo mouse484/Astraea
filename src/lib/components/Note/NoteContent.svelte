@@ -4,10 +4,11 @@
 	import Markdown, { type Plugin } from 'svelte-exmarkdown';
 	import { gfmPlugin } from 'svelte-exmarkdown/gfm';
 	import remarkBreaks from 'remark-breaks';
-	import { rehypeCustomEmoji } from '$lib/utils/unifiedPlugins';
+	import { rehypeNostrContent } from '$lib/utils/unifiedPlugins';
 
 	import Link from './NoteContent/Link.svelte';
 	import CustomEmoji from './NoteContent/CustomEmoji.svelte';
+	import Nostr from './NoteContent/Nostr.svelte';
 
 	export let event: Event;
 
@@ -18,8 +19,8 @@
 	const plugins: Plugin[] = [
 		gfmPlugin,
 		{ remarkPlugin: remarkBreaks },
-		{ rehypePlugin: [rehypeCustomEmoji, { emojis }] },
-		{ renderer: { a: Link, emoji: CustomEmoji } }
+		{ rehypePlugin: [rehypeNostrContent, { emojis }] },
+		{ renderer: { a: Link, nostr: Nostr, emoji: CustomEmoji } }
 	];
 </script>
 

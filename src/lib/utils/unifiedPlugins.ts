@@ -3,9 +3,15 @@ import { findAndReplace } from 'hast-util-find-and-replace';
 import type { Root } from 'hast';
 import { h } from 'hastscript';
 
-export const rehypeCustomEmoji: Plugin = (options: { emojis: { [keys: string]: string } }) => {
+export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: string } }) => {
 	return (tree) => {
 		findAndReplace(tree as Root, [
+			[
+				/nostr:(.+)/g,
+				(_, id) => {
+					return h('nostr', { id });
+				}
+			],
 			[
 				/:(.+):/g,
 				(raw, code) => {
