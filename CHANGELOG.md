@@ -1,3 +1,11 @@
+## [3.25.1](https://github.com/mouse484/Astraea/compare/v3.25.0...v3.25.1) (2023-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @vite-pwa/sveltekit to ^0.2.2 ([41159f7](https://github.com/mouse484/Astraea/commit/41159f7f9e21df59282642bd407a4d595e89fd68))
+* **deps:** update dependency nostr-tools to ^1.11.1 ([3b4a85f](https://github.com/mouse484/Astraea/commit/3b4a85f13de3a0e7a2ec2c3c1fde9d3c6539c155))
+
 # [3.25.0](https://github.com/mouse484/Astraea/compare/v3.24.5...v3.25.0) (2023-05-19)
 
 
