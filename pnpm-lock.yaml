@@ -38,7 +38,7 @@ dependencies:
     specifier: ^7.2.0
     version: 7.2.0
   nostr-tools:
-    specifier: ^1.10.1
+    specifier: ^1.11.1
     version: 1.11.1
   remark-breaks:
     specifier: ^3.0.3
