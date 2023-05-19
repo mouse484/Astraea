@@ -2,7 +2,7 @@
 	import type { HastNode } from 'svelte-exmarkdown/types';
 	import Children from 'svelte-exmarkdown/renderer/Children.svelte';
 
-	import NoteImage from '../NoteImage.svelte';
+	import NoteImage from './Image.svelte';
 	import Link from '$lib/components/elements/Link.svelte';
 
 	export let type: unknown;
