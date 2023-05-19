@@ -5,6 +5,12 @@
 	import NoteImage from '../NoteImage.svelte';
 	import Link from '$lib/components/elements/Link.svelte';
 
+	export let type: unknown;
+	export let tagName: unknown;
+	export let position: unknown;
+	export let __index: unknown;
+	[type, tagName, position, __index];
+
 	export let children: HastNode[];
 	export let properties: { href: string };
 
