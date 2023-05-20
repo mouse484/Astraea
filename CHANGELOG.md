@@ -1,3 +1,10 @@
+## [3.26.3](https://github.com/mouse484/Astraea/compare/v3.26.2...v3.26.3) (2023-05-20)
+
+
+### Bug Fixes
+
+* reaction author pubkey ([8af02e8](https://github.com/mouse484/Astraea/commit/8af02e8ce6e410e7eaf7714b0a29a80ad7d73646))
+
 ## [3.26.2](https://github.com/mouse484/Astraea/compare/v3.26.1...v3.26.2) (2023-05-19)
 
 
