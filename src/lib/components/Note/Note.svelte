@@ -62,7 +62,7 @@
 			{:else}
 				<NoteContent {event} />
 			{/if}
-			<NoteFooter {id} />
+			<NoteFooter {event} />
 		</div>
 	</div>
 {/if}

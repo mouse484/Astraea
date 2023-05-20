@@ -10,7 +10,7 @@
 	import EmojiPicker from '../elements/EmojiPicker.svelte';
 	import { useRelays } from '$lib/nostr/relays';
 
-	export let id: string;
+	export let event: Event;
 
 	const displayReactions = writable(new Map<string, Map<string, Event>>());
 	const writeRelays = useRelays('write');
@@ -18,7 +18,7 @@
 	let isOpenEmojiPicker = false;
 
 	const unsubscribe = reactions.subscribe((v) => {
-		const react = v.get(id);
+		const react = v.get(event.id);
 		if (react) {
 			displayReactions.update((ud) => {
 				react.events.forEach((event) => {
@@ -39,8 +39,8 @@
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
 			tags: [
-				['p', $pubkey, ''],
-				['e', id, '']
+				['p', event.pubkey, ''],
+				['e', event.id, '']
 			],
 			content: content,
 			pubkey: $pubkey
