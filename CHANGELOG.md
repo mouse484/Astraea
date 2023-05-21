@@ -1,3 +1,17 @@
+# [3.27.0](https://github.com/mouse484/Astraea/compare/v3.26.3...v3.27.0) (2023-05-21)
+
+
+### Bug Fixes
+
+* add astraea emoji as init ([e9478ae](https://github.com/mouse484/Astraea/commit/e9478ae9e945351c4135dde3ad092e19292104a8))
+* emoji picker error ([bb697f5](https://github.com/mouse484/Astraea/commit/bb697f582709dea5063cb1a0c5d2507162bbdcee))
+
+
+### Features
+
+* emojimartで絵文字選択 ([288af11](https://github.com/mouse484/Astraea/commit/288af11a4a68b0940227f9ad01066cf1c77b218d))
+* note form emoji picker ([2d30669](https://github.com/mouse484/Astraea/commit/2d306694948575e32f8f19313a092e3542798ea4))
+
 ## [3.26.3](https://github.com/mouse484/Astraea/compare/v3.26.2...v3.26.3) (2023-05-20)
 
 
