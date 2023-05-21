@@ -3,7 +3,7 @@ image: gitpod/workspace-node
 tasks:
   - before: corepack enable
     init: pnpm install
-    command: pnpm run dev
+    command: pnpm run dev --host
 
 vscode:
   extensions:
