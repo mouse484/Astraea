@@ -1,3 +1,10 @@
+## [3.27.1](https://github.com/mouse484/Astraea/compare/v3.27.0...v3.27.1) (2023-05-21)
+
+
+### Bug Fixes
+
+* do not display replies when repost ([5ff501f](https://github.com/mouse484/Astraea/commit/5ff501f160bba9c4278286af22a9efa8c8d2ac75))
+
 # [3.27.0](https://github.com/mouse484/Astraea/compare/v3.26.3...v3.27.0) (2023-05-21)
 
 
