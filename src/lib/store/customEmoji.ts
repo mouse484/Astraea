@@ -16,4 +16,6 @@ export const getCustomEmojis = () => {
 	return customEmojis;
 };
 
-export const customEmojis = writable(new Map<string, string>());
+export const customEmojis = writable(
+	new Map<string, string>().set('astraea', 'https://astraea.mousedev.page/icon.png')
+);
