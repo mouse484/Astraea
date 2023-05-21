@@ -3,18 +3,14 @@
 	import Icon from '$lib/components/elements/Icon.svelte';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import EmojiPicker from '$lib/components/elements/EmojiPicker.svelte';
-	import { identity } from 'svelte/internal';
+	import EmojiPicker, { type EmojiDate } from '$lib/components/elements/EmojiPicker.svelte';
 
-	export let emojis: [string, string, string][];
-
-	const dispatch = createEventDispatcher<{ selectEmoji: string }>();
+	const dispatch = createEventDispatcher<{ selectEmoji: EmojiDate }>();
 
 	let isOpen = false;
 
-	const onEmoji = (ev: Event, code: string) => {
-		const target = ev.target as HTMLInputElement;
-		if (target.checked) dispatch('selectEmoji', `:${code}:`);
+	const onEmoji = (emoji: EmojiDate) => {
+		dispatch('selectEmoji', emoji);
 	};
 
 	onMount(() => {
@@ -33,7 +29,7 @@
 			customEmoji={[
 				{
 					id: 'custom',
-					name: 'custom',
+					name: 'Custom',
 					emojis: [...$customEmojis.entries()].map(([code, url]) => ({
 						id: code,
 						name: code,
@@ -43,7 +39,7 @@
 				}
 			]}
 			on:onEmojiSelect={(event) => {
-				console.log(event);
+				onEmoji(event.detail);
 			}}
 		/>
 	{/if}
