@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import data from '@emoji-mart/data';
+	import data, { type EmojiMartData, type Emoji } from '@emoji-mart/data';
 	import { Picker } from 'emoji-mart';
 	import i18nJa from '@emoji-mart/data/i18n/ja.json';
 	import i18nEn from '@emoji-mart/data/i18n/en.json';
@@ -12,21 +12,28 @@
 
 	const dispatch = createEventDispatcher<{ onEmojiSelect: EmojiDate }>();
 
-	export const emojiPicker = (
-		node: HTMLElement,
-		onEmojiSelect: (data: EmojiDate) => void
-	) => {
+	export let customEmoji:
+		| {
+				id: string;
+				name: string;
+				emojis: { id: string; name: string; keywords: string[]; skins: { src: string }[] }[];
+		  }[]
+		| undefined = undefined;
+	export let position: 'right' | '' = '';
+
+	export const emojiPicker = (node: HTMLElement, onEmojiSelect: (data: EmojiDate) => void) => {
 		const picker = new Picker({
-			data,
+			data: data,
 			onEmojiSelect,
-			i18n: $locale === 'ja' ? i18nJa : i18nEn
+			i18n: $locale === 'ja' ? i18nJa : i18nEn,
+			custom: customEmoji || []
 		});
 		node.appendChild(picker as unknown as Node);
 	};
 </script>
 
 <div
-	class="absolute top-0 mt-8 z-40"
+	class="absolute top-0 mt-8 pt-4 z-40 {position === 'right' ? 'right-0' : 0}"
 	use:emojiPicker={(data) => {
 		dispatch('onEmojiSelect', data);
 	}}

@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
+	import Icon from '$lib/components/elements/Icon.svelte';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
+	import EmojiPicker from '$lib/components/elements/EmojiPicker.svelte';
+	import { identity } from 'svelte/internal';
 
 	export let emojis: [string, string, string][];
 
 	const dispatch = createEventDispatcher<{ selectEmoji: string }>();
+
+	let isOpen = false;
 
 	const onEmoji = (ev: Event, code: string) => {
 		const target = ev.target as HTMLInputElement;
@@ -17,27 +22,29 @@
 	});
 </script>
 
-{#if $customEmojis}
-	<div class="dropdown dropdown-end">
-		<button tabindex="-1" class="m-1 btn btn-primary">カスタム{$_('emoji.emoji')}</button>
-		<div tabindex="-1" class="w-max h-40 dropdown-content bg-base-100 overflow-auto p-2">
-			{#each [...$customEmojis.entries()] as [code, url] (code)}
-				<div class="w-full form-control">
-					<label class="input-group">
-						<span class="w-full">
-							<img src={url} alt={code} class="w-4 h-4" />
-							{code}
-						</span>
-						<input
-							type="checkbox"
-							class="checkbox checkbox-accent"
-							value={['emoji', code, $customEmojis.get(code) || '']}
-							bind:group={emojis}
-							on:change={(ev) => onEmoji(ev, code)}
-						/>
-					</label>
-				</div>
-			{/each}
-		</div>
-	</div>
-{/if}
+<div class="relative">
+	<button on:click={() => (isOpen = !isOpen)}>
+		<Icon iconset="material-symbols" name="add-reaction-outline" size="2" />
+	</button>
+
+	{#if isOpen}
+		<EmojiPicker
+			position="right"
+			customEmoji={[
+				{
+					id: 'custom',
+					name: 'custom',
+					emojis: [...$customEmojis.entries()].map(([code, url]) => ({
+						id: code,
+						name: code,
+						keywords: [code],
+						skins: [{ src: url }]
+					}))
+				}
+			]}
+			on:onEmojiSelect={(event) => {
+				console.log(event);
+			}}
+		/>
+	{/if}
+</div>
