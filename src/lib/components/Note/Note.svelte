@@ -36,7 +36,7 @@
 
 {#if event}
 	<div>
-		{#if !isReply && hasReply}
+		{#if !repost && !isReply && hasReply}
 			<svelte:self id={hasReply[1]} isReply={true} />
 		{/if}
 		{#if repost && !!repost.length}
