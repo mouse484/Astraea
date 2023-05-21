@@ -7,7 +7,8 @@
 	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
 	import { createEventDispatcher, onMount } from 'svelte';
-	import CustomEmojiForm from './CustomEmojiForm.svelte';
+	import EmojiForm from './EmojiForm.svelte';
+	import { writable } from 'svelte/store';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -18,7 +19,7 @@
 	let content = '';
 	let isNip36 = false;
 	let nip36Content = '';
-	let emojis: [string, string, string][] = [];
+	const customEmojis = writable(new Map<string, string>());
 
 	$: isPublish = !(isNip07() && !!content);
 
@@ -30,8 +31,10 @@
 		if (replyFor) {
 			tags.push(['e', replyFor, '', 'reply']);
 		}
-		if (emojis) {
-			tags.push(...emojis);
+		if ($customEmojis.size) {
+			[...$customEmojis.entries()].forEach(([code, url]) => {
+				tags.push(['emoji', code, url]);
+			});
 		}
 		if (isNip36) {
 			tags.push(['content-warning', nip36Content]);
@@ -51,7 +54,10 @@
 			content = '';
 			isNip36 = false;
 			nip36Content = '';
-			emojis = [];
+			customEmojis.update((v) => {
+				v.clear();
+				return v;
+			});
 
 			dispatch('status', 'success');
 		});
@@ -101,9 +107,14 @@
 				</datalist>
 			</label>
 		</div>
-		<CustomEmojiForm
-			bind:emojis
-			on:selectEmoji={({ detail }) => (content = content ? `${content} ${detail}` : detail)}
+		<EmojiForm
+			on:selectEmoji={({ detail }) => {
+				if (!detail.native) {
+					customEmojis.update((v) => v.set(detail.id, detail.src || ''));
+				}
+				const emoji = detail.native || detail.shortcodes;
+				content = content ? `${content} ${emoji}` : emoji;
+			}}
 		/>
 		<button on:click={publishPost} class="btn btn-primary" disabled={isPublish}>
 			{$_('home.post.post')}

@@ -1,9 +1,14 @@
 <script context="module" lang="ts">
-	export type EmojiDate = { [key in 'native' | 'id']: string };
+	export type EmojiDate = {
+		id: string;
+		native?: string;
+		shortcodes: string;
+		src?: string;
+	};
 </script>
 
 <script lang="ts">
-	import data, { type EmojiMartData, type Emoji } from '@emoji-mart/data';
+	import data from '@emoji-mart/data';
 	import { Picker } from 'emoji-mart';
 	import i18nJa from '@emoji-mart/data/i18n/ja.json';
 	import i18nEn from '@emoji-mart/data/i18n/en.json';
