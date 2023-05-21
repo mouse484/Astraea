@@ -8,10 +8,11 @@
 		getCustomEmojis();
 	});
 
+	let category: string;
 	let code: string;
 	let url: string;
 
-	const add = (c: string, u: string, clear = true) => {
+	const add = (c: string, u: string, clear = true, category = 'custom') => {
 		emojis.update((v) => v.set(c, u));
 
 		if (clear) {
