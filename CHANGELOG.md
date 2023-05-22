@@ -1,3 +1,10 @@
+## [3.27.2](https://github.com/mouse484/Astraea/compare/v3.27.1...v3.27.2) (2023-05-22)
+
+
+### Bug Fixes
+
+* relay accses ([9f203ef](https://github.com/mouse484/Astraea/commit/9f203efe6029f779add074a2a331382cbfb2feda)), closes [#516](https://github.com/mouse484/Astraea/issues/516)
+
 ## [3.27.1](https://github.com/mouse484/Astraea/compare/v3.27.0...v3.27.1) (2023-05-21)
 
 
