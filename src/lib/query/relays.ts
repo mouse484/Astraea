@@ -17,10 +17,11 @@ export const relaysQuery = (pubkey: string) => {
 		queryFn: async () => {
 			const event = await getEvent(3, { authors: [pubkey] }, useRelays('read', defaultRelays));
 			const parsed = relayScheme.safeParse(JSON.parse(event.content));
-			if (!parsed.success) return defaultRelays;
+			if (!parsed.success) return {};
 			return parsed.data;
 		},
 		cacheTime: 1 * 60 * 60 * 1000,
-		staleTime: 1 * 60 * 60 * 1000
+		staleTime: 1 * 60 * 60 * 1000,
+		retry: 5
 	});
 };
