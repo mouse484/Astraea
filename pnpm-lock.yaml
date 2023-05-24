@@ -24,7 +24,7 @@ dependencies:
     version: 2.0.6
   '@vite-pwa/sveltekit':
     specifier: ^0.2.2
-    version: 0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.0)
+    version: 0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.1)
   daisyui:
     specifier: ^2.51.6
     version: 2.51.6(autoprefixer@10.4.14)(postcss@8.4.23)
@@ -59,8 +59,8 @@ dependencies:
     specifier: ^10.1.2
     version: 10.1.2
   vite-plugin-pwa:
-    specifier: ^0.15.0
-    version: 0.15.0(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
+    specifier: ^0.15.1
+    version: 0.15.1(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
   workbox-window:
     specifier: ^6.5.4
     version: 6.5.4
@@ -2278,7 +2278,7 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vite-pwa/sveltekit@0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.0):
+  /@vite-pwa/sveltekit@0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.1):
     resolution: {integrity: sha512-GaU2I2IUOTUgHrDSvhZ0CaUe1j4zLAH45c9zoVhJI4IkqlsA3Run4NzIKF3yFAgR5U9l9OgNiJPaskhARenkzw==}
     engines: {node: '>=16.14'}
     peerDependencies:
@@ -2286,7 +2286,7 @@ packages:
       vite-plugin-pwa: ^0.14.0
     dependencies:
       '@sveltejs/kit': 1.18.0(svelte@3.59.1)(vite@4.3.8)
-      vite-plugin-pwa: 0.15.0(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
+      vite-plugin-pwa: 0.15.1(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
     dev: false
 
   /JSONStream@1.3.5:
@@ -6681,8 +6681,8 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /vite-plugin-pwa@0.15.0(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4):
-    resolution: {integrity: sha512-gpmx3BeubsRIXRBkjPToOTJbo8fknNmZFQs24i0TPZyaNVa0n27YHDo0Y72amnO70WvHKGE3e1fn8SYUP7e8SA==}
+  /vite-plugin-pwa@0.15.1(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4):
+    resolution: {integrity: sha512-lJVzEYda/Y9AfwxFzX0rV+QCQ2+WdBoEGtR1RBZKWxvrJ4NWEH1VZaHOMyzvRiYhWQsi7aFhewsp1CDvN/R1Og==}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
       workbox-build: ^6.5.4
