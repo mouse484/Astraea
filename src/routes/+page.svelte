@@ -23,7 +23,7 @@
 		<NoteForm />
 	</div>
 	{#if $contacts.data && readRelays}
-		<section class="m-4 h-2/3">
+		<Section className="h-[65vh]">
 			<TimeLine
 				relays={readRelays}
 				authors={$contacts.data}
@@ -33,6 +33,6 @@
 					)
 				}}
 			/>
-		</section>
+		</Section>
 	{/if}
 </div>
