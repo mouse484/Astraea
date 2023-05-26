@@ -7,11 +7,24 @@
 	import Note from '$lib/components/Note/Note.svelte';
 	import { pubkey } from '$lib/store/pubkey';
 	import { reactions } from '$lib/store/reactions';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
+	import { subscribeEvents } from '$lib/nostr/pool';
+	import type { Sub } from 'nostr-tools';
+	import { useRelays } from '$lib/nostr/relays';
 
 	const items = writable(new Map<string, [{ [key: string]: string[] }, number]>());
+
+	const relays = useRelays('read');
+	let sub: Sub;
+
+	onMount(() => {
+		sub = subscribeEvents(7, { '#p': [$pubkey] }, relays);
+		sub.on('event', (event) => {
+			reactions.set(event);
+		});
+	});
 
 	const unsubscribe = reactions.subscribe((events) => {
 		[...events.values()].forEach(({ events: reactEvents, lastUpdate }) => {
@@ -35,6 +48,7 @@
 
 	onDestroy(() => {
 		unsubscribe();
+		sub.unsub();
 	});
 </script>
 
