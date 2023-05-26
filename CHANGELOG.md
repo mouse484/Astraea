@@ -1,3 +1,11 @@
+# [3.28.0](https://github.com/mouse484/Astraea/compare/v3.27.3...v3.28.0) (2023-05-26)
+
+
+### Features
+
+* kind7で自分宛てのリアクションを取得 ([d4389ef](https://github.com/mouse484/Astraea/commit/d4389ef69cae475133e41e2d68a99741d9c4374b))
+* notice virctual scroll ([fe10081](https://github.com/mouse484/Astraea/commit/fe100817b1e518bc9f366af20fbd198701dc96dd))
+
 ## [3.27.3](https://github.com/mouse484/Astraea/compare/v3.27.2...v3.27.3) (2023-05-25)
 
 
