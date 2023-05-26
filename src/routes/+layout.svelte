@@ -43,7 +43,7 @@
 						<SideMenu />
 					</Responsive>
 					<RelaysHandle pubkey={$pubkey}>
-						<div class="overflow-y-scroll w-full h-screen">
+						<div class="overflow-y-scroll w-full h-full">
 							<slot />
 						</div>
 						<Responsive breakpoint="md">
