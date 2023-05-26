@@ -1,3 +1,10 @@
+## [3.28.1](https://github.com/mouse484/Astraea/compare/v3.28.0...v3.28.1) (2023-05-26)
+
+
+### Bug Fixes
+
+* timeline scroll size ([4bc2742](https://github.com/mouse484/Astraea/commit/4bc274256771c9eb6f253de0f881b8541d6d0e94))
+
 # [3.28.0](https://github.com/mouse484/Astraea/compare/v3.27.3...v3.28.0) (2023-05-26)
 
 
