@@ -24,7 +24,7 @@ dependencies:
     version: 2.0.6
   '@vite-pwa/sveltekit':
     specifier: ^0.2.2
-    version: 0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.1)
+    version: 0.2.2(@sveltejs/kit@1.19.0)(vite-plugin-pwa@0.15.1)
   daisyui:
     specifier: ^2.51.6
     version: 2.51.6(autoprefixer@10.4.14)(postcss@8.4.23)
@@ -77,10 +77,10 @@ devDependencies:
     version: 10.0.1(semantic-release@21.0.2)
   '@sveltejs/adapter-auto':
     specifier: ^2.1.0
-    version: 2.1.0(@sveltejs/kit@1.18.0)
+    version: 2.1.0(@sveltejs/kit@1.19.0)
   '@sveltejs/kit':
-    specifier: ^1.18.0
-    version: 1.18.0(svelte@3.59.1)(vite@4.3.8)
+    specifier: ^1.19.0
+    version: 1.19.0(svelte@3.59.1)(vite@4.3.8)
   '@types/linkify-it':
     specifier: ^3.0.2
     version: 3.0.2
@@ -2002,17 +2002,17 @@ packages:
     resolution: {integrity: sha512-04xYxOT5Ti+VlP70+uY/a5tGnVWl3XFgnRiO9bMSHbkwOlzHxSgXyM1NCS4NV09B3i41LRuShgeMrbgU0J5cPg==}
     dev: false
 
-  /@sveltejs/adapter-auto@2.1.0(@sveltejs/kit@1.18.0):
+  /@sveltejs/adapter-auto@2.1.0(@sveltejs/kit@1.19.0):
     resolution: {integrity: sha512-o2pZCfATFtA/Gw/BB0Xm7k4EYaekXxaPGER3xGSY3FvzFJGTlJlZjBseaXwYSM94lZ0HniOjTokN3cWaLX6fow==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.18.0(svelte@3.59.1)(vite@4.3.8)
+      '@sveltejs/kit': 1.19.0(svelte@3.59.1)(vite@4.3.8)
       import-meta-resolve: 3.0.0
     dev: true
 
-  /@sveltejs/kit@1.18.0(svelte@3.59.1)(vite@4.3.8):
-    resolution: {integrity: sha512-QE5X9gCG34khrO6j01ZbRXtVx+yyUNe8PmVPeG0M+I8eyFejqYMEhD1JtjCrLzpd4KukvuO8bL35M1VWmPM7hQ==}
+  /@sveltejs/kit@1.19.0(svelte@3.59.1)(vite@4.3.8):
+    resolution: {integrity: sha512-39fHvYvUQL3bCdV6Ed9MRIESO6ceM/MRNxAloQin+Qs9DfiM53vhUJBWtbwWAvRR/nM6isWnsbContjE/2/JxQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -2278,14 +2278,14 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vite-pwa/sveltekit@0.2.2(@sveltejs/kit@1.18.0)(vite-plugin-pwa@0.15.1):
+  /@vite-pwa/sveltekit@0.2.2(@sveltejs/kit@1.19.0)(vite-plugin-pwa@0.15.1):
     resolution: {integrity: sha512-GaU2I2IUOTUgHrDSvhZ0CaUe1j4zLAH45c9zoVhJI4IkqlsA3Run4NzIKF3yFAgR5U9l9OgNiJPaskhARenkzw==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@sveltejs/kit': ^1.3.1
       vite-plugin-pwa: ^0.14.0
     dependencies:
-      '@sveltejs/kit': 1.18.0(svelte@3.59.1)(vite@4.3.8)
+      '@sveltejs/kit': 1.19.0(svelte@3.59.1)(vite@4.3.8)
       vite-plugin-pwa: 0.15.1(vite@4.3.8)(workbox-build@6.5.4)(workbox-window@6.5.4)
     dev: false
 
