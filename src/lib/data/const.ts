@@ -7,7 +7,11 @@ export const defaultRelays = {
 		read: true,
 		write: true
 	},
-	'wss://relay.snort.social': {
+	'wss://universe.nostrich.land': {
+		read: true,
+		write: true
+	},
+	'wss://yabu.me': {
 		read: true,
 		write: true
 	}
