@@ -1,3 +1,10 @@
+## [3.28.4](https://github.com/mouse484/Astraea/compare/v3.28.3...v3.28.4) (2023-05-27)
+
+
+### Bug Fixes
+
+* update default relay ([c1cba50](https://github.com/mouse484/Astraea/commit/c1cba5005d657f7e30bb3fd39bee3b41c6cc1c0c)), closes [#530](https://github.com/mouse484/Astraea/issues/530)
+
 ## [3.28.3](https://github.com/mouse484/Astraea/compare/v3.28.2...v3.28.3) (2023-05-27)
 
 
