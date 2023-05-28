@@ -1,3 +1,10 @@
+## [3.28.5](https://github.com/mouse484/Astraea/compare/v3.28.4...v3.28.5) (2023-05-28)
+
+
+### Bug Fixes
+
+* nip36のreasonが空でも非表示にする ([ad9a679](https://github.com/mouse484/Astraea/commit/ad9a679dab81aaa0db4b2014c0bf84a884a5dd6c)), closes [#532](https://github.com/mouse484/Astraea/issues/532)
+
 ## [3.28.4](https://github.com/mouse484/Astraea/compare/v3.28.3...v3.28.4) (2023-05-27)
 
 
