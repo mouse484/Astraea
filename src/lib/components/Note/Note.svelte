@@ -24,7 +24,9 @@
 
 	let isNip36Visable = false;
 	// [type=content-warning,reason=string]
-	$: hasNip36Warn = event?.tags.find(([type]) => type === 'content-warning')?.[1];
+	$: hasNip36Warn = event?.tags.find(([type]) => type === 'content-warning') as
+		| [string, string | undefined]
+		| undefined;
 
 	onMount(() => {
 		dispatch('status', 'in');
@@ -55,9 +57,12 @@
 				<div class="text-sm">{new Date(event.created_at * 1000).toLocaleString()}</div>
 			</div>
 			{#if hasNip36Warn && !isNip36Visable}
+				{@const [, nip36Reason] = hasNip36Warn}
 				<button class="p-2 m-2 rounded border" on:click={() => (isNip36Visable = true)}>
 					<p>{$_('home.nip36.why')}</p>
-					<p>{$_('home.nip36.reason')}: <span class="font-bold">{hasNip36Warn}</span></p>
+					{#if nip36Reason}
+						<p>{$_('home.nip36.reason')}: <span class="font-bold">{nip36Reason}</span></p>
+					{/if}
 				</button>
 			{:else}
 				<NoteContent {event} />
