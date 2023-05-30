@@ -61,5 +61,6 @@
 		"vite-plugin-pwa": "^0.15.1",
 		"workbox-window": "^6.6.0",
 		"zod": "^3.21.4"
-	}
+	},
+	"packageManager": "pnpm@8.5.1"
 }
