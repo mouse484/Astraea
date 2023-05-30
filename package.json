@@ -62,5 +62,5 @@
 		"workbox-window": "^6.6.1",
 		"zod": "^3.21.4"
 	},
-	"packageManager": "pnpm@8.5.1"
+	"packageManager": "pnpm@8.6.0"
 }
