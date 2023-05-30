@@ -1,3 +1,10 @@
+## [3.28.9](https://github.com/mouse484/Astraea/compare/v3.28.8...v3.28.9) (2023-05-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency workbox-window to ^6.6.1 ([0c5ebd3](https://github.com/mouse484/Astraea/commit/0c5ebd3979353bf824c5d7beaaa709bb61943745))
+
 ## [3.28.8](https://github.com/mouse484/Astraea/compare/v3.28.7...v3.28.8) (2023-05-30)
 
 
