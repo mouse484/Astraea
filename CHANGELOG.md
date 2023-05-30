@@ -1,3 +1,10 @@
+## [3.28.6](https://github.com/mouse484/Astraea/compare/v3.28.5...v3.28.6) (2023-05-30)
+
+
+### Bug Fixes
+
+* pnpm downgrade ([c0828e7](https://github.com/mouse484/Astraea/commit/c0828e7fffc559c39a6f7be023797b675bcebfb3))
+
 ## [3.28.5](https://github.com/mouse484/Astraea/compare/v3.28.4...v3.28.5) (2023-05-28)
 
 
