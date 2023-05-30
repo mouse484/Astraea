@@ -58,7 +58,7 @@
 		"svelte-virtual-scroll-list": "^1.1.0",
 		"theme-change": "^2.5.0",
 		"unified": "^10.1.2",
-		"vite-plugin-pwa": "^0.15.1",
+		"vite-plugin-pwa": "^0.15.2",
 		"workbox-window": "^6.6.0",
 		"zod": "^3.21.4"
 	},
