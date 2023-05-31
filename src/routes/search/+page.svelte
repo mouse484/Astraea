@@ -22,7 +22,7 @@
 <div>
 	<Heading>{$_('search.search')}</Heading>
 
-	<Section>
+	<Section className="h-full">
 		<h3 class="text-xl">{$searchQuery}</h3>
 		{#key $searchQuery}
 			{#if $searchQuery}

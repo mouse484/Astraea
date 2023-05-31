@@ -12,7 +12,7 @@
 <div>
 	<Profile pubkey={data.pubkey} detail={true} />
 
-	<div class="mt-8">
+	<div class="mt-8 h-[80vh]">
 		<TimeLine relays={readRelays} authors={[data.pubkey]} />
 	</div>
 </div>
