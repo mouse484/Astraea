@@ -64,10 +64,10 @@ dependencies:
     version: 10.1.2
   vite-plugin-pwa:
     specifier: ^0.16.0
-    version: 0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.6.1)
+    version: 0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
   workbox-window:
-    specifier: ^6.6.1
-    version: 6.6.1
+    specifier: ^7.0.0
+    version: 7.0.0
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -2306,7 +2306,7 @@ packages:
       vite-plugin-pwa: ^0.14.0
     dependencies:
       '@sveltejs/kit': 1.20.0(svelte@3.59.1)(vite@4.3.9)
-      vite-plugin-pwa: 0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.6.1)
+      vite-plugin-pwa: 0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
     dev: false
 
   /JSONStream@1.3.5:
@@ -6701,7 +6701,7 @@ packages:
       vfile-message: 3.1.4
     dev: false
 
-  /vite-plugin-pwa@0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@6.6.1):
+  /vite-plugin-pwa@0.16.0(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@7.0.0):
     resolution: {integrity: sha512-E+AQRzHxqNU4ZhEeR8X37/foZB+ezJEhXauE/mcf1UITY6k2Pa1dtlFl+BQu57fTdiVlWim5S0Qy44Yap93Dkg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -6714,7 +6714,7 @@ packages:
       pretty-bytes: 6.1.0
       vite: 4.3.9
       workbox-build: 7.0.0
-      workbox-window: 6.6.1
+      workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6887,10 +6887,6 @@ packages:
       workbox-core: 7.0.0
     dev: false
 
-  /workbox-core@6.6.1:
-    resolution: {integrity: sha512-ZrGBXjjaJLqzVothoE12qTbVnOAjFrHDXpZe7coCb6q65qI/59rDLwuFMO4PcZ7jcbxY+0+NhUVztzR/CbjEFw==}
-    dev: false
-
   /workbox-core@7.0.0:
     resolution: {integrity: sha512-81JkAAZtfVP8darBpfRTovHg8DGAVrKFgHpOArZbdFd78VqHr5Iw65f2guwjE2NlCFbPFDoez3D3/6ZvhI/rwQ==}
     dev: false
@@ -6963,13 +6959,6 @@ packages:
 
   /workbox-sw@7.0.0:
     resolution: {integrity: sha512-SWfEouQfjRiZ7GNABzHUKUyj8pCoe+RwjfOIajcx6J5mtgKkN+t8UToHnpaJL5UVVOf5YhJh+OHhbVNIHe+LVA==}
-    dev: false
-
-  /workbox-window@6.6.1:
-    resolution: {integrity: sha512-wil4nwOY58nTdCvif/KEZjQ2NP8uk3gGeRNy2jPBbzypU4BT4D9L8xiwbmDBpZlSgJd2xsT9FvSNU0gsxV51JQ==}
-    dependencies:
-      '@types/trusted-types': 2.0.3
-      workbox-core: 6.6.1
     dev: false
 
   /workbox-window@7.0.0:
