@@ -1,3 +1,15 @@
+## [3.28.10](https://github.com/mouse484/Astraea/compare/v3.28.9...v3.28.10) (2023-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @iconify/svelte to ^3.1.4 ([180a995](https://github.com/mouse484/Astraea/commit/180a995c81497b05aa6d6bc12b480e21e47f4cbb))
+* **deps:** update dependency vite-plugin-pwa to ^0.16.0 ([6a54d97](https://github.com/mouse484/Astraea/commit/6a54d975e9801eb471cf63384d96d3a8de05a885))
+* **deps:** update dependency vite-plugin-pwa to ^0.16.1 ([71ee09b](https://github.com/mouse484/Astraea/commit/71ee09ba2f1dd36fa85f48813dcd0103bfa4eb5a))
+* **deps:** update dependency workbox-window to ^7.0.0 ([20daa33](https://github.com/mouse484/Astraea/commit/20daa333e35b1b4c5b701101ee2f3d4b870d14ba))
+* scroll ([7fa3da0](https://github.com/mouse484/Astraea/commit/7fa3da01aa0b563d4d7eb6d1cac91b27131526f6))
+* style root witdh 100% ([04f4595](https://github.com/mouse484/Astraea/commit/04f4595968b87dc4d7b24dcf7ab396241f02556e))
+
 ## [3.28.9](https://github.com/mouse484/Astraea/compare/v3.28.8...v3.28.9) (2023-05-30)
 
 
