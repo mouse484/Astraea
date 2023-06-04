@@ -41,12 +41,10 @@
 	{/if}
 	<div class="flex justify-between">
 		<a class="flex gap-2 items-center text-inherit visited:text-inherit w-fit" href={to}>
-			<div class={imageSize === 'm' ? 'w-12' : 'w-8'}>
-				{#if profile?.picture}
-					<img class="rounded" src={profile.picture} alt={profile?.name} />
-				{:else}
-					<Icon icon="mdi:account" />
-				{/if}
+			<div class="avatar">
+				<div class="rounded object-cover {imageSize === 'm' ? 'w-12 h-12' : 'w-8 h-8'}">
+					<img src={profile.picture} alt={profile?.name} />
+				</div>
 			</div>
 
 			{#if !imageOnly}
