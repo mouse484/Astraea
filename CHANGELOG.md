@@ -1,3 +1,12 @@
+## [3.28.14](https://github.com/mouse484/Astraea/compare/v3.28.13...v3.28.14) (2023-06-04)
+
+
+### Bug Fixes
+
+* icon size ([35c23ce](https://github.com/mouse484/Astraea/commit/35c23ceaf60ba19c7576cddf3f19b3993bd00ef0))
+* profile page margin ([37c82e2](https://github.com/mouse484/Astraea/commit/37c82e2213f4b4c693faac9919b480161d12a4e5))
+* transitions between profiles ([a6b75ca](https://github.com/mouse484/Astraea/commit/a6b75ca128fdc2c3a3161491866766f363fe9f70))
+
 ## [3.28.13](https://github.com/mouse484/Astraea/compare/v3.28.12...v3.28.13) (2023-06-04)
 
 
