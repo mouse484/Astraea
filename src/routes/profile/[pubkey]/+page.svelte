@@ -9,12 +9,14 @@
 	const readRelays = useRelays('read');
 </script>
 
-<div>
-	<div class="mt-8">
-		<Profile pubkey={data.pubkey} detail={true} />
-	</div>
+{#key data}
+	<div>
+		<div class="mt-8">
+			<Profile pubkey={data.pubkey} detail={true} />
+		</div>
 
-	<div class="mt-8 h-[75vh]">
-		<TimeLine relays={readRelays} authors={[data.pubkey]} />
+		<div class="mt-8 h-[75vh]">
+			<TimeLine relays={readRelays} authors={[data.pubkey]} />
+		</div>
 	</div>
-</div>
+{/key}
