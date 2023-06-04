@@ -10,9 +10,11 @@
 </script>
 
 <div>
-	<Profile pubkey={data.pubkey} detail={true} />
+	<div class="mt-8">
+		<Profile pubkey={data.pubkey} detail={true} />
+	</div>
 
-	<div class="mt-8 h-[80vh]">
+	<div class="mt-8 h-[75vh]">
 		<TimeLine relays={readRelays} authors={[data.pubkey]} />
 	</div>
 </div>
