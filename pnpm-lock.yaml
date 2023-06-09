@@ -27,8 +27,8 @@ dependencies:
     specifier: ^2.0.6
     version: 2.0.6
   '@vite-pwa/sveltekit':
-    specifier: ^0.2.2
-    version: 0.2.2(@sveltejs/kit@1.20.2)(vite-plugin-pwa@0.16.3)
+    specifier: ^0.2.5
+    version: 0.2.5(@sveltejs/kit@1.20.2)(vite-plugin-pwa@0.16.3)
   daisyui:
     specifier: ^3.0.22
     version: 3.0.22(postcss@8.4.24)
@@ -2295,12 +2295,12 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vite-pwa/sveltekit@0.2.2(@sveltejs/kit@1.20.2)(vite-plugin-pwa@0.16.3):
-    resolution: {integrity: sha512-GaU2I2IUOTUgHrDSvhZ0CaUe1j4zLAH45c9zoVhJI4IkqlsA3Run4NzIKF3yFAgR5U9l9OgNiJPaskhARenkzw==}
+  /@vite-pwa/sveltekit@0.2.5(@sveltejs/kit@1.20.2)(vite-plugin-pwa@0.16.3):
+    resolution: {integrity: sha512-cBPxnIpMbGZi68OadC/16OsIhMUdEGooQjlgl/Q39ZcumdGecb+j7LEXe2twCSASGefNN+/K48VZi3W/Rc248Q==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@sveltejs/kit': ^1.3.1
-      vite-plugin-pwa: ^0.14.0
+      vite-plugin-pwa: '>=0.16.3 <1'
     dependencies:
       '@sveltejs/kit': 1.20.2(svelte@3.59.1)(vite@4.3.9)
       vite-plugin-pwa: 0.16.3(vite@4.3.9)(workbox-build@7.0.0)(workbox-window@7.0.0)
