@@ -1,3 +1,10 @@
+## [3.28.20](https://github.com/mouse484/Astraea/compare/v3.28.19...v3.28.20) (2023-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @vite-pwa/sveltekit to ^0.2.5 ([d02903e](https://github.com/mouse484/Astraea/commit/d02903ecd92c6359f51c10f6f04eede38fd5de32))
+
 ## [3.28.19](https://github.com/mouse484/Astraea/compare/v3.28.18...v3.28.19) (2023-06-09)
 
 
