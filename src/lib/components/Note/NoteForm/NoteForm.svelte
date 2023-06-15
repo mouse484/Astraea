@@ -87,13 +87,20 @@
 		</button>
 	</div>
 
-	<div class="flex flex-wrap gap-2 justify-between mt-2 items-center">
-		<div class="form-control">
-			<label class="label input-group">
-				<span class="w-max label-text">{$_('home.nip36.nip36')}</span>
-				<input type="checkbox" class="checkbox checkbox-accent btn" bind:checked={isNip36} />
+	<div class="flex flex-wrap gap-2 justify-between items-center mt-2">
+		<div>
+			<div class="p-2 border join border-accent">
+				<label for="nip36" class="cursor-pointer label join-item">
+					<span class="label-text">{$_('home.nip36.nip36')}</span>
+				</label>
 				<input
-					class="input input-bordered"
+					id="nip36"
+					type="checkbox"
+					class="mx-2 btn checkbox checkbox-accent"
+					bind:checked={isNip36}
+				/>
+				<input
+					class="input input-bordered join-item"
 					list="nip36-reason"
 					type="text"
 					placeholder={$_('home.nip36.reason')}
@@ -105,7 +112,7 @@
 					<option value={$_('home.nip36.violence')} />
 					<option value={$_('home.nip36.sensitive')} />
 				</datalist>
-			</label>
+			</div>
 		</div>
 		<EmojiForm
 			on:selectEmoji={({ detail }) => {
