@@ -1,3 +1,11 @@
+## [3.28.26](https://github.com/mouse484/Astraea/compare/v3.28.25...v3.28.26) (2023-06-15)
+
+
+### Bug Fixes
+
+* **daisyUI:** remove inputgroup ([fe24bb0](https://github.com/mouse484/Astraea/commit/fe24bb04a94a897e229cc6cd1857b2da9b899b0b))
+* nip36form ui ([0d896d0](https://github.com/mouse484/Astraea/commit/0d896d011fbec8bdf3ed03dc335f8a9ce44f6893))
+
 ## [3.28.25](https://github.com/mouse484/Astraea/compare/v3.28.24...v3.28.25) (2023-06-11)
 
 
