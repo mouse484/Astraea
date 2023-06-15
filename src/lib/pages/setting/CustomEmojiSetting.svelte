@@ -49,24 +49,26 @@
 
 <div>
 	<div>
-		<label class="input-group">
-			<span class="w-28">shortcode</span>
-			<input
-				type="text"
-				placeholder="絵文字の名前（インポートする場合は空）"
-				class="input input-bordered w-80"
-				bind:value={code}
-			/>
+		<label for="code" class="label">
+			<span class="label-text">shortcode</span>
 		</label>
-		<label class="mt-2 input-group">
-			<span class="w-28">url</span>
-			<input
-				type="text"
-				placeholder="絵文字URL/インポートするJSONのURL"
-				class="input input-bordered w-80"
-				bind:value={url}
-			/>
+		<input
+			type="text"
+			id="code"
+			placeholder="絵文字の名前（インポートする場合は空）"
+			class="w-80 input input-bordered"
+			bind:value={code}
+		/>
+		<label for="url" class="label">
+			<span class="label-text">url</span>
 		</label>
+		<input
+			type="text"
+			id="url"
+			placeholder="絵文字URL/インポートするJSONのURL"
+			class="w-80 input input-bordered"
+			bind:value={url}
+		/>
 	</div>
 
 	<button on:click={() => add(code, url)} class="mt-4 btn btn-secondary" disabled={!code || !url}>
