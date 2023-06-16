@@ -21,6 +21,13 @@ export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: 
 				(_, id) => {
 					return h('nostr', { id });
 				}
+			],
+			[
+				/#(\S+)/g,
+				(raw, value) => {
+					console.log(raw)
+					return h('a', { href: `/search?q=${value}` }, raw);
+				}
 			]
 		]);
 		return tree;
