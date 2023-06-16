@@ -1,3 +1,10 @@
+# [3.29.0](https://github.com/mouse484/Astraea/compare/v3.28.26...v3.29.0) (2023-06-16)
+
+
+### Features
+
+* hashtagの表示 ([48290f2](https://github.com/mouse484/Astraea/commit/48290f2f6b9c270ad0f2889be7685a87d16b7373)), closes [#567](https://github.com/mouse484/Astraea/issues/567)
+
 ## [3.28.26](https://github.com/mouse484/Astraea/compare/v3.28.25...v3.28.26) (2023-06-15)
 
 
