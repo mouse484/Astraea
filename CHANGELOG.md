@@ -1,3 +1,10 @@
+## [3.29.4](https://github.com/mouse484/Astraea/compare/v3.29.3...v3.29.4) (2023-06-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency daisyui to ^3.1.5 ([e137d7f](https://github.com/mouse484/Astraea/commit/e137d7f471f682589011eac8f04343115451b600))
+
 ## [3.29.3](https://github.com/mouse484/Astraea/compare/v3.29.2...v3.29.3) (2023-06-21)
 
 
