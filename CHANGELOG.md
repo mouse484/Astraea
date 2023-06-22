@@ -1,3 +1,10 @@
+## [3.29.5](https://github.com/mouse484/Astraea/compare/v3.29.4...v3.29.5) (2023-06-22)
+
+
+### Bug Fixes
+
+* search page render ([366733c](https://github.com/mouse484/Astraea/commit/366733c0cc72718d4a78f30be6a7569a7c88bd25)), closes [#586](https://github.com/mouse484/Astraea/issues/586)
+
 ## [3.29.4](https://github.com/mouse484/Astraea/compare/v3.29.3...v3.29.4) (2023-06-21)
 
 
