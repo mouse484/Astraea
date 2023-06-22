@@ -48,8 +48,8 @@ dependencies:
     specifier: ^3.0.3
     version: 3.0.3
   svelte-exmarkdown:
-    specifier: ^2.0.0
-    version: 2.0.0(svelte@3.59.2)
+    specifier: ^2.1.0
+    version: 2.1.0(svelte@3.59.2)
   svelte-i18n:
     specifier: ^3.6.0
     version: 3.6.0(svelte@3.59.2)
@@ -6150,10 +6150,10 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-exmarkdown@2.0.0(svelte@3.59.2):
-    resolution: {integrity: sha512-p+I0czcFkW1Ltrgz53HftQ7w+rH1/oW6YXk6XVKvuzOytr7/LNztI7vGJHSa4EkVSorHQfY/fWJh4VyzOxlL9g==}
+  /svelte-exmarkdown@2.1.0(svelte@3.59.2):
+    resolution: {integrity: sha512-//WZfHWPqpJJNTiyAZPaMWgY6oh3ltwQjznb8WA6IxcygEFLgc0mMpu+er11ukTo7Zt3pV17EO2xPm7b9sP88w==}
     peerDependencies:
-      svelte: ^3.47.0
+      svelte: ^3.47.0 || ^4.0.0
     dependencies:
       remark-gfm: 3.0.1
       remark-parse: 10.0.2
