@@ -1,3 +1,10 @@
+## [3.29.6](https://github.com/mouse484/Astraea/compare/v3.29.5...v3.29.6) (2023-06-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency svelte-exmarkdown to ^2.1.0 ([882d748](https://github.com/mouse484/Astraea/commit/882d748f03c06f1ed36428e0bce24b23197e45b7))
+
 ## [3.29.5](https://github.com/mouse484/Astraea/compare/v3.29.4...v3.29.5) (2023-06-22)
 
 
