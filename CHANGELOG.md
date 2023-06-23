@@ -1,3 +1,10 @@
+## [3.29.7](https://github.com/mouse484/Astraea/compare/v3.29.6...v3.29.7) (2023-06-23)
+
+
+### Bug Fixes
+
+* hashtag parser ([6547b4e](https://github.com/mouse484/Astraea/commit/6547b4eb4da41d0c92a8304ba8487073c05949ad)), closes [#602](https://github.com/mouse484/Astraea/issues/602)
+
 ## [3.29.6](https://github.com/mouse484/Astraea/compare/v3.29.5...v3.29.6) (2023-06-22)
 
 
