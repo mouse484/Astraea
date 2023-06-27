@@ -42,7 +42,7 @@
 		"@emoji-mart/data": "^1.1.2",
 		"@iconify/svelte": "^3.1.4",
 		"@svelte-put/clickoutside": "^2.0.0",
-		"@tanstack/svelte-query": "^4.29.17",
+		"@tanstack/svelte-query": "^4.29.19",
 		"@types/hast": "^2.3.4",
 		"@types/mdast": "^3.0.11",
 		"@types/unist": "^2.0.6",
