@@ -1,3 +1,10 @@
+## [3.30.1](https://github.com/mouse484/Astraea/compare/v3.30.0...v3.30.1) (2023-07-01)
+
+
+### Bug Fixes
+
+* pubkey local storage ([3f96251](https://github.com/mouse484/Astraea/commit/3f9625133ef0d19416712b8184752e2c269f6ce6)), closes [#624](https://github.com/mouse484/Astraea/issues/624)
+
 # [3.30.0](https://github.com/mouse484/Astraea/compare/v3.29.12...v3.30.0) (2023-07-01)
 
 
