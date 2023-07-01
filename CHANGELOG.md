@@ -1,3 +1,10 @@
+## [3.30.2](https://github.com/mouse484/Astraea/compare/v3.30.1...v3.30.2) (2023-07-01)
+
+
+### Bug Fixes
+
+* nostr link parser ([a69b495](https://github.com/mouse484/Astraea/commit/a69b4951d0c2411b13659ebb7355194919d8f7b6))
+
 ## [3.30.1](https://github.com/mouse484/Astraea/compare/v3.30.0...v3.30.1) (2023-07-01)
 
 
