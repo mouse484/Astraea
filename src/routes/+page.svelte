@@ -11,7 +11,8 @@
 
 	const readRelays = useRelays('read');
 
-	$: contacts = contactsQuery($pubkey, readRelays);
+	$: query = contactsQuery($pubkey, readRelays);
+	$: contacts = ($pubkey && $query.data) || ('ALL' as const);
 </script>
 
 <Title pageTitle={$_('home.home')} />
@@ -22,11 +23,11 @@
 	<div class="m-4 mb-8">
 		<NoteForm />
 	</div>
-	{#if $contacts.data && readRelays}
+	{#if contacts && readRelays}
 		<Section className="h-[65vh]">
 			<TimeLine
 				relays={readRelays}
-				authors={$contacts.data}
+				authors={contacts}
 				filter={{
 					since: Math.floor(
 						new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000

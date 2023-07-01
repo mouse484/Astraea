@@ -1,19 +1,16 @@
 <script lang="ts">
-	import '../app.postcss';
-	import { pwaInfo } from 'virtual:pwa-info';
-	import { onMount } from 'svelte';
 	import RegisterSw from '$lib/RegisterSW.svelte';
-	import { pubkey } from '$lib/store/pubkey';
-	import Login from '$lib/components/Login.svelte';
-	import { name } from '$lib/data/const';
-	import Header from '$lib/components/Menu/Header.svelte';
-	import { QueryClientProvider } from '@tanstack/svelte-query';
-	import type { LayoutData } from './$types';
-	import RelaysHandle from '$lib/components/RelaysHandle.svelte';
-	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
-	import Responsive from '$lib/components/elements/Responsive.svelte';
-	import Trend from '$lib/components/Trend.svelte';
 	import Footer from '$lib/components/Menu/Footer.svelte';
+	import Header from '$lib/components/Menu/Header.svelte';
+	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
+	import Trend from '$lib/components/Trend.svelte';
+	import Responsive from '$lib/components/elements/Responsive.svelte';
+	import { name } from '$lib/data/const';
+	import { QueryClientProvider } from '@tanstack/svelte-query';
+	import { onMount } from 'svelte';
+	import { pwaInfo } from 'virtual:pwa-info';
+	import '../app.postcss';
+	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
 
@@ -33,33 +30,27 @@
 
 <main class="overflow-x-auto overflow-y-hidden h-screen break-all bg-base-100">
 	{#if mounted}
-		{#if $pubkey}
-			<QueryClientProvider client={data.queryClient}>
-				<Responsive breakpoint="sm" than="less">
-					<Header />
+		<QueryClientProvider client={data.queryClient}>
+			<Responsive breakpoint="sm" than="less">
+				<Header />
+			</Responsive>
+			<div class="gap-4 justify-between mx-8 md:flex">
+				<Responsive breakpoint="md">
+					<SideMenu />
 				</Responsive>
-				<div class="gap-4 justify-between mx-8 md:flex">
-					<Responsive breakpoint="md">
-						<SideMenu />
-					</Responsive>
-					<RelaysHandle pubkey={$pubkey}>
-						<div class="overflow-y-scroll h-screen w-full">
-							<slot />
-						</div>
-						<Responsive breakpoint="md">
-							<div>
-								<Trend />
-							</div>
-						</Responsive>
-					</RelaysHandle>
+				<div class="overflow-y-scroll h-screen w-full">
+					<slot />
 				</div>
-				<Responsive breakpoint="sm" than="less">
-					<Footer />
+				<Responsive breakpoint="md">
+					<div>
+						<Trend />
+					</div>
 				</Responsive>
-			</QueryClientProvider>
-		{:else}
-			<Login />
-		{/if}
+			</div>
+			<Responsive breakpoint="sm" than="less">
+				<Footer />
+			</Responsive>
+		</QueryClientProvider>
 	{/if}
 </main>
 
