@@ -23,17 +23,18 @@
 	<div class="m-4 mb-8">
 		<NoteForm />
 	</div>
-	{#if contacts && readRelays}
-		<Section className="h-[65vh]">
-			<TimeLine
-				relays={readRelays}
-				authors={contacts}
-				filter={{
-					since: Math.floor(
-						new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
-					)
-				}}
-			/>
-		</Section>
+	{#if readRelays}
+		{#key contacts}
+			<Section className="h-[65vh]">
+				<TimeLine
+					relays={readRelays}
+					authors={contacts}
+					filter={{
+						since: Math.floor(
+							new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
+						)
+					}}
+				/>
+			</Section>{/key}
 	{/if}
 </div>
