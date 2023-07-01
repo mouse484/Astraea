@@ -4,6 +4,7 @@
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import { decode } from '$lib/nostr/nip19';
 	import { pubkey } from '$lib/store/pubkey';
+	import { setLocalStorage } from '$lib/utils/localStorage';
 	import { _ } from 'svelte-i18n';
 
 	let inputPubkey: string;
@@ -21,6 +22,7 @@
 
 	const save = (hexKey: string) => {
 		pubkey.set(hexKey);
+		setLocalStorage('pubkey', hexKey);
 		goto('/');
 	};
 
