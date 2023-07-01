@@ -1,7 +1,7 @@
-import type { Plugin } from 'unified';
-import { findAndReplace } from 'hast-util-find-and-replace';
 import type { Root } from 'hast';
+import { findAndReplace } from 'hast-util-find-and-replace';
 import { h } from 'hastscript';
+import type { Plugin } from 'unified';
 
 export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: string } }) => {
 	return (tree) => {
@@ -17,7 +17,7 @@ export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: 
 				}
 			],
 			[
-				/nostr:(.+)/g,
+				/nostr:(\w+)/g,
 				(_, id) => {
 					return h('nostr', { id });
 				}
