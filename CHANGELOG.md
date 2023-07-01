@@ -1,3 +1,11 @@
+# [3.30.0](https://github.com/mouse484/Astraea/compare/v3.29.12...v3.30.0) (2023-07-01)
+
+
+### Features
+
+* タイムラインをログインなしで見れる ([c511e5f](https://github.com/mouse484/Astraea/commit/c511e5ff87d4ed542836190a4c12a6238e64c999))
+* ログインボタン＆ページ ([a51e54d](https://github.com/mouse484/Astraea/commit/a51e54d4436b70fe4f6c17a951dead548832c9af))
+
 ## [3.29.12](https://github.com/mouse484/Astraea/compare/v3.29.11...v3.29.12) (2023-06-29)
 
 
