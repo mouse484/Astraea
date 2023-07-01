@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
+	import Heading from '$lib/components/elements/Heading.svelte';
+	import { decode } from '$lib/nostr/nip19';
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
-	import Heading from './elements/Heading.svelte';
-	import { decode } from '$lib/nostr/nip19';
 
 	let inputPubkey: string;
 	let pubkeyInfo: string;
@@ -18,10 +19,15 @@
 		}
 	}
 
-	const savePubkey = () => {
+	const save = (hexKey: string) => {
+		pubkey.set(hexKey);
+		goto('/');
+	};
+
+	const login = () => {
 		const decoded = decode('npub', inputPubkey);
 		if (decoded) {
-			pubkey.set(decoded);
+			save(decoded);
 		} else {
 			pubkeyInfo = $_('login.errorMessage');
 		}
@@ -30,7 +36,7 @@
 	const nip07Login = async () => {
 		if (!window.nostr) return;
 		const nip07key = await window.nostr.getPublicKey();
-		pubkey.set(nip07key);
+		save(nip07key);
 	};
 </script>
 
@@ -45,7 +51,7 @@
 		bind:value={inputPubkey}
 		placeholder="npub key"
 	/>
-	<button on:click={savePubkey} class="btn" disabled={!inputPubkey}>
+	<button on:click={login} class="btn" disabled={!inputPubkey}>
 		{$_('login.login')}
 	</button>
 

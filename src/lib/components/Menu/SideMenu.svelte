@@ -22,8 +22,14 @@
 		{$_('setting.setting')}
 	</MenuLink>
 	<div class="mt-auto">
-		<MenuLink href="/profile/{$pubkey}" iconName="__profile__">
-			{$_('profile.profile')}
-		</MenuLink>
+		{#if $pubkey}
+			<MenuLink href="/profile/{$pubkey}" iconName="__profile__">
+				{$_('profile.profile')}
+			</MenuLink>
+		{:else}
+			<a href="/login" class="btn btn-primary">
+				{$_('login.login')}
+			</a>
+		{/if}
 	</div>
 </div>
