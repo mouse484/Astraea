@@ -1,3 +1,12 @@
+## [3.31.2](https://github.com/mouse484/Astraea/compare/v3.31.1...v3.31.2) (2023-07-02)
+
+
+### Bug Fixes
+
+* notice scroll ([c4fea76](https://github.com/mouse484/Astraea/commit/c4fea760a40bf7aa58e15a5419f3dc1ee1bad099))
+* timeline virtual scroll ([01a8c77](https://github.com/mouse484/Astraea/commit/01a8c7739b3f2d1d1297f74b88dee782bb85dedb))
+* update profile tileline ([274e774](https://github.com/mouse484/Astraea/commit/274e7749e3711bf10d81de5927e73a556e41fbdb))
+
 ## [3.31.1](https://github.com/mouse484/Astraea/compare/v3.31.0...v3.31.1) (2023-07-02)
 
 
