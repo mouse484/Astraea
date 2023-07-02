@@ -47,15 +47,15 @@ dependencies:
   remark-breaks:
     specifier: ^3.0.3
     version: 3.0.3
+  render-big-data:
+    specifier: ^0.4.1
+    version: 0.4.1
   svelte-exmarkdown:
     specifier: ^2.1.0
     version: 2.1.0(svelte@4.0.1)
   svelte-i18n:
     specifier: ^3.6.0
     version: 3.6.0(svelte@4.0.1)
-  svelte-virtual-scroll-list:
-    specifier: ^1.1.0
-    version: 1.1.0(svelte@4.0.1)
   theme-change:
     specifier: ^2.5.0
     version: 2.5.0
@@ -5701,6 +5701,10 @@ packages:
       unified: 10.1.2
     dev: false
 
+  /render-big-data@0.4.1:
+    resolution: {integrity: sha512-uCeJ8+5XtgNdNrXuyzpvd5ujtH1T1BnlNVMBQ2nGaDZ6YWwF8mWrPJ4Ng8c65snEQQtGHDADwGMN5x1Q4+Qvww==}
+    dev: false
+
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -6296,14 +6300,6 @@ packages:
       svelte: 4.0.1
       typescript: 5.1.6
     dev: true
-
-  /svelte-virtual-scroll-list@1.1.0(svelte@4.0.1):
-    resolution: {integrity: sha512-GFaBhD9izv77xgJTyFMD1MP+ElGMUGMC9CDCM+uX9hkZIYipNS6u8oDMYDGwCXUw7QGEihU4yLmBvBSeBp78uw==}
-    peerDependencies:
-      svelte: ^3.0.0
-    dependencies:
-      svelte: 4.0.1
-    dev: false
 
   /svelte@4.0.1:
     resolution: {integrity: sha512-7n2u7A5cu8xCY6MBiXh/Mg6Lh3+Mw2qXlTDBYhzvCvmSM4L4gc4MVo540UtGcjqBiA48E1VDW+EUpBr7iuBlPg==}

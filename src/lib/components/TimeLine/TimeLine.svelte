@@ -1,12 +1,10 @@
 <script lang="ts">
+	import Note from '$lib/components/Note/Note.svelte';
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { getQueryClient } from '$lib/query/util';
-	import { reactions } from '$lib/store/reactions';
 	import type { Event, Filter, Kind, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
-	import VirtualScroll from 'svelte-virtual-scroll-list';
-	import Note from '../Note/Note.svelte';
 
 	const queryClient = getQueryClient();
 
@@ -41,52 +39,47 @@
 
 	$: notelists = [...$notes.values()].sort((a, b) => b.created_at - a.created_at);
 
-	const mountedNoteList = writable(new Set<string>());
-	let reactionsub: Sub | undefined = undefined;
-	let notNew = false;
+	// const mountedNoteList = writable(new Set<string>());
+	// let reactionsub: Sub | undefined = undefined;
+	// let notNew = false;
 
-	$: {
-		if ($mountedNoteList.size && !notNew) {
-			reactionsub?.unsub();
-			setTimeout(() => {
-				notNew = false;
-			}, 5 * 1000);
-			notNew = true;
-			reactionsub = subscribeEvents(
-				7,
-				{
-					'#e': [...$mountedNoteList].map((id) => id)
-				},
-				relays
-			);
-			reactionsub.on('event', (event) => {
-				reactions.set(event);
-			});
-		}
-	}
+	// $: {
+	// 	if ($mountedNoteList.size && !notNew) {
+	// 		reactionsub?.unsub();
+	// 		setTimeout(() => {
+	// 			notNew = false;
+	// 		}, 5 * 1000);
+	// 		notNew = true;
+	// 		reactionsub = subscribeEvents(
+	// 			7,
+	// 			{
+	// 				'#e': [...$mountedNoteList].map((id) => id)
+	// 			},
+	// 			relays
+	// 		);
+	// 		reactionsub.on('event', (event) => {
+	// 			reactions.set(event);
+	// 		});
+	// 	}
+	// }
 
 	onDestroy(() => {
 		sub?.unsub();
-		reactionsub?.unsub();
+		// reactionsub?.unsub();
 	});
 </script>
 
-<div class="h-full">
-	<VirtualScroll data={notelists} key="id" let:data>
-		<div class="mt-4">
-			{#if data}
-				{@const { id, repost } = data}
-				<Note
-					{id}
-					{repost}
-					on:status={(ev) => {
-						mountedNoteList.update((v) => {
-							ev.detail === 'in' ? v.add(id) : v.delete(id);
-							return v;
-						});
-					}}
-				/>
-			{/if}
-		</div>
-	</VirtualScroll>
+<div class="h-screen overflow-scroll pr-2">
+	<div class="sticky top-0 z-50 bg-base-100 pb-8">
+		<slot name="head" />
+	</div>
+	<virtual-list>
+		{#each notelists as { id, repost } (id)}
+			<virtual-list-item>
+				<div class="mt-4">
+					<Note {id} {repost} />
+				</div>
+			</virtual-list-item>
+		{/each}
+	</virtual-list>
 </div>

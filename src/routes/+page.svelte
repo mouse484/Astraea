@@ -17,24 +17,24 @@
 
 <Title pageTitle={$_('home.home')} />
 
-<div class="overflow-y-hidden h-full">
-	<Heading>{$_('home.home')}</Heading>
-
-	<div class="m-4 mb-8">
-		<NoteForm />
-	</div>
+<Section>
 	{#if readRelays}
 		{#key contacts}
-			<Section className="h-[65vh]">
-				<TimeLine
-					relays={readRelays}
-					authors={contacts}
-					filter={{
-						since: Math.floor(
-							new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
-						)
-					}}
-				/>
-			</Section>{/key}
+			<TimeLine
+				relays={readRelays}
+				authors={contacts}
+				filter={{
+					since: Math.floor(
+						new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
+					)
+				}}
+			>
+				<div slot="head">
+					<Heading>{$_('home.home')}</Heading>
+
+					<NoteForm />
+				</div>
+			</TimeLine>
+		{/key}
 	{/if}
-</div>
+</Section>
