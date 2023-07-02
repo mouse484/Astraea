@@ -1,13 +1,19 @@
 <script lang="ts">
-	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
-	import Icon from '$lib/components/elements/Icon.svelte';
-	import { createEventDispatcher, onMount } from 'svelte';
-	import { _ } from 'svelte-i18n';
 	import EmojiPicker, { type EmojiDate } from '$lib/components/elements/EmojiPicker.svelte';
+	import Icon from '$lib/components/elements/Icon.svelte';
+	import { customEmojis, getCustomEmojis } from '$lib/store/customEmoji';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher<{ selectEmoji: EmojiDate }>();
 
 	let isOpen = false;
+
+	const emojis = [...$customEmojis.entries()].map(([code, url]) => ({
+		id: code,
+		name: code,
+		keywords: [code],
+		skins: [{ src: url }]
+	}));
 
 	const onEmoji = (emoji: EmojiDate) => {
 		dispatch('selectEmoji', emoji);
@@ -30,12 +36,7 @@
 				{
 					id: 'custom',
 					name: 'Custom',
-					emojis: [...$customEmojis.entries()].map(([code, url]) => ({
-						id: code,
-						name: code,
-						keywords: [code],
-						skins: [{ src: url }]
-					}))
+					emojis: emojis
 				}
 			]}
 			on:onEmojiSelect={(event) => {
