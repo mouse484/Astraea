@@ -2,6 +2,7 @@
 	import Note from '$lib/components/Note/Note.svelte';
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { getQueryClient } from '$lib/query/util';
+	import { reactions } from '$lib/store/reactions';
 	import type { Event, Filter, Kind, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -24,8 +25,11 @@
 		if (authors !== 'ALL') {
 			subFilter.authors = authors;
 		}
-		sub = subscribeEvents([1, 6], subFilter, relays);
+		sub = subscribeEvents([1, 6, 7], subFilter, relays);
 		sub.on('event', (event) => {
+			if (event.kind === 7) {
+				return reactions.set(event);
+			}
 			const isRepost = event.kind === (6 as Kind);
 			const tlEvent: TLEvent = {
 				...(isRepost ? JSON.parse(event.content) : event),
@@ -39,33 +43,8 @@
 
 	$: notelists = [...$notes.values()].sort((a, b) => b.created_at - a.created_at);
 
-	// const mountedNoteList = writable(new Set<string>());
-	// let reactionsub: Sub | undefined = undefined;
-	// let notNew = false;
-
-	// $: {
-	// 	if ($mountedNoteList.size && !notNew) {
-	// 		reactionsub?.unsub();
-	// 		setTimeout(() => {
-	// 			notNew = false;
-	// 		}, 5 * 1000);
-	// 		notNew = true;
-	// 		reactionsub = subscribeEvents(
-	// 			7,
-	// 			{
-	// 				'#e': [...$mountedNoteList].map((id) => id)
-	// 			},
-	// 			relays
-	// 		);
-	// 		reactionsub.on('event', (event) => {
-	// 			reactions.set(event);
-	// 		});
-	// 	}
-	// }
-
 	onDestroy(() => {
 		sub?.unsub();
-		// reactionsub?.unsub();
 	});
 </script>
 
