@@ -1,3 +1,10 @@
+## [3.31.4](https://github.com/mouse484/Astraea/compare/v3.31.3...v3.31.4) (2023-07-02)
+
+
+### Bug Fixes
+
+* setting page ([3a4ea6b](https://github.com/mouse484/Astraea/commit/3a4ea6bce2b8a3ea3f7b1cda230ce82a3848b663))
+
 ## [3.31.3](https://github.com/mouse484/Astraea/compare/v3.31.2...v3.31.3) (2023-07-02)
 
 
