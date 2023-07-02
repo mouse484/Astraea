@@ -1,3 +1,10 @@
+# [3.31.0](https://github.com/mouse484/Astraea/compare/v3.30.2...v3.31.0) (2023-07-02)
+
+
+### Features
+
+* add analytics ([5a2954b](https://github.com/mouse484/Astraea/commit/5a2954bbe2e3ddb492cb93e4336274e864d7e8e1)), closes [#629](https://github.com/mouse484/Astraea/issues/629)
+
 ## [3.30.2](https://github.com/mouse484/Astraea/compare/v3.30.1...v3.30.2) (2023-07-01)
 
 
