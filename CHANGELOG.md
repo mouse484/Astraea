@@ -1,3 +1,10 @@
+## [3.31.3](https://github.com/mouse484/Astraea/compare/v3.31.2...v3.31.3) (2023-07-02)
+
+
+### Bug Fixes
+
+* reaction subscribe ([32d3bea](https://github.com/mouse484/Astraea/commit/32d3bea55853626a6e0bc2d464b6fe78bf2dfe19))
+
 ## [3.31.2](https://github.com/mouse484/Astraea/compare/v3.31.1...v3.31.2) (2023-07-02)
 
 
