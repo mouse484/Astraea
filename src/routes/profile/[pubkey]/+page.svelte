@@ -11,12 +11,8 @@
 
 {#key data}
 	<div>
-		<div class="mt-8">
+		<TimeLine relays={readRelays} authors={[data.pubkey]}>
 			<Profile pubkey={data.pubkey} detail={true} />
-		</div>
-
-		<div class="mt-8 h-[75vh]">
-			<TimeLine relays={readRelays} authors={[data.pubkey]} />
-		</div>
+		</TimeLine>
 	</div>
 {/key}
