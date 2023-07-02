@@ -1,3 +1,10 @@
+# [3.32.0](https://github.com/mouse484/Astraea/compare/v3.31.4...v3.32.0) (2023-07-02)
+
+
+### Features
+
+* rendering mp3 and mp4 ([9676bce](https://github.com/mouse484/Astraea/commit/9676bce038c550ed4f546a891e3939a4dd4dd26c))
+
 ## [3.31.4](https://github.com/mouse484/Astraea/compare/v3.31.3...v3.31.4) (2023-07-02)
 
 
