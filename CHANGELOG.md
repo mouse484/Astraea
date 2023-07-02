@@ -1,3 +1,10 @@
+## [3.31.1](https://github.com/mouse484/Astraea/compare/v3.31.0...v3.31.1) (2023-07-02)
+
+
+### Bug Fixes
+
+* custom emoji picker ([b53e411](https://github.com/mouse484/Astraea/commit/b53e411745867aa904895944da0c1829b6e440d2))
+
 # [3.31.0](https://github.com/mouse484/Astraea/compare/v3.30.2...v3.31.0) (2023-07-02)
 
 
