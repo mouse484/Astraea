@@ -11,6 +11,7 @@
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
+	import Analytics from '$lib/components/Analytics.svelte';
 
 	export let data: LayoutData;
 
@@ -22,6 +23,8 @@
 
 	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
+
+<Analytics />
 
 <svelte:head>
 	<title>{name}</title>
