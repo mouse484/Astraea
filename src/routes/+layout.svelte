@@ -31,7 +31,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="overflow-x-auto overflow-y-hidden h-screen break-all bg-base-100">
+<main class="h-screen break-all bg-base-100">
 	{#if mounted}
 		<QueryClientProvider client={data.queryClient}>
 			<Responsive breakpoint="sm" than="less">
@@ -41,7 +41,7 @@
 				<Responsive breakpoint="md">
 					<SideMenu />
 				</Responsive>
-				<div class="h-screen w-full">
+				<div class="w-full">
 					<slot />
 				</div>
 				<Responsive breakpoint="md">
