@@ -1,5 +1,6 @@
 <script lang="ts">
 	import RegisterSw from '$lib/RegisterSW.svelte';
+	import Analytics from '$lib/components/Analytics.svelte';
 	import Footer from '$lib/components/Menu/Footer.svelte';
 	import Header from '$lib/components/Menu/Header.svelte';
 	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
@@ -11,7 +12,6 @@
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
-	import Analytics from '$lib/components/Analytics.svelte';
 
 	export let data: LayoutData;
 
@@ -41,7 +41,7 @@
 				<Responsive breakpoint="md">
 					<SideMenu />
 				</Responsive>
-				<div class="overflow-y-scroll h-screen w-full">
+				<div class="h-screen w-full">
 					<slot />
 				</div>
 				<Responsive breakpoint="md">
