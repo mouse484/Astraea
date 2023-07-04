@@ -1,3 +1,10 @@
+# [3.33.0](https://github.com/mouse484/Astraea/compare/v3.32.0...v3.33.0) (2023-07-04)
+
+
+### Features
+
+* emojiをカーソル位置に追加する ([f218e57](https://github.com/mouse484/Astraea/commit/f218e57fe1b863fa338ea4a84e11bf162f8f9a97))
+
 # [3.32.0](https://github.com/mouse484/Astraea/compare/v3.31.4...v3.32.0) (2023-07-02)
 
 
