@@ -1,3 +1,10 @@
+## [3.33.1](https://github.com/mouse484/Astraea/compare/v3.33.0...v3.33.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* display icon ([80cfd1e](https://github.com/mouse484/Astraea/commit/80cfd1e1ddf77f7778172c92b0604e7031e68840))
+
 # [3.33.0](https://github.com/mouse484/Astraea/compare/v3.32.0...v3.33.0) (2023-07-04)
 
 
