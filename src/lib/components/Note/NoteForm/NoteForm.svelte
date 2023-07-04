@@ -9,6 +9,7 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import EmojiForm from './EmojiForm.svelte';
 	import { writable } from 'svelte/store';
+	import Emoji from '$lib/components/elements/Emoji.svelte';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -120,7 +121,16 @@
 					customEmojis.update((v) => v.set(detail.id, detail.src || ''));
 				}
 				const emoji = detail.native || detail.shortcodes;
-				content = content ? `${content} ${emoji}` : emoji;
+				if (!content) return (content = emoji);
+
+				if (textarea.selectionStart) {
+					content = `${content.substring(0, textarea.selectionStart)} ${emoji} ${content.substring(
+						textarea.selectionEnd,
+						content.length
+					)}`;
+				} else {
+					content = `${content} ${emoji}`;
+				}
 			}}
 		/>
 		<button on:click={publishPost} class="btn btn-primary" disabled={isPublish}>
