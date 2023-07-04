@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
+	import Icon from '$lib/components/elements/Icon.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
@@ -39,5 +40,10 @@
 				</div>
 			</TimeLine>
 		{/key}
+		<Responsive breakpoint="sm" than="less">
+			<a href="/post" class="btn btn-primary absolute right-4 bottom-20 rounded-full w-14 h-14">
+				<Icon name="quill" />
+			</a>
+		</Responsive>
 	{/if}
 </Section>
