@@ -60,8 +60,8 @@ dependencies:
     specifier: ^1.5.3
     version: 1.5.3
   svelte-i18n:
-    specifier: ^3.6.0
-    version: 3.6.0(svelte@4.0.1)
+    specifier: ^3.7.0
+    version: 3.7.0(svelte@4.0.1)
   theme-change:
     specifier: ^2.5.0
     version: 2.5.0
@@ -6254,12 +6254,12 @@ packages:
     dependencies:
       svelte: 4.0.1
 
-  /svelte-i18n@3.6.0(svelte@4.0.1):
-    resolution: {integrity: sha512-qvvcMqHVCXJ5pHoQR5uGzWAW5vS3qB9mBq+W6veLZ6jkrzZGOziR+wyOUJsc59BupMh+Ae30qjOndFrRU6v5jA==}
+  /svelte-i18n@3.7.0(svelte@4.0.1):
+    resolution: {integrity: sha512-kfdJsYsyOE9tFEVtjPXvrUaufXQnbFAI6LsX9vaQP+xm8A5Wao2qQ6pRZmIUCAvXvYQt7aXQ7hK9+NP9AlxehA==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
-      svelte: ^3.25.1
+      svelte: ^3 || ^4
     dependencies:
       cli-color: 2.0.3
       deepmerge: 4.3.1
