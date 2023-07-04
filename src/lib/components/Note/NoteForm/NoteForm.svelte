@@ -1,15 +1,14 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-	import { _ } from 'svelte-i18n';
+	import Icon from '$lib/components/elements/Icon.svelte';
 	import { isNip07 } from '$lib/nostr/isNip07';
 	import { publishEvent } from '$lib/nostr/pool';
-	import type { UnsignedEvent } from 'nostr-tools';
-	import { pubkey } from '$lib/store/pubkey';
 	import { useRelays } from '$lib/nostr/relays';
+	import { pubkey } from '$lib/store/pubkey';
+	import type { UnsignedEvent } from 'nostr-tools';
 	import { createEventDispatcher, onMount } from 'svelte';
-	import EmojiForm from './EmojiForm.svelte';
+	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
-	import Emoji from '$lib/components/elements/Emoji.svelte';
+	import EmojiForm from './EmojiForm.svelte';
 
 	const dispatch = createEventDispatcher<{ status: 'success' }>();
 
@@ -20,6 +19,9 @@
 	let content = '';
 	let isNip36 = false;
 	let nip36Content = '';
+
+	let nip36edit: { showModal(): void }; // daisyUI
+
 	const customEmojis = writable(new Map<string, string>());
 
 	$: isPublish = !(isNip07() && !!content);
@@ -84,36 +86,44 @@
 				content = '';
 			}}
 		>
-			<Icon icon="mdi:close-thick" />
+			<Icon name="close-thick" />
 		</button>
 	</div>
 
-	<div class="flex flex-wrap gap-2 justify-between items-center mt-2">
-		<div>
-			<div class="p-2 border join border-accent">
-				<label for="nip36" class="cursor-pointer label join-item">
-					<span class="label-text">{$_('home.nip36.nip36')}</span>
-				</label>
-				<input
-					id="nip36"
-					type="checkbox"
-					class="mx-2 btn checkbox checkbox-accent"
-					bind:checked={isNip36}
-				/>
-				<input
-					class="input input-bordered join-item"
-					list="nip36-reason"
-					type="text"
-					placeholder={$_('home.nip36.reason')}
-					bind:value={nip36Content}
+	<div class="mt-2 flex flex-wrap gap-2 justify-between items-end">
+		<div class="form-control">
+			<label class="label cursor-pointer flex gap-2">
+				<span class="label-text">{$_('home.nip36.nip36')}</span>
+				<input id="nip36" type="checkbox" class="checkbox checkbox-accent" bind:checked={isNip36} />
+				<button
+					class="text-accent disabled:text-neutral tooltip"
 					disabled={!isNip36}
-				/>
-				<datalist id="nip36-reason">
-					<option value={$_('home.nip36.nude')} />
-					<option value={$_('home.nip36.violence')} />
-					<option value={$_('home.nip36.sensitive')} />
-				</datalist>
-			</div>
+					data-tip={$_('home.nip36.edit')}
+					on:click={() => nip36edit.showModal()}
+				>
+					<Icon name="edit" size="1" />
+				</button>
+			</label>
+			<dialog bind:this={nip36edit} class="modal">
+				<form method="dialog" class="modal-box">
+					<input
+						class="input input-bordered join-item w-full"
+						list="nip36-reason"
+						type="text"
+						placeholder={$_('home.nip36.reason')}
+						bind:value={nip36Content}
+						disabled={!isNip36}
+					/>
+					<datalist id="nip36-reason">
+						<option value={$_('home.nip36.nude')} />
+						<option value={$_('home.nip36.violence')} />
+						<option value={$_('home.nip36.sensitive')} />
+					</datalist>
+					<div class="modal-action">
+						<button class="btn">Close</button>
+					</div>
+				</form>
+			</dialog>
 		</div>
 		<EmojiForm
 			on:selectEmoji={({ detail }) => {

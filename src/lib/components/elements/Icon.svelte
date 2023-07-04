@@ -3,7 +3,7 @@
 
 	export let iconset = 'mdi';
 	export let name: string;
-	export let size: '2' | '4' | '8' = '2';
+	export let size: '1' | '2' | '4' | '8' = '2';
 </script>
 
 <div class="text-{size}xl">
