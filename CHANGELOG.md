@@ -1,3 +1,10 @@
+## [3.34.1](https://github.com/mouse484/Astraea/compare/v3.34.0...v3.34.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* umami proxy ([2cb1149](https://github.com/mouse484/Astraea/commit/2cb1149ae2228e4e1063558e609fb6d616abaf59)), closes [#654](https://github.com/mouse484/Astraea/issues/654)
+
 # [3.34.0](https://github.com/mouse484/Astraea/compare/v3.33.1...v3.34.0) (2023-07-04)
 
 
