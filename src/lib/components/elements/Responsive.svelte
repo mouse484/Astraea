@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
 	// ref: https://tailwindcss.com/docs/responsive-design
 	const breakpointList = {
-		sm: '640',
-		md: '768',
-		lg: '1024'
+		sm: 640,
+		md: 768,
+		lg: 1024
 	};
 </script>
 
@@ -20,7 +20,7 @@
 	onMount(() => {
 		const mql = window.matchMedia(
 			than === 'bigger'
-				? `(min-width: ${breakpointList[breakpoint]}px)`
+				? `(min-width: ${breakpointList[breakpoint] + 20}px)`
 				: `(max-width: ${breakpointList[breakpoint]}px)`
 		);
 		update(mql.matches);
