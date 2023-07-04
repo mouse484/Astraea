@@ -1,3 +1,18 @@
+# [3.34.0](https://github.com/mouse484/Astraea/compare/v3.33.1...v3.34.0) (2023-07-04)
+
+
+### Bug Fixes
+
+* emoji form floating ([2a8e46a](https://github.com/mouse484/Astraea/commit/2a8e46a4a2f38294853953dbac75618db8dfdd34))
+* make trend page ([8b6afdb](https://github.com/mouse484/Astraea/commit/8b6afdb1c65d1069bac1b4c8569c8e2c82162208))
+
+
+### Features
+
+* nip36 reason edit ui ([e54846a](https://github.com/mouse484/Astraea/commit/e54846a4dbd96eeac89f527ba2682606a95914a5))
+* スマホ投稿画面 ([d55ddb9](https://github.com/mouse484/Astraea/commit/d55ddb9762ebf331644013bb5d01b176bd695c69))
+* レスポンシブコンポーネントを調整 ([667b9fc](https://github.com/mouse484/Astraea/commit/667b9fcda4fc113e6c5274977628e5e1299837e4))
+
 ## [3.33.1](https://github.com/mouse484/Astraea/compare/v3.33.0...v3.33.1) (2023-07-04)
 
 
