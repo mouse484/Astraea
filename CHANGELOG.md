@@ -1,3 +1,10 @@
+## [3.34.2](https://github.com/mouse484/Astraea/compare/v3.34.1...v3.34.2) (2023-07-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency svelte-i18n to ^3.7.0 ([bc05ebb](https://github.com/mouse484/Astraea/commit/bc05ebb1c83fd6d85a6d015d24f4af5a6c195846))
+
 ## [3.34.1](https://github.com/mouse484/Astraea/compare/v3.34.0...v3.34.1) (2023-07-04)
 
 
