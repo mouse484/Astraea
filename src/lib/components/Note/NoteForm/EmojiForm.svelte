@@ -31,7 +31,6 @@
 
 	{#if isOpen}
 		<EmojiPicker
-			position="right"
 			customEmoji={[
 				{
 					id: 'custom',

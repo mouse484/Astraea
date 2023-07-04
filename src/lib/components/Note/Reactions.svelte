@@ -76,7 +76,7 @@
 			<EmojiPicker
 				on:onEmojiSelect={(event) => {
 					isOpenEmojiPicker = false;
-					reactPublish(event.detail.native);
+					if (event.detail.native) reactPublish(event.detail.native);
 				}}
 			/>
 		{/if}

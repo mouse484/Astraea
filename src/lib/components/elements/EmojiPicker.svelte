@@ -9,11 +9,14 @@
 
 <script lang="ts">
 	import data from '@emoji-mart/data';
-	import { Picker } from 'emoji-mart';
-	import i18nJa from '@emoji-mart/data/i18n/ja.json';
 	import i18nEn from '@emoji-mart/data/i18n/en.json';
+	import i18nJa from '@emoji-mart/data/i18n/ja.json';
+	import { Picker } from 'emoji-mart';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { locale } from 'svelte-i18n';
+
+	import { flip, offset, shift } from '@floating-ui/core';
+	import { createFloatingActions } from 'svelte-floating-ui';
 
 	const dispatch = createEventDispatcher<{ onEmojiSelect: EmojiDate }>();
 
@@ -24,11 +27,16 @@
 				emojis: { id: string; name: string; keywords: string[]; skins: { src: string }[] }[];
 		  }[]
 		| undefined = undefined;
-	export let position: 'right' | '' = '';
 
 	let emojiPicker:
 		| ((node: HTMLElement, onEmojiSelect: (data: EmojiDate) => void) => void)
 		| undefined = undefined;
+
+	const [floatingRef, floatingContent] = createFloatingActions({
+		strategy: 'absolute',
+		placement: 'bottom-end',
+		middleware: [offset(6), flip(), shift()]
+	});
 
 	onMount(() => {
 		emojiPicker = (node, onEmojiSelect) => {
@@ -43,9 +51,12 @@
 	});
 </script>
 
+<div use:floatingRef />
+
 {#if emojiPicker}
 	<div
-		class="absolute top-0 mt-8 pt-4 z-40 {position === 'right' ? 'right-0' : 0}"
+		class="absolute"
+		use:floatingContent
 		use:emojiPicker={(data) => {
 			dispatch('onEmojiSelect', data);
 		}}
