@@ -50,7 +50,7 @@
 					</div>
 				</Responsive>
 			</div>
-			<Responsive breakpoint="sm" than="less">
+			<Responsive breakpoint="md" than="less">
 				<Footer />
 			</Responsive>
 		</QueryClientProvider>

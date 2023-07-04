@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heading from '$lib/components/elements/Heading.svelte';
+	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
 	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
@@ -32,7 +33,9 @@
 				<div slot="head">
 					<Heading>{$_('home.home')}</Heading>
 
-					<NoteForm />
+					<Responsive breakpoint="sm">
+						<NoteForm />
+					</Responsive>
 				</div>
 			</TimeLine>
 		{/key}
