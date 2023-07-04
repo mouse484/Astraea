@@ -27,11 +27,11 @@
 </Heading>
 
 <Section>
-	<ul class="overflow-y-scroll h-[85vh]">
+	<ul class="overflow-y-scroll w-full">
 		{#key trends}
 			{#each trends as trend}
 				<a href="/search?q={trend}">
-					<li class="p-2 my-2 rounded border md:w-60">
+					<li class="p-2 my-2 rounded border lg:w-60">
 						{trend}
 					</li>
 				</a>
