@@ -33,8 +33,8 @@ dependencies:
     specifier: ^0.2.5
     version: 0.2.5(@sveltejs/kit@1.22.0)(vite-plugin-pwa@0.16.4)
   daisyui:
-    specifier: ^3.1.7
-    version: 3.1.7(postcss@8.4.24)
+    specifier: ^3.1.9
+    version: 3.1.9(postcss@8.4.24)
   emoji-mart:
     specifier: ^5.5.2
     version: 5.5.2
@@ -2931,8 +2931,8 @@ packages:
       type: 1.2.0
     dev: false
 
-  /daisyui@3.1.7(postcss@8.4.24):
-    resolution: {integrity: sha512-VQhaunQlB7Buo+AbE+S3i6H/eYknKEuKVHG67y7sbG58uEjeLK6n2rojG3YE7fwoOss6ldbUL8Oy0MyoJi0CHw==}
+  /daisyui@3.1.9(postcss@8.4.24):
+    resolution: {integrity: sha512-GkQR3iLnTfxNsQz7EZXS5bPY65iJM7jdiHtQZWDpRVmBrMlq8Nmrc+t8XmjGdOmJljAPFjtMSD9E9zAnhXF7qg==}
     engines: {node: '>=16.9.0'}
     peerDependencies:
       postcss: ^8
