@@ -1,3 +1,10 @@
+## [3.34.5](https://github.com/mouse484/Astraea/compare/v3.34.4...v3.34.5) (2023-07-07)
+
+
+### Bug Fixes
+
+* layout page theme load ([442e20a](https://github.com/mouse484/Astraea/commit/442e20afe01f13c4dfbc1f6a66fecfc6908dc4c4))
+
 ## [3.34.4](https://github.com/mouse484/Astraea/compare/v3.34.3...v3.34.4) (2023-07-07)
 
 
