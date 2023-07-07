@@ -23,9 +23,8 @@ export const rehypeNostrContent: Plugin = (options: { emojis: { [keys: string]: 
 				}
 			],
 			[
-				/^#(\S+)/g,
+				/#(\S+)/g,
 				(raw, value) => {
-					console.log(raw)
 					return h('a', { href: `/search?q=${value}` }, raw);
 				}
 			]
