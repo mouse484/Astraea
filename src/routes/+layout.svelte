@@ -4,6 +4,7 @@
 	import Footer from '$lib/components/Menu/Footer.svelte';
 	import Header from '$lib/components/Menu/Header.svelte';
 	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
+	import Theme from '$lib/components/Theme.svelte';
 	import Trend from '$lib/components/Trend.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import { name } from '$lib/data/const';
@@ -25,6 +26,7 @@
 </script>
 
 <Analytics />
+<Theme />
 
 <svelte:head>
 	<title>{name}</title>

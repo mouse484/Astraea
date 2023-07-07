@@ -45,8 +45,7 @@
 
 		<Section>
 			<!-- themeChangeがクリックイベントを奪うので親で変更を検知するために -->
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<div class="flex" on:click={() => themeUpdate()}>
+			<button class="flex" on:click={() => themeUpdate()}>
 				<button
 					data-set-theme="light"
 					data-act-class="ACTIVECLASS"
@@ -61,7 +60,7 @@
 				>
 					<Icon name="moon-waxing-crescent" />
 				</button>
-			</div>
+			</button>
 		</Section>
 	</div>
 
