@@ -48,13 +48,7 @@
 	});
 </script>
 
-<div class="h-screen overflow-scroll pr-2">
-	<div class="sticky top-0 z-50 bg-base-100 pb-8">
-		<slot name="head" />
-	</div>
-	<div>
-		<slot />
-	</div>
+<div>
 	<virtual-list>
 		{#each notelists as { id, repost } (id)}
 			<virtual-list-item>
