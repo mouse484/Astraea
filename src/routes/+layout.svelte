@@ -11,10 +11,10 @@
 	import { name } from '$lib/data/const';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
-	import { _ } from 'svelte-i18n';
 
 	export let data: LayoutData;
 
@@ -35,7 +35,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<div class="h-screen break-all bg-base-100">
+<div class="break-all bg-base-100">
 	{#if mounted}
 		<QueryClientProvider client={data.queryClient}>
 			<Responsive breakpoint="sm" than="less">
