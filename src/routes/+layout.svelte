@@ -6,6 +6,7 @@
 	import SideMenu from '$lib/components/Menu/SideMenu.svelte';
 	import Theme from '$lib/components/Theme.svelte';
 	import Trend from '$lib/components/Trend.svelte';
+	import Heading from '$lib/components/elements/Heading.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
 	import { name } from '$lib/data/const';
 	import { QueryClientProvider } from '@tanstack/svelte-query';
@@ -13,6 +14,7 @@
 	import { pwaInfo } from 'virtual:pwa-info';
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
+	import { _ } from 'svelte-i18n';
 
 	export let data: LayoutData;
 
@@ -33,7 +35,7 @@
 	{@html webManifest}
 </svelte:head>
 
-<main class="h-screen break-all bg-base-100">
+<div class="h-screen break-all bg-base-100">
 	{#if mounted}
 		<QueryClientProvider client={data.queryClient}>
 			<Responsive breakpoint="sm" than="less">
@@ -43,11 +45,12 @@
 				<Responsive breakpoint="md">
 					<SideMenu />
 				</Responsive>
-				<div class="w-full">
-					<slot />
-				</div>
+				<slot />
 				<Responsive breakpoint="md">
-					<div>
+					<div class="mt-4 flex flex-col gap-4">
+						<Heading h={2}>
+							<a href="/trend">{$_('trend.trend')}</a>
+						</Heading>
 						<Trend />
 					</div>
 				</Responsive>
@@ -57,7 +60,7 @@
 			</Responsive>
 		</QueryClientProvider>
 	{/if}
-</main>
+</div>
 
 {#if mounted && pwaInfo}
 	<RegisterSw />

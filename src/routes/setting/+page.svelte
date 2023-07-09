@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Title from '$lib/components/Title.svelte';
+	import Main from '$lib/components/Main.svelte';
 	import Heading from '$lib/components/elements/Heading.svelte';
 	import Icon from '$lib/components/elements/Icon.svelte';
 	import Section from '$lib/components/elements/Section.svelte';
@@ -33,11 +33,7 @@
 	};
 </script>
 
-<Title pageTitle={$_('setting.setting')} />
-
-<Heading>{$_('setting.setting')}</Heading>
-
-<Section className="overflow-scroll">
+<Main title={$_('setting.setting')}>
 	<div>
 		<Heading h={3}>
 			{$_('setting.theme')}
@@ -120,4 +116,4 @@
 			</button>
 		</Section>
 	</div>
-</Section>
+</Main>

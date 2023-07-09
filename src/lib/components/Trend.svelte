@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { onMount } from 'svelte';
-	import { _ } from 'svelte-i18n';
-	import Heading from './elements/Heading.svelte';
 	import Section from './elements/Section.svelte';
 
 	let trends: string[] = [];
@@ -21,10 +19,6 @@
 		});
 	});
 </script>
-
-<Heading h={2}>
-	<a href="/trend">{$_('trend.trend')}</a>
-</Heading>
 
 <Section>
 	<ul class="overflow-y-scroll w-full">

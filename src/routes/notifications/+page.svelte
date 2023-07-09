@@ -13,6 +13,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
+	import Main from '$lib/components/Main.svelte';
 
 	const items = writable(new Map<string, [{ [key: string]: string[] }, number]>());
 
@@ -66,9 +67,7 @@
 	};
 </script>
 
-<Section className="h-screen overflow-scroll">
-	<Heading>{$_('notifications.notifications')}</Heading>
-
+<Main title={$_('notifications.notifications')}>
 	<virtual-list>
 		{#each noticeItems as { id, value } (id)}
 			<virtual-list-item>
@@ -88,4 +87,4 @@
 			</virtual-list-item>
 		{/each}
 	</virtual-list>
-</Section>
+</Main>

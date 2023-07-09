@@ -9,6 +9,6 @@
 	$: size = sizes[h];
 </script>
 
-<svelte:element this={`h${h}`} class="m-4 {size}">
+<svelte:element this={`h${h}`} class={size}>
 	<slot />
 </svelte:element>

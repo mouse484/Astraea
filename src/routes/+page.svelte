@@ -1,11 +1,9 @@
 <script lang="ts">
-	import Heading from '$lib/components/elements/Heading.svelte';
 	import Icon from '$lib/components/elements/Icon.svelte';
 	import Responsive from '$lib/components/elements/Responsive.svelte';
-	import Section from '$lib/components/elements/Section.svelte';
+	import Main from '$lib/components/Main.svelte';
 	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine/TimeLine.svelte';
-	import Title from '$lib/components/Title.svelte';
 	import { useRelays } from '$lib/nostr/relays';
 	import { contactsQuery } from '$lib/query/contacts';
 	import { pubkey } from '$lib/store/pubkey';
@@ -17,9 +15,7 @@
 	$: contacts = ($pubkey && $query.data) || ('ALL' as const);
 </script>
 
-<Title pageTitle={$_('home.home')} />
-
-<Section>
+<Main title={$_('home.home')}>
 	{#if readRelays}
 		{#key contacts}
 			<TimeLine
@@ -32,8 +28,6 @@
 				}}
 			>
 				<div slot="head">
-					<Heading>{$_('home.home')}</Heading>
-
 					<Responsive breakpoint="sm">
 						<NoteForm />
 					</Responsive>
@@ -46,4 +40,4 @@
 			</a>
 		</Responsive>
 	{/if}
-</Section>
+</Main>
