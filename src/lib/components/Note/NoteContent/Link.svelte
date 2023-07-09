@@ -3,6 +3,7 @@
 	import type { HastNode } from 'svelte-exmarkdown/types';
 
 	import Link from '$lib/components/elements/Link.svelte';
+	import OGP from '$lib/components/elements/OGP.svelte';
 	import NoteImage from './Image.svelte';
 
 	export let type: unknown;
@@ -25,7 +26,12 @@
 {:else if properties.href.endsWith('mp3')}
 	<audio src={properties.href} controls preload="metadata" />
 {:else}
-	<Link href={properties.href}>
+	<Link href={properties.href} target="_blank" rel="noopener noreferrer">
 		<Children {children} />
+		{#if properties.href.startsWith('http')}
+			<div class="my-4">
+				<OGP href={properties.href} />
+			</div>
+		{/if}
 	</Link>
 {/if}
