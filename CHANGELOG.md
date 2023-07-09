@@ -1,3 +1,13 @@
+## [3.35.1](https://github.com/mouse484/Astraea/compare/v3.35.0...v3.35.1) (2023-07-09)
+
+
+### Bug Fixes
+
+* home sitcky ([4ab44ec](https://github.com/mouse484/Astraea/commit/4ab44ec1a12ecbf39bf96fa4be1d3eacd33481ba))
+* layout Main component ([2031bb6](https://github.com/mouse484/Astraea/commit/2031bb6154f5e3d578c349d30d591fb4267b7bbb))
+* side menu sticy ([6e86992](https://github.com/mouse484/Astraea/commit/6e8699209585040d3f0a4bb24e142c5dab2bc88c))
+* use svelte-virtual-scroll-list ([6932f0e](https://github.com/mouse484/Astraea/commit/6932f0e8f3d5eaef408c6945a3f55cf3a0a378a4))
+
 # [3.35.0](https://github.com/mouse484/Astraea/compare/v3.34.8...v3.35.0) (2023-07-09)
 
 
