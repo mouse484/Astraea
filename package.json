@@ -59,6 +59,7 @@
 		"svelte-floating-ui": "^1.5.3",
 		"svelte-i18n": "^3.7.0",
 		"theme-change": "^2.5.0",
+		"unfurl.js": "^6.3.2",
 		"unified": "^10.1.2",
 		"vite-plugin-pwa": "^0.16.4",
 		"workbox-window": "^7.0.0",
