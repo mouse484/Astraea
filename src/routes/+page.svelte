@@ -16,6 +16,11 @@
 </script>
 
 <Main title={$_('home.home')}>
+	<div slot="top" class="mt-4">
+		<Responsive breakpoint="sm">
+			<NoteForm />
+		</Responsive>
+	</div>
 	{#if readRelays}
 		{#key contacts}
 			<TimeLine
@@ -26,13 +31,7 @@
 						new Date(new Date().setHours(new Date().getHours() - 1)).getTime() / 1000
 					)
 				}}
-			>
-				<div slot="head">
-					<Responsive breakpoint="sm">
-						<NoteForm />
-					</Responsive>
-				</div>
-			</TimeLine>
+			/>
 		{/key}
 		<Responsive breakpoint="sm" than="less">
 			<a href="/post" class="btn btn-primary absolute right-4 bottom-20 rounded-full w-14 h-14">
