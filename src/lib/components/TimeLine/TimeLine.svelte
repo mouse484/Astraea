@@ -5,6 +5,7 @@
 	import { reactions } from '$lib/store/reactions';
 	import type { Event, Filter, Kind, Sub } from 'nostr-tools';
 	import { onDestroy, onMount } from 'svelte';
+	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import { writable } from 'svelte/store';
 
 	const queryClient = getQueryClient();
@@ -48,14 +49,11 @@
 	});
 </script>
 
-<div>
-	<virtual-list>
-		{#each notelists as { id, repost } (id)}
-			<virtual-list-item>
-				<div class="mt-4">
-					<Note {id} {repost} />
-				</div>
-			</virtual-list-item>
-		{/each}
-	</virtual-list>
+<div class="h-screen">
+	<VirtualScroll data={notelists} key="id" keeps={10} let:data>
+		{@const { id, repost } = data}
+		<div class="mt-4">
+			<Note {id} {repost} />
+		</div>
+	</VirtualScroll>
 </div>
