@@ -1,3 +1,10 @@
+# [3.35.0](https://github.com/mouse484/Astraea/compare/v3.34.8...v3.35.0) (2023-07-09)
+
+
+### Features
+
+* ogp ([0db5b19](https://github.com/mouse484/Astraea/commit/0db5b19d820e8d0881e3a7bd6ce962c7800c8b1b))
+
 ## [3.34.8](https://github.com/mouse484/Astraea/compare/v3.34.7...v3.34.8) (2023-07-08)
 
 
