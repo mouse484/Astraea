@@ -1,35 +1,37 @@
 <script lang="ts">
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
-	import Title from './Title.svelte';
 	import MenuLink from './MenuLink.svelte';
+	import Title from './Title.svelte';
 </script>
 
-<div class="flex float-right sticky top-0 flex-col gap-4 py-8 min-w-max h-screen">
-	<div class="mb-8">
-		<Title />
-	</div>
-	<MenuLink href="/" iconName="home-outline">
-		{$_('home.home')}
-	</MenuLink>
-	<MenuLink href="/search" iconName="search">
-		{$_('search.search')}
-	</MenuLink>
-	<MenuLink href="/notifications" iconName="bell-outline">
-		{$_('notifications.notifications')}
-	</MenuLink>
-	<MenuLink href="/setting" iconName="cog">
-		{$_('setting.setting')}
-	</MenuLink>
-	<div class="mt-auto">
-		{#if $pubkey}
-			<MenuLink href="/profile/{$pubkey}" iconName="__profile__">
-				{$_('profile.profile')}
-			</MenuLink>
-		{:else}
-			<a href="/login" class="btn btn-primary">
-				{$_('login.login')}
-			</a>
-		{/if}
+<div class="sticky top-0 h-screen">
+	<div class="flex flex-col gap-4 py-8 min-w-max h-full">
+		<div class="mb-8">
+			<Title />
+		</div>
+		<MenuLink href="/" iconName="home-outline">
+			{$_('home.home')}
+		</MenuLink>
+		<MenuLink href="/search" iconName="search">
+			{$_('search.search')}
+		</MenuLink>
+		<MenuLink href="/notifications" iconName="bell-outline">
+			{$_('notifications.notifications')}
+		</MenuLink>
+		<MenuLink href="/setting" iconName="cog">
+			{$_('setting.setting')}
+		</MenuLink>
+		<div class="mt-auto">
+			{#if $pubkey}
+				<MenuLink href="/profile/{$pubkey}" iconName="__profile__">
+					{$_('profile.profile')}
+				</MenuLink>
+			{:else}
+				<a href="/login" class="btn btn-primary">
+					{$_('login.login')}
+				</a>
+			{/if}
+		</div>
 	</div>
 </div>

@@ -7,7 +7,7 @@
 
 <Title pageTitle={title} />
 
-<main class="w-full mx-4 h-screen">
+<main class="w-full mx-4">
 	<div class="sticky pt-4 top-0 bg-base-100 z-50">
 		<Heading>{title}</Heading>
 		<slot name="top" />
