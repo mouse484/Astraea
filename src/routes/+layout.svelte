@@ -38,10 +38,10 @@
 <div class="break-all bg-base-100">
 	{#if mounted}
 		<QueryClientProvider client={data.queryClient}>
-			<Responsive breakpoint="sm" than="less">
+			<Responsive breakpoint="md" than="less">
 				<Header />
 			</Responsive>
-			<div class="gap-4 justify-between mx-8 md:flex">
+			<div class="gap-4 justify-between mx-8 md:flex mb-24 md:mb-0">
 				<Responsive breakpoint="md">
 					<SideMenu />
 				</Responsive>
