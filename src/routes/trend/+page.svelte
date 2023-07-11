@@ -4,6 +4,6 @@
 	import { _ } from 'svelte-i18n';
 </script>
 
-<Main title={$_("trend.trend")}>
+<Main title={$_('trend.trend')}>
 	<Trend />
 </Main>
