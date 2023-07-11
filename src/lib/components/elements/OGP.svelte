@@ -17,7 +17,7 @@
 </script>
 
 {#if data}
-	<div class="card card-compact w-96 bg-base-100 shadow-xl text-primary-content">
+	<div class="card card-compact m-2 w-96 max-w-fit bg-base-100 shadow-xl text-primary-content">
 		{#if data?.open_graph?.images?.[0]}
 			{@const image = data?.open_graph.images[0]}
 			<figure><img src={image.url} alt={image.alt} /></figure>
