@@ -1,3 +1,10 @@
+## [3.35.5](https://github.com/mouse484/Astraea/compare/v3.35.4...v3.35.5) (2023-07-11)
+
+
+### Bug Fixes
+
+* footer margin ([0d32da6](https://github.com/mouse484/Astraea/commit/0d32da6b827e5b90bad355eafd292c9c3a6f2abc))
+
 ## [3.35.4](https://github.com/mouse484/Astraea/compare/v3.35.3...v3.35.4) (2023-07-11)
 
 
