@@ -1,3 +1,10 @@
+## [3.35.4](https://github.com/mouse484/Astraea/compare/v3.35.3...v3.35.4) (2023-07-11)
+
+
+### Bug Fixes
+
+* ogp max width ([a42bc97](https://github.com/mouse484/Astraea/commit/a42bc979b46baac0a25328d1565716ec342715c5))
+
 ## [3.35.3](https://github.com/mouse484/Astraea/compare/v3.35.2...v3.35.3) (2023-07-11)
 
 
