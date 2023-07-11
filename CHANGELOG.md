@@ -1,3 +1,10 @@
+## [3.35.3](https://github.com/mouse484/Astraea/compare/v3.35.2...v3.35.3) (2023-07-11)
+
+
+### Reverts
+
+* Revert "fix: small size ogp width" ([f27a867](https://github.com/mouse484/Astraea/commit/f27a8678dfe7e1ac70115bde2d79da3f9aff8abd))
+
 ## [3.35.2](https://github.com/mouse484/Astraea/compare/v3.35.1...v3.35.2) (2023-07-11)
 
 
