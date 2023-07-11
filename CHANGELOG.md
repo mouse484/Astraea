@@ -1,3 +1,10 @@
+## [3.35.2](https://github.com/mouse484/Astraea/compare/v3.35.1...v3.35.2) (2023-07-11)
+
+
+### Bug Fixes
+
+* small size ogp width ([43c11dd](https://github.com/mouse484/Astraea/commit/43c11dda5204b733a1d4cca6a0c992c3ea146022))
+
 ## [3.35.1](https://github.com/mouse484/Astraea/compare/v3.35.0...v3.35.1) (2023-07-09)
 
 
