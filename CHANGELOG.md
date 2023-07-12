@@ -1,3 +1,10 @@
+## [3.35.7](https://github.com/mouse484/Astraea/compare/v3.35.6...v3.35.7) (2023-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/mdast to ^3.0.12 ([17d7447](https://github.com/mouse484/Astraea/commit/17d7447f43b0616012b486bd54499de2938ab297))
+
 ## [3.35.6](https://github.com/mouse484/Astraea/compare/v3.35.5...v3.35.6) (2023-07-12)
 
 
