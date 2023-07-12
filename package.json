@@ -45,7 +45,7 @@
 		"@svelte-put/clickoutside": "^2.0.0",
 		"@tanstack/svelte-query": "^4.29.19",
 		"@types/hast": "^2.3.5",
-		"@types/mdast": "^3.0.11",
+		"@types/mdast": "^3.0.12",
 		"@types/unist": "^2.0.6",
 		"@vite-pwa/sveltekit": "^0.2.5",
 		"daisyui": "^3.2.1",
