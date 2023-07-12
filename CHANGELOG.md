@@ -1,3 +1,10 @@
+## [3.35.6](https://github.com/mouse484/Astraea/compare/v3.35.5...v3.35.6) (2023-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/hast to ^2.3.5 ([b9fd01e](https://github.com/mouse484/Astraea/commit/b9fd01e612bbedd6d7a94fb4ca5d1c7d0f786d7e))
+
 ## [3.35.5](https://github.com/mouse484/Astraea/compare/v3.35.4...v3.35.5) (2023-07-11)
 
 
