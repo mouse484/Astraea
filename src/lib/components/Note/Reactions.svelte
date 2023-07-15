@@ -51,6 +51,9 @@
 			[...$pubCustomEmojis.entries()].forEach(([code, url]) => {
 				tags.push(['emoji', code, url]);
 			});
+		} else if (content.startsWith(':')) {
+			const url = $displayCustomEmoji.get(content);
+			if (url) tags.push(['emoji', content, url]);
 		}
 		const unsignedEvent: UnsignedEvent = {
 			kind: 7,
