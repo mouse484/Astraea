@@ -1,9 +1,8 @@
 <script lang="ts">
 	import Profile from '$lib/components/Profile/Profile.svelte';
 	import Emoji from '$lib/components/elements/Emoji.svelte';
-	import Heading from '$lib/components/elements/Heading.svelte';
-	import Section from '$lib/components/elements/Section.svelte';
 
+	import Main from '$lib/components/Main.svelte';
 	import Note from '$lib/components/Note/Note.svelte';
 	import { subscribeEvents } from '$lib/nostr/pool';
 	import { useRelays } from '$lib/nostr/relays';
@@ -13,9 +12,9 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { writable } from 'svelte/store';
-	import Main from '$lib/components/Main.svelte';
 
 	const items = writable(new Map<string, [{ [key: string]: string[] }, number]>());
+	const displayCustomEmoji = writable(new Map<string, string>());
 
 	const relays = useRelays('read');
 	let sub: Sub;
@@ -30,6 +29,13 @@
 	const unsubscribe = reactions.subscribe((events) => {
 		[...events.values()].forEach(({ events: reactEvents, lastUpdate }) => {
 			reactEvents.forEach((e) => {
+				if (e.content.startsWith(':')) {
+					const tag = e.tags.find(([key, code]) => key === 'emoji' && `:${code}:` === e.content);
+					if (tag) {
+						const [, , url] = tag;
+						displayCustomEmoji.update((u) => u.set(e.content, url));
+					}
+				}
 				const [, reactPubkey] = e.tags.find(([type]) => type === 'p') || [];
 				const [, reactEventId] = e.tags.find(([type]) => type === 'e') || [];
 				if (reactPubkey === $pubkey) {
@@ -74,7 +80,11 @@
 				<div class="mt-4">
 					{#each Object.entries(value) as [emoji, users] (emoji)}
 						<div class="flex flex-wrap">
-							<Emoji emoji={emoji.replace('+', '❤')} />
+							{#if emoji.startsWith(':')}
+								<img src={$displayCustomEmoji.get(emoji)} alt={emoji} class="h-4 w-4" />
+							{:else}
+								<Emoji emoji={emoji.replace('+', '❤')} />
+							{/if}
 							{#each users as pubkey (pubkey)}
 								<Profile {pubkey} imageOnly={true} />
 							{/each}
