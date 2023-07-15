@@ -1,6 +1,6 @@
 <script lang="ts">
 	import data from '@emoji-mart/data';
-	import { init, getEmojiDataFromNative, Emoji } from 'emoji-mart';
+	import { init, getEmojiDataFromNative } from 'emoji-mart';
 	import { onMount } from 'svelte';
 
 	export let emoji: string;
