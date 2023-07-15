@@ -52,6 +52,7 @@
 <div class="h-screen">
 	<VirtualScroll data={notelists} key="id" keeps={10} let:data>
 		{@const { id, repost } = data}
+		<slot />
 		<div class="mt-4">
 			<Note {id} {repost} />
 		</div>
