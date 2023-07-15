@@ -50,9 +50,9 @@
 </script>
 
 <div class="h-screen">
+	<slot />
 	<VirtualScroll data={notelists} key="id" keeps={10} let:data>
 		{@const { id, repost } = data}
-		<slot />
 		<div class="mt-4">
 			<Note {id} {repost} />
 		</div>
