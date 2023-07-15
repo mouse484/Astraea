@@ -12,8 +12,9 @@
 	export let event: Event;
 
 	const displayReactions = writable(new Map<string, Map<string, Event>>());
+	const displayCustomEmoji = writable(new Map<string, string>());
 	const writeRelays = useRelays('write');
-	const customEmojis = writable(new Map<string, string>());
+	const pubCustomEmojis = writable(new Map<string, string>());
 
 	const unsubscribe = reactions.subscribe((v) => {
 		const react = v.get(event.id);
@@ -21,6 +22,15 @@
 			displayReactions.update((ud) => {
 				react.events.forEach((event) => {
 					const current = ud.get(event.content);
+					if (event.content.startsWith(':')) {
+						const tag = event.tags.find(
+							([key, code]) => key === 'emoji' && `:${code}:` === event.content
+						);
+						if (tag) {
+							const [, , url] = tag;
+							displayCustomEmoji.update((u) => u.set(event.content, url));
+						}
+					}
 					ud.set(event.content, (current ? current : new Map()).set(event.id, event));
 				});
 				return ud;
@@ -37,8 +47,8 @@
 			['p', event.pubkey, ''],
 			['e', event.id, '']
 		];
-		if ($customEmojis.size) {
-			[...$customEmojis.entries()].forEach(([code, url]) => {
+		if ($pubCustomEmojis.size) {
+			[...$pubCustomEmojis.entries()].forEach(([code, url]) => {
 				tags.push(['emoji', code, url]);
 			});
 		}
@@ -66,7 +76,11 @@
 					class="[&>.emoji]:h-4 flex gap-2 items-center rounded px-1
         {hasOwnReaction ? 'bg-info' : ''}"
 				>
-					<Emoji emoji={reaction.replace('+', '❤')} />
+					{#if reaction.startsWith(':')}
+						<img src={$displayCustomEmoji.get(reaction)} alt={reaction} class="h-4 w-4" />
+					{:else}
+						<Emoji emoji={reaction.replace('+', '❤')} />
+					{/if}
 					<span>{items.size}</span>
 				</div>
 			</button>
@@ -76,7 +90,7 @@
 		size="1"
 		on:selectEmoji={({ detail }) => {
 			if (!detail.native) {
-				customEmojis.update((v) => v.set(detail.id, detail.src || ''));
+				pubCustomEmojis.update((v) => v.set(detail.id, detail.src || ''));
 			}
 			const emoji = detail.native || detail.shortcodes;
 			if (emoji) reactPublish(emoji);
