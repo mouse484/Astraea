@@ -1,3 +1,10 @@
+## [3.35.10](https://github.com/mouse484/Astraea/compare/v3.35.9...v3.35.10) (2023-07-15)
+
+
+### Bug Fixes
+
+* display profile ([c60a15b](https://github.com/mouse484/Astraea/commit/c60a15b13c5bada4faf2fd5f85d6262a76c57934))
+
 ## [3.35.9](https://github.com/mouse484/Astraea/compare/v3.35.8...v3.35.9) (2023-07-14)
 
 
