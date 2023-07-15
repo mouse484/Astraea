@@ -1,3 +1,13 @@
+# [3.36.0](https://github.com/mouse484/Astraea/compare/v3.35.11...v3.36.0) (2023-07-15)
+
+
+### Features
+
+* display note custom emoji reaction ([ae64710](https://github.com/mouse484/Astraea/commit/ae6471003ca838f6f7cdd75317c7226060177c64))
+* display notification page custom emoji reaction ([a76a2ca](https://github.com/mouse484/Astraea/commit/a76a2cac3f8d7d4b1b74cd5595fa67d2876d09ca))
+* support custom emoji one click reaction ([2f9a165](https://github.com/mouse484/Astraea/commit/2f9a165b4fae2716d8283577ce045bc421224d70))
+* カスタム絵文字リアクション ([b64f7b8](https://github.com/mouse484/Astraea/commit/b64f7b8a0206e2f631111e4c0ed2f429e1ace16e))
+
 ## [3.35.11](https://github.com/mouse484/Astraea/compare/v3.35.10...v3.35.11) (2023-07-15)
 
 
