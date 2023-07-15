@@ -6,6 +6,8 @@
 
 	const dispatch = createEventDispatcher<{ selectEmoji: EmojiDate }>();
 
+	export let size: '1' | '2' = '2';
+
 	let isOpen = false;
 
 	const emojis = [...$customEmojis.entries()].map(([code, url]) => ({
@@ -26,7 +28,7 @@
 
 <div class="relative">
 	<button on:click={() => (isOpen = !isOpen)}>
-		<Icon iconset="material-symbols" name="add-reaction-outline" size="2" />
+		<Icon iconset="material-symbols" name="add-reaction-outline" {size} />
 	</button>
 
 	{#if isOpen}

@@ -1,21 +1,19 @@
 <script lang="ts">
+	import { publishEvent } from '$lib/nostr/pool';
+	import { useRelays } from '$lib/nostr/relays';
+	import { pubkey } from '$lib/store/pubkey';
 	import { reactions } from '$lib/store/reactions';
+	import type { Event, UnsignedEvent } from 'nostr-tools';
 	import { onDestroy } from 'svelte';
 	import { writable } from 'svelte/store';
 	import Emoji from '../elements/Emoji.svelte';
-	import type { Event, UnsignedEvent } from 'nostr-tools';
-	import { pubkey } from '$lib/store/pubkey';
-	import { publishEvent } from '$lib/nostr/pool';
-	import Icon from '@iconify/svelte';
-	import EmojiPicker from '../elements/EmojiPicker.svelte';
-	import { useRelays } from '$lib/nostr/relays';
+	import EmojiForm from './NoteForm/EmojiForm.svelte';
 
 	export let event: Event;
 
 	const displayReactions = writable(new Map<string, Map<string, Event>>());
 	const writeRelays = useRelays('write');
-
-	let isOpenEmojiPicker = false;
+	const customEmojis = writable(new Map<string, string>());
 
 	const unsubscribe = reactions.subscribe((v) => {
 		const react = v.get(event.id);
@@ -35,13 +33,19 @@
 	};
 
 	const reactPublish = (content: string) => {
+		const tags: string[][] = [
+			['p', event.pubkey, ''],
+			['e', event.id, '']
+		];
+		if ($customEmojis.size) {
+			[...$customEmojis.entries()].forEach(([code, url]) => {
+				tags.push(['emoji', code, url]);
+			});
+		}
 		const unsignedEvent: UnsignedEvent = {
 			kind: 7,
 			created_at: Math.floor(Date.now() / 1000),
-			tags: [
-				['p', event.pubkey, ''],
-				['e', event.id, '']
-			],
+			tags,
 			content: content,
 			pubkey: $pubkey
 		};
@@ -68,17 +72,14 @@
 			</button>
 		{/each}
 	{/if}
-	<div class="flex items-center relative">
-		<button on:click={() => (isOpenEmojiPicker = !isOpenEmojiPicker)}>
-			<Icon icon="material-symbols:add-reaction-outline" />
-		</button>
-		{#if isOpenEmojiPicker}
-			<EmojiPicker
-				on:onEmojiSelect={(event) => {
-					isOpenEmojiPicker = false;
-					if (event.detail.native) reactPublish(event.detail.native);
-				}}
-			/>
-		{/if}
-	</div>
+	<EmojiForm
+		size="1"
+		on:selectEmoji={({ detail }) => {
+			if (!detail.native) {
+				customEmojis.update((v) => v.set(detail.id, detail.src || ''));
+			}
+			const emoji = detail.native || detail.shortcodes;
+			if (emoji) reactPublish(emoji);
+		}}
+	/>
 </div>
