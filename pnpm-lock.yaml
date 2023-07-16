@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.1.4
     version: 3.1.4(svelte@4.0.5)
   '@svelte-put/clickoutside':
-    specifier: ^2.0.0
-    version: 2.0.0
+    specifier: ^3.0.0
+    version: 3.0.0
   '@tanstack/svelte-query':
     specifier: ^4.29.25
     version: 4.29.25(svelte@4.0.5)
@@ -2044,8 +2044,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: false
 
-  /@svelte-put/clickoutside@2.0.0:
-    resolution: {integrity: sha512-04xYxOT5Ti+VlP70+uY/a5tGnVWl3XFgnRiO9bMSHbkwOlzHxSgXyM1NCS4NV09B3i41LRuShgeMrbgU0J5cPg==}
+  /@svelte-put/clickoutside@3.0.0:
+    resolution: {integrity: sha512-a2aA0+uMo2LGK4bwQE+etra57cJuqQsXRkI0IM+cPzjIowqUg5CMSSeQ6YsXBJUdtzm/s6WQKcmoswK/875wtA==}
     dev: false
 
   /@sveltejs/adapter-auto@2.1.0(@sveltejs/kit@1.22.3):
