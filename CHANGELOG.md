@@ -1,3 +1,10 @@
+## [3.36.3](https://github.com/mouse484/Astraea/compare/v3.36.2...v3.36.3) (2023-07-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency svelte-virtual-scroll-list to ^1.3.0 ([5ca2ddc](https://github.com/mouse484/Astraea/commit/5ca2ddcea00077277acc07e5c311656f2eeafce2))
+
 ## [3.36.2](https://github.com/mouse484/Astraea/compare/v3.36.1...v3.36.2) (2023-07-16)
 
 
