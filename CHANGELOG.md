@@ -1,3 +1,10 @@
+## [3.36.5](https://github.com/mouse484/Astraea/compare/v3.36.4...v3.36.5) (2023-07-17)
+
+
+### Bug Fixes
+
+* footer login button ([ecb188a](https://github.com/mouse484/Astraea/commit/ecb188ab993079f005a341b4c9089caf4e88b561))
+
 ## [3.36.4](https://github.com/mouse484/Astraea/compare/v3.36.3...v3.36.4) (2023-07-17)
 
 
