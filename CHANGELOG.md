@@ -1,3 +1,10 @@
+## [3.36.6](https://github.com/mouse484/Astraea/compare/v3.36.5...v3.36.6) (2023-07-17)
+
+
+### Bug Fixes
+
+* do not use analytics in vite dev mode ([714fea7](https://github.com/mouse484/Astraea/commit/714fea748f4416dfd645857db993a108ed3d49c6))
+
 ## [3.36.5](https://github.com/mouse484/Astraea/compare/v3.36.4...v3.36.5) (2023-07-17)
 
 
