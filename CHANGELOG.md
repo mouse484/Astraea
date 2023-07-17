@@ -1,3 +1,10 @@
+## [3.36.4](https://github.com/mouse484/Astraea/compare/v3.36.3...v3.36.4) (2023-07-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @svelte-put/clickoutside to v3 ([b0852ef](https://github.com/mouse484/Astraea/commit/b0852ef412c718ec3d5267e0230bbfa901a2fd45))
+
 ## [3.36.3](https://github.com/mouse484/Astraea/compare/v3.36.2...v3.36.3) (2023-07-17)
 
 
