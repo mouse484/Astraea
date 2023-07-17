@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { pubkey } from '$lib/store/pubkey';
 	import { _ } from 'svelte-i18n';
+	import LoginButton from '../common/LoginButton.svelte';
 	import MenuLink from './MenuLink.svelte';
 	import Title from './Title.svelte';
 </script>
@@ -28,9 +29,7 @@
 					{$_('profile.profile')}
 				</MenuLink>
 			{:else}
-				<a href="/login" class="btn btn-primary">
-					{$_('login.login')}
-				</a>
+				<LoginButton />
 			{/if}
 		</div>
 	</div>
