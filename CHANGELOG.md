@@ -1,3 +1,10 @@
+## [3.36.9](https://github.com/mouse484/Astraea/compare/v3.36.8...v3.36.9) (2023-07-23)
+
+
+### Bug Fixes
+
+* ogp render update ([68eb3af](https://github.com/mouse484/Astraea/commit/68eb3afe8aa0b76592917942e93d0f47571d4988))
+
 ## [3.36.8](https://github.com/mouse484/Astraea/compare/v3.36.7...v3.36.8) (2023-07-21)
 
 
