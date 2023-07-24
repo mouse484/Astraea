@@ -1,8 +1,6 @@
 <script lang="ts">
 	export let relayUrl: string;
 
-	let isOpen = false;
-
 	type relayInfo = {
 		name: string;
 		description: string;
@@ -11,7 +9,7 @@
 		supported_nips: string;
 		software: string;
 		version: string;
-		[key: string]: string | Object[];
+		[key: string]: string | { [key: string]: string }[];
 	};
 
 	const getInfo = async () => {

@@ -21,7 +21,9 @@
 		if (!properties.id) return;
 		try {
 			value = nip19.decode(properties.id);
-		} catch {}
+		} catch (err) {
+			console.error(err);
+		}
 	});
 </script>
 
