@@ -1,3 +1,10 @@
+## [3.36.11](https://github.com/mouse484/Astraea/compare/v3.36.10...v3.36.11) (2023-07-24)
+
+
+### Bug Fixes
+
+* eslint errors ([d7a4391](https://github.com/mouse484/Astraea/commit/d7a43910e93a6a6923395a1b58d73eefe911aca1))
+
 ## [3.36.10](https://github.com/mouse484/Astraea/compare/v3.36.9...v3.36.10) (2023-07-23)
 
 
