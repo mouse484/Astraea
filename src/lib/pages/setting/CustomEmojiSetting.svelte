@@ -1,18 +1,17 @@
 <script lang="ts">
+	import { customEmojis as emojis, getCustomEmojis } from '$lib/store/customEmoji';
 	import { setLocalStorage } from '$lib/utils/localStorage';
 	import { onMount } from 'svelte';
-	import { customEmojis as emojis, getCustomEmojis } from '$lib/store/customEmoji';
 	import { z } from 'zod';
 
 	onMount(() => {
 		getCustomEmojis();
 	});
 
-	let category: string;
 	let code: string;
 	let url: string;
 
-	const add = (c: string, u: string, clear = true, category = 'custom') => {
+	const add = (c: string, u: string, clear = true) => {
 		emojis.update((v) => v.set(c, u));
 
 		if (clear) {

@@ -61,16 +61,6 @@
 	$: noticeItems = [...$items.entries()]
 		.sort(([, [, a]], [, [, b]]) => b - a)
 		.map(([id, [value]]) => ({ id, value }));
-
-	type itemType = {
-		id: string;
-		value: {
-			[key: string]: string[];
-		};
-	};
-	const isItemType = (item: unknown): item is itemType => {
-		return typeof item === 'object';
-	};
 </script>
 
 <Main title={$_('notifications.notifications')}>
