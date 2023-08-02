@@ -1,3 +1,10 @@
+## [3.36.18](https://github.com/mouse484/Astraea/compare/v3.36.17...v3.36.18) (2023-08-02)
+
+
+### Bug Fixes
+
+* image modal ([9667b46](https://github.com/mouse484/Astraea/commit/9667b464358922b286f2944e883085641c572397))
+
 ## [3.36.17](https://github.com/mouse484/Astraea/compare/v3.36.16...v3.36.17) (2023-08-02)
 
 
