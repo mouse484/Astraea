@@ -51,19 +51,17 @@
 			pubkey: $pubkey
 		};
 
-		const pub = await publishEvent(unsignedEvent, writeRelays);
+		await publishEvent(unsignedEvent, writeRelays);
 
-		pub?.on('ok', () => {
-			content = '';
-			isNip36 = false;
-			nip36Content = '';
-			customEmojis.update((v) => {
-				v.clear();
-				return v;
-			});
-
-			dispatch('status', 'success');
+		content = '';
+		isNip36 = false;
+		nip36Content = '';
+		customEmojis.update((v) => {
+			v.clear();
+			return v;
 		});
+
+		dispatch('status', 'success');
 	};
 
 	onMount(() => {

@@ -1,4 +1,4 @@
-import type { UnsignedEvent } from 'nostr-tools';
+import type { UnsignedEvent, Event } from 'nostr-tools';
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
