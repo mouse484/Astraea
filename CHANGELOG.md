@@ -1,3 +1,10 @@
+## [3.36.21](https://github.com/mouse484/Astraea/compare/v3.36.20...v3.36.21) (2023-08-04)
+
+
+### Bug Fixes
+
+* publish api ([cceaec2](https://github.com/mouse484/Astraea/commit/cceaec2aed65a1b294f5c673f4ba33f6b52d4fec))
+
 ## [3.36.20](https://github.com/mouse484/Astraea/compare/v3.36.19...v3.36.20) (2023-08-04)
 
 
