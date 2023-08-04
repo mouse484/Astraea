@@ -1,3 +1,10 @@
+## [3.36.22](https://github.com/mouse484/Astraea/compare/v3.36.21...v3.36.22) (2023-08-04)
+
+
+### Bug Fixes
+
+* screen layout ([a7f1740](https://github.com/mouse484/Astraea/commit/a7f1740fdb661f234ff2cfb059c0a9675ad16e80))
+
 ## [3.36.21](https://github.com/mouse484/Astraea/compare/v3.36.20...v3.36.21) (2023-08-04)
 
 
