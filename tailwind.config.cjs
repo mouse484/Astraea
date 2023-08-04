@@ -5,7 +5,11 @@ const config = {
 	darkMode: 'class',
 
 	theme: {
-		extend: {}
+		extend: {
+			height: {
+				slot: '90svh'
+			}
+		}
 	},
 
 	plugins: [require('daisyui')],

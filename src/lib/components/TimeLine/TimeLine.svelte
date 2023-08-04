@@ -49,9 +49,11 @@
 	});
 </script>
 
-<div class="h-screen">
-	<slot />
+<div class="h-slot">
 	<VirtualScroll data={notelists} key="id" keeps={10} let:data>
+		<div slot="header" class="pb-4">
+			<slot />
+		</div>
 		{@const { id, repost } = data}
 		<div class="mt-4">
 			<Note {id} {repost} />
