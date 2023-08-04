@@ -7,7 +7,7 @@
 	export let iconName: string;
 </script>
 
-<a {href} class="flex gap-2">
+<a {href} class="flex gap-2 items-center">
 	{#if iconName === '__profile__'}
 		<Profile pubkey={$pubkey} imageOnly={true} imageSize="s" />
 	{:else}
