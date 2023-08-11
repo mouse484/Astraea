@@ -134,8 +134,8 @@ devDependencies:
     specifier: ^4.2.0
     version: 4.2.0
   svelte-check:
-    specifier: ^3.4.6
-    version: 3.4.6(@babel/core@7.21.3)(postcss-load-config@4.0.1)(postcss@8.4.27)(svelte@4.2.0)
+    specifier: ^3.5.0
+    version: 3.5.0(@babel/core@7.21.3)(postcss-load-config@4.0.1)(postcss@8.4.27)(svelte@4.2.0)
   svelte-preprocess:
     specifier: ^5.0.4
     version: 5.0.4(@babel/core@7.21.3)(postcss-load-config@4.0.1)(postcss@8.4.27)(svelte@4.2.0)(typescript@5.1.6)
@@ -6333,8 +6333,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-check@3.4.6(@babel/core@7.21.3)(postcss-load-config@4.0.1)(postcss@8.4.27)(svelte@4.2.0):
-    resolution: {integrity: sha512-OBlY8866Zh1zHQTkBMPS6psPi7o2umTUyj6JWm4SacnIHXpWFm658pG32m3dKvKFL49V4ntAkfFHKo4ztH07og==}
+  /svelte-check@3.5.0(@babel/core@7.21.3)(postcss-load-config@4.0.1)(postcss@8.4.27)(svelte@4.2.0):
+    resolution: {integrity: sha512-KHujbn4k17xKYLmtCwv0sKKM7uiHTYcQvXnvrCcNU6a7hcszh99zFTIoiu/Sp/ewAw5aJmillJ1Cs8gKLmcX4A==}
     hasBin: true
     peerDependencies:
       svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0
