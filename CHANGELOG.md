@@ -1,3 +1,10 @@
+## [3.36.24](https://github.com/mouse484/Astraea/compare/v3.36.23...v3.36.24) (2023-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to ^3.22.0 ([4d2d793](https://github.com/mouse484/Astraea/commit/4d2d793dbf8db1d18cf9abab357f1879ba6e160a))
+
 ## [3.36.23](https://github.com/mouse484/Astraea/compare/v3.36.22...v3.36.23) (2023-08-05)
 
 
