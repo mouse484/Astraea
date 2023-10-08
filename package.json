@@ -47,7 +47,7 @@
 		"@types/hast": "^2.3.5",
 		"@types/mdast": "^3.0.12",
 		"@types/unist": "^2.0.7",
-		"@vite-pwa/sveltekit": "^0.2.5",
+		"@vite-pwa/sveltekit": "^0.2.7",
 		"daisyui": "^3.5.1",
 		"emoji-mart": "^5.5.2",
 		"hast-util-find-and-replace": "^4.1.3",
