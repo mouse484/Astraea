@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.1.2
     version: 1.1.2
   '@floating-ui/core':
-    specifier: ^1.4.1
-    version: 1.4.1
+    specifier: ^1.5.0
+    version: 1.5.0
   '@iconify/svelte':
     specifier: ^3.1.4
     version: 3.1.4(svelte@4.2.0)
@@ -1747,20 +1747,20 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@floating-ui/core@1.4.1:
-    resolution: {integrity: sha512-jk3WqquEJRlcyu7997NtR5PibI+y5bi+LS3hPmguVClypenMsCY3CBa3LAQnozRCtCrYWSEtAdiskpamuJRFOQ==}
+  /@floating-ui/core@1.5.0:
+    resolution: {integrity: sha512-kK1h4m36DQ0UHGj5Ah4db7R0rHemTqqO0QLvUqi1/mUUp3LuAWbWxdxSIf/XsnH9VS6rRVPLJCncjRzUvyCLXg==}
     dependencies:
-      '@floating-ui/utils': 0.1.1
+      '@floating-ui/utils': 0.1.6
     dev: false
 
   /@floating-ui/dom@1.4.3:
     resolution: {integrity: sha512-nB/68NyaQlcdY22L+Fgd1HERQ7UGv7XFN+tPxwrEfQL4nKtAP/jIZnZtpUlXbtV+VEGHh6W/63Gy2C5biWI3sA==}
     dependencies:
-      '@floating-ui/core': 1.4.1
+      '@floating-ui/core': 1.5.0
     dev: false
 
-  /@floating-ui/utils@0.1.1:
-    resolution: {integrity: sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==}
+  /@floating-ui/utils@0.1.6:
+    resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.11.4:
@@ -6638,7 +6638,7 @@ packages:
   /svelte-floating-ui@1.5.3:
     resolution: {integrity: sha512-yjLeRQ4SNcICbMabp5S2cXc5ubBd2eua+swfTqqGBeg8ZrUvotZYK8jsRWETl/3RgLQsaZbEYKx8OmLA3wL/yw==}
     dependencies:
-      '@floating-ui/core': 1.4.1
+      '@floating-ui/core': 1.5.0
       '@floating-ui/dom': 1.4.3
     dev: false
 

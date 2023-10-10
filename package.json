@@ -40,7 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emoji-mart/data": "^1.1.2",
-		"@floating-ui/core": "^1.4.1",
+		"@floating-ui/core": "^1.5.0",
 		"@iconify/svelte": "^3.1.4",
 		"@svelte-put/clickoutside": "^3.0.0",
 		"@tanstack/svelte-query": "^4.32.6",
