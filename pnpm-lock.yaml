@@ -45,8 +45,8 @@ dependencies:
     specifier: ^7.2.0
     version: 7.2.0
   nostr-tools:
-    specifier: ^1.16.0
-    version: 1.16.0(typescript@5.2.2)
+    specifier: ^1.17.0
+    version: 1.17.0(typescript@5.2.2)
   remark-breaks:
     specifier: ^3.0.3
     version: 3.0.3
@@ -5417,8 +5417,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /nostr-tools@1.16.0(typescript@5.2.2):
-    resolution: {integrity: sha512-sx/aOl0gmkeHVoIVbyOhEQhzF88NsrBXMC8bsjhPASqA6oZ8uSOAyEGgRLMfC3SKgzQD5Gr6KvDoAahaD6xKcg==}
+  /nostr-tools@1.17.0(typescript@5.2.2):
+    resolution: {integrity: sha512-LZmR8GEWKZeElbFV5Xte75dOeE9EFUW/QLI1Ncn3JKn0kFddDKEfBbFN8Mu4TMs+L4HR/WTPha2l+PPuRnJcMw==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
