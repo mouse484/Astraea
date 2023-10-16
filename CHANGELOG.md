@@ -1,3 +1,10 @@
+## [3.36.32](https://github.com/mouse484/Astraea/compare/v3.36.31...v3.36.32) (2023-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency svelte-floating-ui to ^1.5.4 ([de2759d](https://github.com/mouse484/Astraea/commit/de2759d46a053811e9d1a650d4f24e958069f178))
+
 ## [3.36.31](https://github.com/mouse484/Astraea/compare/v3.36.30...v3.36.31) (2023-10-11)
 
 
