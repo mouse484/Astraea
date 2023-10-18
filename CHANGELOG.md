@@ -1,3 +1,10 @@
+## [3.36.36](https://github.com/mouse484/Astraea/compare/v3.36.35...v3.36.36) (2023-10-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/unist to ^2.0.9 ([310f42a](https://github.com/mouse484/Astraea/commit/310f42a90708ad622dbb5fc37c815c31116f1ef7))
+
 ## [3.36.35](https://github.com/mouse484/Astraea/compare/v3.36.34...v3.36.35) (2023-10-18)
 
 
