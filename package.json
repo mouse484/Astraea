@@ -46,7 +46,7 @@
 		"@tanstack/svelte-query": "^4.36.1",
 		"@types/hast": "^2.3.7",
 		"@types/mdast": "^3.0.14",
-		"@types/unist": "^2.0.8",
+		"@types/unist": "^2.0.9",
 		"@vite-pwa/sveltekit": "^0.2.7",
 		"daisyui": "^3.9.3",
 		"emoji-mart": "^5.5.2",
