@@ -33,8 +33,8 @@ dependencies:
     specifier: ^0.2.7
     version: 0.2.7(@sveltejs/kit@1.27.1)(vite-plugin-pwa@0.16.5)
   daisyui:
-    specifier: ^3.9.3
-    version: 3.9.3
+    specifier: ^3.9.4
+    version: 3.9.4
   emoji-mart:
     specifier: ^5.5.2
     version: 5.5.2
@@ -3150,8 +3150,8 @@ packages:
       type: 1.2.0
     dev: false
 
-  /daisyui@3.9.3:
-    resolution: {integrity: sha512-8li177QCu6dqlEOzE3h/dAV1y9Movbjx5bzJIO/hNqMNZtJkbHM0trjTzbDejV7N57eNGdjBvAGtxZYKzS4jow==}
+  /daisyui@3.9.4:
+    resolution: {integrity: sha512-fvi2RGH4YV617/6DntOVGcOugOPym9jTGWW2XySb5ZpvdWO4L7bEG77VHirrnbRUEWvIEVXkBpxUz2KFj0rVnA==}
     engines: {node: '>=16.9.0'}
     dependencies:
       colord: 2.9.3
