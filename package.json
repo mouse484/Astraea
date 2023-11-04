@@ -61,7 +61,7 @@
 		"theme-change": "^2.5.0",
 		"unfurl.js": "^6.3.2",
 		"unified": "^10.1.2",
-		"vite-plugin-pwa": "^0.16.6",
+		"vite-plugin-pwa": "^0.16.7",
 		"workbox-window": "^7.0.0",
 		"zod": "^3.22.0"
 	},
