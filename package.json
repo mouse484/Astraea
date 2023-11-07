@@ -16,7 +16,7 @@
 		"@semantic-release/git": "^10.0.1",
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/kit": "^1.27.3",
-		"@types/linkify-it": "^3.0.4",
+		"@types/linkify-it": "^3.0.5",
 		"@typescript-eslint/eslint-plugin": "^6.10.0",
 		"@typescript-eslint/parser": "^6.10.0",
 		"autoprefixer": "^10.4.16",
