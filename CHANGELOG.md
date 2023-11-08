@@ -1,3 +1,10 @@
+## [3.36.41](https://github.com/mouse484/Astraea/compare/v3.36.40...v3.36.41) (2023-11-08)
+
+
+### Bug Fixes
+
+* **deps:** update unifiedjs ([6d9e316](https://github.com/mouse484/Astraea/commit/6d9e31676e1ace55be6b47289b57cc312c67e7c6))
+
 ## [3.36.40](https://github.com/mouse484/Astraea/compare/v3.36.39...v3.36.40) (2023-11-04)
 
 
