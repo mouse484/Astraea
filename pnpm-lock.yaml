@@ -54,8 +54,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(svelte@4.2.3)
   svelte-floating-ui:
-    specifier: ^1.5.5
-    version: 1.5.5
+    specifier: ^1.5.6
+    version: 1.5.6
   svelte-i18n:
     specifier: ^3.7.4
     version: 3.7.4(svelte@4.2.3)
@@ -6646,8 +6646,8 @@ packages:
       - supports-color
     dev: false
 
-  /svelte-floating-ui@1.5.5:
-    resolution: {integrity: sha512-r0z73IiosYY8RV66NGok/zsre0Ii5H12Cq6M6IDcWVjHvlN2rkiCrOFmfmvIDQM3v/SPURKgwui9lqENccdf6A==}
+  /svelte-floating-ui@1.5.6:
+    resolution: {integrity: sha512-hM0mGxrO5+G725XW315Jd5JgeLb/SFdgRWWDz2YB30BaiP599TU/FKADNA6HMd+5yGsXx0rHGbq2Ynlq1IRucA==}
     dependencies:
       '@floating-ui/core': 1.5.0
       '@floating-ui/dom': 1.5.3
