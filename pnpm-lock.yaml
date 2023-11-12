@@ -57,8 +57,8 @@ dependencies:
     specifier: ^1.5.6
     version: 1.5.6
   svelte-i18n:
-    specifier: ^3.7.4
-    version: 3.7.4(svelte@4.2.3)
+    specifier: ^4.0.0
+    version: 4.0.0(svelte@4.2.3)
   svelte-virtual-scroll-list:
     specifier: ^1.3.0
     version: 1.3.0(svelte@4.2.3)
@@ -1768,36 +1768,36 @@ packages:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: false
 
-  /@formatjs/ecma402-abstract@1.11.4:
-    resolution: {integrity: sha512-EBikYFp2JCdIfGEb5G9dyCkTGDmC57KSHhRQOC3aYxoPWVZvfWCDjZwkGYHN7Lis/fmuWl906bnNTJifDQ3sXw==}
+  /@formatjs/ecma402-abstract@1.17.4:
+    resolution: {integrity: sha512-mLxTq+UrMoOoafVxG5HdmrfPpjv0uINQw1d0ADKfQMqhDaR4SDXdw3olXkOP05DGSAsVvSxzfKEuVKcLB15b9A==}
     dependencies:
-      '@formatjs/intl-localematcher': 0.2.25
+      '@formatjs/intl-localematcher': 0.5.1
       tslib: 2.6.2
     dev: false
 
-  /@formatjs/fast-memoize@1.2.1:
-    resolution: {integrity: sha512-Rg0e76nomkz3vF9IPlKeV+Qynok0r7YZjL6syLz4/urSg0IbjPZCB/iYUMNsYA643gh4mgrX3T7KEIFIxJBQeg==}
+  /@formatjs/fast-memoize@2.2.0:
+    resolution: {integrity: sha512-hnk/nY8FyrL5YxwP9e4r9dqeM6cAbo8PeU9UjyXojZMNvVad2Z06FAVHyR3Ecw6fza+0GH7vdJgiKIVXTMbSBA==}
     dependencies:
       tslib: 2.6.2
     dev: false
 
-  /@formatjs/icu-messageformat-parser@2.1.0:
-    resolution: {integrity: sha512-Qxv/lmCN6hKpBSss2uQ8IROVnta2r9jd3ymUEIjm2UyIkUCHVcbUVRGL/KS/wv7876edvsPe+hjHVJ4z8YuVaw==}
+  /@formatjs/icu-messageformat-parser@2.7.2:
+    resolution: {integrity: sha512-dJ/My3RigHf76xDtk9EAf5zW0EvFMp6uoUIcAQfSNx5kScgEPVbKROWLi3v1kRZX/2eBof6eAJsyfgNOggIOJA==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
-      '@formatjs/icu-skeleton-parser': 1.3.6
+      '@formatjs/ecma402-abstract': 1.17.4
+      '@formatjs/icu-skeleton-parser': 1.6.4
       tslib: 2.6.2
     dev: false
 
-  /@formatjs/icu-skeleton-parser@1.3.6:
-    resolution: {integrity: sha512-I96mOxvml/YLrwU2Txnd4klA7V8fRhb6JG/4hm3VMNmeJo1F03IpV2L3wWt7EweqNLES59SZ4d6hVOPCSf80Bg==}
+  /@formatjs/icu-skeleton-parser@1.6.4:
+    resolution: {integrity: sha512-DiCSD/8mwP3UICjAXzLXvJ3UM7wpViG47YoplGqlpl9jauDbLD3MByAY4Vs0IWPNrO+/pWSyowEWfcFLM7oZUw==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
+      '@formatjs/ecma402-abstract': 1.17.4
       tslib: 2.6.2
     dev: false
 
-  /@formatjs/intl-localematcher@0.2.25:
-    resolution: {integrity: sha512-YmLcX70BxoSopLFdLr1Ds99NdlTI2oWoLbaUW2M406lxOIPzE1KQhRz2fPUkq34xVZQaihCoU29h0KK7An3bhA==}
+  /@formatjs/intl-localematcher@0.5.1:
+    resolution: {integrity: sha512-An6EtxT0txJI8dQwOmLqs4lC3/+Dl9YuTGDWdxxtAT/9sx0r9DupnC3/k6F87Tb5gqXdR/ACdB7bmR+Zo2eu+g==}
     dependencies:
       tslib: 2.6.2
     dev: false
@@ -4276,12 +4276,12 @@ packages:
       side-channel: 1.0.4
     dev: false
 
-  /intl-messageformat@9.13.0:
-    resolution: {integrity: sha512-7sGC7QnSQGa5LZP7bXLDhVDtQOeKGeBFGHF2Y8LVBwYZoQZCgWeKoPGTa5GMG8g/TzDgeXuYJQis7Ggiw2xTOw==}
+  /intl-messageformat@10.5.7:
+    resolution: {integrity: sha512-ubr/60TUVpGX4JzL74p6tF3+0kut+mdxRElPEYcRG98yf02449ZbDygR+hleQHAClbgFQdLRk5W19WhlqryKBQ==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.11.4
-      '@formatjs/fast-memoize': 1.2.1
-      '@formatjs/icu-messageformat-parser': 2.1.0
+      '@formatjs/ecma402-abstract': 1.17.4
+      '@formatjs/fast-memoize': 2.2.0
+      '@formatjs/icu-messageformat-parser': 2.7.2
       tslib: 2.6.2
     dev: false
 
@@ -6661,8 +6661,8 @@ packages:
     dependencies:
       svelte: 4.2.3
 
-  /svelte-i18n@3.7.4(svelte@4.2.3):
-    resolution: {integrity: sha512-yGRCNo+eBT4cPuU7IVsYTYjxB7I2V8qgUZPlHnNctJj5IgbJgV78flsRzpjZ/8iUYZrS49oCt7uxlU3AZv/N5Q==}
+  /svelte-i18n@4.0.0(svelte@4.2.3):
+    resolution: {integrity: sha512-4vivjKZADUMRIhTs38JuBNy3unbnh9AFRxWFLxq62P4NHic+/BaIZZlAsvqsCdnp7IdJf5EoSiH6TNdItcjA6g==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
@@ -6672,7 +6672,7 @@ packages:
       deepmerge: 4.3.1
       esbuild: 0.19.4
       estree-walker: 2.0.2
-      intl-messageformat: 9.13.0
+      intl-messageformat: 10.5.7
       sade: 1.8.1
       svelte: 4.2.3
       tiny-glob: 0.2.9
