@@ -79,7 +79,7 @@ dependencies:
     version: 7.0.0
   zod:
     specifier: ^3.22.0
-    version: 3.22.0
+    version: 3.22.3
 
 devDependencies:
   '@semantic-release/changelog':
@@ -7792,8 +7792,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.22.0:
-    resolution: {integrity: sha512-y5KZY/ssf5n7hCGDGGtcJO/EBJEm5Pa+QQvFBeyMOtnFYOSflalxIFFvdaYevPhePcmcKC4aTbFkCcXN7D0O8Q==}
+  /zod@3.22.3:
+    resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
     dev: false
 
   /zwitch@2.0.4:
