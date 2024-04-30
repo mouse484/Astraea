@@ -43,7 +43,7 @@
 		"@floating-ui/core": "^1.5.0",
 		"@iconify/svelte": "^3.1.4",
 		"@svelte-put/clickoutside": "^3.0.0",
-		"@tanstack/svelte-query": "^4.36.1",
+		"@tanstack/svelte-query": "^5.32.1",
 		"@types/hast": "^2.3.8",
 		"@types/mdast": "^3.0.15",
 		"@types/unist": "^2.0.10",
