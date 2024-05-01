@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/mouse484/Astraea/compare/v4.0.2...v4.0.3) (2024-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update deps ([f3227e3](https://github.com/mouse484/Astraea/commit/f3227e340191d7b287374e0150ca2e98abc10c7c))
+
 ## [4.0.2](https://github.com/mouse484/Astraea/compare/v4.0.1...v4.0.2) (2024-05-01)
 
 
