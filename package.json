@@ -64,7 +64,7 @@
     "unfurl.js": "^6.3.2",
     "unified": "^10.1.2",
     "vite-plugin-pwa": "^0.20.0",
-    "workbox-window": "^7.0.0",
+    "workbox-window": "^7.1.0",
     "zod": "^3.22.0"
   },
   "packageManager": "^bun@1.1.6"
