@@ -3,7 +3,8 @@
 		"home": "Home",
 		"nip36": {
 			"nip36": "Sensitive Content",
-			"why": "この投稿には警告が含まれています、クリックで表示します。",
+			"why": "This post contains sensitive content. Click to view.",
+			"edit": "Edit content warning",
 			"reason": "reason",
 			"nude": "Nudity",
 			"violence": "Violence",
@@ -18,7 +19,7 @@
 		"trend": "Trends (Japanese)"
 	},
 	"profile": {
-		"profile": "プロフィール",
+		"profile": "Profile",
 		"copyId": "Copy User ID"
 	},
 	"search": {
@@ -34,6 +35,7 @@
 	},
 	"setting": {
 		"setting": "Settings",
+		"theme": "Theme",
 		"language": "Language",
 		"logout": "Sign Out"
 	},
@@ -41,5 +43,8 @@
 		"relays": "Relays",
 		"info": "Information",
 		"copied": "Copied"
+	},
+	"emoji": {
+		"emoji": "Emoji"
 	}
 }
