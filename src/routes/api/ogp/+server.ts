@@ -6,13 +6,13 @@ export const GET: RequestHandler = async ({ url: request }) => {
 	const url = request.searchParams.get('url');
 
 	if (!url) {
-		throw error(404, {
+		error(404, {
 			message: 'require url param'
 		});
 	}
 
 	const result = await unfurl(url).catch((err) => {
-		throw error(404, {
+		error(404, {
 			message: err
 		});
 	});

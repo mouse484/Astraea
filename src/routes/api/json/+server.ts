@@ -4,7 +4,7 @@ import type { RequestHandler } from './$types';
 export const GET: RequestHandler = async ({ url: request }) => {
 	const url = request.searchParams.get('url');
 	if (!url) {
-		throw error(404, {
+		error(404, {
 			message: 'require url param'
 		});
 	}
@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ url: request }) => {
 	const response = await fetch(url);
 
 	if (!response.ok) {
-		throw error(404, {
+		error(404, {
 			message: 'fetch error'
 		});
 	}

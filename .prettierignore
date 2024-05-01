@@ -7,6 +7,7 @@ node_modules
 .env.*
 !.env.example
 
+package.json
 bun.lockb
 
 CHANGELOG.md
