@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/mouse484/Astraea/compare/v4.0.1...v4.0.2) (2024-05-01)
+
+
+### Bug Fixes
+
+* **translate:** New translations from Crowdin ([b261055](https://github.com/mouse484/Astraea/commit/b2610550e3bcdb8e039b3a189f7623c9435a426b))
+
 ## [4.0.1](https://github.com/mouse484/Astraea/compare/v4.0.0...v4.0.1) (2024-05-01)
 
 
