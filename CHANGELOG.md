@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/mouse484/Astraea/compare/v4.0.0...v4.0.1) (2024-05-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @iconify/svelte to ^3.1.6 ([84f8d19](https://github.com/mouse484/Astraea/commit/84f8d1932f488f266999253366fef0d073992aa1))
+
 # [4.0.0](https://github.com/mouse484/Astraea/compare/v3.36.43...v4.0.0) (2024-05-01)
 
 
