@@ -4,5 +4,5 @@ import { pubkey } from '../../lib/store/pubkey';
 import { get } from 'svelte/store';
 
 export const load = (() => {
-	if (get(pubkey)) throw redirect(302, '/');
+	if (get(pubkey)) redirect(302, '/');
 }) satisfies PageLoad;

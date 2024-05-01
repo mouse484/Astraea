@@ -8,7 +8,7 @@ export const load = (({ params }) => {
 		if (result && result.type === 'npub') return { pubkey: result.data as string };
 	} catch {
 		const tryEncode = nip19.npubEncode(params.pubkey);
-		if (tryEncode) throw redirect(302, `/profile/${tryEncode}`);
+		if (tryEncode) redirect(302, `/profile/${tryEncode}`);
 	}
-	throw redirect(302, '/');
+	redirect(302, '/');
 }) satisfies PageLoad;
