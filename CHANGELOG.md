@@ -1,3 +1,23 @@
+# [4.0.0](https://github.com/mouse484/Astraea/compare/v3.36.43...v4.0.0) (2024-05-01)
+
+
+### Bug Fixes
+
+* add @sveltejs/adapter-vercel ([9930c7d](https://github.com/mouse484/Astraea/commit/9930c7d621f2e6c189f63991feb8f7e753b136b8))
+* **deps:** update svelte-i18n ([d302520](https://github.com/mouse484/Astraea/commit/d3025206dd16b8248e65c1a1fe60e0078a1afca6))
+* **deps:** update vite pwa ([af3c730](https://github.com/mouse484/Astraea/commit/af3c730161105a179e0072eea0366d348b9c9d8e))
+* update sveltekit@2 ([eb965e1](https://github.com/mouse484/Astraea/commit/eb965e14627beff8278df35b473f92e25ee3d10c))
+
+
+### Performance Improvements
+
+* astraea next ([8753af7](https://github.com/mouse484/Astraea/commit/8753af75603ed53143af3ba8851a59ac878206c0))
+
+
+### BREAKING CHANGES
+
+* pnpm -> bun
+
 ## [3.36.43](https://github.com/mouse484/Astraea/compare/v3.36.42...v3.36.43) (2024-02-25)
 
 
