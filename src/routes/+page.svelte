@@ -1,7 +1,5 @@
-<script>
-	$effect(() => {
-		console.log('v5 test');
-	});
+<script lang="ts">
+	import TimeLine from '$lib/components/TimeLine.svelte';
 </script>
 
-<h1>Page</h1>
+<TimeLine />
