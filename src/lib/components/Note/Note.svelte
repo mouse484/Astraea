@@ -17,8 +17,8 @@
 	});
 </script>
 
-<div class="p-2 m-2 border-solid border-blueGray rounded-md grid grid-cols-5">
-	<img class="rounded-md size-16" src={profile?.image} alt={profile?.name} />
+<div class="grid grid-cols-5 border-(1 gray-600 solid) p-4">
+	<img class="size-16 rounded-md" src={profile?.image} alt={profile?.name} />
 	<div class="col-span-4">
 		<div>
 			<div>
@@ -27,6 +27,6 @@
 			</div>
 			<div class="text-sm text-gray">{shortPubkey}</div>
 		</div>
-		<div class="mt-4 break-all overflow-hidden hover:max-h-full max-h-8ch">{event.content}</div>
+		<div class="mt-4 max-h-8ch overflow-hidden break-all hover:max-h-full">{event.content}</div>
 	</div>
 </div>

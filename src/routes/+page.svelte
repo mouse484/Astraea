@@ -2,4 +2,6 @@
 	import TimeLine from '$lib/components/TimeLine.svelte';
 </script>
 
-<TimeLine />
+<main class="mx-auto max-w-lg">
+	<TimeLine />
+</main>

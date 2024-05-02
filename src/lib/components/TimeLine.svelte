@@ -20,7 +20,7 @@
 	});
 </script>
 
-<div class="h-screen">
+<div class="h-90vh">
 	<VirtualScroll data={notes} key="id" keeps={10} let:data>
 		<Note event={data} />
 	</VirtualScroll>
