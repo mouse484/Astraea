@@ -42,6 +42,7 @@
     "@floating-ui/core": "^1.6.1",
     "@iconify/svelte": "^4.0.1",
     "@nostr-dev-kit/ndk": "^2.8.1",
+    "@nostr-dev-kit/ndk-cache-dexie": "^2.4.1",
     "@svelte-put/clickoutside": "^3.0.1",
     "@tanstack/svelte-query": "^5.32.1",
     "@types/hast": "^3.0.4",

@@ -1,22 +1,35 @@
 <script lang="ts">
 	import { KIND, ndk } from '$lib/utils/nostr';
 	import type { NDKEvent } from '@nostr-dev-kit/ndk';
+	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from './Note/Note.svelte';
 
-	const notes = $state<string[]>([]);
+	const notes = $state<NDKEvent[]>([]);
 
 	$effect(() => {
 		const subscription = ndk.subscribe({
 			kinds: [KIND.Text]
 		});
 		subscription.on('event', (event: NDKEvent) => {
-			notes.push(event.content);
+			notes.push(event);
 		});
+		return () => {
+			subscription.stop();
+		};
 	});
 </script>
 
-<div>
-	{#each notes as note}
-		<Note content={note} />
-	{/each}
+<div class="h-screen">
+	<VirtualScroll data={notes} key="id" keeps={10} let:data>
+		<Note event={data} />
+	</VirtualScroll>
 </div>
+
+<style>
+	div :global(.virtual-scroll-root) {
+		scrollbar-width: none;
+	}
+	div :global(.virtual-scroll-root::-webkit-scrollbar) {
+		display: none;
+	}
+</style>

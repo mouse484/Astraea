@@ -1,14 +1,32 @@
 <script lang="ts">
-	let { content }: { content: string } = $props();
+	import type { NDKEvent, NDKUserProfile } from '@nostr-dev-kit/ndk';
+
+	const { event }: { event: NDKEvent } = $props();
+
+	let profile = $state<NDKUserProfile>();
+
+	const shortPubkey = event.author.pubkey.substring(0, 10);
+
+	$effect(() => {
+		(async () => {
+			const result = await event.author.fetchProfile();
+			if (result) {
+				profile = result;
+			}
+		})();
+	});
 </script>
 
 <div class="m-2 p-2 border-solid border-blueGray rounded-md grid grid-cols-5">
-	<div class="rounded-md size-16 bg-amber grid place-items-center">icon</div>
+	<img class="rounded-md size-16" src={profile?.image} alt={profile?.name} />
 	<div class="col-span-4">
 		<div>
-			<div>Name <span class="text-sm">@id</span></div>
-			<div class="text-sm">npub</div>
+			<div>
+				{profile?.name || profile?.displayName || shortPubkey}
+				<span class="text-sm">{profile?.nip05}</span>
+			</div>
+			<div class="text-sm text-gray">{shortPubkey}</div>
 		</div>
-		<div class="mt-4 break-all overflow-hidden hover:max-h-full max-h-8ch">{content}</div>
+		<div class="mt-4 break-all overflow-hidden hover:max-h-full max-h-8ch">{event.content}</div>
 	</div>
 </div>
