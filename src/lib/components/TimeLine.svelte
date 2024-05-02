@@ -8,10 +8,11 @@
 
 	$effect(() => {
 		const subscription = ndk.subscribe({
-			kinds: [KIND.Text]
+			kinds: [KIND.Text],
+			limit: 50
 		});
 		subscription.on('event', (event: NDKEvent) => {
-			notes.push(event);
+			notes.unshift(event);
 		});
 		return () => {
 			subscription.stop();
