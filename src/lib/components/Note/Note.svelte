@@ -17,7 +17,7 @@
 	});
 </script>
 
-<div class="m-2 p-2 border-solid border-blueGray rounded-md grid grid-cols-5">
+<div class="p-2 m-2 border-solid border-blueGray rounded-md grid grid-cols-5">
 	<img class="rounded-md size-16" src={profile?.image} alt={profile?.name} />
 	<div class="col-span-4">
 		<div>
