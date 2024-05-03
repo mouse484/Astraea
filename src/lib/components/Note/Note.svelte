@@ -18,7 +18,9 @@
 </script>
 
 <div class="grid grid-cols-5 border-(1 gray-600 solid) p-4">
-	<img class="size-16 rounded-md" src={profile?.image} alt={profile?.name} />
+	<a href="/profile/{event.author.pubkey}">
+		<img class="size-16 rounded-md" src={profile?.image} alt={profile?.name} />
+	</a>
 	<div class="col-span-4">
 		<div>
 			<div>

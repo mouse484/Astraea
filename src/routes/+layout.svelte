@@ -6,7 +6,9 @@
 	import Menu from '$lib/components/Menu/Menu.svelte';
 </script>
 
-<div class="h-screen flex gap-8 overflow-clip p-8 bg-main text-main">
+<div class="min-h-screen flex gap-8 bg-main text-main">
 	<Menu />
-	<slot />
+	<main class="mx-auto mt-8 max-w-lg">
+		<slot />
+	</main>
 </div>

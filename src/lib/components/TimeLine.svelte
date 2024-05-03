@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { KIND, ndk } from '$lib/utils/nostr';
-	import type { NDKEvent } from '@nostr-dev-kit/ndk';
+	import { useNDK } from '$lib/stores/nostr.svelte';
+	import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
 	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from './Note/Note.svelte';
 
 	const notes = $state<NDKEvent[]>([]);
 
 	$effect(() => {
+		const ndk = useNDK();
 		const subscription = ndk.subscribe({
-			kinds: [KIND.Text],
+			kinds: [NDKKind.Text],
 			limit: 50
 		});
 		subscription.on('event', (event: NDKEvent) => {
