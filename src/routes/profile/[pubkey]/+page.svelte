@@ -5,7 +5,7 @@
 
 	const { data }: { data: PageData } = $props();
 
-	const { profile } = data;
+	let profile = $derived(data.profile);
 </script>
 
 <div class="w-full">
