@@ -15,7 +15,7 @@
 		<h1 class="text-3xl">Astraea</h1>
 		<p class="text-sm text-gray">v{version}</p>
 	</div>
-	<ul class="mt-16 flex flex-col gap-4">
+	<ul class="grid grid-rows-2 mt-16 gap-2">
 		<li>
 			<MenuLink href="/" icon="home">
 				{i18next.t('home.home')}

@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { fetchProfile, useNDK } from '$lib/stores/nostr.svelte';
 import type { PageLoad } from './$types';
 

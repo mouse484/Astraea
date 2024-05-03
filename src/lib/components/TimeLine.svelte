@@ -3,10 +3,12 @@
 	import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
 	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from './Note/Note.svelte';
+	import Icon from './elements/Icon.svelte';
 
 	const { ids }: { ids?: string[] } = $props();
 
-	const notes = $state<NDKEvent[]>([]);
+	let isLoading = $state(true);
+	let notes = $state<NDKEvent[]>([]);
 
 	$effect(() => {
 		const ndk = useNDK();
@@ -16,18 +18,30 @@
 			limit: 50
 		});
 		subscription.on('event', (event: NDKEvent) => {
-			notes.unshift(event);
+			notes.push(event);
+			notes.sort((a, b) => b.created_at! - a.created_at!);
+		});
+		subscription.on('eose', () => {
+			isLoading = false;
 		});
 		return () => {
 			subscription.stop();
+			notes = [];
+			isLoading = true;
 		};
 	});
 </script>
 
 <div class="h-full border-(1 gray-600 solid)">
-	<VirtualScroll data={notes} key="id" keeps={10} let:data>
-		<Note event={data} />
-	</VirtualScroll>
+	{#if isLoading}
+		<div class="grid h-4/5 animate-spin place-items-center">
+			<Icon name="loading" />
+		</div>
+	{:else}
+		<VirtualScroll data={notes} key="id" keeps={10} let:data>
+			<Note event={data} />
+		</VirtualScroll>
+	{/if}
 </div>
 
 <style>

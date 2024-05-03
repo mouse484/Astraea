@@ -15,7 +15,7 @@
 	};
 </script>
 
-<div class="h-full flex flex-col gap-4">
+<div class="h-full w-full flex flex-col gap-4">
 	<textarea
 		bind:value={input}
 		class="mt-2 h-full w-full resize-none rounded-md bg-transparent p-2 outline-none"

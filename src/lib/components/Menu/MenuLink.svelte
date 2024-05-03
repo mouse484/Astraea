@@ -12,11 +12,14 @@
 	import { page } from '$app/stores';
 	const { href, icon, children }: Props = $props();
 
-	// eslint-disable-next-line svelte/valid-compile
-	const isCurrentPage = $page.url.pathname === href;
+	const isCurrentPage =
+		// eslint-disable-next-line svelte/valid-compile
+		$derived(href === '/' ? $page.url.pathname === '/' : $page.url.pathname.startsWith(href));
 </script>
 
-<a {href} class="flex items-center gap-2 rounded-md p-2{isCurrentPage && ' shadow-inner'}">
-	<Icon name={icon} size="2" />
-	{@render children()}
+<a {href} class="flex items-center gap-2 rounded-md p-2">
+	<Icon name={isCurrentPage ? icon : `${icon}-outline`} size="2" />
+	<span class={isCurrentPage ? 'font-bold' : ''}>
+		{@render children()}
+	</span>
 </a>
