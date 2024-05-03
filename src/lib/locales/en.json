@@ -20,7 +20,8 @@
 	},
 	"profile": {
 		"profile": "Profile",
-		"copyId": "Copy User ID"
+		"copyId": "Copy User ID",
+		"follows": "Follows"
 	},
 	"search": {
 		"search": "Search"

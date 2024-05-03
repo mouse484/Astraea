@@ -9,6 +9,7 @@ export const load: PageLoad = async ({ params }) => {
 	return {
 		user,
 		profile,
-		isNip05Valid
+		isNip05Valid,
+		follows: await user.follows()
 	};
 };

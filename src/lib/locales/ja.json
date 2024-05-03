@@ -20,7 +20,8 @@
 	},
 	"profile": {
 		"profile": "プロフィール",
-		"copyId": "ユーザーIDをコピー"
+		"copyId": "ユーザーIDをコピー",
+		"follows": "フォロー"
 	},
 	"search": {
 		"search": "検索"

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import Icon from '$lib/components/elements/Icon.svelte';
+	import i18next from 'i18next';
 	import type { PageData } from './$types';
 
 	const { data }: { data: PageData } = $props();
@@ -30,6 +31,7 @@
 					</p>
 				{/if}
 			</div>
+			<p class="mt-2">{data.follows.size} {i18next.t('profile.follows')}</p>
 		</div>
 	</section>
 
