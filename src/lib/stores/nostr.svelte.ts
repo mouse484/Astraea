@@ -1,14 +1,13 @@
 import NDK, { NDKNip07Signer, NDKUser, type NDKUserProfile } from '@nostr-dev-kit/ndk';
 import NDKCacheAdapterDexie from '@nostr-dev-kit/ndk-cache-dexie';
 import { user } from './user.svelte';
-import { browser } from '$app/environment';
 
 export const useNDK = () => {
 	const ndk = $state(
 		new NDK({
 			explicitRelayUrls: ['wss://relay.damus.io', 'wss://yabu.me'],
 			cacheAdapter: new NDKCacheAdapterDexie({ dbName: 'nostr-cache' }),
-			signer: browser ? new NDKNip07Signer() : undefined,
+			signer: new NDKNip07Signer(),
 			autoConnectUserRelays: false
 			// enableOutboxModel: true
 		})

@@ -4,12 +4,15 @@
 	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from './Note/Note.svelte';
 
+	const { ids }: { ids?: string[] } = $props();
+
 	const notes = $state<NDKEvent[]>([]);
 
 	$effect(() => {
 		const ndk = useNDK();
 		const subscription = ndk.subscribe({
 			kinds: [NDKKind.Text],
+			authors: ids,
 			limit: 50
 		});
 		subscription.on('event', (event: NDKEvent) => {

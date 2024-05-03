@@ -24,7 +24,7 @@
 	<div class="flex-1">
 		<div>
 			<p>
-				{profile?.name || profile?.displayName || shortPubkey}
+				{profile?.displayName || profile?.name || shortPubkey}
 			</p>
 			<p class="text-sm">{profile?.nip05}</p>
 		</div>
