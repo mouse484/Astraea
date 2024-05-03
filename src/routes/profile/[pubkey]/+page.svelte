@@ -9,13 +9,14 @@
 	let profile = $derived(data.profile);
 </script>
 
-<div class="w-full">
+<div>
 	<section>
 		<img src={profile.banner} alt="{profile.name} banner" class="h-48 w-full object-cover" />
-		<img src={profile.image} alt="{profile.name} icon" class="size-24 rounded-md" />
-		<div>
-			<h2 class="text-lg">{profile.name}</h2>
+		<img src={profile.image} alt="{profile.name} icon" class="ml-4 mt--16 size-24 rounded-md" />
+		<div class="ml-4">
+			<h2 class="text-2xl">{profile.name}</h2>
 			<p class={data.isNip05Valid ? 'text-green' : 'text-red'}>{profile.nip05}</p>
+			<p class="text-sm">{data.user.npub}</p>
 			<p class="mt-4">{profile.about}</p>
 			<div class="mt-2">
 				{#if profile.website}
@@ -35,7 +36,7 @@
 		</div>
 	</section>
 
-	<section class="sticky top-0 pt-16">
+	<section class="sticky top-0 mt-16 h-screen">
 		<TimeLine />
 	</section>
 </div>

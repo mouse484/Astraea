@@ -8,7 +8,7 @@
 
 <div class="min-h-screen flex gap-8 bg-main text-main">
 	<Menu />
-	<main class="mx-auto mt-8 max-w-lg">
+	<main class="mx-auto max-w-2xl">
 		<slot />
 	</main>
 </div>

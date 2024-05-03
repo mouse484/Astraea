@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div class="h-90vh">
+<div class="h-full border-(1 gray-600 solid)">
 	<VirtualScroll data={notes} key="id" keeps={10} let:data>
 		<Note event={data} />
 	</VirtualScroll>

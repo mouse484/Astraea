@@ -17,17 +17,16 @@
 	});
 </script>
 
-<div class="grid grid-cols-5 border-(1 gray-600 solid) p-4">
+<div class="flex gap-4 border-y-(1 gray-600 solid) p-4">
 	<a href="/profile/{event.author.pubkey}">
 		<img class="size-16 rounded-md" src={profile?.image} alt={profile?.name} />
 	</a>
-	<div class="col-span-4">
+	<div class="flex-1">
 		<div>
-			<div>
+			<p>
 				{profile?.name || profile?.displayName || shortPubkey}
-				<span class="text-sm">{profile?.nip05}</span>
-			</div>
-			<div class="text-sm text-gray">{shortPubkey}</div>
+			</p>
+			<p class="text-sm">{profile?.nip05}</p>
 		</div>
 		<div class="mt-4 max-h-8ch overflow-hidden break-all hover:max-h-full">{event.content}</div>
 	</div>

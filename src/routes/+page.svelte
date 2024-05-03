@@ -2,4 +2,6 @@
 	import TimeLine from '$lib/components/TimeLine.svelte';
 </script>
 
-<TimeLine />
+<div class="h-screen">
+	<TimeLine />
+</div>
