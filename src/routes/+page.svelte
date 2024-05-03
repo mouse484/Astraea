@@ -1,4 +1,5 @@
 <script lang="ts">
+	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { useNDK } from '$lib/stores/nostr.svelte';
 	import { user } from '$lib/stores/user.svelte';
@@ -18,6 +19,10 @@
 	});
 </script>
 
-<div class="h-screen">
+<div class="h-20vh py-4">
+	<NoteForm />
+</div>
+
+<div class="h-80vh">
 	<TimeLine ids={follows} />
 </div>
