@@ -1,4 +1,3 @@
-// import { redirect } from '@sveltejs/kit';
 import { user } from '$lib/stores/user.svelte';
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { useNDK } from '$lib/stores/nostr.svelte';
+	import { nostr } from '$lib/stores/nostr.svelte';
 	import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
 	import i18next from 'i18next';
 
 	let input = $state('');
 
 	const post = async () => {
-		const ndk = useNDK();
+		const { ndk } = nostr;
 		const event = new NDKEvent(ndk);
 		event.kind = NDKKind.Text;
 		event.content = input;

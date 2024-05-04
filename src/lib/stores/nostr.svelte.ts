@@ -1,36 +1,27 @@
-import NDK, { NDKNip07Signer, NDKUser, type NDKUserProfile } from '@nostr-dev-kit/ndk';
+import { browser } from '$app/environment';
+import NDK, { NDKNip07Signer, type NDKConstructorParams } from '@nostr-dev-kit/ndk';
 import NDKCacheAdapterDexie from '@nostr-dev-kit/ndk-cache-dexie';
-import { user } from './user.svelte';
 
-export const useNDK = () => {
-	const ndk = $state(
-		new NDK({
-			explicitRelayUrls: ['wss://relay.damus.io', 'wss://yabu.me'],
-			cacheAdapter: new NDKCacheAdapterDexie({ dbName: 'nostr-cache' }),
-			signer: new NDKNip07Signer(),
-			autoConnectUserRelays: false
-			// enableOutboxModel: true
-		})
+const createNDKStore = () => {
+	const defaultOptions: NDKConstructorParams = {
+		explicitRelayUrls: ['wss://relay.damus.io', 'wss://yabu.me'],
+		autoConnectUserRelays: false,
+		enableOutboxModel: true
+	};
+	const ndk = $derived(
+		browser
+			? new NDK({
+					...defaultOptions,
+					cacheAdapter: new NDKCacheAdapterDexie({ dbName: 'nostr-cache' }),
+					signer: new NDKNip07Signer()
+				})
+			: new NDK(defaultOptions)
 	);
-
-	const init = async () => {
-		const nip08user = await ndk.signer?.user();
-		if (nip08user) {
-			user.setPubkey(nip08user.pubkey);
+	return {
+		get ndk() {
+			return ndk;
 		}
 	};
-
-	init();
-	ndk.connect();
-
-	return ndk;
 };
 
-export const fetchProfile = async (user: NDKUser) => {
-	const profile = (await user.fetchProfile()) as Record<string, unknown>;
-	if ('profile' in profile) {
-		return profile.profile as NDKUserProfile;
-	} else {
-		return profile as NDKUserProfile;
-	}
-};
+export const nostr = createNDKStore();
