@@ -4,6 +4,7 @@
 	import VirtualScroll from 'svelte-virtual-scroll-list';
 	import Note from './Note/Note.svelte';
 	import Icon from './elements/Icon.svelte';
+	import { reactions } from '$lib/stores/reactions.svelte';
 
 	const { ids }: { ids?: string[] } = $props();
 
@@ -14,11 +15,15 @@
 		const { ndk } = nostr;
 		if (!ndk) return;
 		const subscription = ndk.subscribe({
-			kinds: [NDKKind.Text],
+			kinds: [NDKKind.Text, NDKKind.Reaction],
 			authors: ids,
-			limit: 50
+			limit: 100
 		});
 		subscription.on('event', (event: NDKEvent) => {
+			if (event.kind === NDKKind.Reaction) {
+				reactions.addReaction(event);
+				return;
+			}
 			notes.push(event);
 			notes.sort((a, b) => b.created_at! - a.created_at!);
 		});
@@ -40,7 +45,7 @@
 		</div>
 	{:else}
 		<VirtualScroll data={notes} key="id" keeps={10} let:data>
-			<Note event={data} />
+			<Note note={data} />
 		</VirtualScroll>
 	{/if}
 </div>

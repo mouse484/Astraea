@@ -38,7 +38,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@emoji-mart/data": "^1.2.1",
     "@floating-ui/core": "^1.6.1",
     "@iconify/svelte": "^4.0.1",
     "@nostr-dev-kit/ndk": "^2.8.1",
@@ -49,6 +48,7 @@
     "@types/mdast": "^4.0.3",
     "@types/unist": "^3.0.2",
     "@vite-pwa/sveltekit": "^0.5.0",
+    "emoji-picker-element": "^1.21.3",
     "hast-util-find-and-replace": "^5.0.1",
     "hastscript": "^9.0.0",
     "i18next": "^23.11.3",
