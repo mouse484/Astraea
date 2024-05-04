@@ -26,5 +26,10 @@
 				{i18next.t('profile.profile')}
 			</MenuLink>
 		</li>
+		<li>
+			<MenuLink href="/relays" icon="server">
+				{i18next.t('general.relays')}
+			</MenuLink>
+		</li>
 	</ul>
 </nav>

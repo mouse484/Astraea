@@ -7,7 +7,7 @@
 	import Icon from '$lib/components/elements/Icon.svelte';
 
 	import { nostr } from '$lib/stores/nostr.svelte';
-	import { setLoginUser } from '$lib/utils/ndk';
+	import { init } from '$lib/utils/ndk';
 
 	const { children } = $props();
 
@@ -17,7 +17,7 @@
 		(async () => {
 			const { ndk } = nostr;
 			await ndk.connect();
-			await setLoginUser(ndk);
+			await init(ndk);
 			isLoading = false;
 		})();
 	});

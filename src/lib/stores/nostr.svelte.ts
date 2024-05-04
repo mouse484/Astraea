@@ -5,8 +5,8 @@ import NDKCacheAdapterDexie from '@nostr-dev-kit/ndk-cache-dexie';
 const createNDKStore = () => {
 	const defaultOptions: NDKConstructorParams = {
 		explicitRelayUrls: ['wss://relay.damus.io', 'wss://yabu.me'],
-		autoConnectUserRelays: false,
-		enableOutboxModel: true
+		autoConnectUserRelays: false
+		// enableOutboxModel: true
 	};
 	const ndk = $derived(
 		browser
