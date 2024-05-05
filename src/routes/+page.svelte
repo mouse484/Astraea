@@ -2,15 +2,16 @@
 	import NoteForm from '$lib/components/Note/NoteForm/NoteForm.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
 	import { nostr } from '$lib/stores/nostr.svelte';
-	import { user } from '$lib/stores/user.svelte';
+	import { userStore } from '$lib/stores/user.svelte';
 
 	let follows = $state<string[]>();
 
 	$effect(() => {
 		const { ndk } = nostr;
 		(async () => {
-			if (user.pubkey) {
-				const result = await ndk?.getUser({ pubkey: user.pubkey }).follows();
+			const { pubkey } = userStore();
+			if (pubkey) {
+				const result = await ndk?.getUser({ pubkey: pubkey }).follows();
 				if (result) {
 					follows = [...result].map((u) => u.pubkey);
 				}

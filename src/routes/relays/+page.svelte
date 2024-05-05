@@ -2,7 +2,7 @@
 	import RelayList from '$lib/components/Relay/RelayList.svelte';
 	import { contactsRelayScheme } from '$lib/scheme/relays';
 	import { nostr } from '$lib/stores/nostr.svelte';
-	import { user } from '$lib/stores/user.svelte';
+	import { userStore } from '$lib/stores/user.svelte';
 	import { setUserRelay } from '$lib/utils/ndk';
 	import { NDKKind } from '@nostr-dev-kit/ndk';
 	import { parse } from 'valibot';
@@ -12,7 +12,7 @@
 	const importRelays = async () => {
 		const event = await ndk.fetchEvent({
 			kinds: [NDKKind.Contacts],
-			authors: [user.pubkey!]
+			authors: [userStore().pubkey!]
 		});
 		const parsed = parse(contactsRelayScheme, JSON.parse(event?.content ?? ''));
 		const relays = Object.keys(parsed);

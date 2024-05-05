@@ -1,5 +1,6 @@
-const creaateUserStore = () => {
-	let pubkey = $state<string>();
+let pubkey = $state<string>();
+
+export const userStore = () => {
 	return {
 		setPubkey: (value: string) => {
 			pubkey = value;
@@ -9,5 +10,3 @@ const creaateUserStore = () => {
 		}
 	};
 };
-
-export const user = creaateUserStore();

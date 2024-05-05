@@ -1,11 +1,11 @@
-import { user } from '$lib/stores/user.svelte';
+import { userStore } from '$lib/stores/user.svelte';
 import NDK, { NDKUser, type NDKUserProfile } from '@nostr-dev-kit/ndk';
 
 export const init = async (ndk: NDK) => {
 	const setLoginUser = async (ndk: NDK) => {
 		const nip08user = await ndk.signer?.user();
 		if (nip08user) {
-			user.setPubkey(nip08user.pubkey);
+			userStore().setPubkey(nip08user.pubkey);
 		}
 	};
 
