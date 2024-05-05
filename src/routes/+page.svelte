@@ -24,5 +24,7 @@
 </div>
 
 <div class="h-80vh">
-	<TimeLine ids={follows} />
+	{#if follows}
+		<TimeLine ids={follows} />
+	{/if}
 </div>
