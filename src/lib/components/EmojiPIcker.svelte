@@ -32,7 +32,7 @@
 	});
 </script>
 
-<div class="relative">
+<div class="relative grid place-content-center">
 	<button onclick={() => (isOpen = !isOpen)} class="bg-transparent">
 		<Icon iconset="material-symbols" name="add-reaction-outline" size="1" />
 	</button>

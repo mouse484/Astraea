@@ -34,7 +34,7 @@
 	});
 </script>
 
-<div class="mt-4 flex flex-wrap items-center gap-2">
+<div class="flex flex-wrap items-center gap-2">
 	<EmojiPIcker {note} />
 	{#each useReactionList as [emoji, events] (emoji)}
 		{@const isUserReacted = [...events.values()].find((event) => event.pubkey === user.pubkey)}

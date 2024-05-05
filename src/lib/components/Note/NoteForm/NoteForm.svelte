@@ -3,6 +3,8 @@
 	import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
 	import i18next from 'i18next';
 
+	const { replyTo, onPublished }: { replyTo?: string; onPublished?: () => void } = $props();
+
 	let input = $state('');
 
 	const post = async () => {
@@ -10,7 +12,13 @@
 		const event = new NDKEvent(ndk);
 		event.kind = NDKKind.Text;
 		event.content = input;
+
+		if (replyTo) {
+			event.tags.push(['e', replyTo, '', 'reply']);
+		}
+
 		await event.publish();
+		onPublished?.();
 		input = '';
 	};
 </script>
