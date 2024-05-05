@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { NDKEvent, NDKTag, NDKUserProfile } from '@nostr-dev-kit/ndk';
 	import NoteFooter from './NoteFooter.svelte';
+	import NoteContent from './NoteContent/NoteContent.svelte';
 
 	const { note, isReply = false }: { note: NDKEvent; isReply: boolean } = $props();
 
@@ -58,7 +59,9 @@
 			</p>
 			<p class="text-sm">{profile?.nip05}</p>
 		</div>
-		<div class="mt-4 max-h-8ch overflow-hidden break-all hover:max-h-full">{note.content}</div>
+		<div class="mt-4 max-h-8ch overflow-hidden break-all hover:max-h-full">
+			<NoteContent content={note.content} editable={false} />
+		</div>
 		<NoteFooter {note} />
 	</div>
 </div>

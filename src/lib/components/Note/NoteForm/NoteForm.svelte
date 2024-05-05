@@ -2,6 +2,7 @@
 	import { nostr } from '$lib/stores/nostr.svelte';
 	import { NDKEvent, NDKKind } from '@nostr-dev-kit/ndk';
 	import i18next from 'i18next';
+	import NoteContent from '../NoteContent/NoteContent.svelte';
 
 	const { replyTo, onPublished }: { replyTo?: string; onPublished?: () => void } = $props();
 
@@ -24,12 +25,8 @@
 </script>
 
 <div class="h-full w-full flex flex-col gap-4">
-	<textarea
-		bind:value={input}
-		class="mt-2 h-full w-full resize-none rounded-md bg-transparent p-2 outline-none"
-		border="1 accent"
-	>
-	</textarea>
+	<NoteContent content={input} editorClassList="border-(1 accent) p-2 rounded-md" />
+
 	<button
 		type="submit"
 		disabled={!input}
