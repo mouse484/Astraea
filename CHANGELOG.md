@@ -1,3 +1,10 @@
+## [4.0.17](https://github.com/mouse484/Astraea/compare/v4.0.16...v4.0.17) (2024-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/mdast to ^4.0.4 ([5f63014](https://github.com/mouse484/Astraea/commit/5f63014d21576ff150c70715ba263af9f1643ae6))
+
 ## [4.0.16](https://github.com/mouse484/Astraea/compare/v4.0.15...v4.0.16) (2024-05-12)
 
 
