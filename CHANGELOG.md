@@ -1,3 +1,10 @@
+## [4.0.20](https://github.com/mouse484/Astraea/compare/v4.0.19...v4.0.20) (2024-05-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @svelte-put/clickoutside to ^3.0.2 ([e110b57](https://github.com/mouse484/Astraea/commit/e110b57f348489c6bd9d6bde1c4974dca80c6fc0))
+
 ## [4.0.19](https://github.com/mouse484/Astraea/compare/v4.0.18...v4.0.19) (2024-05-16)
 
 
