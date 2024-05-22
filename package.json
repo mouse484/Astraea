@@ -14,9 +14,9 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@sveltejs/adapter-auto": "^3.2.0",
+    "@sveltejs/adapter-auto": "^3.2.1",
     "@sveltejs/adapter-vercel": "^5.3.0",
-    "@sveltejs/kit": "^2.5.9",
+    "@sveltejs/kit": "^2.5.10",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@types/linkify-it": "^3.0.5",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
