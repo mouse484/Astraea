@@ -1,3 +1,10 @@
+## [4.0.31](https://github.com/mouse484/Astraea/compare/v4.0.30...v4.0.31) (2024-06-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency unified to ^11.0.5 ([7ac3579](https://github.com/mouse484/Astraea/commit/7ac3579104a92215a19d1d08fb751d256ada11c4))
+
 ## [4.0.30](https://github.com/mouse484/Astraea/compare/v4.0.29...v4.0.30) (2024-06-17)
 
 
