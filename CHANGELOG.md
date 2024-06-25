@@ -1,3 +1,10 @@
+## [4.0.35](https://github.com/mouse484/Astraea/compare/v4.0.34...v4.0.35) (2024-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency daisyui to ^4.12.8 ([878ef4e](https://github.com/mouse484/Astraea/commit/878ef4e755a5a49bfe6fa2a0eccf5d8ee8654cb5))
+
 ## [4.0.34](https://github.com/mouse484/Astraea/compare/v4.0.33...v4.0.34) (2024-06-23)
 
 
