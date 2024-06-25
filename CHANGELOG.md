@@ -1,3 +1,10 @@
+## [4.0.36](https://github.com/mouse484/Astraea/compare/v4.0.35...v4.0.36) (2024-06-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/core to ^1.6.3 ([bbdd47b](https://github.com/mouse484/Astraea/commit/bbdd47b7ddc2d61924c853ba4c9eebc24ba67dc1))
+
 ## [4.0.35](https://github.com/mouse484/Astraea/compare/v4.0.34...v4.0.35) (2024-06-25)
 
 
