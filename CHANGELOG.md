@@ -1,3 +1,10 @@
+## [4.0.59](https://github.com/mouse484/Astraea/compare/v4.0.58...v4.0.59) (2024-08-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/unist to ^3.0.3 ([9c5da0b](https://github.com/mouse484/Astraea/commit/9c5da0b65e8450529aaa4f96585c7573a85f6c1e))
+
 ## [4.0.58](https://github.com/mouse484/Astraea/compare/v4.0.57...v4.0.58) (2024-08-07)
 
 
