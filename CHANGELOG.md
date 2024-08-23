@@ -1,3 +1,10 @@
+## [4.0.62](https://github.com/mouse484/Astraea/compare/v4.0.61...v4.0.62) (2024-08-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @vite-pwa/sveltekit to ^0.6.1 ([1c36930](https://github.com/mouse484/Astraea/commit/1c369301a42e02eec0f01bc6435a295bfa192676))
+
 ## [4.0.61](https://github.com/mouse484/Astraea/compare/v4.0.60...v4.0.61) (2024-08-21)
 
 
