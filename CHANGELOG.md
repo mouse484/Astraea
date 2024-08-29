@@ -1,3 +1,10 @@
+## [4.0.64](https://github.com/mouse484/Astraea/compare/v4.0.63...v4.0.64) (2024-08-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vite-plugin-pwa to ^0.20.2 ([001da48](https://github.com/mouse484/Astraea/commit/001da48aac3c962da7049d4cd7ef31f625bca7ac))
+
 ## [4.0.63](https://github.com/mouse484/Astraea/compare/v4.0.62...v4.0.63) (2024-08-27)
 
 
