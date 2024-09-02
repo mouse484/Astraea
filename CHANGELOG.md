@@ -1,3 +1,10 @@
+## [4.0.67](https://github.com/mouse484/Astraea/compare/v4.0.66...v4.0.67) (2024-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @tanstack/svelte-query to ^5.53.2 ([c3f38d9](https://github.com/mouse484/Astraea/commit/c3f38d997d2ddbf41f7890391aaf27d24105a3e0))
+
 ## [4.0.66](https://github.com/mouse484/Astraea/compare/v4.0.65...v4.0.66) (2024-08-30)
 
 
