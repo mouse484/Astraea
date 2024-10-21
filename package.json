@@ -1,6 +1,6 @@
 {
   "name": "astraea",
-  "version": "4.0.78",
+  "version": "4.0.79",
   "private": true,
   "scripts": {
     "dev": "vite dev",
