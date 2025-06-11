@@ -1,13 +1,14 @@
 {
   "name": "astraea",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@tanstack/react-router": "^1.121.0",
@@ -16,14 +17,12 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
+    "@mouse_484/eslint-config": "4.3.3",
     "@tanstack/router-plugin": "^1.121.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.9.0",
     "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
