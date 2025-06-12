@@ -11,6 +11,7 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-router": "^1.121.0",
@@ -18,13 +19,15 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.514.0",
+    "nostr-tools": "^2.15.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "zod": "^3.25.62"
   },
   "devDependencies": {
-    "@mouse_484/eslint-config": "4.3.3",
+    "@mouse_484/eslint-config": "4.4.2",
     "@tanstack/router-plugin": "^1.121.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",

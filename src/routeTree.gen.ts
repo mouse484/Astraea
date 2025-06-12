@@ -12,33 +12,44 @@ import type { CreateFileRoute, FileRoutesByPath } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as profileNpub1Char123idChar125RouteImport } from './routes/(profile)/npub1{$id}'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const profileNpub1Char123idChar125Route =
+  profileNpub1Char123idChar125RouteImport.update({
+    id: '/(profile)/npub1{$id}',
+    path: '/npub1{$id}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/npub1{$id}': typeof profileNpub1Char123idChar125Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/npub1{$id}': typeof profileNpub1Char123idChar125Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/(profile)/npub1{$id}': typeof profileNpub1Char123idChar125Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/npub1{$id}'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/npub1{$id}'
+  id: '__root__' | '/' | '/(profile)/npub1{$id}'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  profileNpub1Char123idChar125Route: typeof profileNpub1Char123idChar125Route
 }
 
 declare module '@tanstack/react-router' {
@@ -48,6 +59,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(profile)/npub1{$id}': {
+      id: '/(profile)/npub1{$id}'
+      path: '/npub1{$id}'
+      fullPath: '/npub1{$id}'
+      preLoaderRoute: typeof profileNpub1Char123idChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -62,9 +80,19 @@ declare module './routes/index' {
     FileRoutesByPath['/']['fullPath']
   >
 }
+declare module './routes/(profile)/npub1{$id}' {
+  const createFileRoute: CreateFileRoute<
+    '/(profile)/npub1{$id}',
+    FileRoutesByPath['/(profile)/npub1{$id}']['parentRoute'],
+    FileRoutesByPath['/(profile)/npub1{$id}']['id'],
+    FileRoutesByPath['/(profile)/npub1{$id}']['path'],
+    FileRoutesByPath['/(profile)/npub1{$id}']['fullPath']
+  >
+}
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  profileNpub1Char123idChar125Route: profileNpub1Char123idChar125Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
