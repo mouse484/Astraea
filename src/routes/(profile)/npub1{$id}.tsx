@@ -5,18 +5,23 @@ import { MetaDataSchema } from '@/lib/nostr/metadata'
 
 export const Route = createFileRoute({
   component: RouteComponent,
-  loader: async ({ params: { id } }) => {
+  loader: async ({ params: { id }, context: { queryClient } }) => {
     const pubkey = `npub1${id}` satisfies NPub
     const hex = nip19.decode(pubkey).data
 
     const pool = new SimplePool()
-    const event = await pool.get(['wss://relay.damus.io', 'wss://relay.primal.net'], {
-      kinds: [0],
-      authors: [hex],
+
+    const event = await queryClient.ensureQueryData({
+      queryKey: ['profile', hex],
+      queryFn: async () => {
+        return await pool.get(['wss://relay.damus.io', 'wss://relay.primal.net'], {
+          kinds: [0],
+          authors: [hex],
+        })
+      },
     })
 
     const result = MetaDataSchema.safeParse(JSON.parse(event?.content ?? '{}'))
-
     const content = result.success ? result.data : undefined
 
     return {

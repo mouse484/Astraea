@@ -22,7 +22,7 @@ export default function Profile({ content }: Props) {
           />
         )}
       </div>
-      <Avatar className="z-10 m-2 -mt-10 size-30">
+      <Avatar className="m-2 -mt-15 size-30">
         <AvatarImage src={content?.picture}></AvatarImage>
         <AvatarFallback>
           {displayName.slice(0, 2).toUpperCase()}
