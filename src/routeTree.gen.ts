@@ -13,6 +13,7 @@ import type { CreateFileRoute, FileRoutesByPath } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as appRouteRouteImport } from './routes/(app)/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as appHomeRouteImport } from './routes/(app)/home'
 import { Route as appprofileNpub1Char123idChar125RouteImport } from './routes/(app)/(profile)/npub1{$id}'
 
 const appRouteRoute = appRouteRouteImport.update({
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const appHomeRoute = appHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => appRouteRoute,
+} as any)
 const appprofileNpub1Char123idChar125Route =
   appprofileNpub1Char123idChar125RouteImport.update({
     id: '/(profile)/npub1{$id}',
@@ -33,24 +39,32 @@ const appprofileNpub1Char123idChar125Route =
 
 export interface FileRoutesByFullPath {
   '/': typeof appRouteRouteWithChildren
+  '/home': typeof appHomeRoute
   '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRoutesByTo {
   '/': typeof appRouteRouteWithChildren
+  '/home': typeof appHomeRoute
   '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/(app)': typeof appRouteRouteWithChildren
+  '/(app)/home': typeof appHomeRoute
   '/(app)/(profile)/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/npub1{$id}'
+  fullPaths: '/' | '/home' | '/npub1{$id}'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/npub1{$id}'
-  id: '__root__' | '/' | '/(app)' | '/(app)/(profile)/npub1{$id}'
+  to: '/' | '/home' | '/npub1{$id}'
+  id:
+    | '__root__'
+    | '/'
+    | '/(app)'
+    | '/(app)/home'
+    | '/(app)/(profile)/npub1{$id}'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -73,6 +87,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof appRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/(app)/home': {
+      id: '/(app)/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof appHomeRouteImport
+      parentRoute: typeof appRouteRoute
     }
     '/(app)/(profile)/npub1{$id}': {
       id: '/(app)/(profile)/npub1{$id}'
@@ -102,6 +123,15 @@ declare module './routes/(app)/route' {
     FileRoutesByPath['/(app)']['fullPath']
   >
 }
+declare module './routes/(app)/home' {
+  const createFileRoute: CreateFileRoute<
+    '/(app)/home',
+    FileRoutesByPath['/(app)/home']['parentRoute'],
+    FileRoutesByPath['/(app)/home']['id'],
+    FileRoutesByPath['/(app)/home']['path'],
+    FileRoutesByPath['/(app)/home']['fullPath']
+  >
+}
 declare module './routes/(app)/(profile)/npub1{$id}' {
   const createFileRoute: CreateFileRoute<
     '/(app)/(profile)/npub1{$id}',
@@ -113,10 +143,12 @@ declare module './routes/(app)/(profile)/npub1{$id}' {
 }
 
 interface appRouteRouteChildren {
+  appHomeRoute: typeof appHomeRoute
   appprofileNpub1Char123idChar125Route: typeof appprofileNpub1Char123idChar125Route
 }
 
 const appRouteRouteChildren: appRouteRouteChildren = {
+  appHomeRoute: appHomeRoute,
   appprofileNpub1Char123idChar125Route: appprofileNpub1Char123idChar125Route,
 }
 
