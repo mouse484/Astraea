@@ -1,6 +1,6 @@
 import type { NPub } from 'nostr-tools/nip19'
 import { Link, type LinkProps } from '@tanstack/react-router'
-import { Home, type LucideIcon } from 'lucide-react'
+import { Home, type LucideIcon, User } from 'lucide-react'
 import {
   Sidebar as ShadcnSidebar,
   SidebarContent,
@@ -59,6 +59,7 @@ export default function Sidebar({ npub }: Props) {
             <SidebarMenuButton asChild>
               {/* TODO: あとでちゃんとした実装にする */}
               <Link to="/npub1{$id}" params={{ id: npub?.slice(5) ?? '' }}>
+                <User />
                 Profile
               </Link>
             </SidebarMenuButton>
