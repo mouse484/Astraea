@@ -1,21 +1,19 @@
 import type { NPub } from 'nostr-tools/nip19'
-import { nip19, SimplePool } from 'nostr-tools'
+import { kinds, nip19 } from 'nostr-tools'
 import Profile from '@/components/Profile'
 import { MetaDataSchema } from '@/lib/nostr/metadata'
 
 export const Route = createFileRoute({
   component: RouteComponent,
-  loader: async ({ params: { id }, context: { queryClient } }) => {
+  loader: async ({ params: { id }, context: { queryClient, pool, relays } }) => {
     const pubkey = `npub1${id}` satisfies NPub
     const hex = nip19.decode(pubkey).data
 
-    const pool = new SimplePool()
-
-    const event = await queryClient.ensureQueryData({
+    const event = await queryClient.fetchQuery({
       queryKey: ['profile', hex],
       queryFn: async () => {
-        return await pool.get(['wss://relay.damus.io', 'wss://relay.primal.net'], {
-          kinds: [0],
+        return await pool.get(relays, {
+          kinds: [kinds.Metadata],
           authors: [hex],
         })
       },

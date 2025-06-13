@@ -11,45 +11,51 @@
 import type { CreateFileRoute, FileRoutesByPath } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as appRouteRouteImport } from './routes/(app)/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as profileNpub1Char123idChar125RouteImport } from './routes/(profile)/npub1{$id}'
+import { Route as appprofileNpub1Char123idChar125RouteImport } from './routes/(app)/(profile)/npub1{$id}'
 
+const appRouteRoute = appRouteRouteImport.update({
+  id: '/(app)',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const profileNpub1Char123idChar125Route =
-  profileNpub1Char123idChar125RouteImport.update({
+const appprofileNpub1Char123idChar125Route =
+  appprofileNpub1Char123idChar125RouteImport.update({
     id: '/(profile)/npub1{$id}',
     path: '/npub1{$id}',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => appRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/npub1{$id}': typeof profileNpub1Char123idChar125Route
+  '/': typeof appRouteRouteWithChildren
+  '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/npub1{$id}': typeof profileNpub1Char123idChar125Route
+  '/': typeof appRouteRouteWithChildren
+  '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/(profile)/npub1{$id}': typeof profileNpub1Char123idChar125Route
+  '/(app)': typeof appRouteRouteWithChildren
+  '/(app)/(profile)/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths: '/' | '/npub1{$id}'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/npub1{$id}'
-  id: '__root__' | '/' | '/(profile)/npub1{$id}'
+  id: '__root__' | '/' | '/(app)' | '/(app)/(profile)/npub1{$id}'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  profileNpub1Char123idChar125Route: typeof profileNpub1Char123idChar125Route
+  appRouteRoute: typeof appRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -61,12 +67,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(profile)/npub1{$id}': {
-      id: '/(profile)/npub1{$id}'
+    '/(app)': {
+      id: '/(app)'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof appRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(app)/(profile)/npub1{$id}': {
+      id: '/(app)/(profile)/npub1{$id}'
       path: '/npub1{$id}'
       fullPath: '/npub1{$id}'
-      preLoaderRoute: typeof profileNpub1Char123idChar125RouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof appprofileNpub1Char123idChar125RouteImport
+      parentRoute: typeof appRouteRoute
     }
   }
 }
@@ -80,19 +93,40 @@ declare module './routes/index' {
     FileRoutesByPath['/']['fullPath']
   >
 }
-declare module './routes/(profile)/npub1{$id}' {
+declare module './routes/(app)/route' {
   const createFileRoute: CreateFileRoute<
-    '/(profile)/npub1{$id}',
-    FileRoutesByPath['/(profile)/npub1{$id}']['parentRoute'],
-    FileRoutesByPath['/(profile)/npub1{$id}']['id'],
-    FileRoutesByPath['/(profile)/npub1{$id}']['path'],
-    FileRoutesByPath['/(profile)/npub1{$id}']['fullPath']
+    '/(app)',
+    FileRoutesByPath['/(app)']['parentRoute'],
+    FileRoutesByPath['/(app)']['id'],
+    FileRoutesByPath['/(app)']['path'],
+    FileRoutesByPath['/(app)']['fullPath']
+  >
+}
+declare module './routes/(app)/(profile)/npub1{$id}' {
+  const createFileRoute: CreateFileRoute<
+    '/(app)/(profile)/npub1{$id}',
+    FileRoutesByPath['/(app)/(profile)/npub1{$id}']['parentRoute'],
+    FileRoutesByPath['/(app)/(profile)/npub1{$id}']['id'],
+    FileRoutesByPath['/(app)/(profile)/npub1{$id}']['path'],
+    FileRoutesByPath['/(app)/(profile)/npub1{$id}']['fullPath']
   >
 }
 
+interface appRouteRouteChildren {
+  appprofileNpub1Char123idChar125Route: typeof appprofileNpub1Char123idChar125Route
+}
+
+const appRouteRouteChildren: appRouteRouteChildren = {
+  appprofileNpub1Char123idChar125Route: appprofileNpub1Char123idChar125Route,
+}
+
+const appRouteRouteWithChildren = appRouteRoute._addFileChildren(
+  appRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  profileNpub1Char123idChar125Route: profileNpub1Char123idChar125Route,
+  appRouteRoute: appRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
