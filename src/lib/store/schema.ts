@@ -1,16 +1,18 @@
-import { z } from 'zod/v4'
-import { RelayUrlSchema } from '../nostr/schemas/common'
+import { Schema } from 'effect'
+import { PubkeySchema, RelayUrlSchema } from '../nostr/schemas/common'
 
 export type StoreKey = keyof typeof StoreSchemas
-export type StoreValue<K extends StoreKey> = z.infer<typeof StoreSchemas[K]>
+export type StoreValue<K extends StoreKey> = typeof StoreSchemas[K]['Type']
 
 export const StoreSchemas = {
-  pubkey: z.string().optional(),
-  relays: z.array(
-    z.object({
-      url: RelayUrlSchema,
-      read: z.boolean().default(true),
-      write: z.boolean().default(true),
-    }),
+  pubkey: PubkeySchema,
+  relays: Schema.mutable(
+    Schema.Array(
+      Schema.Struct({
+        url: RelayUrlSchema,
+        read: Schema.Boolean,
+        write: Schema.Boolean,
+      }),
+    ),
   ),
 }

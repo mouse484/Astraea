@@ -1,47 +1,63 @@
-import { fromUnixTime } from 'date-fns'
-import { z } from 'zod/v4'
+import { fromUnixTime, getUnixTime } from 'date-fns'
+import { Schema } from 'effect'
 import {
   Hex32BytesSchema,
   Hex64BytesSchema,
   KindIntegerSchema,
   PubkeySchema,
   RelayUrlSchema,
+  URLSchema,
 } from '../schemas/common'
 
-const TagSchema = z.union([
-  z.tuple([z.literal('e'), PubkeySchema, RelayUrlSchema.optional(), PubkeySchema.optional()]),
-  z.tuple([z.literal('p'), PubkeySchema, RelayUrlSchema.optional()]),
-  z.tuple([
-    z.literal('a'),
-    z.templateLiteral([
-      KindIntegerSchema,
-      ':',
-      PubkeySchema,
-      ':',
-      z.string()
-        .meta({
-          description: 'tag',
-        })
-        .optional(),
-    ]),
-    RelayUrlSchema.optional(),
-  ]),
-])
+export const TagSchema = Schema.Union(
+  Schema.Tuple(
+    Schema.Literal('e'),
+    PubkeySchema,
+    Schema.optionalElement(RelayUrlSchema),
+    Schema.optionalElement(PubkeySchema),
+  ),
+  Schema.Tuple(
+    Schema.Literal('p'),
+    PubkeySchema,
+    Schema.optionalElement(RelayUrlSchema),
+  ),
+  Schema.Tuple(
+    Schema.Literal('a'),
+    Schema.optionalElement(
+      Schema.TemplateLiteralParser(
+        KindIntegerSchema,
+        ':',
+        PubkeySchema,
+        ':',
+        Schema.String,
+      ),
+    ),
+    Schema.optionalElement(RelayUrlSchema),
+  ),
+)
 
-const TagsSchema = z.array(TagSchema)
+const TagsSchema = Schema.Array(TagSchema)
 
-export const NostrEventSchema = z.object({
+export const NostrEventSchema = Schema.Struct({
   id: Hex32BytesSchema,
   pubkey: PubkeySchema,
-  created_at: z.number().int().nonnegative().transform(timestamp => fromUnixTime(timestamp)),
+  created_at: Schema.transform(
+    Schema.Int,
+    Schema.DateFromSelf,
+    {
+      strict: true,
+      decode: timestamp => fromUnixTime(timestamp),
+      encode: date => getUnixTime(date),
+    },
+  ),
   kind: KindIntegerSchema,
   tags: TagsSchema,
-  content: z.string(),
+  content: Schema.String,
   sig: Hex64BytesSchema,
 })
 
-export const UserMetaData = z.object({
-  name: z.string(),
-  about: z.string(),
-  picture: z.union([z.literal(''), z.url()]),
-}).partial()
+export const UserMetadataSchema = Schema.Struct({
+  name: Schema.String,
+  about: Schema.String,
+  picture: URLSchema,
+})

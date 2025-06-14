@@ -1,21 +1,22 @@
-import { z } from 'zod/v4'
+import { Schema } from 'effect'
+import { URLSchema } from '../schemas/common'
 
-export const MetaDataExtraFields = z.object({
-  display_name: z.string(),
-  website: z.union([z.literal(''), z.url()]),
-  banner: z.union([z.literal(''), z.url()]),
-  bot: z.boolean(),
-  birthday: z.object({
-    year: z.number(),
-    month: z.number(),
-    day: z.number(),
+export const MetadataExtraFieldsSchema = Schema.Struct({
+  display_name: Schema.String,
+  website: URLSchema,
+  banner: URLSchema,
+  bot: Schema.Boolean,
+  birthday: Schema.Struct({
+    year: Schema.Number,
+    month: Schema.Number,
+    day: Schema.Number,
   }),
   /**
    * @deprecated use `display_name` instead
    */
-  displayName: z.string(),
+  displayName: Schema.String,
   /**
    * @deprecated use `name` instead
    */
-  username: z.string(),
-}).partial()
+  username: Schema.String,
+})

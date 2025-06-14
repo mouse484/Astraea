@@ -1,21 +1,21 @@
 import type { Filter } from 'nostr-tools'
-import type { z } from 'zod/v4'
 import type { RouterContext } from '@/main'
 import type { AppRouteContext } from '@/routes/(app)/route'
 import { queryOptions } from '@tanstack/react-query'
+import { Schema } from 'effect'
 
 export interface NostrQueryContext extends
   Pick<RouterContext, 'pool'>,
   Pick<AppRouteContext, 'relays'>,
   Record<string, unknown> {}
 
-export interface QueryConfig<T> {
+export interface QueryConfig<T, I = T> {
   name: string
-  schema: z.ZodSchema<T>
+  schema: Schema.Schema<T, I>
   kind: number
 }
 
-export function createQuery<T>({ name, schema, kind }: QueryConfig<T>) {
+export function createQuery<T, I = T>({ name, schema, kind }: QueryConfig<T, I>) {
   return ({ pool, relays }: NostrQueryContext, filter: Omit<Filter, 'kinds'>) => {
     const fullFilter = { ...filter, kinds: [kind] }
 
@@ -26,7 +26,7 @@ export function createQuery<T>({ name, schema, kind }: QueryConfig<T>) {
         if (!event) {
           throw new Error(`${name} event not found`)
         }
-        return schema.parse(event)
+        return Schema.decodeUnknownSync(schema)(event)
       },
     })
   }
