@@ -1,9 +1,9 @@
-import type { SettingValue } from '@/lib/setting/schema'
+import type { StoreValue } from '@/lib/store/schema'
 import { CloudDownload, CloudUpload } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { RelayForm } from '@/components/page/settings/relay/RelayForm'
 import { RelayTable } from '@/components/page/settings/relay/RelayTable'
-import { readSetting, writeSetting } from '@/lib/setting/storage'
+import { readStore, writeStore } from '@/lib/store'
 import { Button } from '@/shadcn-ui/components/ui/button'
 
 export const Route = createFileRoute({
@@ -11,18 +11,17 @@ export const Route = createFileRoute({
 })
 
 function RouteComponent() {
-  const [relays, setRelays] = useState<SettingValue<'relays'>>(() => {
-    return readSetting('relays') ?? []
+  const [relays, setRelays] = useState<StoreValue<'relays'>>(() => {
+    return readStore('relays') ?? []
   })
   const isInitialized = useRef(false)
 
-  // リレーの状態が変更されるたびにlocalstorageに保存
   useEffect(() => {
     if (!isInitialized.current) {
       isInitialized.current = true
       return
     }
-    writeSetting('relays', relays)
+    writeStore('relays', relays)
   }, [relays])
 
   function handleAddRelay(url: string) {
@@ -31,7 +30,7 @@ function RouteComponent() {
     })
   }
 
-  function handleUpdateRelay(index: number, relay: SettingValue<'relays'>[number]) {
+  function handleUpdateRelay(index: number, relay: StoreValue<'relays'>[number]) {
     setRelays((relays) => {
       const newRelays = [...relays]
       newRelays[index] = relay

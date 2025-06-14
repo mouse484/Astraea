@@ -1,5 +1,5 @@
 import type { CellContext, ColumnDef } from '@tanstack/react-table'
-import type { SettingValue } from '@/lib/setting/schema'
+import type { StoreValue } from '@/lib/store/schema'
 
 import { Trash } from 'lucide-react'
 
@@ -8,8 +8,8 @@ import { Button } from '@/shadcn-ui/components/ui/button'
 import { Checkbox } from '@/shadcn-ui/components/ui/checkbox'
 
 interface RelayTableProps {
-  relays: SettingValue<'relays'>
-  onUpdateRelay: (index: number, updatedRelay: SettingValue<'relays'>[number]) => void
+  relays: StoreValue<'relays'>
+  onUpdateRelay: (index: number, updatedRelay: StoreValue<'relays'>[number]) => void
   onDeleteRelay: (index: number) => void
 }
 

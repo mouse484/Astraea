@@ -1,7 +1,7 @@
 import { Outlet, redirect } from '@tanstack/react-router'
 import Sidebar, { SidebarProvider } from '@/components/layout/Sidebar'
 import { createPubkey, type Pubkey } from '@/lib/nostr/pubkey'
-import { readSetting } from '@/lib/setting/storage'
+import { readStore } from '@/lib/store'
 
 export interface AppRouteContext {
   pubkey: Pubkey
@@ -14,7 +14,7 @@ export interface AppRouteContext {
 export const Route = createFileRoute({
   component: RouteComponent,
   beforeLoad: () => {
-    const pubkeyHex = readSetting('pubkey')
+    const pubkeyHex = readStore('pubkey')
     if (!pubkeyHex) {
       throw redirect({
         to: '/',
@@ -22,7 +22,7 @@ export const Route = createFileRoute({
     }
 
     const pubkey = createPubkey(pubkeyHex)
-    const relays = readSetting('relays')
+    const relays = readStore('relays')
 
     return {
       pubkey,

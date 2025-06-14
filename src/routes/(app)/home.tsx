@@ -1,4 +1,4 @@
-import { deleteSetting } from '@/lib/setting/storage'
+import { deleteStore } from '@/lib/store'
 import { Button } from '@/shadcn-ui/components/ui/button'
 
 export const Route = createFileRoute({
@@ -9,7 +9,7 @@ function RouteComponent() {
   return (
     <div>
       <Button onClick={() => {
-        deleteSetting('pubkey')
+        deleteStore('pubkey')
       }}
       >
         Log out

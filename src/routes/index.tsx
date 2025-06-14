@@ -1,12 +1,12 @@
 import { redirect } from '@tanstack/react-router'
 import { toast } from 'sonner'
-import { readSetting, writeSetting } from '@/lib/setting/storage'
+import { readStore, writeStore } from '@/lib/store'
 import { Button } from '@/shadcn-ui/components/ui/button'
 
 export const Route = createFileRoute({
   component: RouteComponent,
   beforeLoad: () => {
-    if (readSetting('pubkey')) {
+    if (readStore('pubkey')) {
       throw redirect({
         to: '/home',
       })
@@ -29,7 +29,7 @@ function RouteComponent() {
             console.error(error)
           })
           if (pubkey) {
-            writeSetting('pubkey', pubkey)
+            writeStore('pubkey', pubkey)
             navigate({
               to: '/home',
             })
