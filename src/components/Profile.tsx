@@ -1,10 +1,9 @@
-import type { z } from 'zod/v4'
-import type { MetaDataSchema } from '@/lib/nostr/metadata'
+import type { MetaDataContent } from '@/lib/nostr/metadata'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shadcn-ui/components/ui/avatar'
 import { Button } from '@/shadcn-ui/components/ui/button'
 
 interface Props {
-  content?: z.infer<typeof MetaDataSchema>
+  content?: MetaDataContent
 }
 
 export default function Profile({ content }: Props) {

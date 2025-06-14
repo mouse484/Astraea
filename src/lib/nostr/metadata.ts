@@ -6,11 +6,13 @@ import { Nip01Kind0MetaDataSchema } from './nips/01'
 import { Nip05Kind0MetaDataSchema } from './nips/05'
 import { Nip24Kind0MetaDataSchema } from './nips/24'
 
-const MetaDataSchema = z.object({
+const MetaDataContentSchema = z.object({
   ...Nip01Kind0MetaDataSchema.shape,
   ...Nip05Kind0MetaDataSchema.shape,
   ...Nip24Kind0MetaDataSchema.shape,
 }).partial().loose()
+
+export type MetaDataContent = z.infer<typeof MetaDataContentSchema>
 
 export function metadataQuery(
   pubkey: NPub,
@@ -27,7 +29,7 @@ export function metadataQuery(
       if (!event) {
         throw new Error(`Metadata not found for pubkey: ${pubkey}`)
       }
-      const content = MetaDataSchema.parse(JSON.parse(event.content))
+      const content = MetaDataContentSchema.parse(JSON.parse(event.content))
       return {
         event,
         content,
