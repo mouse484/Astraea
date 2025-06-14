@@ -1,10 +1,15 @@
 import { Outlet, redirect } from '@tanstack/react-router'
-import { z } from 'zod/v4'
 import Sidebar, { SidebarProvider } from '@/components/layout/Sidebar'
-import { createPubkey } from '@/lib/nostr/pubkey'
+import { createPubkey, type Pubkey } from '@/lib/nostr/pubkey'
 import { readSetting } from '@/lib/setting/storage'
 
-const RelaysSchema = z.array(z.url({ protocol: /^wss?$/ }))
+export interface AppRouteContext {
+  pubkey: Pubkey
+  relays: {
+    read: string[]
+    write: string[]
+  }
+}
 
 export const Route = createFileRoute({
   component: RouteComponent,
@@ -17,13 +22,14 @@ export const Route = createFileRoute({
     }
 
     const pubkey = createPubkey(pubkeyHex)
+    const relays = readSetting('relays')
 
-    // TODO: リレーもsettingから取得するようにする
-    const relays = localStorage.getItem('relays')
-    const parsedRelays = relays ? RelaysSchema.parse(JSON.parse(relays)) : ['wss://relay.damus.io', 'wss://relay.nostr.band', 'wss://nostr-pub.wellorder.net']
     return {
       pubkey,
-      relays: parsedRelays,
+      relays: {
+        read: relays?.filter(r => r.read).map(r => r.url) ?? [],
+        write: relays?.filter(r => r.write).map(r => r.url) ?? [],
+      },
     }
   },
 })
@@ -33,7 +39,7 @@ function RouteComponent() {
   return (
     <SidebarProvider>
       <Sidebar pubkey={pubkey} />
-      <main className="w-full p-4">
+      <main className="w-full space-y-8 p-8">
         <Outlet />
       </main>
     </SidebarProvider>

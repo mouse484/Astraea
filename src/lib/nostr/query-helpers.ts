@@ -1,11 +1,13 @@
-import type { Filter, SimplePool } from 'nostr-tools'
+import type { Filter } from 'nostr-tools'
 import type { z } from 'zod/v4'
+import type { RouterContext } from '@/main'
+import type { AppRouteContext } from '@/routes/(app)/route'
 import { queryOptions } from '@tanstack/react-query'
 
-export interface NostrQueryContext extends Record<string, unknown> {
-  pool: SimplePool
-  relays: string[]
-}
+export interface NostrQueryContext extends
+  Pick<RouterContext, 'pool'>,
+  Pick<AppRouteContext, 'relays'>,
+  Record<string, unknown> {}
 
 export interface QueryConfig<T> {
   name: string
@@ -18,9 +20,9 @@ export function createQuery<T>({ name, schema, kind }: QueryConfig<T>) {
     const fullFilter = { ...filter, kinds: [kind] }
 
     return queryOptions({
-      queryKey: [name, fullFilter],
+      queryKey: [name, kind, filter],
       queryFn: async () => {
-        const event = await pool.get(relays, fullFilter)
+        const event = await pool.get(relays.read, fullFilter)
         if (!event) {
           throw new Error(`${name} event not found`)
         }

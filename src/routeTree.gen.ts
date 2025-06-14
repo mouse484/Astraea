@@ -14,6 +14,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as appRouteRouteImport } from './routes/(app)/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as appHomeRouteImport } from './routes/(app)/home'
+import { Route as appSettingsRelaysRouteImport } from './routes/(app)/settings/relays'
 import { Route as appprofileNpub1Char123idChar125RouteImport } from './routes/(app)/(profile)/npub1{$id}'
 
 const appRouteRoute = appRouteRouteImport.update({
@@ -30,6 +31,11 @@ const appHomeRoute = appHomeRouteImport.update({
   path: '/home',
   getParentRoute: () => appRouteRoute,
 } as any)
+const appSettingsRelaysRoute = appSettingsRelaysRouteImport.update({
+  id: '/settings/relays',
+  path: '/settings/relays',
+  getParentRoute: () => appRouteRoute,
+} as any)
 const appprofileNpub1Char123idChar125Route =
   appprofileNpub1Char123idChar125RouteImport.update({
     id: '/(profile)/npub1{$id}',
@@ -41,11 +47,13 @@ export interface FileRoutesByFullPath {
   '/': typeof appRouteRouteWithChildren
   '/home': typeof appHomeRoute
   '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
+  '/settings/relays': typeof appSettingsRelaysRoute
 }
 export interface FileRoutesByTo {
   '/': typeof appRouteRouteWithChildren
   '/home': typeof appHomeRoute
   '/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
+  '/settings/relays': typeof appSettingsRelaysRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,18 +61,20 @@ export interface FileRoutesById {
   '/(app)': typeof appRouteRouteWithChildren
   '/(app)/home': typeof appHomeRoute
   '/(app)/(profile)/npub1{$id}': typeof appprofileNpub1Char123idChar125Route
+  '/(app)/settings/relays': typeof appSettingsRelaysRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/npub1{$id}'
+  fullPaths: '/' | '/home' | '/npub1{$id}' | '/settings/relays'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/npub1{$id}'
+  to: '/' | '/home' | '/npub1{$id}' | '/settings/relays'
   id:
     | '__root__'
     | '/'
     | '/(app)'
     | '/(app)/home'
     | '/(app)/(profile)/npub1{$id}'
+    | '/(app)/settings/relays'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,6 +110,13 @@ declare module '@tanstack/react-router' {
       path: '/npub1{$id}'
       fullPath: '/npub1{$id}'
       preLoaderRoute: typeof appprofileNpub1Char123idChar125RouteImport
+      parentRoute: typeof appRouteRoute
+    }
+    '/(app)/settings/relays': {
+      id: '/(app)/settings/relays'
+      path: '/settings/relays'
+      fullPath: '/settings/relays'
+      preLoaderRoute: typeof appSettingsRelaysRouteImport
       parentRoute: typeof appRouteRoute
     }
   }
@@ -141,15 +158,26 @@ declare module './routes/(app)/(profile)/npub1{$id}' {
     FileRoutesByPath['/(app)/(profile)/npub1{$id}']['fullPath']
   >
 }
+declare module './routes/(app)/settings/relays' {
+  const createFileRoute: CreateFileRoute<
+    '/(app)/settings/relays',
+    FileRoutesByPath['/(app)/settings/relays']['parentRoute'],
+    FileRoutesByPath['/(app)/settings/relays']['id'],
+    FileRoutesByPath['/(app)/settings/relays']['path'],
+    FileRoutesByPath['/(app)/settings/relays']['fullPath']
+  >
+}
 
 interface appRouteRouteChildren {
   appHomeRoute: typeof appHomeRoute
   appprofileNpub1Char123idChar125Route: typeof appprofileNpub1Char123idChar125Route
+  appSettingsRelaysRoute: typeof appSettingsRelaysRoute
 }
 
 const appRouteRouteChildren: appRouteRouteChildren = {
   appHomeRoute: appHomeRoute,
   appprofileNpub1Char123idChar125Route: appprofileNpub1Char123idChar125Route,
+  appSettingsRelaysRoute: appSettingsRelaysRoute,
 }
 
 const appRouteRouteWithChildren = appRouteRoute._addFileChildren(

@@ -1,10 +1,13 @@
 import type { Pubkey } from '@/lib/nostr/pubkey'
 import { Link, type LinkProps } from '@tanstack/react-router'
-import { Home, type LucideIcon, User } from 'lucide-react'
+import { Home, type LucideIcon, Network, User } from 'lucide-react'
 import {
   Sidebar as ShadcnSidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -20,14 +23,32 @@ interface Props {
 export default function Sidebar({ pubkey }: Props) {
   const menuItems = [
     {
-      name: 'Home',
-      to: '/home',
-      icon: Home,
+      groupName: 'General',
+      items: [
+        {
+          name: 'Home',
+          to: '/home',
+          icon: Home,
+        },
+      ],
+    },
+    {
+      groupName: 'Settings',
+      items: [
+        {
+          name: 'Relays',
+          to: '/settings/relays',
+          icon: Network,
+        },
+      ],
     },
   ] satisfies {
-    name: string
-    to: LinkProps['to']
-    icon: LucideIcon
+    groupName: string
+    items: {
+      name: string
+      to: LinkProps['to']
+      icon: LucideIcon
+    }[]
   }[]
 
   return (
@@ -40,18 +61,27 @@ export default function Sidebar({ pubkey }: Props) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarMenu>
-          {menuItems.map(item => (
-            <SidebarMenuItem key={item.name}>
-              <SidebarMenuButton asChild>
-                <Link to={item.to}>
-                  <item.icon />
-                  {item.name}
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
+        {menuItems.map(group => (
+          <SidebarGroup key={group.groupName}>
+            <SidebarGroupLabel>
+              {group.groupName}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {group.items.map(item => (
+                  <SidebarMenuItem key={item.name}>
+                    <SidebarMenuButton asChild>
+                      <Link to={item.to}>
+                        <item.icon />
+                        {item.name}
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
       </SidebarContent>
       <SidebarFooter>
         <SidebarMenu>

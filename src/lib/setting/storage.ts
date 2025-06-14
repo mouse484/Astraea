@@ -1,8 +1,4 @@
-import type { z } from 'zod/v4'
-import { SettingSchemas } from './schema'
-
-export type SettingKey = keyof typeof SettingSchemas
-export type SettingValue<K extends SettingKey> = z.infer<typeof SettingSchemas[K]>
+import { type SettingKey, SettingSchemas, type SettingValue } from './schema'
 
 export function readSetting<K extends SettingKey>(key: K): SettingValue<K> | undefined {
   const value = localStorage.getItem(key)
@@ -15,7 +11,7 @@ export function readSetting<K extends SettingKey>(key: K): SettingValue<K> | und
     const result = SettingSchemas[key].safeParse(parsed)
 
     if (result.success) {
-      return result.data
+      return result.data as SettingValue<K>
     }
     console.warn(result.error)
     return undefined
