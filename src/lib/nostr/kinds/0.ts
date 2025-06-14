@@ -1,35 +1,28 @@
+import { Schema } from 'effect'
 import { kinds } from 'nostr-tools'
-import { z } from 'zod/v4'
-import { NostrEventSchema, UserMetaData } from '../nips/01'
-import { MetaDataWithKind05Schema } from '../nips/05'
-import { MetaDataExtraFields } from '../nips/24'
+import { NostrEventSchema, UserMetadataSchema } from '../nips/01'
+import { MetadataWithKind05Schema } from '../nips/05'
+import { MetadataExtraFieldsSchema } from '../nips/24'
 import { createQuery } from '../query-helpers'
 
-const MetadataSchema = z.object({
-  ...UserMetaData.shape,
-  ...MetaDataWithKind05Schema.shape,
-  ...MetaDataExtraFields.shape,
-}).loose().partial()
-
-export const MetadataEventSchema = NostrEventSchema.extend({
-  kind: z.literal(kinds.Metadata),
-  content: z.string().transform((value, context) => {
-    try {
-      const parsed = JSON.parse(value)
-      return MetadataSchema.parse(parsed)
-    } catch {
-      context.addIssue({
-        message: 'Invalid JSON format for user metadata',
-      })
-      return z.NEVER
-    }
+const MetadataSchema = Schema.partial(
+  Schema.Struct({
+    ...UserMetadataSchema.fields,
+    ...MetadataWithKind05Schema.fields,
+    ...MetadataExtraFieldsSchema.fields,
   }),
+)
+
+const MetadataEventSchema = Schema.Struct({
+  ...NostrEventSchema.fields,
+  kind: Schema.Literal(kinds.Metadata),
+  content: Schema.parseJson(MetadataSchema),
 })
+
+export type MetadataEvent = typeof MetadataEventSchema.Type
 
 export const metadataQuery = createQuery({
   name: 'User Metadata',
   schema: MetadataEventSchema,
   kind: kinds.Metadata,
 })
-
-export type MetadataEvent = z.infer<typeof MetadataEventSchema>

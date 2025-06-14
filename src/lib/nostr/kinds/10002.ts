@@ -1,13 +1,14 @@
+import { Schema } from 'effect'
 import { kinds } from 'nostr-tools'
-import { z } from 'zod/v4'
 import { NostrEventSchema } from '../nips/01'
 import { RelayListSchema } from '../nips/65'
 import { createQuery } from '../query-helpers'
 
-export const RelayListMetadataSchema = NostrEventSchema.extend({
-  kind: z.literal(kinds.RelayList),
+const RelayListMetadataSchema = Schema.Struct({
+  ...NostrEventSchema.fields,
+  kind: Schema.Literal(kinds.RelayList),
   tags: RelayListSchema,
-  content: z.literal('').optional(),
+  content: Schema.optional(Schema.Literal('')),
 })
 
 export const relayListQuery = createQuery({
@@ -15,5 +16,3 @@ export const relayListQuery = createQuery({
   schema: RelayListMetadataSchema,
   kind: kinds.RelayList,
 })
-
-export type RelayListMetadataEvent = z.infer<typeof RelayListMetadataSchema>

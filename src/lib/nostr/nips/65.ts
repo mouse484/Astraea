@@ -1,15 +1,15 @@
-import { z } from 'zod/v4'
+import { Schema } from 'effect'
 import { RelayUrlSchema } from '../schemas/common'
 
-export const RelayListSchema = z.array(
-  z.tuple([
-    z.literal('r'),
+export const RelayListSchema = Schema.Array(
+  Schema.Tuple(
+    Schema.Literal('r'),
     RelayUrlSchema,
-    z.union([
-      z.literal('read'),
-      z.literal('write'),
-    ]).optional(),
-  ]),
+    Schema.optionalElement(
+      Schema.Union(
+        Schema.Literal('read'),
+        Schema.Literal('write'),
+      ),
+    ),
+  ),
 )
-
-export type RelayList = z.infer<typeof RelayListSchema>
