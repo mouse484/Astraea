@@ -1,6 +1,6 @@
 import type { RouterContext } from '@/main'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router'
+import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { Button } from '@/shadcn-ui/components/ui/button'
 import { Toaster } from '@/shadcn-ui/components/ui/sonner'
@@ -9,6 +9,7 @@ import '../index.css'
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
+      <HeadContent />
       <Outlet />
       <Toaster />
       <TanStackRouterDevtools initialIsOpen={false} />

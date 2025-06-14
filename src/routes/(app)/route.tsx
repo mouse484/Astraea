@@ -20,7 +20,7 @@ export const Route = createFileRoute({
 
     // TODO: リレーもsettingから取得するようにする
     const relays = localStorage.getItem('relays')
-    const parsedRelays = relays ? RelaysSchema.parse(JSON.parse(relays)) : ['wss://relay.damus.io']
+    const parsedRelays = relays ? RelaysSchema.parse(JSON.parse(relays)) : ['wss://relay.damus.io', 'wss://relay.nostr.band', 'wss://nostr-pub.wellorder.net']
     return {
       pubkey,
       relays: parsedRelays,

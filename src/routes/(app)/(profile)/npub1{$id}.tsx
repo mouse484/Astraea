@@ -1,6 +1,7 @@
 import Profile from '@/components/Profile'
 import { metadataQuery } from '@/lib/nostr/metadata'
 import { createPubkey } from '@/lib/nostr/pubkey'
+import { setTitle } from '@/lib/set-title'
 
 export const Route = createFileRoute({
   component: RouteComponent,
@@ -8,6 +9,13 @@ export const Route = createFileRoute({
     const pubkey = createPubkey(id)
 
     return queryClient.fetchQuery(metadataQuery(pubkey, { pool, relays }))
+  },
+  head(context) {
+    return {
+      meta: [
+        setTitle(context.loaderData?.content.name),
+      ],
+    }
   },
 })
 
