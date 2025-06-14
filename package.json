@@ -44,17 +44,17 @@
   },
   "devDependencies": {
     "@mouse_484/eslint-config": "4.4.2",
-    "@tanstack/router-plugin": "^1.121.0",
+    "@tanstack/router-plugin": "1.121.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react-swc": "^3.9.0",
+    "@vitejs/plugin-react-swc": "3.10.2",
     "eslint": "^9.25.0",
-    "globals": "^16.0.0",
-    "semantic-release": "^24.2.5",
-    "tw-animate-css": "^1.3.4",
-    "typescript": "~5.8.3",
+    "globals": "16.2.0",
+    "semantic-release": "24.2.5",
+    "tw-animate-css": "1.3.4",
+    "typescript": "5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite": "6.3.5",
+    "vite-tsconfig-paths": "5.1.4"
   }
 }
