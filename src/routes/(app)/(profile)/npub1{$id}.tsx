@@ -1,11 +1,11 @@
-import type { NPub } from 'nostr-tools/nip19'
 import Profile from '@/components/Profile'
 import { metadataQuery } from '@/lib/nostr/metadata'
+import { createPubkey } from '@/lib/nostr/pubkey'
 
 export const Route = createFileRoute({
   component: RouteComponent,
   loader: async ({ params: { id }, context: { queryClient, pool, relays } }) => {
-    const pubkey = `npub1${id}` satisfies NPub
+    const pubkey = createPubkey(id)
 
     return queryClient.fetchQuery(metadataQuery(pubkey, { pool, relays }))
   },

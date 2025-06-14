@@ -1,4 +1,4 @@
-import type { NPub } from 'nostr-tools/nip19'
+import type { Pubkey } from '@/lib/nostr/pubkey'
 import { Link, type LinkProps } from '@tanstack/react-router'
 import { Home, type LucideIcon, User } from 'lucide-react'
 import {
@@ -14,10 +14,10 @@ import {
 export { SidebarProvider } from '@/shadcn-ui/components/ui/sidebar'
 
 interface Props {
-  npub?: NPub
+  pubkey: Pubkey
 }
 
-export default function Sidebar({ npub }: Props) {
+export default function Sidebar({ pubkey }: Props) {
   const menuItems = [
     {
       name: 'Home',
@@ -57,8 +57,7 @@ export default function Sidebar({ npub }: Props) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              {/* TODO: あとでちゃんとした実装にする */}
-              <Link to="/npub1{$id}" params={{ id: npub?.slice(5) ?? '' }}>
+              <Link to="/npub1{$id}" params={{ id: pubkey.routeId }}>
                 <User />
                 Profile
               </Link>

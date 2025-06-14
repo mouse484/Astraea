@@ -1,6 +1,6 @@
-import type { NPub } from 'nostr-tools/nip19'
+import type { Pubkey } from './pubkey'
 import { queryOptions } from '@tanstack/react-query'
-import { kinds, nip19, type SimplePool } from 'nostr-tools'
+import { kinds, type SimplePool } from 'nostr-tools'
 import { z } from 'zod/v4'
 import { Nip01Kind0MetaDataSchema } from './nips/01'
 import { Nip05Kind0MetaDataSchema } from './nips/05'
@@ -15,10 +15,10 @@ const MetaDataContentSchema = z.object({
 export type MetaDataContent = z.infer<typeof MetaDataContentSchema>
 
 export function metadataQuery(
-  pubkey: NPub,
+  pubkey: Pubkey,
   { pool, relays }: { pool: SimplePool, relays: string[] },
 ) {
-  const hex = nip19.decode(pubkey).data
+  const hex = pubkey.hex
   return queryOptions({
     queryKey: ['metadata', hex],
     queryFn: async () => {
@@ -27,7 +27,7 @@ export function metadataQuery(
         authors: [hex],
       })
       if (!event) {
-        throw new Error(`Metadata not found for pubkey: ${pubkey}`)
+        throw new Error(`Metadata not found for pubkey: ${pubkey.npub}`)
       }
       const content = MetaDataContentSchema.parse(JSON.parse(event.content))
       return {
