@@ -1,4 +1,4 @@
-import z from 'zod/v4'
+import { z } from 'zod/v4'
 
 export const MetaDataWithKind05Schema = z.object({
   /** email like identifier */

@@ -1,9 +1,9 @@
-import type { MetaDataContent } from '@/lib/nostr/metadata'
+import type { MetadataEvent } from '@/lib/nostr/kinds/0'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shadcn-ui/components/ui/avatar'
 import { Button } from '@/shadcn-ui/components/ui/button'
 
 interface Props {
-  content?: MetaDataContent
+  content?: MetadataEvent['content']
 }
 
 export default function Profile({ content }: Props) {

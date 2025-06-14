@@ -5,7 +5,7 @@ export const MetaDataExtraFields = z.object({
   website: z.union([z.literal(''), z.url()]),
   banner: z.union([z.literal(''), z.url()]),
   bot: z.boolean(),
-  birtday: z.object({
+  birthday: z.object({
     year: z.number(),
     month: z.number(),
     day: z.number(),

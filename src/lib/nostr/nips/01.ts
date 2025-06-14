@@ -1,13 +1,12 @@
 import { fromUnixTime } from 'date-fns'
 import { z } from 'zod/v4'
-
-const HexSchema = z.string().regex(/^[0-9a-f]+$/).lowercase()
-const Hex32BytesSchema = HexSchema.length(64)
-const Hex64BytesSchema = HexSchema.length(128)
-
-const KindIntegerSchema = z.number().int().min(0).max(65_535)
-const PubkeySchema = Hex32BytesSchema
-const RelayUrlSchema = z.url({ protocol: /^wss?$/ })
+import {
+  Hex32BytesSchema,
+  Hex64BytesSchema,
+  KindIntegerSchema,
+  PubkeySchema,
+  RelayUrlSchema,
+} from '../schemas/common'
 
 const TagSchema = z.union([
   z.tuple([z.literal('e'), PubkeySchema, RelayUrlSchema.optional(), PubkeySchema.optional()]),
@@ -40,8 +39,6 @@ export const NostrEventSchema = z.object({
   content: z.string(),
   sig: Hex64BytesSchema,
 })
-
-export type NostrEvent = z.infer<typeof NostrEventSchema>
 
 export const UserMetaData = z.object({
   name: z.string(),
