@@ -1,5 +1,5 @@
 import Profile from '@/components/Profile'
-import { metadataQuery } from '@/lib/nostr/metadata'
+import { metadataQuery } from '@/lib/nostr/kinds/0'
 import { createPubkey } from '@/lib/nostr/pubkey'
 import { setTitle } from '@/lib/set-title'
 

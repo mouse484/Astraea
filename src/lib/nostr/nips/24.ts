@@ -1,6 +1,6 @@
 import { z } from 'zod/v4'
 
-export const Nip24Kind0MetaDataSchema = z.object({
+export const MetaDataExtraFields = z.object({
   display_name: z.string(),
   website: z.union([z.literal(''), z.url()]),
   banner: z.union([z.literal(''), z.url()]),
