@@ -18,11 +18,17 @@ export default function Profile({ content }: Props) {
             src={content.banner}
             alt="Banner"
             className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         )}
       </div>
       <Avatar className="m-2 -mt-15 size-30">
-        <AvatarImage src={content?.picture}></AvatarImage>
+        <AvatarImage
+          src={content?.picture}
+          loading="lazy"
+          decoding="async"
+        />
         <AvatarFallback>
           {displayName.slice(0, 2).toUpperCase()}
         </AvatarFallback>
