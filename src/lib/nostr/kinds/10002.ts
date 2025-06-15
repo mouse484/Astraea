@@ -4,7 +4,7 @@ import { NostrEventSchema } from '../nips/01'
 import { RelayListSchema } from '../nips/65'
 import { createQuery } from '../query-helpers'
 
-const RelayListMetadataSchema = Schema.Struct({
+export const RelayListEventSchema = Schema.Struct({
   ...NostrEventSchema.fields,
   kind: Schema.Literal(kinds.RelayList),
   tags: RelayListSchema,
@@ -13,6 +13,6 @@ const RelayListMetadataSchema = Schema.Struct({
 
 export const relayListQuery = createQuery({
   name: 'Relay List',
-  schema: RelayListMetadataSchema,
+  schema: RelayListEventSchema,
   kind: kinds.RelayList,
 })

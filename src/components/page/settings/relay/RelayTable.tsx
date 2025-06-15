@@ -1,21 +1,25 @@
 import type { CellContext, ColumnDef } from '@tanstack/react-table'
 import type { StoreValue } from '@/lib/store/schema'
-
 import { Trash } from 'lucide-react'
 
-import { DataTable } from '@/components/DataTable'
+import { DataTable, type DataTableProps } from '@/components/DataTable'
 import { Button } from '@/shadcn-ui/components/ui/button'
 import { Checkbox } from '@/shadcn-ui/components/ui/checkbox'
 
-interface RelayTableProps {
+type Relay = StoreValue<'relays'>[number]
+
+interface RelayTableProps extends Omit<DataTableProps<Relay, unknown>, 'columns' | 'data'> {
   relays: StoreValue<'relays'>
   onUpdateRelay: (index: number, updatedRelay: StoreValue<'relays'>[number]) => void
   onDeleteRelay: (index: number) => void
 }
 
-type Relay = RelayTableProps['relays'][number]
-
-export function RelayTable({ relays, onUpdateRelay, onDeleteRelay }: RelayTableProps) {
+export function RelayTable({
+  relays,
+  onUpdateRelay,
+  onDeleteRelay,
+  ...dataTableProps
+}: RelayTableProps) {
   function createCell(type: 'read' | 'write') {
     return ({ row: { index, original } }: CellContext<Relay, unknown>) => {
       return (
@@ -60,5 +64,5 @@ export function RelayTable({ relays, onUpdateRelay, onDeleteRelay }: RelayTableP
     },
   ] satisfies ColumnDef<Relay>[]
 
-  return <DataTable columns={columns} data={relays} />
+  return <DataTable columns={columns} data={relays} {...dataTableProps} />
 }
