@@ -1,4 +1,3 @@
-import { fromUnixTime, getUnixTime } from 'date-fns'
 import { Schema } from 'effect'
 import {
   Hex32BytesSchema,
@@ -41,15 +40,7 @@ const TagsSchema = Schema.Array(TagSchema)
 export const NostrEventSchema = Schema.Struct({
   id: Hex32BytesSchema,
   pubkey: PubkeySchema,
-  created_at: Schema.transform(
-    Schema.Int,
-    Schema.DateFromSelf,
-    {
-      strict: true,
-      decode: timestamp => fromUnixTime(timestamp),
-      encode: date => getUnixTime(date),
-    },
-  ),
+  created_at: Schema.Number,
   kind: KindIntegerSchema,
   tags: TagsSchema,
   content: Schema.String,

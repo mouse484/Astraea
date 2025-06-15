@@ -4,6 +4,8 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { useMemo } from 'react'
+import { Skeleton } from '@/shadcn-ui/components/ui/skeleton'
 import {
   Table,
   TableBody,
@@ -13,18 +15,36 @@ import {
   TableRow,
 } from '@/shadcn-ui/components/ui/table'
 
-interface DataTableProps<TData, TValue> {
+export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  isLoading?: boolean
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  isLoading = false,
 }: DataTableProps<TData, TValue>) {
+  const tableData = useMemo(
+    () => (isLoading ? Array.from({ length: data.length }, () => ({} as TData)) : data),
+    [isLoading, data],
+  )
+
+  const tableColumns = useMemo(
+    () =>
+      isLoading
+        ? columns.map(column => ({
+            ...column,
+            cell: () => <Skeleton className="my-1 h-6 w-full" />,
+          }))
+        : columns,
+    [isLoading, columns],
+  )
+
   const table = useReactTable({
-    data,
-    columns,
+    data: tableData,
+    columns: tableColumns,
     getCoreRowModel: getCoreRowModel(),
   })
 
