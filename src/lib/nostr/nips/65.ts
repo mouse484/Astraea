@@ -27,16 +27,15 @@ export const RelayListSchema = Schema.transform(
       })
     },
     encode: (relays) => {
-      return relays.map((relay) => {
-        if (relay.read && relay.write) {
-          return ['r', relay.url] as const
-        }
-        return [
-          'r',
-          relay.url,
-          relay.read ? 'read' : 'write',
-        ] as const
-      })
+      return relays
+        .filter(relay => relay.read || relay.write)
+        .map((relay) => {
+          if (relay.read && relay.write) {
+            return ['r', relay.url] as const
+          }
+          return ['r', relay.url, relay.read ? 'read' : 'write'] as const
+        })
     },
+    strict: true,
   },
 )
